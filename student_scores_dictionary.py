@@ -19,3 +19,7 @@ for student in student_scores:
         student_grades[student] = "Fail"
 
 print(student_grades)
+
+# Next task:
+# 1. Asking if I like to add more student grades
+# 2. Adding each entry to the dictionary
