@@ -1,14 +1,14 @@
 student_scores = {}
-
-name = input("What is your name? ")
-score = int(input("What is your score? "))  # Convert score to integer
-
-student_scores[name] = score  # Add the entered name and score to the dictionary
-
 student_grades = {}
 
-for student in student_scores:
-    score = student_scores[student]
+while True:
+    name = input("What is the student's name? (Enter 'quit' to stop): ")
+    if name.lower() == 'quit':
+        break  # Exit the loop if the user enters 'quit'
+    score = int(input("What is the student's score? "))
+    student_scores[name] = score
+
+for student, score in student_scores.items():
     if score > 90:
         student_grades[student] = "Outstanding"
     elif score > 80:
@@ -18,4 +18,10 @@ for student in student_scores:
     else:
         student_grades[student] = "Fail"
 
-print(student_grades)
+print("Student Grades:")
+for student, grade in student_grades.items():
+    print(f"{student}: {grade}")
+
+# Next task:
+
+# 2. Adding each entry to the dictionary
