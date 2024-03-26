@@ -51,5 +51,5 @@ for student, grade in student_grades.items():
     # Print the correct subject along with the grade
     print(f"{student}: {student_scores[student]['Subject']} {grade}")
 
-#Tasks
-#Something else
+# Tasks
+# Something else
