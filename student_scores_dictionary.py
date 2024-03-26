@@ -8,7 +8,8 @@ try:
         for row in reader:
             student_scores[row['Name']] = {
                 'Score': int(row['Score']),
-                'Grade': row['Grade']
+                'Grade': row['Grade'],
+                'Subject': row['Subject']  # Store the subject as well
             }
 except FileNotFoundError:
     pass  # Continue if the file doesn't exist
@@ -23,7 +24,8 @@ while True:
     score = int(input("What is the student's score? "))
     student_scores[name] = {
         'Score': score,
-        'Grade': ''  # Initialize Grade as empty, it will be filled later
+        'Grade': '',  # Initialize Grade as empty, it will be filled later
+        'Subject': subject  # Store the subject for the student
     }
 
     # Assign grade and save the entry to the CSV file
@@ -46,4 +48,8 @@ while True:
 
 print("Student Grades:")
 for student, grade in student_grades.items():
-    print(f"{student}: {subject} {grade}")
+    # Print the correct subject along with the grade
+    print(f"{student}: {student_scores[student]['Subject']} {grade}")
+
+#Tasks
+#Something else
