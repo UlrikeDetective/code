@@ -108,3 +108,39 @@ def star_shape_to_image(msg="great work"):
 # Call the function to create the star shape with the message and save it as an image
 star_shape_to_image()
 
+#EasterEgg_mess
+
+from colorama import Fore
+from PIL import Image, ImageDraw, ImageFont
+
+def egg_shape_to_image(msg="Happy Easter!", font_size=20):
+    lines = [
+        "       * * * * *",
+        "     *             *",
+        "   *                 *",
+        "  *                    *",
+        "**************",
+        " *   Happy             *",
+        " *   Easter!          *",
+        "  *                  *",
+        "    *              *",
+        "      *          * ",
+        "        *** * *"
+    ]
+
+    width = len(lines[0]) * 8
+    height = len(lines) * 15
+
+    img = Image.new('RGB', (width, height), color='green')
+    draw = ImageDraw.Draw(img)
+    font = ImageFont.load_default()
+
+    y_offset = 0
+    for line in lines:
+        draw.text((0, y_offset), line, fill='yellow', font=font)
+        y_offset += 15
+
+    img.save('easter_egg.png')
+
+# Call the function to create the star shape with the message and save it as an image
+egg_shape_to_image()
