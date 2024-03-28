@@ -1,27 +1,44 @@
+import csv
+
 print("Thank you for choosing Python Pizza Deliveries!")
-size = input("What size pizza do you want? S, M, or L? ") 
-add_pepperoni = input("Do you want pepperoni? Y or N? ") 
+size = input("What size pizza do you want? S, M, or L? ")
+add_pepperoni = input("Do you want pepperoni? Y or N? ")
 extra_cheese = input("Do you want extra cheese? Y or N? ")
-drink = input("Do you want add a drink? Y or N?")
+drink = input("Do you want add a drink? Y or N? ")
+name = input("What is your name? ")
 
 bill = 0
 if size == "S":
-  bill += 15
+    bill += 15
 elif size == "M":
-  bill += 20
+    bill += 20
 else:
-  bill += 25
+    bill += 25
 
 if add_pepperoni == "Y":
-  if size == "S":
-    bill += 2
-  else:
-    bill += 3
+    if size == "S":
+        bill += 2
+    else:
+        bill += 3
 
 if extra_cheese == "Y":
-  bill += 1
+    bill += 1
 
 if drink == "Y":
-  bill += 3
+    bill += 3
 
-print(f"Your final bill is: ${bill}.")
+# Save the entry to the CSV file
+with open('pizza_delivery.csv', mode='a', newline='') as file:
+    writer = csv.DictWriter(file, fieldnames=['size', 'add_pepperoni', 'extra_cheese', 'drink', 'name'])
+    if file.tell() == 0:  # Check if file is empty
+        writer.writeheader()
+    writer.writerow({'name': name, 'size': size, 'add_pepperoni': add_pepperoni, 'extra_cheese': extra_cheese, 'drink': drink})
+
+print(f"Your final bill is: ${bill}. Thank you for choosing Python Pizza Deliveries {name}.")
+
+# Next tasks
+
+# in the csv - numbers and not Y or N
+# automatical Order number and date of order
+# add loop - Do you want to order another pizza?
+# add more add ones
