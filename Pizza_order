@@ -1,11 +1,24 @@
 import csv
 
 print("Thank you for choosing Python Pizza Deliveries!")
-size = input("What size pizza do you want? S, M, or L? ")
-add_pepperoni = input("Do you want pepperoni? Y or N? ")
-extra_cheese = input("Do you want extra cheese? Y or N? ")
-drink = input("Do you want add a drink? Y or N? ")
-name = input("What is your name? ")
+
+order_id = {}
+
+while True:
+    name = input("What is your name? Do you want to order a pizza? (Enter 'quit' to stop): ")
+    if name.lower() == 'quit':
+        break
+
+    size = input("What size pizza do you want? S, M, or L? ")
+    add_pepperoni = input("Do you want pepperoni? Y or N? ")
+    extra_cheese = input("Do you want extra cheese? Y or N? ")
+    drink = input("Do you want add a drink? Y or N? ")
+    order_id[name] = {
+        'size': size,
+        'add_pepperoni': add_pepperoni,
+        'extra_cheese': extra_cheese,
+        'drink': drink
+    }
 
 bill = 0
 if size == "S":
@@ -35,6 +48,9 @@ with open('pizza_delivery.csv', mode='a', newline='') as file:
     writer.writerow({'name': name, 'size': size, 'add_pepperoni': add_pepperoni, 'extra_cheese': extra_cheese, 'drink': drink})
 
 print(f"Your final bill is: ${bill}. Thank you for choosing Python Pizza Deliveries {name}.")
+
+
+
 
 # Next tasks
 
