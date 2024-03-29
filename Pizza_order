@@ -2,7 +2,9 @@ import csv
 
 print("Thank you for choosing Python Pizza Deliveries!")
 
-order_id = {}
+orders = {}  # Dictionary to store order details
+
+order_id_counter = 0  # Initialize the order ID counter
 
 while True:
     name = input("What is your name? Do you want to order a pizza? (Enter 'quit' to stop): ")
@@ -13,41 +15,32 @@ while True:
     add_pepperoni = input("Do you want pepperoni? Y or N? ")
     extra_cheese = input("Do you want extra cheese? Y or N? ")
     drink = input("Do you want add a drink? Y or N? ")
-    order_id[name] = {
+    
+    # Increment the order ID for each new order
+    order_id_counter += 1
+    order_id_str = f"PYPIZZA{order_id_counter:03}"  # Format the order ID as PYPIZZA001, PYPIZZA002, etc.
+    
+    # Store the order details in the orders dictionary
+    orders[order_id_str] = {
+        'name': name,
         'size': size,
         'add_pepperoni': add_pepperoni,
         'extra_cheese': extra_cheese,
         'drink': drink
     }
 
-bill = 0
-if size == "S":
-    bill += 15
-elif size == "M":
-    bill += 20
-else:
-    bill += 25
-
-if add_pepperoni == "Y":
-    if size == "S":
-        bill += 2
-    else:
-        bill += 3
-
-if extra_cheese == "Y":
-    bill += 1
-
-if drink == "Y":
-    bill += 3
-
-# Save the entry to the CSV file
+# Save the orders to the CSV file
 with open('pizza_delivery.csv', mode='a', newline='') as file:
-    writer = csv.DictWriter(file, fieldnames=['size', 'add_pepperoni', 'extra_cheese', 'drink', 'name'])
+    writer = csv.DictWriter(file, fieldnames=['order_id', 'name', 'size', 'add_pepperoni', 'extra_cheese', 'drink'])
     if file.tell() == 0:  # Check if file is empty
         writer.writeheader()
-    writer.writerow({'name': name, 'size': size, 'add_pepperoni': add_pepperoni, 'extra_cheese': extra_cheese, 'drink': drink})
+    for order_id, order_details in orders.items():
+        writer.writerow({'order_id': order_id, 'name': order_details['name'], 'size': order_details['size'],
+                         'add_pepperoni': order_details['add_pepperoni'], 'extra_cheese': order_details['extra_cheese'],
+                         'drink': order_details['drink']})
 
-print(f"Your final bill is: ${bill}. Thank you for choosing Python Pizza Deliveries {name}.")
+print("Orders saved to 'pizza_delivery.csv'. Thank you for choosing Python Pizza Deliveries!")
+
 
 
 
@@ -55,6 +48,5 @@ print(f"Your final bill is: ${bill}. Thank you for choosing Python Pizza Deliver
 # Next tasks
 
 # in the csv - numbers and not Y or N
-# automatical Order number and date of order
-# add loop - Do you want to order another pizza?
+# date to order
 # add more add ones
