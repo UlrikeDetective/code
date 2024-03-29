@@ -1,44 +1,69 @@
 import csv
 
 print("Thank you for choosing Python Pizza Deliveries!")
-size = input("What size pizza do you want? S, M, or L? ")
-add_pepperoni = input("Do you want pepperoni? Y or N? ")
-extra_cheese = input("Do you want extra cheese? Y or N? ")
-drink = input("Do you want add a drink? Y or N? ")
-name = input("What is your name? ")
 
-bill = 0
-if size == "S":
-    bill += 15
-elif size == "M":
-    bill += 20
-else:
-    bill += 25
+orders = {}  # Dictionary to store order details
 
-if add_pepperoni == "Y":
-    if size == "S":
-        bill += 2
-    else:
-        bill += 3
+order_id_counter = 0  # Initialize the order ID counter
 
-if extra_cheese == "Y":
-    bill += 1
+while True:
+    name = input("What is your name? Do you want to order a pizza? (Enter 'quit' to stop): ")
+    if name.lower() == 'quit':
+        break
 
-if drink == "Y":
-    bill += 3
+    size = input("What size pizza do you want? S, M, or L? ")
+    if size.upper() not in {'S', 'M', 'L'}:
+        print("Invalid pizza size. Please enter S, M, or L.")
+        continue
+    
+    add_pepperoni = input("Do you want pepperoni? Y or N? ")
+    if add_pepperoni.upper() not in {'Y', 'N'}:
+        print("Invalid input. Please enter Y or N.")
+        continue
+    
+    extra_cheese = input("Do you want extra cheese? Y or N? ")
+    if extra_cheese.upper() not in {'Y', 'N'}:
+        print("Invalid input. Please enter Y or N.")
+        continue
+    
+    drink = input("Do you want to add a drink? Y or N? ")
+    if drink.upper() not in {'Y', 'N'}:
+        print("Invalid input. Please enter Y or N.")
+        continue
+    
+    # Increment the order ID for each new order
+    order_id_counter += 1
+    order_id_str = f"PYPIZZA{order_id_counter:03}"  # Format the order ID as PYPIZZA001, PYPIZZA002, etc.
+    
+    # Store the order details in the orders dictionary
+    orders[order_id_str] = {
+        'name': name,
+        'size': size.upper(),
+        'add_pepperoni': add_pepperoni.upper(),
+        'extra_cheese': extra_cheese.upper(),
+        'drink': drink.upper()
+    }
 
-# Save the entry to the CSV file
-with open('pizza_delivery.csv', mode='a', newline='') as file:
-    writer = csv.DictWriter(file, fieldnames=['size', 'add_pepperoni', 'extra_cheese', 'drink', 'name'])
-    if file.tell() == 0:  # Check if file is empty
-        writer.writeheader()
-    writer.writerow({'name': name, 'size': size, 'add_pepperoni': add_pepperoni, 'extra_cheese': extra_cheese, 'drink': drink})
+# Save the orders to the CSV file
+with open('pizza_delivery.csv', mode='w', newline='') as file:
+    writer = csv.DictWriter(file, fieldnames=['order_id', 'name', 'size', 'add_pepperoni', 'extra_cheese', 'drink'])
+    writer.writeheader()
+    for order_id, order_details in orders.items():
+        writer.writerow({'order_id': order_id, 'name': order_details['name'], 'size': order_details['size'],
+                         'add_pepperoni': order_details['add_pepperoni'], 'extra_cheese': order_details['extra_cheese'],
+                         'drink': order_details['drink']})
 
-print(f"Your final bill is: ${bill}. Thank you for choosing Python Pizza Deliveries {name}.")
+print("{name} your order_id is {order_id}. Thank you for choosing Python Pizza Deliveries!")
+
+
+
+
 
 # Next tasks
 
 # in the csv - numbers and not Y or N
-# automatical Order number and date of order
-# add loop - Do you want to order another pizza?
+# add column - final bill
+# date to order
+# thanks after every order
+# correct thanks
 # add more add ones
