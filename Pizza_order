@@ -64,4 +64,6 @@ print("{name} your order_id is {order_id}. Thank you for choosing Python Pizza D
 # in the csv - numbers and not Y or N
 # add column - final bill
 # date to order
+# thanks after every order
+# correct thanks
 # add more add ones
