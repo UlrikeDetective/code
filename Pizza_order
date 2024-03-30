@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 
 print("Thank you for choosing Python Pizza Deliveries!")
 
@@ -66,24 +67,26 @@ while True:
         'add_pepperoni': add_pepperoni.upper(),
         'extra_cheese': extra_cheese.upper(),
         'drink': drink.upper(),
-        'total_cost': cost
+        'total_cost': cost,
+        'order_date': datetime.now().strftime("%Y-%m-%d")  # Current date in YYYY-MM-DD format
     }
 
 # Save the orders to the CSV file
 with open('pizza_delivery.csv', mode='w', newline='') as file:
-    writer = csv.DictWriter(file, fieldnames=['order_id', 'name', 'size', 'add_pepperoni', 'extra_cheese', 'drink', 'total_cost'])
+    writer = csv.DictWriter(file, fieldnames=['order_id', 'name', 'size', 'add_pepperoni', 'extra_cheese', 'drink', 'total_cost', 'order_date'])
     writer.writeheader()
     for order_id, order_details in orders.items():
         writer.writerow({'order_id': order_id, 'name': order_details['name'], 'size': order_details['size'],
                          'add_pepperoni': order_details['add_pepperoni'], 'extra_cheese': order_details['extra_cheese'],
-                         'drink': order_details['drink'], 'total_cost': order_details['total_cost']})
+                         'drink': order_details['drink'], 'total_cost': order_details['total_cost'],
+                         'order_date': order_details['order_date']})
 
-    # Print the order ID and total cost for each order
+    # Print the order ID, total cost, and order date for each order
     for order_id, order_details in orders.items():
         print(f"{order_details['name']}, your order ID is {order_id}.")
-        print(f"Total cost: ${order_details['total_cost']}. Thank you for choosing Python Pizza Deliveries!\n")
-
-
+        print(f"Total cost: ${order_details['total_cost']}.")
+        print(f"Order date: {order_details['order_date']}.")
+        print("Thank you for choosing Python Pizza Deliveries!\n")
 
 
 
@@ -92,6 +95,5 @@ with open('pizza_delivery.csv', mode='w', newline='') as file:
 
 # in the csv - numbers and not Y or N
 # add column - final bill
-# date to order
 # correct thanks
 # add more add ones
