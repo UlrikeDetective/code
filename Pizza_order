@@ -31,6 +31,30 @@ while True:
         print("Invalid input. Please enter Y or N.")
         continue
     
+    # Calculate the cost of the pizza
+    cost = 0
+    if size.upper() == 'S':
+        cost += 10
+    elif size.upper() == 'M':
+        cost += 15
+    elif size.upper() == 'L':
+        cost += 20
+
+    if add_pepperoni.upper() == 'Y':
+        cost += 2
+
+    if extra_cheese.upper() == 'Y':
+        cost += 1
+
+    # Print the bill for the order
+    print(f"Your order summary:")
+    print(f"Size: {size.upper()}")
+    print(f"Pepperoni: {'Yes' if add_pepperoni.upper() == 'Y' else 'No'}")
+    print(f"Extra Cheese: {'Yes' if extra_cheese.upper() == 'Y' else 'No'}")
+    print(f"Drink: {'Yes' if drink.upper() == 'Y' else 'No'}")
+    print(f"Total cost: ${cost}")
+    print()
+
     # Increment the order ID for each new order
     order_id_counter += 1
     order_id_str = f"PYPIZZA{order_id_counter:03}"  # Format the order ID as PYPIZZA001, PYPIZZA002, etc.
@@ -41,19 +65,24 @@ while True:
         'size': size.upper(),
         'add_pepperoni': add_pepperoni.upper(),
         'extra_cheese': extra_cheese.upper(),
-        'drink': drink.upper()
+        'drink': drink.upper(),
+        'total_cost': cost
     }
 
 # Save the orders to the CSV file
 with open('pizza_delivery.csv', mode='w', newline='') as file:
-    writer = csv.DictWriter(file, fieldnames=['order_id', 'name', 'size', 'add_pepperoni', 'extra_cheese', 'drink'])
+    writer = csv.DictWriter(file, fieldnames=['order_id', 'name', 'size', 'add_pepperoni', 'extra_cheese', 'drink', 'total_cost'])
     writer.writeheader()
     for order_id, order_details in orders.items():
         writer.writerow({'order_id': order_id, 'name': order_details['name'], 'size': order_details['size'],
                          'add_pepperoni': order_details['add_pepperoni'], 'extra_cheese': order_details['extra_cheese'],
-                         'drink': order_details['drink']})
+                         'drink': order_details['drink'], 'total_cost': order_details['total_cost']})
 
-print("{name} your order_id is {order_id}. Thank you for choosing Python Pizza Deliveries!")
+    # Print the order ID and total cost for each order
+    for order_id, order_details in orders.items():
+        print(f"{order_details['name']}, your order ID is {order_id}.")
+        print(f"Total cost: ${order_details['total_cost']}. Thank you for choosing Python Pizza Deliveries!\n")
+
 
 
 
@@ -64,6 +93,5 @@ print("{name} your order_id is {order_id}. Thank you for choosing Python Pizza D
 # in the csv - numbers and not Y or N
 # add column - final bill
 # date to order
-# thanks after every order
 # correct thanks
 # add more add ones
