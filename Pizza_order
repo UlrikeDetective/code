@@ -127,4 +127,4 @@ with open('pizza_delivery.csv', mode='w', newline='') as file:
 # Next tasks
 
 # don't override csv file
-# add more add ones
+# write a node.js to use faker for input in python file
