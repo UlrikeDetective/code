@@ -1,5 +1,8 @@
 import csv
 from datetime import datetime
+import os
+
+file_exists = os.path.isfile('pizza_delivery.csv')
 
 print("Thank you for choosing Python Pizza Deliveries!")
 
@@ -111,20 +114,23 @@ while True:
         'order_date': datetime.now().strftime("%Y-%m-%d")  # Current date in YYYY-MM-DD format
     }
 
-# Save the orders to the CSV file
-with open('pizza_delivery.csv', mode='w', newline='') as file:
-    writer = csv.DictWriter(file, fieldnames=['order_id', 'name', 'size', 'add_pepperoni', 'extra_cheese', 'additional_extras', 'drink', 'size_cost', 'pepperoni_cost', 'cheese_cost', 'drink_cost', 'extra_cost', 'total_cost', 'order_date'])
-    writer.writeheader()
-    for order_id, order_details in orders.items():
-        writer.writerow({'order_id': order_id, 'name': order_details['name'], 'size': order_details['size'],
-                         'add_pepperoni': order_details['add_pepperoni'], 'extra_cheese': order_details['extra_cheese'],
-                         'additional_extras': order_details['additional_extras'], 'drink': order_details['drink'],
-                         'size_cost': order_details['size_cost'], 'pepperoni_cost': order_details['pepperoni_cost'],
-                         'cheese_cost': order_details['cheese_cost'], 'drink_cost': order_details['drink_cost'],
-                         'extra_cost': order_details['extra_cost'], 'total_cost': order_details['total_cost'],
-                         'order_date': order_details['order_date']})
+# Append the orders to the CSV file if it exists, otherwise create a new file
+if orders:  # Only proceed if there are orders to write
+    with open('pizza_delivery.csv', mode='a' if file_exists else 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=['order_id', 'name', 'size', 'add_pepperoni', 'extra_cheese', 'additional_extras', 'drink', 'size_cost', 'pepperoni_cost', 'cheese_cost', 'drink_cost', 'extra_cost', 'total_cost', 'order_date'])
+        if not file_exists:
+            writer.writeheader()  # Write header only if the file is newly created
+        for order_id, order_details in orders.items():
+            writer.writerow({'order_id': order_id, 'name': order_details['name'], 'size': order_details['size'],
+                             'add_pepperoni': order_details['add_pepperoni'], 'extra_cheese': order_details['extra_cheese'],
+                             'additional_extras': order_details['additional_extras'], 'drink': order_details['drink'],
+                             'size_cost': order_details['size_cost'], 'pepperoni_cost': order_details['pepperoni_cost'],
+                             'cheese_cost': order_details['cheese_cost'], 'drink_cost': order_details['drink_cost'],
+                             'extra_cost': order_details['extra_cost'], 'total_cost': order_details['total_cost'],
+                             'order_date': order_details['order_date']})
+
 
 # Next tasks
 
-# don't override csv file
+# fix csv header
 # write a node.js to use faker for input in python file
