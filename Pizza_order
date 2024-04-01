@@ -75,7 +75,7 @@ while True:
     size_cost = {'S': 10, 'M': 15, 'L': 20}
     pepperoni_cost = 2 if add_pepperoni.upper() == 'Y' else 0
     cheese_cost = 1 if extra_cheese.upper() == 'Y' else 0
-    drink_cost = 5 if drink.upper() == 'Y' else 0
+    drink_cost = 1 if drink.upper() == 'Y' else 0
     extra_cost = len(additional_extras)
 
     total_cost = size_cost.get(size.upper(), 0) + pepperoni_cost + cheese_cost + drink_cost + extra_cost
@@ -116,7 +116,7 @@ while True:
 
 # Append the orders to the CSV file if it exists, otherwise create a new file
 if orders:  # Only proceed if there are orders to write
-    with open('pizza_delivery.csv', mode='a' if file_exists else 'w', newline='') as file:
+    with open('pizza_delivery.csv', mode='a', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=['order_id', 'name', 'size', 'add_pepperoni', 'extra_cheese', 'additional_extras', 'drink', 'size_cost', 'pepperoni_cost', 'cheese_cost', 'drink_cost', 'extra_cost', 'total_cost', 'order_date'])
         if not file_exists:
             writer.writeheader()  # Write header only if the file is newly created
@@ -129,8 +129,5 @@ if orders:  # Only proceed if there are orders to write
                              'extra_cost': order_details['extra_cost'], 'total_cost': order_details['total_cost'],
                              'order_date': order_details['order_date']})
 
-
-# Next tasks
-
-# fix csv header
-# write a node.js to use faker for input in python file
+# Next task
+# Faker node.js
