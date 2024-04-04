@@ -1,3 +1,9 @@
+# new tasks
+# don't overwrite
+# only asks one time per session for the date
+# print the total expances (per session, day, month, year)
+
+
 import pandas as pd
 
 class FinanceTracker:
