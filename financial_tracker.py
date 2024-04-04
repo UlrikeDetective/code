@@ -9,9 +9,31 @@ class FinanceTracker:
         self.transactions = pd.concat([self.transactions, new_transaction], ignore_index=True)
     
     def add_new_transaction_interactively(self):
-        date = input("Enter the date (YYYY-MM-DD): ")
-        description = input("Enter the description: ")
-        amount = float(input("Enter the amount (positive for income, negative for expense): "))
+        while True:
+            date = input("Enter the date (YYYY-MM-DD): ")
+            if len(date) == 10 and date.count('-') == 2:
+                try:
+                    pd.to_datetime(date)
+                    break
+                except ValueError:
+                    print("Invalid date format. Please enter the date in the format YYYY-MM-DD.")
+            else:
+                print("Invalid date format. Please enter the date in the format YYYY-MM-DD.")
+
+        while True:
+            description = input("Enter the description: ")
+            if any(char.isalpha() for char in description):
+                break
+            else:
+                print("Description must contain at least one letter.")
+
+        while True:
+            try:
+                amount = float(input("Enter the amount (positive for income, negative for expense): "))
+                break
+            except ValueError:
+                print("Invalid amount. Please enter a valid number.")
+
         self.add_transaction(date, description, amount)
 
 # Example usage
