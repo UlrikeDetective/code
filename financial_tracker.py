@@ -17,11 +17,18 @@ class FinanceTracker:
 # Example usage
 tracker = FinanceTracker()
 tracker.add_transaction('2023-01-01', 'Groceries', -50)
-tracker.add_transaction('2023-01-02', 'cloth', -150)
-tracker.add_transaction('2023-01-03', 'travel', -850)
+tracker.add_transaction('2023-01-02', 'Clothes', -150)
+tracker.add_transaction('2023-01-03', 'Travel', -850)
 
-# Add new transactions interactively
-tracker.add_new_transaction_interactively()
+# Add new transactions interactively using a while loop
+while True:
+    add_more = input("Do you want to add another transaction? (yes/no): ")
+    if add_more.lower() == 'yes':
+        tracker.add_new_transaction_interactively()
+    elif add_more.lower() == 'no':
+        break
+    else:
+        print("Invalid input. Please enter 'yes' or 'no'.")
 
 # Print out the results
 print("Transactions:")
