@@ -1,7 +1,8 @@
 # new tasks
-# don't overwrite
 # only asks one time per session for the date
 # print the total expances (per session, day, month, year)
+# put an ID in for every item
+# transcripts only per day, month (sum), year (sum)
 
 
 import pandas as pd
