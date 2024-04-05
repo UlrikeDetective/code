@@ -12,7 +12,10 @@ class FinanceTracker:
     
     def add_transaction(self, date, description, amount):
         new_transaction = pd.DataFrame([[date, description, amount]], columns=['Date', 'Description', 'Amount'])
-        self.transactions = pd.concat([self.transactions, new_transaction], ignore_index=True)
+        if self.transactions.empty:
+            self.transactions = new_transaction
+        else:
+            self.transactions = pd.concat([self.transactions, new_transaction], ignore_index=True)
     
     def add_new_transaction_interactively(self):
         while True:
@@ -42,11 +45,6 @@ class FinanceTracker:
 
         self.add_transaction(date, description, amount)
 
-# Example usage
-tracker = FinanceTracker()
-tracker.add_transaction('2023-01-01', 'Groceries', -50)
-tracker.add_transaction('2023-01-02', 'Clothes', -150)
-tracker.add_transaction('2023-01-03', 'Travel', -850)
 
 # Add new transactions interactively using a while loop
 while True:
@@ -67,4 +65,5 @@ file_path = 'financial_tracker.csv'
 
 # Save the DataFrame to a CSV file using the object created (tracker.transactions)
 tracker.transactions.to_csv(file_path, index=False)
+
 
