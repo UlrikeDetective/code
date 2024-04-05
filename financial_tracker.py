@@ -1,3 +1,9 @@
+# new tasks
+# don't overwrite
+# only asks one time per session for the date
+# print the total expances (per session, day, month, year)
+
+
 import pandas as pd
 
 class FinanceTracker:
@@ -10,7 +16,6 @@ class FinanceTracker:
             self.transactions = new_transaction
         else:
             self.transactions = pd.concat([self.transactions, new_transaction], ignore_index=True)
-
     
     def add_new_transaction_interactively(self):
         while True:
@@ -40,8 +45,6 @@ class FinanceTracker:
 
         self.add_transaction(date, description, amount)
 
-# Example usage
-tracker = FinanceTracker()
 
 # Add new transactions interactively using a while loop
 while True:
