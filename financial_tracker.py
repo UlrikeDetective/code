@@ -1,7 +1,7 @@
 # new tasks
 # print the total expances (per session, day, month, year)
 # put an ID in for every item
-# transcripts only per day, month (sum), year (sum)
+# transcripts only per day, month (sum), year (sum) - balance sheet
 
 import pandas as pd
 import os
