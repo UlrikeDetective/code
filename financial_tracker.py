@@ -3,12 +3,10 @@
 # put an ID in for every item
 # transcripts only per day, month (sum), year (sum)
 
-
 import pandas as pd
-
 import os
-
 from datetime import datetime
+import uuid
 
 class FinanceTracker:
     def __init__(self):
@@ -19,10 +17,10 @@ class FinanceTracker:
         if os.path.exists(self.file_path):
             self.transactions = pd.read_csv(self.file_path)
         else:
-            self.transactions = pd.DataFrame(columns=['Date', 'Description', 'Amount'])
+            self.transactions = pd.DataFrame(columns=['ID', 'Date', 'Description', 'Amount'])
 
     def add_transaction(self, date, description, amount):
-        new_transaction = pd.DataFrame([[date, description, amount]], columns=['Date', 'Description', 'Amount'])
+        new_transaction = pd.DataFrame([[str(uuid.uuid4()), date, description, amount]], columns=['ID', 'Date', 'Description', 'Amount'])
         self.transactions = pd.concat([self.transactions, new_transaction], ignore_index=True)
 
     def add_new_transaction_interactively(self):
