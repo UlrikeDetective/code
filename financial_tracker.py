@@ -1,6 +1,5 @@
 # new tasks
 # print the total expances (per session, day, month, year)
-# put an ID in for every item
 # transcripts only per day, month (sum), year (sum) - balance sheet
 
 import pandas as pd
@@ -16,15 +15,18 @@ class FinanceTracker:
     def load_transactions(self):
         if os.path.exists(self.file_path):
             self.transactions = pd.read_csv(self.file_path)
+            self.transactions['Date'] = pd.to_datetime(self.transactions['Date'])  # Convert 'Date' column to datetime
         else:
             self.transactions = pd.DataFrame(columns=['ID', 'Date', 'Description', 'Amount'])
 
     def add_transaction(self, date, description, amount):
-        new_transaction = pd.DataFrame([[str(uuid.uuid4()), date, description, amount]], columns=['ID', 'Date', 'Description', 'Amount'])
-        self.transactions = pd.concat([self.transactions, new_transaction], ignore_index=True)
+        new_transaction = pd.DataFrame([[uuid.uuid4(), date, description, amount]], columns=['ID', 'Date', 'Description', 'Amount'])
+        if self.transactions.empty:
+            self.transactions = new_transaction
+        else:
+            self.transactions = pd.concat([self.transactions, new_transaction], ignore_index=True)
 
     def add_new_transaction_interactively(self):
-        date = datetime.now().strftime("%Y-%m-%d")  # Capture current date
         while True:
             description = input("Enter the description: ")
             if any(char.isalpha() for char in description):
@@ -39,10 +41,16 @@ class FinanceTracker:
             except ValueError:
                 print("Invalid amount. Please enter a valid number.")
 
-        self.add_transaction(date, description, amount)
+        self.add_transaction(datetime.now(), description, amount)
+
+    def calculate_total_per_session(self):
+        return self.transactions['Amount'].sum()
 
     def save_transactions(self):
-        self.transactions.to_csv(self.file_path, index=False, mode='a', header=not os.path.exists(self.file_path))
+        if not os.path.exists(self.file_path):
+            self.transactions.to_csv(self.file_path, index=False)
+        else:
+            self.transactions.to_csv(self.file_path, mode='a', header=False, index=False)
 
 # Example usage
 tracker = FinanceTracker()
@@ -63,3 +71,7 @@ tracker.save_transactions()
 # Print out the results
 print("Transactions:")
 print(tracker.transactions)
+
+# Calculate and print total per session
+print("Total per session:", tracker.calculate_total_per_session())
+
