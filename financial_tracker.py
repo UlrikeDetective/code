@@ -1,11 +1,10 @@
 # new tasks
-# print the total expances (per session, day, month, year)
-# transcripts only per day, month (sum), year (sum) - balance sheet
+
+# new csv file per day, month (sum), year (sum) - balance sheet
 
 import pandas as pd
 import os
 from datetime import datetime
-import uuid
 
 class FinanceTracker:
     def __init__(self):
@@ -15,12 +14,14 @@ class FinanceTracker:
     def load_transactions(self):
         if os.path.exists(self.file_path):
             self.transactions = pd.read_csv(self.file_path)
-            self.transactions['Date'] = pd.to_datetime(self.transactions['Date'])  # Convert 'Date' column to datetime
+            self.transactions['Date'] = pd.to_datetime(self.transactions['Date'])
+            self.transactions['Date'] = self.transactions['Date'].dt.strftime('%Y-%m-%d')
+            self.transactions['Time'] = pd.to_datetime(self.transactions['Date']).dt.strftime('%H:%M:%S')
         else:
-            self.transactions = pd.DataFrame(columns=['ID', 'Date', 'Description', 'Amount'])
+            self.transactions = pd.DataFrame(columns=['ID', 'Date', 'Time', 'Description', 'Amount'])
 
     def add_transaction(self, date, description, amount):
-        new_transaction = pd.DataFrame([[uuid.uuid4(), date, description, amount]], columns=['ID', 'Date', 'Description', 'Amount'])
+        new_transaction = pd.DataFrame([[str(datetime.now()), date, description, amount]], columns=['ID', 'Date', 'Description', 'Amount'])
         if self.transactions.empty:
             self.transactions = new_transaction
         else:
@@ -41,10 +42,11 @@ class FinanceTracker:
             except ValueError:
                 print("Invalid amount. Please enter a valid number.")
 
-        self.add_transaction(datetime.now(), description, amount)
+        self.add_transaction(datetime.now().strftime("%Y-%m-%d"), description, amount)
 
     def calculate_total_per_session(self):
         return self.transactions['Amount'].sum()
+
 
     def save_transactions(self):
         if not os.path.exists(self.file_path):
@@ -74,4 +76,5 @@ print(tracker.transactions)
 
 # Calculate and print total per session
 print("Total per session:", tracker.calculate_total_per_session())
+
 
