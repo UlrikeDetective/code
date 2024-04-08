@@ -37,7 +37,7 @@ def main():
             destination = input("Enter destination for the day: ")
             cost = input("Enter cost for the day: ")
             transport_mode = input("Enter transport mode: ")
-            distance_covered = input("Enter distance covered: ")
+            distance_covered = input("Enter distance covered in km: ")
             highlights = input("Enter highlights: ")
             visited_places = input("Enter visited places: ")
             favorite_things = input("Enter favorite things: ")
@@ -62,6 +62,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-if __name__ == "__main__":
-    main()
