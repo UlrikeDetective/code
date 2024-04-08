@@ -2,9 +2,10 @@ class TravelLog:
     def __init__(self):
         self.logs = []
 
-    def add_log(self, destination, cost, transport_mode, distance_covered, highlights, visited_places, favorite_things, meals):
+    def add_log(self, destination, country, cost, transport_mode, distance_covered, highlights, visited_places, favorite_things, meals):
         log = {
             "Destination of the day": destination,
+            "Country of destination": country,
             "Total Cost": cost,
             "Transport Mode": transport_mode,
             "Distance Covered": distance_covered,
@@ -35,6 +36,7 @@ def main():
 
         if choice == "1":
             destination = input("Enter destination for the day: ")
+            country = input("In what country is the destination? ")
             cost = input("Enter cost for the day: ")
             transport_mode = input("Enter transport mode: ")
             distance_covered = input("Enter distance covered in km: ")
@@ -43,7 +45,7 @@ def main():
             favorite_things = input("Enter favorite things: ")
             meals = input("Enter favorite meal: ")
 
-            travel_log.add_log(destination, cost, transport_mode, distance_covered, highlights, visited_places, favorite_things, meals)
+            travel_log.add_log(destination, country, cost, transport_mode, distance_covered, highlights, visited_places, favorite_things, meals)
             print("Log added successfully!")
 
         elif choice == "2":
