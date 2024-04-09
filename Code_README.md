@@ -13,7 +13,7 @@
 
     ## Installation
     ```
-    see code and text files
+    see code and text files (a lot of trail and error)
     ```
     ## Usage
     ```
