@@ -1,5 +1,5 @@
 
-    # Code
+    # Code - practice code in Python learning having fun with code
 
     Learning python code. Trying different scripts and modifing and adjusting them.
 
