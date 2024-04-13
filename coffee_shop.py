@@ -1,3 +1,5 @@
+# TODO give customer information how much a drink costs
+
 MENU = {
     "espresso": {
         "ingredients": {
