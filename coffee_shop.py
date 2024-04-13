@@ -44,10 +44,11 @@ def is_resource_sufficient(order_ingredients):
 def process_coins():
     """Returns the total calculated from coins inserted."""
     print("Please insert coins.")
-    total = int(input("how many quarters?: ")) * 0.25
-    total += int(input("how many dimes?: ")) * 0.1
-    total += int(input("how many nickles?: ")) * 0.05
-    total += int(input("how many pennies?: ")) * 0.01
+    total = int(input("how many two Euro coins?: ")) * 2.00
+    total = int(input("how many one Euro coins?: ")) * 1.00
+    total += int(input("how many 50 cents?: ")) * 0.5
+    total += int(input("how many 20 cents?: ")) * 0.20
+    total += int(input("how many 10 cents?: ")) * 0.1
     return total
 
 
