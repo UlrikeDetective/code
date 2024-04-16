@@ -49,15 +49,13 @@ while True:
         Excel_activity = input("Any Excel today? Y or N? ")
     
     # Calculate the total tracker
-
     total_tracker = (R_activity.upper() == 'Y') + \
-                (SQL_activity.upper() == 'Y') + \
-                (Python_activity.upper() == 'Y') + \
-                (Github_activity.upper() == 'Y') + \
-                (Kaggle_activity.upper() == 'Y') + \
-                (Terminal_activity.upper() == 'Y') + \
-                (Excel_activity.upper() == 'Y')
-
+                    (SQL_activity.upper() == 'Y') + \
+                    (Python_activity.upper() == 'Y') + \
+                    (Github_activity.upper() == 'Y') + \
+                    (Kaggle_activity.upper() == 'Y') + \
+                    (Terminal_activity.upper() == 'Y') + \
+                    (Excel_activity.upper() == 'Y')
     
     # Print the total habit tracker of the day
     print("Your daily activity tracker is:")
@@ -67,21 +65,21 @@ while True:
     # Store the activity details in the activities list
     activities.append({
         'name': name,
-        'R_activity': R_activity.upper(),
-        'SQL_activity': SQL_activity.upper(),
-        'Python_activity': Python_activity.upper(),
-        'Github_activity': Github_activity.upper(),
-        'Kaggle_activity': Kaggle_activity.upper(),
-        'Terminal_activity': Terminal_activity.upper(),
-        'Excel_activity': Excel_activity.upper(),
-        'total_tracker': total_tracker,
-        'activity_date': datetime.now().strftime("%Y-%m-%d")  # Current date in YYYY-MM-DD format
+        'R': R_activity.upper(),
+        'SQL': SQL_activity.upper(),
+        'Python': Python_activity.upper(),
+        'Github': Github_activity.upper(),
+        'Kaggle': Kaggle_activity.upper(),
+        'Terminal': Terminal_activity.upper(),
+        'Excel': Excel_activity.upper(),
+        'daily_total': total_tracker,
+        'date': datetime.now().strftime("%Y-%m-%d")  # Current date in YYYY-MM-DD format
     })
 
 # Append the activities to the CSV file if it exists, otherwise create a new file
 if activities:  # Only proceed if there are activities to write
     with open('daily_activities_datascience.csv', mode='a', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=['name', 'R_activity', 'SQL_activity', 'Python_activity', 'Github_activity', 'Kaggle_activity', 'Terminal_activity', 'Excel_activity', 'total_tracker', 'activity_date'])
+        writer = csv.DictWriter(file, fieldnames=['name', 'R', 'SQL', 'Python', 'Github', 'Kaggle', 'Terminal', 'Excel', 'daily_total', 'date'])
         if not file_exists:
             writer.writeheader()  # Write header only if the file is newly created
         writer.writerows(activities)
