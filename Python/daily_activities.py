@@ -49,7 +49,15 @@ while True:
         Excel_activity = input("Any Excel today? Y or N? ")
     
     # Calculate the total tracker
-    total_tracker = R_activity.upper() == 'Y' + SQL_activity.upper() == 'Y' + Python_activity.upper() == 'Y' + Github_activity.upper() == 'Y' + Kaggle_activity.upper() == 'Y' + Terminal_activity.upper() == 'Y' + Excel_activity.upper() == 'Y'
+
+    total_tracker = (R_activity.upper() == 'Y') + \
+                (SQL_activity.upper() == 'Y') + \
+                (Python_activity.upper() == 'Y') + \
+                (Github_activity.upper() == 'Y') + \
+                (Kaggle_activity.upper() == 'Y') + \
+                (Terminal_activity.upper() == 'Y') + \
+                (Excel_activity.upper() == 'Y')
+
     
     # Print the total habit tracker of the day
     print("Your daily activity tracker is:")
