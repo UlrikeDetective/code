@@ -135,19 +135,39 @@ while True:
         'Tech_listings': Tech_listings_activity.upper(),
         'Projects': Projects_activity.upper(),
         'Networking': Networking_activity.upper(),
+        'program': program if Adobe_activity.upper() == 'Y' else None,
+        'specify': specify if Websites_activity.upper() == 'Y' else None,
+        'specify_other': specify_other if Others_activity.upper() == 'Y' else None,
+        'magazines': magazines if Tech_reading_activity.upper() == 'Y' else None,
+        'course': course if Learning_activity.upper() == 'Y' else None,
+        'podcast': podcasts if Tech_listings_activity.upper() == 'Y' else None,
+        'networking_event': networking_event if Networking_activity.upper() == 'Y' else None,
         'daily_total': total_tracker,
         'date': datetime.now().strftime("%Y-%m-%d")  # Current date in YYYY-MM-DD format
     })
+
     
     # Increment the activity ID counter
     activity_id_counter += 1
 
 # Append the activities to the CSV file if it exists, otherwise create a new file
+# Append the activities to the CSV file if it exists, otherwise create a new file
 if activities:  # Only proceed if there are activities to write
     with open('daily_activities_datascience.csv', mode='a', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=['activity_id', 'R', 'SQL', 'Python', 'Github', 'Kaggle', 'Terminal', 'Excel', 'Adobe', 'Websites', 'Json', 'Others', 'Tech_reading', 'Learning', 'Tech_listings', 'Projects', 'Networking', 'daily_total', 'date'])
+        fieldnames = ['activity_id', 'R', 'SQL', 'Python', 'Github', 'Kaggle', 'Terminal', 'Excel', 'Adobe', 'Websites', 'Json', 'Others', 'Tech_reading', 'Learning', 'Tech_listings', 'Projects', 'Networking', 'daily_total', 'date', 'name', 'program', 'specify', 'specify_other', 'magazines', 'course', 'podcast', 'networking_event']
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
         if not file_exists:
             writer.writeheader()  # Write header only if the file is newly created
         writer.writerows(activities)
 
-# Determine the message based on the total
+# Determine the message based on the total number of activities done
+if total_activities == 0:
+    print("Digital detoxing?")
+elif 1 <= total_activities <= 3:
+    print("Hard day at work or lazy day?")
+elif 4 <= total_activities <= 6:
+    print("Not bad")
+elif 7 <= total_activities <= 10:
+    print("Excellent")
+else:
+    print("Olympic gold medal ;.)")
