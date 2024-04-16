@@ -50,6 +50,26 @@ while True:
         print("Invalid input. Please enter Y or N.")
         Excel_activity = input("Any Excel today? Y or N? ")
     
+    Adobe_activity = input("Any Adobe today? Y or N? ")
+    while Adobe_activity.upper() not in {'Y', 'N'}:
+        print("Invalid input. Please enter Y or N.")
+        Adobe_activity = input("Any Adobe today? Y or N? ")
+    
+    Websites_activity = input("Any Websites today? Y or N? ")
+    while Websites_activity.upper() not in {'Y', 'N'}:
+        print("Invalid input. Please enter Y or N.")
+        Websites_activity = input("Any Websites today? Y or N? ")
+    
+    Json_activity = input("Any Json today? Y or N? ")
+    while Json_activity.upper() not in {'Y', 'N'}:
+        print("Invalid input. Please enter Y or N.")
+        Json_activity = input("Any Json today? Y or N? ")
+    
+    Others_activity = input("Any others today? Y or N? ")
+    while Others_activity.upper() not in {'Y', 'N'}:
+        print("Invalid input. Please enter Y or N.")
+        Others_activity = input("Any others today? Y or N? ")
+
     Tech_reading_activity = input("Any Tech Reading today? Y or N? ")
     while Tech_reading_activity.upper() not in {'Y', 'N'}:
         print("Invalid input. Please enter Y or N.")
@@ -91,6 +111,10 @@ while True:
                     (Kaggle_activity.upper() == 'Y') + \
                     (Terminal_activity.upper() == 'Y') + \
                     (Excel_activity.upper() == 'Y') + \
+                    (Adobe_activity.upper() == 'Y') + \
+                    (Websites_activity.upper() == 'Y') + \
+                    (Json_activity.upper() == 'Y') + \
+                    (Others_activity.upper() == 'Y') + \
                     (Tech_reading_activity.upper() == 'Y') + \
                     (Learning_activity.upper() == 'Y') + \
                     (Data_analytics_activity.upper() == 'Y') + \
@@ -116,6 +140,10 @@ while True:
         'Kaggle': Kaggle_activity.upper(),
         'Terminal': Terminal_activity.upper(),
         'Excel': Excel_activity.upper(),
+        'Adobe': Adobe_activity.upper(),
+        'Websites': Websites_activity.upper(),
+        'Json': Json_activity.upper(),
+        'Others': Others_activity.upper(),
         'Tech_reading': Tech_reading_activity.upper(),
         'Learning': Learning_activity.upper(),
         'Data_analytics': Data_analytics_activity.upper(),
@@ -132,7 +160,7 @@ while True:
 # Append the activities to the CSV file if it exists, otherwise create a new file
 if activities:  # Only proceed if there are activities to write
     with open('daily_activities_datascience.csv', mode='a', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=['activity_id', 'R', 'SQL', 'Python', 'Github', 'Kaggle', 'Terminal', 'Excel', 'Tech_reading', 'Learning', 'Data_analytics', 'Tech_listings', 'Projects', 'Networking', 'daily_total', 'date'])
+        writer = csv.DictWriter(file, fieldnames=['activity_id', 'R', 'SQL', 'Python', 'Github', 'Kaggle', 'Terminal', 'Excel', 'Adobe', 'Websites', 'Json', 'Others', 'Tech_reading', 'Learning', 'Data_analytics', 'Tech_listings', 'Projects', 'Networking', 'daily_total', 'date'])
         if not file_exists:
             writer.writeheader()  # Write header only if the file is newly created
         writer.writerows(activities)
