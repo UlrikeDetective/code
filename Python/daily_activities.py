@@ -49,8 +49,33 @@ while True:
         print("Invalid input. Please enter Y or N.")
         Excel_activity = input("Any Excel today? Y or N? ")
     
+    Tech_reading_activity = input("Any Tech Reading today? Y or N? ")
+    while Tech_reading_activity.upper() not in {'Y', 'N'}:
+        print("Invalid input. Please enter Y or N.")
+        Tech_reading_activity = input("Any Tech Reading today? Y or N? ")
+    
+    Learning_activity = input("Any Learning today? Y or N? ")
+    while Learning_activity.upper() not in {'Y', 'N'}:
+        print("Invalid input. Please enter Y or N.")
+        Learning_activity = input("Any Learning today? Y or N? ")
+    
+    Data_analytics_activity = input("Any Data Analytics today? Y or N? ")
+    while Data_analytics_activity.upper() not in {'Y', 'N'}:
+        print("Invalid input. Please enter Y or N.")
+        Data_analytics_activity = input("Any Data Analytics today? Y or N? ")
+    
+    Tech_listings_activity = input("Any Tech Listings today? Y or N? ")
+    while Tech_listings_activity.upper() not in {'Y', 'N'}:
+        print("Invalid input. Please enter Y or N.")
+        Tech_listings_activity = input("Any Tech Listings today? Y or N? ")
+    
+    Projects_activity = input("Any Projects today? Y or N? ")
+    while Projects_activity.upper() not in {'Y', 'N'}:
+        print("Invalid input. Please enter Y or N.")
+        Projects_activity = input("Any Projects today? Y or N? ")
+    
     # Generate an ID if at least one activity is marked as 'Y'
-    activity_id = f"DataScience{activity_id_counter:03}" if any(a.upper() == 'Y' for a in [R_activity, SQL_activity, Python_activity, Github_activity, Kaggle_activity, Terminal_activity, Excel_activity]) else None
+    activity_id = f"DataScience{activity_id_counter:03}" if any(a.upper() == 'Y' for a in [R_activity, SQL_activity, Python_activity, Github_activity, Kaggle_activity, Terminal_activity, Excel_activity, Tech_reading_activity, Learning_activity, Data_analytics_activity, Tech_listings_activity, Projects_activity]) else None
     
     # Calculate the total tracker
     total_tracker = (R_activity.upper() == 'Y') + \
@@ -59,7 +84,12 @@ while True:
                     (Github_activity.upper() == 'Y') + \
                     (Kaggle_activity.upper() == 'Y') + \
                     (Terminal_activity.upper() == 'Y') + \
-                    (Excel_activity.upper() == 'Y')
+                    (Excel_activity.upper() == 'Y') + \
+                    (Tech_reading_activity.upper() == 'Y') + \
+                    (Learning_activity.upper() == 'Y') + \
+                    (Data_analytics_activity.upper() == 'Y') + \
+                    (Tech_listings_activity.upper() == 'Y') + \
+                    (Projects_activity.upper() == 'Y')
     
     # Print the total habit tracker of the day
     print("Your daily activity tracker is:")
@@ -76,6 +106,11 @@ while True:
         'Kaggle': Kaggle_activity.upper(),
         'Terminal': Terminal_activity.upper(),
         'Excel': Excel_activity.upper(),
+        'Tech_reading': Tech_reading_activity.upper(),
+        'Learning': Learning_activity.upper(),
+        'Data_analytics': Data_analytics_activity.upper(),
+        'Tech_listings': Tech_listings_activity.upper(),
+        'Projects': Projects_activity.upper(),
         'daily_total': total_tracker,
         'date': datetime.now().strftime("%Y-%m-%d")  # Current date in YYYY-MM-DD format
     })
@@ -86,7 +121,7 @@ while True:
 # Append the activities to the CSV file if it exists, otherwise create a new file
 if activities:  # Only proceed if there are activities to write
     with open('daily_activities_datascience.csv', mode='a', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=['activity_id', 'R', 'SQL', 'Python', 'Github', 'Kaggle', 'Terminal', 'Excel', 'daily_total', 'date'])
+        writer = csv.DictWriter(file, fieldnames=['activity_id', 'R', 'SQL', 'Python', 'Github', 'Kaggle', 'Terminal', 'Excel', 'Tech_reading', 'Learning', 'Data_analytics', 'Tech_listings', 'Projects', 'daily_total', 'date'])
         if not file_exists:
             writer.writeheader()  # Write header only if the file is newly created
         writer.writerows(activities)
