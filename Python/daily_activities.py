@@ -7,6 +7,7 @@ file_exists = os.path.isfile('daily_activities_datascience.csv')
 print("Thank you for showing up today!")
 
 activities = []  # List to store activity details
+activity_id_counter = 1  # Initialize the activity ID counter
 
 while True:
     name = input("Any activities for the habit tracker - DataScience, today? (Enter 'quit' to stop): ")
@@ -48,6 +49,9 @@ while True:
         print("Invalid input. Please enter Y or N.")
         Excel_activity = input("Any Excel today? Y or N? ")
     
+    # Generate an ID if at least one activity is marked as 'Y'
+    activity_id = f"DataScience{activity_id_counter:03}" if any(a.upper() == 'Y' for a in [R_activity, SQL_activity, Python_activity, Github_activity, Kaggle_activity, Terminal_activity, Excel_activity]) else None
+    
     # Calculate the total tracker
     total_tracker = (R_activity.upper() == 'Y') + \
                     (SQL_activity.upper() == 'Y') + \
@@ -64,7 +68,7 @@ while True:
 
     # Store the activity details in the activities list
     activities.append({
-        'name': name,
+        'activity_id': activity_id,
         'R': R_activity.upper(),
         'SQL': SQL_activity.upper(),
         'Python': Python_activity.upper(),
@@ -75,11 +79,15 @@ while True:
         'daily_total': total_tracker,
         'date': datetime.now().strftime("%Y-%m-%d")  # Current date in YYYY-MM-DD format
     })
+    
+    # Increment the activity ID counter
+    activity_id_counter += 1
 
 # Append the activities to the CSV file if it exists, otherwise create a new file
 if activities:  # Only proceed if there are activities to write
     with open('daily_activities_datascience.csv', mode='a', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=['name', 'R', 'SQL', 'Python', 'Github', 'Kaggle', 'Terminal', 'Excel', 'daily_total', 'date'])
+        writer = csv.DictWriter(file, fieldnames=['activity_id', 'R', 'SQL', 'Python', 'Github', 'Kaggle', 'Terminal', 'Excel', 'daily_total', 'date'])
         if not file_exists:
             writer.writeheader()  # Write header only if the file is newly created
         writer.writerows(activities)
+
