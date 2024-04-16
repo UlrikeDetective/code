@@ -8,6 +8,7 @@ print("Thank you for showing up today!")
 
 activities = []  # List to store activity details
 activity_id_counter = 1  # Initialize the activity ID counter
+total_activities = 0  # Initialize the total number of activities done
 
 while True:
     name = input("Any activities for the habit tracker - DataScience, today? (Enter 'quit' to stop): ")
@@ -97,6 +98,9 @@ while True:
                     (Projects_activity.upper() == 'Y') + \
                     (Networking_activity.upper() == 'Y')
     
+    # Increment the total number of activities done
+    total_activities += total_tracker
+    
     # Print the total habit tracker of the day
     print("Your daily activity tracker is:")
     print(f"Daily activity tracker: {total_tracker}")
@@ -132,3 +136,15 @@ if activities:  # Only proceed if there are activities to write
         if not file_exists:
             writer.writeheader()  # Write header only if the file is newly created
         writer.writerows(activities)
+
+# Determine the message based on the total number of activities done
+if total_activities == 0:
+    print("Digital detoxing?")
+elif 1 <= total_activities <= 3:
+    print("Hard day at work or lazy day?")
+elif 4 <= total_activities <= 6:
+    print("Not bad")
+elif 7 <= total_activities <= 10:
+    print("Excellent")
+else:
+    print("Olympic gold medal ;.)")
