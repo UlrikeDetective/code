@@ -161,7 +161,7 @@ while True:
 # Append the activities to the CSV file if it exists, otherwise create a new file
 if activities:  # Only proceed if there are activities to write
     with open('daily_activities_datascience.csv', mode='a', newline='') as file:
-        fieldnames = ['activity_id', 'R', 'SQL', 'Python', 'Github', 'Kaggle', 'Terminal', 'Excel', 'Adobe', 'Websites', 'Json', 'Others', 'Tech_reading', 'Learning', 'Tech_listings', 'Data_analytics', 'Projects', 'Networking', 'daily_total', 'date', 'name', 'program', 'specify', 'specify_other', 'magazines', 'course', 'podcast', 'analytics', 'networking_event']
+        fieldnames = ['activity_id', 'daily_total', 'date', 'R', 'SQL', 'Python', 'Github', 'Kaggle', 'Terminal', 'Excel', 'Adobe', 'Websites', 'Json', 'Others', 'Tech_reading', 'Learning', 'Tech_listings', 'Data_analytics', 'Projects', 'Networking', 'name', 'program', 'specify', 'specify_other', 'magazines', 'course', 'podcast', 'analytics', 'networking_event']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         if not file_exists:
             writer.writeheader()  # Write header only if the file is newly created
