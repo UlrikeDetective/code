@@ -38,6 +38,12 @@ while True:
             print("Invalid input. Please enter Y or N.")
             answer = input(prompt)
         activity_data[activity] = answer.upper()
+        
+        # Ask for duration if Yoga or Meditate is marked as 'Y'
+        if activity == "Yoga" and answer.upper() == 'Y':
+            activity_data['Yoga_duration'] = input("How many minutes of Yoga did you do today? ")
+        elif activity == "Meditate" and answer.upper() == 'Y':
+            activity_data['Meditate_duration'] = input("How many minutes of Meditation did you do today? ")
 
     # Generate an ID if at least one activity is marked as 'Y'
     activity_id = f"LivingHealthy{activity_id_counter:03}" if any(a.upper() == 'Y' for a in activity_data.values()) else None
@@ -67,7 +73,7 @@ while True:
 # Append the activities to the CSV file if it exists, otherwise create a new file
 if activities:  # Only proceed if there are activities to write
     with open('daily_activities_living_healthy.csv', mode='a', newline='') as file:
-        fieldnames = ['activity_id', 'Yoga', 'Meditate', 'Kayak', 'Bouldern', '6k Steps', 'Bike ride', 'other sports', 'Reading', 'Audiobook', 'Eat Fruit', 'Eat Vegetables', '2L water/tea', 'daily_total', 'date']
+        fieldnames = ['activity_id', 'Yoga', 'Meditate', 'Kayak', 'Bouldern', '6k Steps', 'Bike ride', 'other sports', 'Reading', 'Audiobook', 'Eat Fruit', 'Eat Vegetables', '2L water/tea', 'Yoga_duration', 'Meditate_duration', 'daily_total', 'date']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         if not file_exists:
             writer.writeheader()  # Write header only if the file is newly created
@@ -84,4 +90,3 @@ elif 7 <= total_activities <= 10:
     print("Excellent")
 else:
     print("Olympic gold medal ;.)")
-
