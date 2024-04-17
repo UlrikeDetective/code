@@ -79,6 +79,10 @@ while True:
     if Tech_listings_activity.upper() == 'Y':
         podcasts = input("What podcasts/audiobooks? ")
     
+    Data_analytics_activity = input("Did you do any data analytics today? Y or N? ")
+    if Data_analytics_activity.upper() == 'Y':
+        analytics = input("Please specify? ")
+    
     Projects_activity = input("Any Projects today? Y or N? ")
     if Projects_activity.upper() == 'Y':
         project = input("What project? ")
@@ -105,6 +109,7 @@ while True:
                     (Tech_reading_activity.upper() == 'Y') + \
                     (Learning_activity.upper() == 'Y') + \
                     (Tech_listings_activity.upper() == 'Y') + \
+                    (Data_analytics_activity.upper() == 'Y') + \
                     (Projects_activity.upper() == 'Y') + \
                     (Networking_activity.upper() == 'Y')
     
@@ -133,6 +138,7 @@ while True:
         'Tech_reading': Tech_reading_activity.upper(),
         'Learning': Learning_activity.upper(),
         'Tech_listings': Tech_listings_activity.upper(),
+        'Data_analytics': Data_analytics_activity.upper(),
         'Projects': Projects_activity.upper(),
         'Networking': Networking_activity.upper(),
         'program': program if Adobe_activity.upper() == 'Y' else None,
@@ -141,6 +147,7 @@ while True:
         'magazines': magazines if Tech_reading_activity.upper() == 'Y' else None,
         'course': course if Learning_activity.upper() == 'Y' else None,
         'podcast': podcasts if Tech_listings_activity.upper() == 'Y' else None,
+        'analytics': analytics if Data_analytics_activity.upper() == 'Y' else None,
         'networking_event': networking_event if Networking_activity.upper() == 'Y' else None,
         'daily_total': total_tracker,
         'date': datetime.now().strftime("%Y-%m-%d")  # Current date in YYYY-MM-DD format
@@ -154,7 +161,7 @@ while True:
 # Append the activities to the CSV file if it exists, otherwise create a new file
 if activities:  # Only proceed if there are activities to write
     with open('daily_activities_datascience.csv', mode='a', newline='') as file:
-        fieldnames = ['activity_id', 'R', 'SQL', 'Python', 'Github', 'Kaggle', 'Terminal', 'Excel', 'Adobe', 'Websites', 'Json', 'Others', 'Tech_reading', 'Learning', 'Tech_listings', 'Projects', 'Networking', 'daily_total', 'date', 'name', 'program', 'specify', 'specify_other', 'magazines', 'course', 'podcast', 'networking_event']
+        fieldnames = ['activity_id', 'R', 'SQL', 'Python', 'Github', 'Kaggle', 'Terminal', 'Excel', 'Adobe', 'Websites', 'Json', 'Others', 'Tech_reading', 'Learning', 'Tech_listings', 'Data_analytics', 'Projects', 'Networking', 'daily_total', 'date', 'name', 'program', 'specify', 'specify_other', 'magazines', 'course', 'podcast', 'analytics', 'networking_event']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         if not file_exists:
             writer.writeheader()  # Write header only if the file is newly created
@@ -171,3 +178,4 @@ elif 7 <= total_activities <= 10:
     print("Excellent")
 else:
     print("Olympic gold medal ;.)")
+
