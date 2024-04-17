@@ -23,7 +23,9 @@ while True:
         ("Bouldern", "Any Bouldering today? Y or N? "),
         ("6k Steps", "Did you achieve 6k steps today? Y or N? "),
         ("Bike ride", "Any Bike ride today? Y or N? "),
+        ("other sports", "Any other sport activities today? Y or N? "),
         ("Reading", "Did you do any Reading today? Y or N? "),
+        ("Audiobook", "Did you listen to any Audiobooks today? Y or N? "),
         ("Eat Fruit", "Did you eat Fruit today? Y or N? "),
         ("Eat Vegetables", "Did you eat Vegetables today? Y or N? "),
         ("2L water/tea", "Did you drink 2L of water/tea today? Y or N? ")
@@ -65,7 +67,7 @@ while True:
 # Append the activities to the CSV file if it exists, otherwise create a new file
 if activities:  # Only proceed if there are activities to write
     with open('daily_activities_living_healthy.csv', mode='a', newline='') as file:
-        fieldnames = ['activity_id', 'Yoga', 'Meditate', 'Kayak', 'Bouldern', '6k Steps', 'Bike ride', 'Reading', 'Eat Fruit', 'Eat Vegetables', '2L water/tea', 'daily_total', 'date']
+        fieldnames = ['activity_id', 'Yoga', 'Meditate', 'Kayak', 'Bouldern', '6k Steps', 'Bike ride', 'other sports', 'Reading', 'Audiobook', 'Eat Fruit', 'Eat Vegetables', '2L water/tea', 'daily_total', 'date']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         if not file_exists:
             writer.writeheader()  # Write header only if the file is newly created
@@ -73,12 +75,13 @@ if activities:  # Only proceed if there are activities to write
 
 # Determine the message based on the total number of activities done
 if total_activities == 0:
-    print("Digital detoxing?")
+    print("Are you alive?")
 elif 1 <= total_activities <= 3:
-    print("Hard day at work or lazy day?")
+    print("Hard day at work?")
 elif 4 <= total_activities <= 6:
     print("Not bad")
 elif 7 <= total_activities <= 10:
     print("Excellent")
 else:
     print("Olympic gold medal ;.)")
+
