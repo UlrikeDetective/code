@@ -21,7 +21,7 @@ while True:
         ("Meditate", "Any Meditation today? Y or N? "),
         ("Kayak", "Any Kayak today? Y or N? "),
         ("Bouldern", "Any Bouldering today? Y or N? "),
-        ("6k Steps", "Did you achieve 6k steps today? Y or N? "),
+        ("6k Steps", "Did you do any steps today? Y or N? "),
         ("Bike ride", "Any Bike ride today? Y or N? "),
         ("other sports", "Any other sport activities today? Y or N? "),
         ("Reading", "Did you do any Reading today? Y or N? "),
@@ -38,6 +38,20 @@ while True:
             print("Invalid input. Please enter Y or N.")
             answer = input(prompt)
         activity_data[activity] = answer.upper()
+        
+        # Ask for duration if Yoga or Meditate is marked as 'Y'
+        if activity == "Yoga" and answer.upper() == 'Y':
+            activity_data['Yoga_duration'] = input("How many minutes of Yoga did you do today? ")
+        elif activity == "Meditate" and answer.upper() == 'Y':
+            activity_data['Meditate_duration'] = input("How many minutes of Meditation did you do today? ")
+        elif activity == "6k Steps" and answer.upper() == 'Y':
+            activity_data['Steps'] = input("How many steps did you do today? ")     
+        elif activity == "other sport" and answer.upper() == 'Y':
+            activity_data['other_sport'] = input("What other sport did you do today? ")    
+        elif activity == "Reading" and answer.upper() == 'Y':
+            activity_data['Book'] = input("What book did you read today? ")
+        elif activity == "Audiobook" and answer.upper() == 'Y':
+            activity_data['Listing'] = input("What audiobook did you listen today? ")         
 
     # Generate an ID if at least one activity is marked as 'Y'
     activity_id = f"LivingHealthy{activity_id_counter:03}" if any(a.upper() == 'Y' for a in activity_data.values()) else None
@@ -67,7 +81,7 @@ while True:
 # Append the activities to the CSV file if it exists, otherwise create a new file
 if activities:  # Only proceed if there are activities to write
     with open('daily_activities_living_healthy.csv', mode='a', newline='') as file:
-        fieldnames = ['activity_id', 'Yoga', 'Meditate', 'Kayak', 'Bouldern', '6k Steps', 'Bike ride', 'other sports', 'Reading', 'Audiobook', 'Eat Fruit', 'Eat Vegetables', '2L water/tea', 'daily_total', 'date']
+        fieldnames = ['activity_id', 'Yoga', 'Meditate', 'Kayak', 'Bouldern', '6k Steps', 'Bike ride', 'other sports', 'Reading', 'Audiobook', 'Eat Fruit', 'Eat Vegetables', '2L water/tea', 'Yoga_duration', 'Meditate_duration', 'Steps', 'other_sport', 'Book', 'Listing', 'daily_total', 'date']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         if not file_exists:
             writer.writeheader()  # Write header only if the file is newly created
