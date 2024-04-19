@@ -24,7 +24,7 @@ class FinanceTracker:
             self.transactions = pd.DataFrame(columns=['ID', 'Date', 'Time', 'Description', 'Amount'])
 
     def add_transaction(self, date, description, amount):
-        new_transaction = pd.DataFrame([[datetime.now().strftime('%Y-%m-%d %H:%M:%S'), date, description, amount]], columns=['ID', 'Date', 'Description', 'Amount'])
+        new_transaction = pd.DataFrame([[datetime.now().strftime('%Y-%m-%d %H:%M:%S'), date, datetime.now().strftime('%Y-%m-%d %H:%M:%S'), description, amount]], columns=['ID', 'Date', 'Time', 'Description', 'Amount'])
         self.transactions = pd.concat([self.transactions, new_transaction], ignore_index=True)
 
     def add_new_transaction_interactively(self):
