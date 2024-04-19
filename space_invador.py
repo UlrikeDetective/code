@@ -1,3 +1,6 @@
+# Tasks
+# add colors
+
 import pygame
 import sys
 import random
