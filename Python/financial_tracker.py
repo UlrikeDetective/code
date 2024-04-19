@@ -1,10 +1,6 @@
 # new tasks
 
-# new csv file per day, month (sum), year (sum) - balance sheet
-
-# new tasks
-
-# new csv file per day, month (sum), year (sum) - balance sheet
+# fix bugs in the code like time
 
 import pandas as pd
 import os
