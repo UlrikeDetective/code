@@ -3,7 +3,7 @@
 <h2>This repository provides a collection of practice code snippets in Python, R, and MySQL for you to learn, experiment, and have fun with programming.</h2>
 
 
-![head_picture](https://github.com/UlrikeDetective/code/blob/main/other_files/head.png))
+![head_picture](https://github.com/UlrikeDetective/code/blob/main/other_files/head.png)
 
 ## Practice Code - Python
 
