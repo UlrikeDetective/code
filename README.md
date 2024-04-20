@@ -25,33 +25,32 @@ Json (potential future inclusion)
 
 ### Available Scripts:
 
-AutoImageDownloader.py: Automates image downloading (specific functionality to be determined by the script)
-DataScience_daily_activities.py: Explores data science-related daily tasks (specific functionality to be determined by the script)
-Pizza_order_new.py: Simulates a pizza ordering process (specific functionality to be determined by the script)
-Readme_generator.py: Potentially generates project READMEs (more details needed)
-coffee_shop.py: Simulates a coffee shop experience (specific functionality to be determined by the script)
-daily_activities.py: Manages daily activity tasks (specific functionality to be determined by the script)
-fake_name.py: Generates fake names (specific functionality to be determined by the script)
-financial_tracker.py and financial_tracker_while.py: Tracks financial activities (specific functionality to be determined by the script)
-google_search.py: Simulates web searches using Google (specific functionality to be determined by the script)
-healthy_living_daily_activities.py: Manages healthy daily activities (specific functionality to be determined by the script)
-json_csv_googlecommute.py and json_csv_googletimelines.py: Potentially handle data between JSON, CSV, and Google services (more details needed)
-paperclip_manager.py: Potentially manages paperclip inventory (more details needed)
-student_scores_dictionary.py: Manages student scores using dictionaries (specific functionality to be determined by the script)
-test_stocks.py: Tests stock-related functionalities (specific functionality to be determined by the script)
-travel_log.py: Tracks travel experiences (specific functionality to be determined by the script)
+- AutoImageDownloader.py: Automates image downloading (specific functionality to be determined by the script)
+- DataScience_daily_activities.py: Explores data science-related daily tasks (specific functionality to be determined by the script)
+- Pizza_order_new.py: Simulates a pizza ordering process (specific functionality to be determined by the script)
+- Readme_generator.py: Potentially generates project READMEs (more details needed)
+- coffee_shop.py: Simulates a coffee shop experience (specific functionality to be determined by the script)
+- daily_activities.py: Manages daily activity tasks (specific functionality to be determined by the script)
+- fake_name.py: Generates fake names (specific functionality to be determined by the script)
+- financial_tracker.py and financial_tracker_while.py: Tracks financial activities (specific functionality to be determined by the script)
+- google_search.py: Simulates web searches using Google (specific functionality to be determined by the script)
+- healthy_living_daily_activities.py: Manages healthy daily activities (specific functionality to be determined by the script)
+- json_csv_googlecommute.py and json_csv_googletimelines.py: Potentially handle data between JSON, CSV, and Google services (more details needed)
+- paperclip_manager.py: Potentially manages paperclip inventory (more details needed)
+- student_scores_dictionary.py: Manages student scores using dictionaries (specific functionality to be determined by the script)
+- test_stocks.py: Tests stock-related functionalities (specific functionality to be determined by the script)
+- travel_log.py: Tracks travel experiences (specific functionality to be determined by the script)
 
 
 ## Installation
-```
+
 see code and text files (a lot of trail and error)
-```
 
 ## Additional Information
 
 This repository is under development, and more code snippets and languages might be added in the future.
 If you have any questions or suggestions, feel free to create an issue or pull request.
-```
+
 ## Contributors
 different sources, mostly Medium
 
