@@ -4,6 +4,8 @@
 
 Learning python code. Trying different scripts and modifing and adjusting them.
 
+![head_picture](https://github.com/UlrikeDetective/code/blob/main/other_files/head.png))
+
 ## Table of Contents
 - [json](https://github.com/UlrikeDetective/code/tree/main/json)
 - [Python](https://github.com/UlrikeDetective/code/tree/main/Python)
