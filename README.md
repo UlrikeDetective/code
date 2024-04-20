@@ -5,10 +5,10 @@
 Learning python code. Trying different scripts and modifing and adjusting them.
 
 ## Table of Contents
-- [json](#json)
-- [Python](#Python)
-- [R](#R)
-- [SQL](#SQL)
+- [json](https://github.com/UlrikeDetective/code/tree/main/json)
+- [Python](https://github.com/UlrikeDetective/code/tree/main/Python)
+- [R](https://github.com/UlrikeDetective/code/tree/main/R)
+- [SQL](https://github.com/UlrikeDetective/code/tree/main/SQL)
 
 
 ## Installation
