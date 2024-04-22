@@ -213,9 +213,61 @@ JOIN
 JOIN
     MenuItems MI ON M.ItemID = MI.ItemID;
 
-
-    
 Select * From TableOrders;
 
+-- Create the LowCostMenuItems table
+CREATE TABLE LowCostMenuItems (
+    ItemID INT,
+    Name VARCHAR(200),
+    Price INT
+);
 
+-- Insert into LowCostMenuItems
+INSERT INTO LowCostMenuItems
+SELECT ItemID, Name, Price
+FROM MenuItems
+WHERE Price = ANY (
+    SELECT MIN(Price)
+    FROM MenuItems
+    GROUP BY Type
+);
+
+-- Create the HighCostMenuItems table
+CREATE TABLE HighCostMenuItems (
+    ItemID INT,
+    Name VARCHAR(200),
+    Price INT
+);
+
+INSERT INTO HighCostMenuItems
+SELECT ItemID, Name, Price
+FROM MenuItems
+WHERE Price = ANY (
+    SELECT Max(Price)
+    FROM MenuItems
+    GROUP BY Type
+);
+
+CREATE TABLE Courses (
+    CourseName VARCHAR(255) PRIMARY KEY,
+    Cost DECIMAL(4 , 2 )
+); 
+
+Insert into Courses (CourseName, Cost) 
+VALUES 
+("Greek salad", 15.50), 
+("Bean soup", 12.25),
+ ("Pizza", 15.00),
+ ("Carbonara", 12.50),
+ ("Kabasa", 17.00), 
+ ("Shwarma", 11.30); 
+
+CREATE TABLE DeliveryAddress(     
+    ID INT PRIMARY KEY,     
+    Address VARCHAR(255) NOT NULL,     
+    Type VARCHAR(100) NOT NULL DEFAULT "Private",     
+    CustomerID INT NOT NULL,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID));
+    
+ALTER TABLE Courses ADD COLUMN Ingredients VARCHAR(255); 
  
