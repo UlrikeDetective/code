@@ -1,26 +1,41 @@
-class GoodThingsLog:  # Corrected class name
-    def __init__(self):
-        self.logs = []
+import csv
+from datetime import datetime
+
+class GoodThingsLog:
+    def __init__(self, filename):
+        self.filename = filename
 
     def add_log(self, first, second, third, honorary):
-        log = {
-            "First good thing": first,
-            "Second good thing": second,
-            "Third good thing": third,
-            "Honorary mentions": honorary,  # Corrected capitalization
-        }
-        self.logs.append(log)
+        current_date = datetime.now().strftime('%Y-%m-%d')  # Get current date
+        with open(self.filename, 'a', newline='') as csvfile:
+            fieldnames = ['Date', 'First good thing', 'Second good thing', 'Third good thing', 'Honorary mentions']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+            # Check if file is empty and write header if needed
+            if csvfile.tell() == 0:
+                writer.writeheader()
+
+            writer.writerow({
+                'Date': current_date,
+                'First good thing': first,
+                'Second good thing': second,
+                'Third good thing': third,
+                'Honorary mentions': honorary
+            })
 
     def display_logs(self):
-        for idx, log in enumerate(self.logs, start=1):
-            print(f"Good things Log #{idx}:")
-            for key, value in log.items():
-                print(f"{key}: {value}")
-            print("\n")
+        with open(self.filename, 'r', newline='') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for idx, row in enumerate(reader, start=1):
+                print(f"Good things Log #{idx}:")
+                for key, value in row.items():
+                    print(f"{key}: {value}")
+                print("\n")
 
 
 def main():
-    good_things_log = GoodThingsLog()  # Corrected class name
+    filename = 'good_things_log.csv'
+    good_things_log = GoodThingsLog(filename)
 
     while True:
         print("\nGood Things Log Menu:")
@@ -39,7 +54,7 @@ def main():
             print("Log added successfully!")
 
         elif choice == "2":
-            if not good_things_log.logs:
+            if not os.path.exists(filename):
                 print("No logs to display.")
             else:
                 good_things_log.display_logs()
