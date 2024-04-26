@@ -1,12 +1,14 @@
 import csv
+from datetime import datetime
 
 class GoodThingsLog:
     def __init__(self, filename):
         self.filename = filename
 
     def add_log(self, first, second, third, honorary):
+        current_date = datetime.now().strftime('%Y-%m-%d')  # Get current date
         with open(self.filename, 'a', newline='') as csvfile:
-            fieldnames = ['First good thing', 'Second good thing', 'Third good thing', 'Honorary mentions']
+            fieldnames = ['Date', 'First good thing', 'Second good thing', 'Third good thing', 'Honorary mentions']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
             # Check if file is empty and write header if needed
@@ -14,6 +16,7 @@ class GoodThingsLog:
                 writer.writeheader()
 
             writer.writerow({
+                'Date': current_date,
                 'First good thing': first,
                 'Second good thing': second,
                 'Third good thing': third,
