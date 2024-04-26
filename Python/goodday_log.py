@@ -1,4 +1,4 @@
-class dayLog:
+class GoodThingsLog:  # Corrected class name
     def __init__(self):
         self.logs = []
 
@@ -7,7 +7,7 @@ class dayLog:
             "First good thing": first,
             "Second good thing": second,
             "Third good thing": third,
-            "honorary mentions": honorary,
+            "Honorary mentions": honorary,  # Corrected capitalization
         }
         self.logs.append(log)
 
@@ -20,7 +20,7 @@ class dayLog:
 
 
 def main():
-    good_things_log = goodThings_Log()
+    good_things_log = GoodThingsLog()  # Corrected class name
 
     while True:
         print("\nGood Things Log Menu:")
@@ -35,8 +35,7 @@ def main():
             third = input("Enter third good thing: ")
             honorary = input("Enter honorary mentions: ")
 
-
-            good_things_log_log.add_log(first, second, third, honorary)
+            good_things_log.add_log(first, second, third, honorary)
             print("Log added successfully!")
 
         elif choice == "2":
