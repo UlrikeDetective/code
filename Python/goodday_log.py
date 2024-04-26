@@ -1,20 +1,23 @@
 import csv
 from datetime import datetime
+import os
 
 class GoodThingsLog:
     def __init__(self, filename):
         self.filename = filename
+        self.fieldnames = ['Date', 'First good thing', 'Second good thing', 'Third good thing', 'Honorary mentions']
+        self.check_and_create_file()
+
+    def check_and_create_file(self):
+        if not os.path.exists(self.filename):
+            with open(self.filename, 'w', newline='') as csvfile:
+                writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
+                writer.writeheader()
 
     def add_log(self, first, second, third, honorary):
         current_date = datetime.now().strftime('%Y-%m-%d')  # Get current date
         with open(self.filename, 'a', newline='') as csvfile:
-            fieldnames = ['Date', 'First good thing', 'Second good thing', 'Third good thing', 'Honorary mentions']
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-            # Check if file is empty and write header if needed
-            if csvfile.tell() == 0:
-                writer.writeheader()
-
+            writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
             writer.writerow({
                 'Date': current_date,
                 'First good thing': first,
