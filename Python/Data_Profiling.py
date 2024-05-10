@@ -7,7 +7,9 @@ Suppose you have a dataset and want to generate a comprehensive data profile rep
 Pandas Profiling: This code snippet loads the dataset using Pandas and creates a ProfileReport object from the Pandas Profiling library, 
 specifying the dataset and a title for the report.The to_file() method is used to save the generated data profile report as an HTML file.
     The generated report includes various statistics and visualizations, such as data types, missing values, value distributions, 
-correlations, and more. It provides a comprehensive overview of the dataset's characteristics. """
+correlations, and more. It provides a comprehensive overview of the dataset's characteristics. 
+
+Code isn't working yet."""
 
 import pandas as pd
 from pandas_profiling import ProfileReport
