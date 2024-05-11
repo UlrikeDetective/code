@@ -1,8 +1,10 @@
+# code not working yet
+
 from googlesearch import search
 import pandas as pd
 
 def extract_redirect_urls(query):
-    search_results = search(query, num_results=10, lang="en")
+    search_results = search(query, num=10, lang="en")
     
     # Collect URLs in a list
     urls = list(search_results)
@@ -28,5 +30,4 @@ if __name__ == "__main__":
         
         # Save the DataFrame to a CSV file
         search_results_df.to_csv(file_path, mode='a', header=False, index=False)
-
 
