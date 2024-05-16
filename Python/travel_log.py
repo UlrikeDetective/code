@@ -13,6 +13,7 @@ class TravelLog:
             "Visited Places": visited_places,
             "Favorite Things": favorite_things,
             "Favorite Meals": meals
+            "Rating of the day": rating
         }
         self.logs.append(log)
 
@@ -44,8 +45,9 @@ def main():
             visited_places = input("Enter visited places: ")
             favorite_things = input("Enter favorite things: ")
             meals = input("Enter favorite meal: ")
+            rating = input("Enter your rating of the day: ")
 
-            travel_log.add_log(destination, country, cost, transport_mode, distance_covered, highlights, visited_places, favorite_things, meals)
+            travel_log.add_log(destination, country, cost, transport_mode, distance_covered, highlights, visited_places, favorite_things, meals, rating)
             print("Log added successfully!")
 
         elif choice == "2":
