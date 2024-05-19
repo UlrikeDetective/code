@@ -1,7 +1,7 @@
 import calendar
 
 def highlight_weekends(year, month):
-    cal = calendar.TextCalendar(calendar.SUNDAY)
+    cal = calendar.TextCalendar(calendar.MONDAY)
     month_str = cal.formatmonth(year, month)
     month_weeks = cal.monthdayscalendar(year, month)
     
