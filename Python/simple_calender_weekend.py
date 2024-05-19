@@ -24,7 +24,8 @@ def highlight_weekends(year, month):
     highlighted_days_lines = []
     for line in days_lines:
         highlighted_line = ''
-        for token in line.split():
+        tokens = line.split()
+        for token in tokens:
             if token.isdigit():
                 day = int(token)
                 highlighted_line += day_color_map[day] + ' '
