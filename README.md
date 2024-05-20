@@ -60,8 +60,7 @@ This project is licensed under the GNU General Public License v3.0 License - see
 ## Badges
 [![GitHub stars](https://img.shields.io/github/stars/UlrikeDetective/Code)](https://github.com/UlrikeDetective/Code/stargazers) 
 [![GitHub forks](https://img.shields.io/github/forks/UlrikeDetective/Code)](https://github.com/UlrikeDetective/Code/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/UlrikeDetective/Code)](https://github.com/UlrikeDetective/Code/issues) 
-[![GitHub license](https://img.shields.io/github/license/UlrikeDetective/Code)](https://github.com/UlrikeDetective/Code/blob/master/LICENSE)
+
 
 ## GitHub Repository
 [Link to GitHub repository](https://github.com/UlrikeDetective/Code)
