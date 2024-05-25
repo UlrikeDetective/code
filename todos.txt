@@ -1,5 +1,5 @@
 <b> TO DOS CODE EXERCISES </b>
 
-* SQL add more entries and tables to little lemon
 * BigQuery Databases to MySQL?
 * from the coffee_shop.py build a connection to MySQL
+* Debug code
