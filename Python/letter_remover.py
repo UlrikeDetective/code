@@ -12,4 +12,4 @@ def special_character_remover(text):
         if l not in "!$§%&/()=?#+-,;.:":
             string += l
     return string
-print(special_character_remover("hello world! Something. Somewhere, Somehow: How many $ & § do you have?"))
+print(special_character_remover("hello world! Something. Somewhere, Somehow: How many $&§ do you have?"))
