@@ -15,7 +15,7 @@ import pandas as pd
 from pandas_profiling import ProfileReport
 
 # Load the dataset
-data = pd.read_csv('/Users/ulrike_imac_air/projects/analysis_my_life/data/photos_gps/GPS_location_cleaned.csv')
+data = pd.read_csv('GPS_location_cleaned.csv')
 
 # Generate data profile report
 profile = ProfileReport(data, title='Data Profile Report')
