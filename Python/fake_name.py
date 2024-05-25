@@ -28,7 +28,6 @@ def generate_fake_data(num_entries=100):
             "country": country,
             "fav_city": city,
             "Color": color,
-            "Subscription Tier": fake.random_element(['free', 'basic', 'business']),
             "Favorite Ice Cream": fake.random_element(['mint', 'choco', 'mango', 'cocos', 'yoghurt']),
             "Favorite Fruit": fake.random_element(['orange', 'apple', 'papaya', 'strawberries', 'raspberries']),
             "Favorite Country": fake.random_element(['USA', 'UK', 'Spain', 'France', 'India', 'Sweden', 'Italy', 'South Africa']),
