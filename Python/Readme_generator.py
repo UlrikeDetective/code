@@ -2,9 +2,9 @@
 def generate_markdown_file():
     # Prompting user for inputs
     repository_name = input("\n Enter the name of your GitHub repository: ")
-    project_description = input("Enter a short description of your project: ")
-    installation_instructions = input("Enter installation instructions for your project: ")
-    usage_instructions = input("Enter usage instructions for your project: ")
+    project_description = input("Enter a short description of project: ")
+    installation_instructions = input("Enter installation instructions for project: ")
+    usage_instructions = input("Enter usage instructions for project: ")
     contributors = input("Enter the contributors to your project (separated by commas): ")
     license = select_license()
 
