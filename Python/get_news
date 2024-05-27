@@ -4,9 +4,26 @@ from bs4 import BeautifulSoup
 def get_news():
     url = 'https://www.bbc.com/news'
     response = requests.get(url)
+
+    # Check if the request was successful
+    if response.status_code != 200:
+        return f"Failed to retrieve the page. Status code: {response.status_code}"
+
+    # Parse the HTML content
     soup = BeautifulSoup(response.text, 'html.parser')
+
+    # Inspect the HTML structure and find the correct class or tag for headlines
+    # The class name may change, so it's good to check the actual website's structure
     headlines = soup.find_all('h3', class_='gs-c-promo-heading__title')
+
+    # Check if headlines were found
+    if not headlines:
+        return "No headlines found. Please check the class name or the structure of the webpage."
+
+    # Extract the text of each headline
     news_summary = [headline.get_text() for headline in headlines]
+
     return '\n'.join(news_summary)
+
 # Print the latest news headlines
 print(get_news())
