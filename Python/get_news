@@ -1,0 +1,12 @@
+import requests
+from bs4 import BeautifulSoup
+
+def get_news():
+    url = 'https://www.bbc.com/news'
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    headlines = soup.find_all('h3', class_='gs-c-promo-heading__title')
+    news_summary = [headline.get_text() for headline in headlines]
+    return '\n'.join(news_summary)
+# Print the latest news headlines
+print(get_news())
