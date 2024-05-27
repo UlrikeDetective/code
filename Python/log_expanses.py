@@ -9,7 +9,10 @@ def log_expense(amount, category):
     print(f"Logged expense: {timestamp}, Amount: {amount}, Category: {category}")
 
 # Example call to log an expense
-log_expense(50, 'Groceries')
+log_expense(30, 'Utilities')
+log_expense(15, 'Coffee')
+log_expense(75, 'Dining Out')
+
 
 # Function to read back and print the contents of the CSV file
 def read_expenses():
