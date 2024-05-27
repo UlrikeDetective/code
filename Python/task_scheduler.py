@@ -4,9 +4,9 @@ import time
 def remind_task(task):
     # Code to remind about task
 # Schedule reminders for important tasks
-schedule.every().day.at("10:00").do(remind_task, task="Review project report")
-schedule.every().monday.at("14:00").do(remind_task, task="Team meeting")
-schedule.every().friday.at("16:00").do(remind_task, task="Submit weekly report")
+schedule.every().day.at("21:45").do(remind_task, task="daily habits report")
+schedule.every().monday.at("07:30").do(remind_task, task="Check tasks for the week")
+schedule.every().friday.at("16:00").do(remind_task, task="Start weekend")
 # Keep the script running to execute scheduled tasks
 while True:
     schedule.run_pending()
