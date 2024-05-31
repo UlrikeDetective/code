@@ -1,11 +1,14 @@
 # Stock data
 
+# code not working yet. bug
+
 import yfinance as yf
 
 STK = input("Enter share name: ")
 
 try:
-    data = yf.Ticker(STK).history(period="1d")
+    # Fetch the last day's worth of minute data
+    data = yf.Ticker(STK).history(period="3mo", interval="1m")
     if data.empty:
         raise ValueError("No data retrieved. Please check the stock symbol or try again later.")
     
