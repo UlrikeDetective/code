@@ -61,6 +61,6 @@ for ticker in tickers_list:
     st.line_chart(stock_data[['Close', '20 Day MA', '50 Day MA']])
 
 
-# Next run in Terminal in the app.py folder: streamlit run app.py & npx localtunnel --port 8501
+# Next run in Terminal in the stock_streamlit_app.py folder: streamlit run stock_streamlit_app.py & npx localtunnel --port 8501
 
 # click on “your url is:” link.
