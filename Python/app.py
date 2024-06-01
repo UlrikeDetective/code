@@ -47,6 +47,6 @@ st.line_chart(stock_data['Volume'])
 st.subheader("Closing Price and Moving Averages")
 st.line_chart(stock_data[['Close', '20 Day MA', '50 Day MA']])
 
-# Next run in Terminal: streamlit run app.py & npx localtunnel --port 8501
+# Next run in Terminal in the app.py folder: streamlit run app.py & npx localtunnel --port 8501
 
 # click on “your url is:” link.
