@@ -1,3 +1,5 @@
+Create database Lucky_shrub;
+
 use Lucky_shrub;
 show tables;
 select * from Addresses;

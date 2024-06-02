@@ -1,7 +1,7 @@
 Use lucky_shrub;
 
 SELECT *
-FROM orders
+FROM orders_02
 INNER JOIN products ON orders.ProductID = products.ProductID;
 
 SELECT products.ProductName, COUNT(*) AS OrderCount
@@ -16,7 +16,7 @@ GROUP BY products.ProductName;
 -- The expected output result should be the same as the following screenshot 
 -- (assuming that you have created and populated the tables correctly.) 
 
-SELECT OrderDate FROM Orders GROUP BY OrderDate;
+SELECT OrderDate FROM Orders_02 GROUP BY OrderDate;
 
 -- **Task 2:** Write a SQL SELECT statement to retrieve the number of orders placed on the same day.
 -- The expected output result should be the same as the following screenshot 
