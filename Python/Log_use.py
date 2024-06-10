@@ -1,6 +1,7 @@
 import csv
 from datetime import datetime
 import geocoder
+import os
 
 def get_location():
     # Get the location based on the IP address
@@ -23,10 +24,16 @@ def record_entry():
 
     # Specify the CSV file name
     csv_file = 'recorded_data.csv'
+    file_exists = os.path.isfile(csv_file)
 
     # Write data to CSV file
     with open(csv_file, mode='a', newline='') as file:
         writer = csv.writer(file)
+        
+        # If the file does not exist, write the headers
+        if not file_exists:
+            writer.writerow(['Timestamp', 'Latitude and Longitude', 'City', 'State', 'Country'])
+        
         writer.writerow(data)
         print(f"Recorded: {data}")
 
