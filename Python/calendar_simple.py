@@ -1,4 +1,4 @@
-#simple calender
+#simple calender for every year
 
 import calendar
 year =int( input("Enter the year of the required calendar "))
