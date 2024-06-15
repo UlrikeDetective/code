@@ -29,7 +29,7 @@ def display_image(image):
 
 # Main program
 def main():
-    image_path = "path/to/your/image.jpg"  # Replace with your image path
+    image_path = "/Users/ulrike_imac_air/Library/Mobile Documents/com~apple~CloudDocs/Bilder/Lightroom/Familienfotos_vor_2009/vor_2009_London_Familienfotos_Lightroom-01.jpg"  # Replace with your image path
 
     # Load the image
     image = load_image(image_path)
