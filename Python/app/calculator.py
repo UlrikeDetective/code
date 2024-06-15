@@ -1,3 +1,6 @@
+# Creating a Calculator GUI with Tkinter
+# We’ll create a basic calculator that performs addition, subtraction, multiplication, and division.
+
 import tkinter as tk
 
 class Calculator(tk.Tk):
