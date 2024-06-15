@@ -1,6 +1,8 @@
 # Creating a Calculator GUI with Tkinter
 # We’ll create a basic calculator that performs addition, subtraction, multiplication, and division.
 
+# Not working yet
+
 import tkinter as tk
 
 class Calculator(tk.Tk):
@@ -53,26 +55,27 @@ class Calculator(tk.Tk):
             self.grid_columnconfigure(i, weight=1)
 
     def on_button_click(self, char):
+        current_result = self.result_var.get()
+        
         if char == 'Clear':
             self.result_var.set("0")
         elif char == 'Delete':
-            current_result = self.result_var.get()
             if len(current_result) > 1:
                 self.result_var.set(current_result[:-1])
             else:
                 self.result_var.set("0")
         else:
-            current_result = self.result_var.get()
-            if current_result == "0" or current_result[-1] in "+-*/":
-                self.result_var.set(char)
+            if current_result == "0" or (current_result and current_result[-1] in "+-*/"):
+                self.result_var.set(current_result + char)
             else:
                 self.result_var.set(current_result + char)
 
     def on_operator_button_click(self, operator):
+        current_result = self.result_var.get()
+        
         if operator == "=":
             self.on_equal_button_click()
         else:
-            current_result = self.result_var.get()
             if current_result[-1] in "+-*/":
                 self.result_var.set(current_result[:-1] + operator)
             else:
@@ -88,5 +91,8 @@ class Calculator(tk.Tk):
             self.result_var.set("Error")
 
 if __name__ == "__main__":
+    app = Calculator()
+    app.mainloop()
+
     app = Calculator()
     app.mainloop()
