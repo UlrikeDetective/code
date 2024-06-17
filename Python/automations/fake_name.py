@@ -1,3 +1,5 @@
+# Fake name generator
+
 from faker import Faker
 import random
 import pandas as pd
