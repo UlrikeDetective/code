@@ -31,7 +31,8 @@ def generate_fake_data(num_entries=100):
             "fav_city": city,
             "Color": color,
             "Favorite Fruit": fake.random_element(["Apple", "Banana", "Orange", "Grapefruit", "Mango", "Pineapple", "Strawberry", "Blueberry", "Raspberry", "Blackberry", "Kiwi", "Watermelon", "Honeydew melon", "Cantaloupe", "Grape", "Peach", "Pear", "Fig", "Pomegranate", "Dragon fruit"]),
-            "Favorite Country": fake.random_element(['USA', 'UK', 'Spain', 'France', 'India', 'Sweden', 'Italy', 'South Africa']),
+            "Favorite Country": fake.random_element(["Thailand", "Vietnam", "Cambodia", "Laos", "Myanmar (Burma)", "Indonesia", "Philippines", "Malaysia", "Nepal", "India", "Sri Lanka", "Peru", "Bolivia", "Ecuador", "Colombia", "Chile", "Argentina", "Brazil", "Morocco", "South Africa", "New Zealand", "Australia", "Iceland", "Czech Republic", "Poland"]),
+            "Favorite Islands": fake.random_element(["Bali, Indonesia", "Palawan, Philippines", "Boracay, Philippines", "Langkawi, Malaysia", "Phi Phi Islands, Thailand", "Maldives", "Seychelles", "Mauritius", "Santorini, Greece", "Mykonos, Greece", "Majorca, Spain", "Tenerife, Spain", "Madeira, Portugal", "Kauai, Hawaii, USA", "Maui, Hawaii, USA", "Oahu, Hawaii, USA", "Fiji", "Cook Islands", "Whitsunday Islands, Australia", "Great Barrier Island, New Zealand", "Isle of Skye, Scotland"]),
             "Lorem Ipsum Text": fake.text(),
         }
         data.append(entry)
