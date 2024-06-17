@@ -1,8 +1,14 @@
+# Fake name generator
 from faker import Faker
 import random
 import pandas as pd
 
 fake = Faker()
+
+def calculate_bmi(height, weight):
+    """Calculate BMI given height in cm and weight in kg."""
+    height_in_m = height / 100  # Convert height to meters
+    return round(weight / (height_in_m ** 2), 2)
 
 def generate_fake_data(num_entries=100):
     data = []
@@ -13,6 +19,9 @@ def generate_fake_data(num_entries=100):
         color = fake.color_name()
         country = fake.country()
         city = fake.city()
+        height = round(random.uniform(140, 200), 1)  # Height in cm
+        weight = round(random.uniform(40, 150), 1)  # Weight in kg
+        bmi = calculate_bmi(height, weight)  # Calculate BMI
         
         entry = {
             "Name": fake.name(),
@@ -20,6 +29,9 @@ def generate_fake_data(num_entries=100):
             "Email": fake.email(),
             "Phone Number": fake.phone_number(),
             "Date of Birth": fake.date_of_birth(minimum_age=18, maximum_age=85).strftime("%Y-%m-%d"),
+            "Height (cm)": height,
+            "Weight (kg)": weight,
+            "BMI": bmi,
             "Random Number": random.randint(1, 100),
             "Job Title": fake.job(),
             "Company": fake.company(),
@@ -47,3 +59,5 @@ if __name__ == "__main__":
 
     # Save generated data to a CSV file
     fake_data_df.to_csv('fake_data.csv', index=False)
+
+
