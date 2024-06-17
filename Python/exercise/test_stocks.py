@@ -1,3 +1,5 @@
+# Stock trends
+
 from pytrends.request import TrendReq
 import matplotlib.pyplot as plt
 
@@ -21,7 +23,7 @@ trends_data = get_google_trends_data(STOCKS)
 
 # Plot the data
 plt.figure(figsize=(20, 12))
-trends_data.plot(title='Google Trends for STOCKS')
+trends_data.plot(title='Trends for STOCKS')
 plt.xlabel('Date')
 plt.ylabel('Interest Over Time')
 plt.show()
