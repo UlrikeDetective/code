@@ -22,6 +22,7 @@ def generate_fake_data(num_entries=100):
         height = round(random.uniform(140, 200), 1)  # Height in cm
         weight = round(random.uniform(40, 150), 1)  # Weight in kg
         bmi = calculate_bmi(height, weight)  # Calculate BMI
+        steps = round(random.uniform(200,40000), 0)
         
         entry = {
             "Name": fake.name(),
@@ -32,6 +33,7 @@ def generate_fake_data(num_entries=100):
             "Height (cm)": height,
             "Weight (kg)": weight,
             "BMI": bmi,
+            "Steps per day": steps,
             "Random Number": random.randint(1, 100),
             "Job Title": fake.job(),
             "Company": fake.company(),
