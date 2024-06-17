@@ -21,7 +21,7 @@ def generate_fake_data(num_entries=100):
             "Address": fake.address(),
             "Email": fake.email(),
             "Phone Number": fake.phone_number(),
-            "Date of Birth": fake.date_of_birth(minimum_age=18, maximum_age=65).strftime("%Y-%m-%d"),
+            "Date of Birth": fake.date_of_birth(minimum_age=18, maximum_age=85).strftime("%Y-%m-%d"),
             "Random Number": random.randint(1, 100),
             "Job Title": fake.job(),
             "Company": fake.company(),
@@ -30,7 +30,7 @@ def generate_fake_data(num_entries=100):
             "country": country,
             "fav_city": city,
             "Color": color,
-            "Favorite Fruit": fake.random_element(['orange', 'apple', 'papaya', 'strawberries', 'raspberries']),
+            "Favorite Fruit": fake.random_element(["Apple", "Banana", "Orange", "Grapefruit", "Mango", "Pineapple", "Strawberry", "Blueberry", "Raspberry", "Blackberry", "Kiwi", "Watermelon", "Honeydew melon", "Cantaloupe", "Grape", "Peach", "Pear", "Fig", "Pomegranate", "Dragon fruit"]),
             "Favorite Country": fake.random_element(['USA', 'UK', 'Spain', 'France', 'India', 'Sweden', 'Italy', 'South Africa']),
             "Lorem Ipsum Text": fake.text(),
         }
