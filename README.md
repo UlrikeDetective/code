@@ -1,6 +1,6 @@
 <h1>Code Snippets for Python, R, MySQL, JavaScript, html, CSS</h1>
 
-<h2>This repository provides a collection of practice code snippets in Python, R, and MySQL for you to learn, experiment, and have fun with programming.</h2>
+<h2>This repository provides a collection of practice code snippets in Python, R, JavaScript, html, CSS and MySQL for you to learn, experiment, and have fun with programming.</h2>
 
 
 ![head_picture](https://github.com/UlrikeDetective/code/blob/main/other_files/head.png)
