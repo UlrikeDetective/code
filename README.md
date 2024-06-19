@@ -1,4 +1,4 @@
-<h1>Code Snippets for Python, R, MySQL</h1>
+<h1>Code Snippets for Python, R, MySQL, JavaScript, html, CSS</h1>
 
 <h2>This repository provides a collection of practice code snippets in Python, R, and MySQL for you to learn, experiment, and have fun with programming.</h2>
 
