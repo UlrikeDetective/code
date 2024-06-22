@@ -2,6 +2,7 @@
 
 import requests
 from bs4 import BeautifulSoup
+import csv
 
 def infinite_scroll_scraper(start_page=1):
     page_num = start_page
@@ -23,3 +24,12 @@ def infinite_scroll_scraper(start_page=1):
 article_gen = infinite_scroll_scraper()
 for article in article_gen:
     print(article)
+
+# Open a CSV file to write the output
+with open('products.csv', 'w', newline='', encoding='utf-8') as csvfile:
+    fieldnames = ['name', 'price']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+    writer.writeheader()  # Write the header row
+    for product in product_gen:
+        writer.writerow(product)  # Write each product row
