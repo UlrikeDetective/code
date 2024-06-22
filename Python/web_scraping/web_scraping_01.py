@@ -2,6 +2,7 @@
 
 import requests
 from bs4 import BeautifulSoup
+import csv
 
 def product_scraper(start_page, end_page):
     for page_num in range(start_page, end_page + 1):
@@ -15,5 +16,12 @@ def product_scraper(start_page, end_page):
 
 # Usage
 product_gen = product_scraper(1, 10)
-for product in product_gen:
-    print(product)
+
+# Open a CSV file to write the output
+with open('products.csv', 'w', newline='', encoding='utf-8') as csvfile:
+    fieldnames = ['name', 'price']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+    writer.writeheader()  # Write the header row
+    for product in product_gen:
+        writer.writerow(product)  # Write each product row
