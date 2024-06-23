@@ -13,3 +13,5 @@ $("h1").addClass("big-title margin-50");
 // $("button");
 // $("button").text("Don't Click me");
 $("button").html("<em>Hey</em>");
+console.log($("img").attr("src"));
+$("a").attr("href", "https://www.wired.com");
