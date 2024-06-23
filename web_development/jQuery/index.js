@@ -10,4 +10,6 @@ $("button").css("color", "red");
 $("button").css("background-color", "lightgreen"); */
 
 $("h1").addClass("big-title margin-50");
-$("button");
+// $("button");
+// $("button").text("Don't Click me");
+$("button").html("<em>Hey</em>");
