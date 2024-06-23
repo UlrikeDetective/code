@@ -11,4 +11,5 @@ $("button").css("background-color", "lightgreen"); */
 
 $("h1").addClass("big-title margin-50");
 // $("button");
-$("button").text("Don't Click me");
+// $("button").text("Don't Click me");
+$("button").html("<em>Hey</em>");
