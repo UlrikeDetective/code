@@ -29,11 +29,16 @@ $("button").click(function() {
 });
 
 // saves input into input
-$("input").keypress(function(event) {
+/* $("input").keypress(function(event) {
     console.log(event.key);
-});
+});  */
 
 // Changing the H1 into everything you type into the keyboard
-$(document).keypress(function(event) {
+/* $(document).keypress(function(event) {
     $("h1").text(event.key);
+}); */
+
+// changes the color of the h1 when hovering over the buttons.
+$("button").on("mouseover", function() {
+    $("h1").css("color", "orange");
 });
