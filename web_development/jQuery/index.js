@@ -10,15 +10,21 @@ $("button").css("color", "red");
 $("button").css("background-color", "lightgreen"); */
 
 $("h1").addClass("big-title margin-50");
-$("h2").addClass("title-h2 margin-50");
-$("img").addClass("margin-50");
+$("h2").addClass("title-h2 margin-20");
+$("img").addClass("margin-20");
 $("button").addClass("margin-20");
+
 // $("button");
 // $("button").text("Don't Click me");
+
 $("button").html("<em>Hey</em>");
 console.log($("img").attr("src"));
 $("a").attr("href", "https://www.wired.com");
-
 $("h1").click(function() {
     $("h1").css("color", "purple");
 });
+
+$("button").click(function() {
+    $("h2").css("color", "magenta");
+});
+
