@@ -28,3 +28,7 @@ $("button").click(function() {
     $("h2").css("color", "magenta");
 });
 
+// saves input into input
+$("input").keypress(function(event) {
+    console.log(event.key);
+});
