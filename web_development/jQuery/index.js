@@ -18,3 +18,7 @@ $("button").addClass("margin-20");
 $("button").html("<em>Hey</em>");
 console.log($("img").attr("src"));
 $("a").attr("href", "https://www.wired.com");
+
+$("h1").click(function() {
+    $("h1").css("color", "purple");
+});
