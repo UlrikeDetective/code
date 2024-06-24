@@ -32,3 +32,8 @@ $("button").click(function() {
 $("input").keypress(function(event) {
     console.log(event.key);
 });
+
+// Changing the H1 into everything you type into the keyboard
+$(document).keypress(function(event) {
+    $("h1").text(event.key);
+});
