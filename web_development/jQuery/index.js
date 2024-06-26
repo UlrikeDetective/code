@@ -25,9 +25,9 @@ $("h1").click(function() {
     $("h1").css("color", "purple");
 });
 
-$("button").click(function() {
+/* $("button").click(function() {
     $("h2").css("color", "magenta");
-});
+}); */
 
 // saves input into input
 /* $("input").keypress(function(event) {
@@ -54,14 +54,13 @@ $("button").click(function() {
 }); */
 
 $("button").on("click", function() {
-    $("h1").fadeout();
+    $("h1").slideToggle();
 });
 
-$("img").on("mouseover", function() {
-    $("h2").fadein();
+
+$("button").on("click", function() {
+    $("h2").fadeToggle();
 });
 
-/* $("button").on("click", function() {
-    $("h1").fadetoggle();
-});
- */
+
+
