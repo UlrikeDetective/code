@@ -39,6 +39,11 @@ $("button").click(function() {
 }); */
 
 // changes the color of the h1 when hovering over the buttons.
-$("button").on("mouseover", function() {
+/* $("button").on("mouseover", function() {
     $("h1").css("color", "orange");
+}); */
+
+$("button").on("mouseover", function() {
+    $("h2").hide();
 });
+
