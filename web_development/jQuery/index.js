@@ -20,6 +20,7 @@ $("button").addClass("margin-20");
 $("button").html("<em>Hey</em>");
 console.log($("img").attr("src"));
 $("a").attr("href", "https://www.wired.com");
+
 $("h1").click(function() {
     $("h1").css("color", "purple");
 });
@@ -48,8 +49,19 @@ $("button").click(function() {
 }); */
 
 //hide and show H2
-$("button").on("mouseover", function() {
+/* $("button").on("mouseover", function() {
     $("h2").toggle();
+}); */
+
+$("button").on("click", function() {
+    $("h1").fadeout();
 });
 
+$("img").on("mouseover", function() {
+    $("h2").fadein();
+});
 
+/* $("button").on("click", function() {
+    $("h1").fadetoggle();
+});
+ */
