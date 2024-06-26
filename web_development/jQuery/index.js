@@ -20,13 +20,14 @@ $("button").addClass("margin-20");
 $("button").html("<em>Hey</em>");
 console.log($("img").attr("src"));
 $("a").attr("href", "https://www.wired.com");
+
 $("h1").click(function() {
     $("h1").css("color", "purple");
 });
 
-$("button").click(function() {
+/* $("button").click(function() {
     $("h2").css("color", "magenta");
-});
+}); */
 
 // saves input into input
 /* $("input").keypress(function(event) {
@@ -39,6 +40,33 @@ $("button").click(function() {
 }); */
 
 // changes the color of the h1 when hovering over the buttons.
-$("button").on("mouseover", function() {
+/* $("button").on("mouseover", function() {
     $("h1").css("color", "orange");
+}); */
+
+/* $("button").on("mouseover", function() {
+    $("h2").hide();
+}); */
+
+//hide and show H2
+/* $("button").on("mouseover", function() {
+    $("h2").toggle();
+}); */
+
+$("button").on("click", function() {
+    $("h1").slideToggle();
+});
+
+
+/* $("button").on("click", function() {
+    $("h2").fadeToggle();
+}); */
+
+// costume fade to half
+$("button").on("click", function() {
+    $("h2").animate({opacity: 0.5});
+});
+
+$("button").on("click", function() {
+    $("h1").slideUp().slideDown().animate({opacity: 0.5});
 });
