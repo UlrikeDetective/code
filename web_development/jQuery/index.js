@@ -43,7 +43,13 @@ $("button").click(function() {
     $("h1").css("color", "orange");
 }); */
 
-$("button").on("mouseover", function() {
+/* $("button").on("mouseover", function() {
     $("h2").hide();
+}); */
+
+//hide and show H2
+$("button").on("mouseover", function() {
+    $("h2").toggle();
 });
+
 
