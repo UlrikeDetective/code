@@ -58,9 +58,12 @@ $("button").on("click", function() {
 });
 
 
-$("button").on("click", function() {
+/* $("button").on("click", function() {
     $("h2").fadeToggle();
+}); */
+
+// costume fade to half
+$("button").on("click", function() {
+    $("h2").animate({opacity: 0.5});
 });
-
-
 
