@@ -1,7 +1,11 @@
 body {
   text-align: center;
-  background-color: #011F3F;
-  font-family: 'Press Start 2P', cursive;
+  background-color: #9294b0;
+  font-family: "Playwrite MX", cursive;
+  font-size: 4cap;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
   color: white;
 }
 
@@ -28,19 +32,19 @@ h1 {
 }
 
 .green {
-  background-color: green;
+  background-color: rgb(36, 217, 36);
 }
 
 .red {
-  background-color: red;
+  background-color: rgb(225, 28, 100);
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: rgb(244, 244, 8);
 }
 
 .blue {
-  background-color: blue;
+  background-color: rgb(10, 158, 232);
 }
 
 .pressed {
