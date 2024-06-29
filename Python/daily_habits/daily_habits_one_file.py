@@ -39,36 +39,7 @@ def habit_tracker(filename, habit_questions, log_type):
     for activity, prompt in habit_questions:
         activity_data[activity] = get_activity_input(prompt)
         if activity_data[activity] == 'Y':
-            if activity == "biking_duration":
-                activity_data['biking_duration'] = input("How many minutes of biking did you do today? ")
-            elif activity == "steps":
-                activity_data['steps'] = input("How many steps did you do today? ")
-            elif activity == "yoga":
-                activity_data['yoga'] = input("How many minutes of yoga did you do today? ")
-            elif activity == "meditation":
-                activity_data['meditation'] = input("How many minutes of meditation did you do today? ")
-            elif activity == "other_sport":
-                activity_data['other_sport'] = input("What other sport did you do today? ")
-            elif activity == "book":
-                activity_data['book'] = input("What book did you read today? ")
-            elif activity == "listening":
-                activity_data['listening'] = input("What audiobook or podcast did you listen to today? ")
-            elif activity == "adobe":
-                activity_data['adobe'] = input("Any Adobe tools used today? ")
-            elif activity == "website":
-                activity_data['website'] = input("What web development programs did you use today? ")
-            elif activity == "others":
-                activity_data['others'] = input("What other programs did you use today? ")
-            elif activity == "career":
-                activity_data['career'] = input("What did you for your career today? ")
-            elif activity == "networking":
-                activity_data['networking'] = input("What networking event did you go today? ")
-            elif activity == "tech_learning":
-                activity_data['tech_learning'] = input("What tech course did you attend today? ")
-            elif activity == "tech_reading":
-                activity_data['tech_reading'] = input("What tech magazine or book did you read today? ")
-            elif activity == "tech_listing":
-                activity_data['tech_listing'] = input("What tech podcast or audiobook did you listen to today? ")
+            activity_data[activity] = input(f"Please specifiy, what or how long or many of {activity.replace('_', ' ')} you did today? ")
 
     total_tracker = sum(1 for v in activity_data.values() if v == 'Y')
     activity_data['daily_total'] = total_tracker
