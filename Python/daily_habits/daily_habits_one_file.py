@@ -73,7 +73,6 @@ def habit_tracker(filename, habit_questions, log_type):
         append_to_csv(filename, fieldnames, activities)
 
 def get_location():
-    # Get the location based on the IP address
     g = geocoder.ip('me')
     if g.ok:
         return g.latlng, g.city, g.state, g.country
@@ -81,14 +80,9 @@ def get_location():
         return None, None, None, None
 
 def record_entry(filename):
-    # Get current date and time
     now = datetime.now()
     current_time = now.strftime("%Y-%m-%d %H:%M:%S")
-
-    # Get location
     latlng, city, state, country = get_location()
-
-    # Prepare the data to be written to CSV
     data = [{
         'Timestamp': current_time,
         'Latitude and Longitude': latlng,
@@ -97,21 +91,13 @@ def record_entry(filename):
         'Country': country,
         'log_type': 'Location'
     }]
-
-    # Specify the CSV file name
     file_exists = os.path.isfile(filename)
-
-    # Write data to CSV file
     fieldnames = ['Timestamp', 'Latitude and Longitude', 'City', 'State', 'Country', 'log_type']
     append_to_csv(filename, fieldnames, data)
-
     print(f"Recorded: {data}")
 
 def add_log_entry(filename):
-    # Define the header
     header = ['date', 'data_science_programme', 'focus', 'focus_level', 'how_did_it_go', 'log_type']
-    
-    # Define fixed choices
     focus_levels = ['Beginner', 'Beginner/Intermediate', 'Intermediate', 'Intermediate/Advanced', 'Advanced', 'All level', 'None']
     how_did_it_go_choices = {
         '0': '0 = bad day - no Data Science',
@@ -124,32 +110,20 @@ def add_log_entry(filename):
         '7': '7 = fantastic',
         '8': '8 = good day / holiday - sorry no Data Science'
     }
-    
-    # Check if the file exists and is not empty
     file_exists = os.path.isfile(filename) and os.path.getsize(filename) > 0
-
-    # Get current date
     date = datetime.now().strftime('%Y-%m-%d')
-
-    # Prompt user for input
     data_science_programme = input("Main used Data Science programme of the day: ")
     focus = input("One thing you focused on: ")
-    
-    # Prompt for focus level
     print("Choose the level of focus:")
     for idx, level in enumerate(focus_levels, start=1):
         print(f"{idx}. {level}")
     focus_level_idx = int(input("Enter the number corresponding to the focus level: "))
     focus_level = focus_levels[focus_level_idx - 1]
-    
-    # Prompt for how did it go
     print("How did it go?")
     for key, value in how_did_it_go_choices.items():
         print(f"{key}. {value}")
     how_did_it_go = input("Enter the number corresponding to your experience: ")
     how_did_it_go = how_did_it_go_choices[how_did_it_go]
-    
-    # Prepare log entry
     log_entry = [{
         'date': date,
         'data_science_programme': data_science_programme,
@@ -158,10 +132,7 @@ def add_log_entry(filename):
         'how_did_it_go': how_did_it_go,
         'log_type': 'Data Science Log'
     }]
-
-    # Write log entry to CSV file
     append_to_csv(filename, header, log_entry)
-
     print("Log entry added successfully!")
 
 def good_things_log(filename):
@@ -231,10 +202,8 @@ def good_things_log(filename):
             print("Invalid choice. Please try again.")
 
 def main():
-    # Record location entry
     record_entry('daily_tracker.csv')
     
-    # Habit tracking
     data_science_habit_questions = [
         ("r", "Any R today? (Y/N): "),
         ("sql", "Any SQL today? (Y/N): "),
@@ -268,10 +237,8 @@ def main():
     ]
     habit_tracker('daily_tracker.csv', living_healthy_habit_questions, 'Living Healthy')
 
-    # Add log entry for data science
     add_log_entry('daily_tracker.csv')
 
-    # Good things log
     good_things_log('daily_tracker.csv')
 
 if __name__ == "__main__":
