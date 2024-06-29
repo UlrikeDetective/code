@@ -16,7 +16,7 @@ def append_to_csv(file_path, fieldnames, data):
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         if not file_exists:
             writer.writeheader()
-        writer.writerows(data)
+        writer.writerow(data)  # Changed to writer.writerow to write one dictionary at a time
 
 def check_and_get_unique_entry(file_path, date, log_type):
     if os.path.isfile(file_path):
@@ -28,63 +28,29 @@ def check_and_get_unique_entry(file_path, date, log_type):
     return date
 
 def habit_tracker(filename, habit_questions, log_type):
-    activities = []
-    activity_id_counter = 1
     today_date = datetime.now().strftime("%Y-%m-%d")
     
     if not check_and_get_unique_entry(filename, today_date, log_type):
         print(f"Today's entries for {log_type} already exist. Exiting.")
         return
 
-    while True:
-        name = input(f"Any activities for the {log_type} habit tracker today? (Enter 'quit' to stop): ")
-        if name.lower() == 'quit':
-            break
+    activity_data = {'date': today_date, 'log_type': log_type}
 
-        activity_data = {'date': today_date, 'log_type': log_type}
-        for activity, prompt in habit_questions:
-            activity_data[activity] = get_activity_input(prompt)
-            if activity_data[activity] == 'Y':
-                if activity == "biking_duration":
-                    activity_data['biking_duration'] = input("How many minutes of biking did you do today? ")
-                elif activity == "steps":
-                    activity_data['steps'] = input("How many steps did you do today? ")
-                elif activity == "other_sport":
-                    activity_data['other_sport'] = input("What other sport did you do today? ")
-                elif activity == "book":
-                    activity_data['book'] = input("What book did you read today? ")
-                elif activity == "listening":
-                    activity_data['listening'] = input("What audiobook or podcast did you listen to today? ")
-                elif activity == "adobe":
-                    activity_data['adobe'] = input("Any Adobe tools used today? ")
-                elif activity == "website":
-                    activity_data['website'] = input("Any web development today? ")
-                elif activity == "others":
-                    activity_data['others'] = input("Any other tech activities today? ")
-                elif activity == "career":
-                    activity_data['career'] = input("Did you work on your career today? ")
-                elif activity == "networking":
-                    activity_data['networking'] = input("Did you do any networking today? ")
-                elif activity == "tech_learning":
-                    activity_data['tech_learning'] = input("Any tech learning today? ")
-                elif activity == "tech_reading":
-                    activity_data['tech_reading'] = input("Any tech reading today? ")
-                elif activity == "tech_listing":
-                    activity_data['tech_listing'] = input("Any tech listing today? ")
+    for activity, prompt in habit_questions:
+        activity_data[activity] = get_activity_input(prompt)
+        if activity_data[activity] == 'Y':
+            if activity == "steps":
+                activity_data['steps'] = input("How many steps did you do today? ")
+            elif activity == "biking_duration":
+                activity_data['biking_duration'] = input("How many minutes of biking did you do today? ")
+            elif activity == "other_sport":
+                activity_data['other_sport'] = input("What other sport did you do today? ")
+            elif activity == "book":
+                activity_data['book'] = input("What book did you read today? ")
+            elif activity == "listening":
+                activity_data['listening'] = input("What audiobook or podcast did you listen to today? ")
 
-        activity_id = f"Habit{activity_id_counter:03}" if any(v == 'Y' for v in activity_data.values()) else None
-        total_tracker = sum(1 for v in activity_data.values() if v == 'Y')
-
-        activity_data.update({
-            'activity_id': activity_id,
-            'daily_total': total_tracker,
-        })
-        activities.append(activity_data)
-        activity_id_counter += 1
-
-    if activities:
-        fieldnames = ['activity_id', 'date', 'log_type', 'daily_total'] + [q[0] for q in habit_questions]
-        append_to_csv(filename, fieldnames, activities)
+    append_to_csv(filename, [q[0] for q in habit_questions] + ['date', 'log_type'], activity_data)
 
 def get_location():
     g = geocoder.ip('me')
@@ -97,14 +63,14 @@ def record_entry(filename):
     now = datetime.now()
     current_time = now.strftime("%Y-%m-%d %H:%M:%S")
     latlng, city, state, country = get_location()
-    data = [{
+    data = {
         'Timestamp': current_time,
         'Latitude and Longitude': latlng,
         'City': city,
         'State': state,
         'Country': country,
         'log_type': 'Location'
-    }]
+    }
     file_exists = os.path.isfile(filename)
     fieldnames = ['Timestamp', 'Latitude and Longitude', 'City', 'State', 'Country', 'log_type']
     append_to_csv(filename, fieldnames, data)
@@ -138,14 +104,14 @@ def add_log_entry(filename):
         print(f"{key}. {value}")
     how_did_it_go = input("Enter the number corresponding to your experience: ")
     how_did_it_go = how_did_it_go_choices[how_did_it_go]
-    log_entry = [{
+    log_entry = {
         'date': date,
         'data_science_programme': data_science_programme,
         'focus': focus,
         'focus_level': focus_level,
         'how_did_it_go': how_did_it_go,
         'log_type': 'Data Science Log'
-    }]
+    }
     append_to_csv(filename, header, log_entry)
     print("Log entry added successfully!")
 
