@@ -30,7 +30,6 @@ def check_and_get_unique_entry(file_path, date, log_type):
 def habit_tracker(filename, habit_questions, log_type):
     activities = []
     activity_id_counter = 1
-    total_activities = 0
     today_date = datetime.now().strftime("%Y-%m-%d")
     
     if not check_and_get_unique_entry(filename, today_date, log_type):
@@ -46,8 +45,8 @@ def habit_tracker(filename, habit_questions, log_type):
         for activity, prompt in habit_questions:
             activity_data[activity] = get_activity_input(prompt)
             if activity_data[activity] == 'Y':
-                if activity.endswith('_duration'):
-                    activity_data[activity] = input(f"How many minutes of {activity.split('_')[0]} did you do today? ")
+                if activity == "biking_duration":
+                    activity_data['biking_duration'] = input("How many minutes of biking did you do today? ")
                 elif activity == "steps":
                     activity_data['steps'] = input("How many steps did you do today? ")
                 elif activity == "other_sport":
@@ -55,11 +54,26 @@ def habit_tracker(filename, habit_questions, log_type):
                 elif activity == "book":
                     activity_data['book'] = input("What book did you read today? ")
                 elif activity == "listening":
-                    activity_data['listening'] = input("What audiobook did you listen to today? ")
+                    activity_data['listening'] = input("What audiobook or podcast did you listen to today? ")
+                elif activity == "adobe":
+                    activity_data['adobe'] = input("Any Adobe tools used today? ")
+                elif activity == "website":
+                    activity_data['website'] = input("Any web development today? ")
+                elif activity == "others":
+                    activity_data['others'] = input("Any other tech activities today? ")
+                elif activity == "career":
+                    activity_data['career'] = input("Did you work on your career today? ")
+                elif activity == "networking":
+                    activity_data['networking'] = input("Did you do any networking today? ")
+                elif activity == "tech_learning":
+                    activity_data['tech_learning'] = input("Any tech learning today? ")
+                elif activity == "tech_reading":
+                    activity_data['tech_reading'] = input("Any tech reading today? ")
+                elif activity == "tech_listing":
+                    activity_data['tech_listing'] = input("Any tech listing today? ")
 
         activity_id = f"Habit{activity_id_counter:03}" if any(v == 'Y' for v in activity_data.values()) else None
         total_tracker = sum(1 for v in activity_data.values() if v == 'Y')
-        total_activities += total_tracker
 
         activity_data.update({
             'activity_id': activity_id,
