@@ -44,6 +44,7 @@ def habit_tracker(filename, habit_questions, log_type):
     total_tracker = sum(1 for v in activity_data.values() if v == 'Y')
     activity_data['daily_total'] = total_tracker
 
+    # Ensure all keys in activity_data are accounted for in fieldnames
     fieldnames = ['date', 'log_type', 'daily_total'] + all_questions
     append_to_csv(filename, fieldnames, activity_data)
 
@@ -71,6 +72,7 @@ def record_entry(filename):
         'log_type': 'Location'
     }
 
+    # Ensure all keys in data are accounted for in fieldnames
     fieldnames = ['Timestamp', 'Latitude and Longitude', 'City', 'State', 'Country', 'log_type']
     append_to_csv(filename, fieldnames, data)
     print(f"Recorded: {data}")
@@ -114,6 +116,7 @@ def add_log_entry(filename):
         'log_type': 'Data Science Log'
     }
     
+    # Ensure all keys in log_entry are accounted for in header
     append_to_csv(filename, header, log_entry)
     print("Log entry added successfully!")
 
@@ -181,7 +184,7 @@ def good_things_log(filename):
             break
 
         else:
-            print("Invalid choice. Please try again.")
+            print("Invalid choice. Please try again!")
 
 def main():
     record_entry('daily_tracker.csv')
