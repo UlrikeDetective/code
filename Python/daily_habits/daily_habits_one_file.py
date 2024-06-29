@@ -84,7 +84,7 @@ def habit_tracker(filename, habit_questions, log_type):
     append_to_csv(filename, fieldnames, activity_data)
 
 def add_log_entry(filename):
-    header = ['date', 'data_science_programme', 'focus', 'focus_level', 'how_did_it_go', 'log_type']
+    header = ['date', 'log_type', 'daily_total', 'kaggle', 'github', 'others', 'adobe', 'excel', 'website', 'sql', 'tech_reading', 'r', 'python', 'tech_learning', 'tech_listing', 'terminal', 'career', 'networking']
     focus_levels = ['Beginner', 'Beginner/Intermediate', 'Intermediate', 'Intermediate/Advanced', 'Advanced', 'All level', 'None']
     how_did_it_go_choices = {
         '0': '0 = bad day - no Data Science',
@@ -116,7 +116,22 @@ def add_log_entry(filename):
         'focus': focus,
         'focus_level': focus_level,
         'how_did_it_go': how_did_it_go,
-        'log_type': 'Data Science Log'
+        'log_type': 'Data Science Log',
+        'kaggle': input("Any Kaggle kernels used today? "),
+        'github': input("Any github repositories used today? "),
+        'others': input("Any other tools used today? "),
+        'adobe': input("Any Adobe tools used today? "),
+        'excel': input("Any Excel tools used today? "),
+        'website': input("Any website development tools used today? "),
+        'sql': input("Any SQL programming used today? "),
+        'tech_reading': input("Any tech book, magazine or post used today? "),
+        'r': input("Any R programming used today? "),
+        'python': input("Any Python programming used today? "),
+        'tech_learning': input("Any tech learning, lecture or seminar? "),
+        'tech_listing': input("Any tech podcast or lecture listened to today? "),
+        'terminal': input("Any terminal activity today? "),
+        'career': input("Any career activity today? "),
+        'networking': input("Any networking activity today? ")
     }
     append_to_csv(filename, header, log_entry)
     print("Log entry added successfully!")
@@ -125,7 +140,7 @@ def good_things_log(filename):
     class GoodThingsLog:
         def __init__(self, filename):
             self.filename = filename
-            self.fieldnames = ['date', 'first_good_thing', 'second_good_thing', 'third_good_thing', 'honorary_mentions', 'log_type']
+            self.fieldnames = ['date', 'log_type', 'first_good_thing', 'second_good_thing', 'third_good_thing', 'honorary_mentions']
             self.check_and_create_file()
 
         def check_and_create_file(self):
@@ -143,11 +158,11 @@ def good_things_log(filename):
                 writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
                 writer.writerow({
                     'date': current_date,
+                    'log_type': 'Good Things Log',
                     'first_good_thing': first,
                     'second_good_thing': second,
                     'third_good_thing': third,
-                    'honorary_mentions': honorary,
-                    'log_type': 'Good Things Log'
+                    'honorary_mentions': honorary
                 })
 
         def display_logs(self):
@@ -173,7 +188,6 @@ def good_things_log(filename):
             second = input("Enter second good thing: ")
             third = input("Enter third good thing: ")
             honorary = input("Enter honorary mentions: ")
-
             good_things_log.add_log(first, second, third, honorary)
             print("Log added successfully!")
 
@@ -181,35 +195,28 @@ def good_things_log(filename):
             good_things_log.display_logs()
 
         elif choice == "3":
-            print("Exiting Good Things Log.")
             break
 
         else:
-            print("Invalid choice. Please try again.")
+            print("Invalid choice. Please enter 1, 2, or 3.")
 
 def get_location():
-    try:
-        g = geocoder.ip('me')
-        if g.ok:
-            return g.latlng, g.city, g.state, g.country
-    except Exception as e:
-        print(f"Error fetching location: {e}")
-    return None, None, None, None
+    location = geocoder.ip('me')
+    return location.address
 
 def record_entry(filename):
-    now = datetime.now()
-    current_time = now.strftime("%Y-%m-%d %H:%M:%S")
-    latlng, city, state, country = get_location()
-    data = {
-        'Timestamp': current_time,
-        'Latitude and Longitude': latlng,
-        'City': city,
-        'State': state,
-        'Country': country,
-        'log_type': 'Location'
+    entry_location = get_location()
+    entry_date = datetime.now().strftime('%Y-%m-%d')
+    entry_time = datetime.now().strftime('%H:%M:%S')
+
+    location_entry = {
+        'date': entry_date,
+        'time': entry_time,
+        'location': entry_location,
+        'log_type': 'Location Entry'
     }
-    fieldnames = ['Timestamp', 'Latitude and Longitude', 'City', 'State', 'Country', 'log_type']
-    append_to_csv(filename, fieldnames, data)
+
+    append_to_csv(filename, ['date', 'time', 'location', 'log_type'], location_entry)
     print("Location entry added successfully!")
 
 def show_menu():
