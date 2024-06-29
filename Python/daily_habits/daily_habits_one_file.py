@@ -24,63 +24,38 @@ def check_and_get_unique_entry(file_path, date, log_type):
             reader = csv.DictReader(file)
             for row in reader:
                 if row.get('date') == date and row.get('log_type') == log_type:
-                    return None
-    return date
+                    return False
+    return True
 
 def habit_tracker(filename, habit_questions, log_type):
     today_date = datetime.now().strftime("%Y-%m-%d")
-    
+
     if not check_and_get_unique_entry(filename, today_date, log_type):
         print(f"Today's entries for {log_type} already exist. Exiting.")
         return
 
     activity_data = {'date': today_date, 'log_type': log_type}
-    for activity, prompt in habit_questions:
-        activity_data[activity] = get_activity_input(prompt)
-        if activity_data[activity] == 'Y':
-            if activity == "biking_duration":
-                activity_data['biking_duration'] = input("How many minutes of biking did you do today? ")
-            elif activity == "steps":
-                activity_data['steps'] = input("How many steps did you do today? ")
-            elif activity == "yoga":
-                activity_data['yoga'] = input("How many minutes of yoga did you do today? ")
-            elif activity == "meditation":
-                activity_data['meditation'] = input("How many minutes of meditation did you do today? ")
-            elif activity == "other_sport":
-                activity_data['other_sport'] = input("What other sport did you do today? ")
-            elif activity == "book":
-                activity_data['book'] = input("What book did you read today? ")
-            elif activity == "listening":
-                activity_data['listening'] = input("What audiobook or podcast did you listen to today? ")
-            elif activity == "adobe":
-                activity_data['adobe'] = input("Any Adobe tools used today? ")
-            elif activity == "website":
-                activity_data['website'] = input("What web development programs did you use today? ")
-            elif activity == "others":
-                activity_data['others'] = input("What other programs did you use today? ")
-            elif activity == "career":
-                activity_data['career'] = input("What did you do for your career today? ")
-            elif activity == "networking":
-                activity_data['networking'] = input("What networking event did you attend today? ")
-            elif activity == "tech_learning":
-                activity_data['tech_learning'] = input("What tech course did you attend today? ")
-            elif activity == "tech_reading":
-                activity_data['tech_reading'] = input("What tech magazine or book did you read today? ")
-            elif activity == "tech_listing":
-                activity_data['tech_listing'] = input("What podcast or audiobook tech-related did you listen to today? ")
 
-    fieldnames = ['date', 'log_type'] + [q[0] for q in habit_questions] + [
-        'biking_duration', 'steps', 'yoga', 'meditation', 'other_sport', 'book',
-        'listening', 'adobe', 'website', 'others', 'career', 'networking', 
-        'tech_learning', 'tech_reading', 'tech_listing'
-    ]
+    all_questions = []
+    for activity, prompt in habit_questions:
+        all_questions.append(activity.strip())  # Remove trailing whitespaces
+        activity_data[activity] = get_activity_input(prompt)
+
+    total_tracker = sum(1 for v in activity_data.values() if v == 'Y')
+    activity_data['daily_total'] = total_tracker
+
+    fieldnames = ['date', 'log_type', 'daily_total'] + all_questions
     append_to_csv(filename, fieldnames, activity_data)
 
 def get_location():
-    g = geocoder.ip('me')
-    if g.ok:
-        return g.latlng, g.city, g.state, g.country
-    else:
+    try:
+        g = geocoder.ip('me')
+        if g.ok:
+            return g.latlng, g.city, g.state, g.country
+        else:
+            return None, None, None, None
+    except Exception as e:
+        print(f"Error getting location: {e}")
         return None, None, None, None
 
 def record_entry(filename):
@@ -95,6 +70,7 @@ def record_entry(filename):
         'Country': country,
         'log_type': 'Location'
     }
+
     fieldnames = ['Timestamp', 'Latitude and Longitude', 'City', 'State', 'Country', 'log_type']
     append_to_csv(filename, fieldnames, data)
     print(f"Recorded: {data}")
@@ -113,19 +89,22 @@ def add_log_entry(filename):
         '7': '7 = fantastic',
         '8': '8 = good day / holiday - sorry no Data Science'
     }
+
     date = datetime.now().strftime('%Y-%m-%d')
-    data_science_programme = input("Main used Data Science programme of the day: ")
+    data_science_programme = input("Main Data Science programme used today: ")
     focus = input("One thing you focused on: ")
+    
     print("Choose the level of focus:")
     for idx, level in enumerate(focus_levels, start=1):
         print(f"{idx}. {level}")
     focus_level_idx = int(input("Enter the number corresponding to the focus level: "))
     focus_level = focus_levels[focus_level_idx - 1]
+
     print("How did it go?")
     for key, value in how_did_it_go_choices.items():
         print(f"{key}. {value}")
-    how_did_it_go = input("Enter the number corresponding to your experience: ")
-    how_did_it_go = how_did_it_go_choices[how_did_it_go]
+    how_did_it_go = how_did_it_go_choices[input("Enter the number corresponding to your experience: ")]
+
     log_entry = {
         'date': date,
         'data_science_programme': data_science_programme,
@@ -134,6 +113,7 @@ def add_log_entry(filename):
         'how_did_it_go': how_did_it_go,
         'log_type': 'Data Science Log'
     }
+    
     append_to_csv(filename, header, log_entry)
     print("Log entry added successfully!")
 
@@ -203,36 +183,45 @@ def good_things_log(filename):
         else:
             print("Invalid choice. Please try again.")
 
-if __name__ == "__main__":
-    filename = 'daily_tracker.csv'
+def main():
+    record_entry('daily_tracker.csv')
 
-    # Location Log
-    record_entry(filename)
-
-    # Habit Tracker
-    habit_questions = [
-        ("coding_exercise", "Did you do a coding exercise today? (Y/N) "),
-        ("biking_duration", "Did you go biking today? (Y/N) "),
-        ("steps", "Did you reach your steps goal today? (Y/N) "),
-        ("yoga", "Did you do yoga today? (Y/N) "),
-        ("meditation", "Did you meditate today? (Y/N) "),
-        ("other_sport", "Did you do any other sport today? (Y/N) "),
-        ("book", "Did you read a book today? (Y/N) "),
-        ("listening", "Did you listen to an audiobook or podcast today? (Y/N) "),
-        ("adobe", "Did you use any Adobe tools today? (Y/N) "),
-        ("website", "Did you work on web development today? (Y/N) "),
-        ("others", "Did you use other programs today? (Y/N) "),
-        ("career", "Did you do anything for your career today? (Y/N) "),
-        ("networking", "Did you network with someone today? (Y/N) "),
-        ("tech_learning", "Did you attend any tech courses today? (Y/N) "),
-        ("tech_reading", "Did you read any tech magazines or books today? (Y/N) "),
-        ("tech_listing", "Did you listen to any tech-related podcasts or audiobooks today? (Y/N) "),
+    data_science_habit_questions = [
+        ("r", "Any R today? (Y/N): "),
+        ("sql", "Any SQL today? (Y/N): "),
+        ("python", "Any Python today? (Y/N): "),
+        ("github", "Any Github today? (Y/N): "),
+        ("kaggle", "Any Kaggle or competition today? (Y/N): "),
+        ("terminal", "Any Terminal today? (Y/N): "),
+        ("excel", "Any Excel today? (Y/N): "),
+        ("adobe", "Any Adobe today? (Y/N): "),
+        ("website", "Any web development today? (Y/N): "),
+        ("others", "Any others today? (Y/N): "),
+        ("career", "Did you work on your career today? (Y/N): "),
+        ("networking", "Any networking today? (Y/N): "),
+        ("tech_learning", "Any tech learning today? (Y/N): "),
+        ("tech_reading", "Any tech reading today? (Y/N): "),
+        ("tech_listing", "Any tech listing today? (Y/N): ")
     ]
+    habit_tracker('daily_tracker.csv', data_science_habit_questions, 'Data Science')
 
-    habit_tracker(filename, habit_questions, 'Living Healthy')
+    living_healthy_habit_questions = [
+        ("yoga", "Did you do yoga today? (Y/N): "),
+        ("meditation", "Did you meditate today? (Y/N): "),
+        ("steps", "Did you measure your steps today? (Y/N): "),
+        ("biking_duration", "Did you ride a bike today? (Y/N): "),
+        ("other_sport", "Did you do any other sport today? (Y/N): "),
+        ("fruit", "Did you eat fruits today? (Y/N): "),
+        ("vegetables", "Did you eat vegetables today? (Y/N): "),
+        ("water", "Did you drink more than two liters of water today? (Y/N): "),
+        ("book", "Did you read a book today? (Y/N): "),
+        ("listening", "Did you listen to an audiobook or podcast today? (Y/N): ")
+    ]
+    habit_tracker('daily_tracker.csv', living_healthy_habit_questions, 'Living Healthy')
 
-    # Data Science Log
-    add_log_entry(filename)
+    add_log_entry('daily_tracker.csv')
 
-    # Good Things Log
-    good_things_log(filename)
+    good_things_log('daily_tracker.csv')
+
+if __name__ == "__main__":
+    main()
