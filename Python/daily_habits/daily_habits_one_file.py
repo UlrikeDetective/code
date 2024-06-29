@@ -16,7 +16,7 @@ def append_to_csv(file_path, fieldnames, data):
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         if not file_exists:
             writer.writeheader()
-        writer.writerow(data)  # Changed to writer.writerow to write one dictionary at a time
+        writer.writerow(data)
 
 def check_and_get_unique_entry(file_path, date, log_type):
     if os.path.isfile(file_path):
@@ -29,12 +29,13 @@ def check_and_get_unique_entry(file_path, date, log_type):
 
 def habit_tracker(filename, habit_questions, log_type):
     today_date = datetime.now().strftime("%Y-%m-%d")
-    
+
     if not check_and_get_unique_entry(filename, today_date, log_type):
         print(f"Today's entries for {log_type} already exist. Exiting.")
         return
 
     activity_data = {'date': today_date, 'log_type': log_type}
+
     for activity, prompt in habit_questions:
         activity_data[activity] = get_activity_input(prompt)
         if activity_data[activity] == 'Y':
@@ -67,9 +68,12 @@ def habit_tracker(filename, habit_questions, log_type):
             elif activity == "tech_reading":
                 activity_data['tech_reading'] = input("What tech magazine or book did you read today? ")
             elif activity == "tech_listing":
-                activity_data['tech_listing'] = input("What podcast or audiobook tech related did you listen today? ")
+                activity_data['tech_listing'] = input("What tech podcast or audiobook did you listen to today? ")
 
-    fieldnames = ['date', 'log_type'] + [q[0] for q in habit_questions]
+    total_tracker = sum(1 for v in activity_data.values() if v == 'Y')
+    activity_data['daily_total'] = total_tracker
+
+    fieldnames = ['date', 'log_type', 'daily_total'] + [q[0] for q in habit_questions]
     append_to_csv(filename, fieldnames, activity_data)
 
 def get_location():
@@ -109,7 +113,6 @@ def add_log_entry(filename):
         '7': '7 = fantastic',
         '8': '8 = good day / holiday - sorry no Data Science'
     }
-    file_exists = os.path.isfile(filename) and os.path.getsize(filename) > 0
     date = datetime.now().strftime('%Y-%m-%d')
     data_science_programme = input("Main used Data Science programme of the day: ")
     focus = input("One thing you focused on: ")
@@ -121,8 +124,8 @@ def add_log_entry(filename):
     print("How did it go?")
     for key, value in how_did_it_go_choices.items():
         print(f"{key}. {value}")
-    how_did_it_go = input("Enter the number corresponding to your experience: ")
-    how_did_it_go = how_did_it_go_choices[how_did_it_go]
+    how_did_it_go = how_did_it_go_choices[input("Enter the number corresponding to your experience: ")]
+
     log_entry = {
         'date': date,
         'data_science_programme': data_science_programme,
