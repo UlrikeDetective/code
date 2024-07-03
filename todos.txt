@@ -3,3 +3,8 @@
 * BigQuery Databases to MySQL?
 * from the coffee_shop.py build a connection to MySQL
 * Debug code
+
+Learning
+
+- JavaScript
+- Node.js
