@@ -17,5 +17,5 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}.`);
 });
 
-# 7. node file.js
+# 7. node file.js or nodemon file.js
 # stop running server: control + C
