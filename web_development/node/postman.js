@@ -10,7 +10,7 @@ const port = 3000;
 // *********************
 
 app.get("/", (req, res) => {
-  res.send("<h1>Home Page</h1>");
+  res.send("<h1>Home Page - Hello World!</h1>");
 });
 
 app.post("/register", (req, res) => {
@@ -18,15 +18,15 @@ app.post("/register", (req, res) => {
   res.sendStatus(201);
 });
 
-app.put("/user/angela", (req, res) => {
+app.put("/user/Ulrike", (req, res) => {
   res.sendStatus(200);
 });
 
-app.patch("/user/angela", (req, res) => {
+app.patch("/user/Ulrike", (req, res) => {
   res.sendStatus(200);
 });
 
-app.delete("/user/angela", (req, res) => {
+app.delete("/user/Ulrike", (req, res) => {
   //Deleting
   res.sendStatus(200);
 });
