@@ -6,6 +6,9 @@ const port = 3000;
 
 //Step 3 - Make the styling show up.
 //Hint 1: CSS files are static files!
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 //Hint 2: The header and footer are partials.
 //Hint 3: Add the CSS link in header.ejs
 
