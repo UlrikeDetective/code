@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/content.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>Blog</title>
 </head>
 <body>
     <%- include('partials/header') %>
     <div class="container">
         <h1>Blog Posts</h1>
-        <a href="/new-post">Create New Post</a>
+        <!-- Ensure this link is correctly placed and styled -->
+        <a href="/new-post" class="create-post-link">Create New Post</a>
         <ul>
             <% posts.forEach(post => { %>
                 <li>
