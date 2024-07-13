@@ -35,6 +35,21 @@ nav a:hover {
     text-decoration: underline;
 }
 
+nav .button {
+    background-color: #1891AC;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+nav .button:hover {
+    background-color: #1F5F8B;
+}
+
 footer {
     position: relative;
     background-color: #253B6E;
