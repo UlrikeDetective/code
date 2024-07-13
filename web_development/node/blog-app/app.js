@@ -6,7 +6,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-const posts = [];
+let posts = [];
 
 app.get('/', (req, res) => {
     res.render('index', { posts: posts });
@@ -17,8 +17,31 @@ app.get('/new-post', (req, res) => {
 });
 
 app.post('/new-post', (req, res) => {
-    const post = { title: req.body.title, content: req.body.content };
+    const post = { id: Date.now(), title: req.body.title, content: req.body.content };
     posts.push(post);
+    res.redirect('/');
+});
+
+app.get('/edit-post/:id', (req, res) => {
+    const post = posts.find(p => p.id == req.params.id);
+    if (post) {
+        res.render('edit-post', { post: post });
+    } else {
+        res.redirect('/');
+    }
+});
+
+app.post('/edit-post/:id', (req, res) => {
+    const post = posts.find(p => p.id == req.params.id);
+    if (post) {
+        post.title = req.body.title;
+        post.content = req.body.content;
+    }
+    res.redirect('/');
+});
+
+app.post('/delete-post/:id', (req, res) => {
+    posts = posts.filter(p => p.id != req.params.id);
     res.redirect('/');
 });
 
