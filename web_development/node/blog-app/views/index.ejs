@@ -16,6 +16,10 @@
                 <li>
                     <h2><%= post.title %></h2>
                     <p><%= post.content %></p>
+                    <a href="/edit-post/<%= post.id %>">Edit</a>
+                    <form action="/delete-post/<%= post.id %>" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
                 </li>
             <% }) %>
         </ul>
