@@ -53,3 +53,14 @@ button {
 button:hover {
     background-color: #218838;
 }
+
+a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
