@@ -5,12 +5,12 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f5f5f5;
+    background-color: #D2ECF9;
     color: #333;
 }
 
 header {
-    background-color: #333;
+    background-color: #253B6E;
     color: #fff;
     padding: 10px 0;
     text-align: center;
@@ -25,7 +25,7 @@ header h1 {
 }
 
 nav a {
-    color: #fff;
+    color: #D2ECF9;
     text-decoration: none;
     margin: 0 15px;
     font-weight: 600;
@@ -37,7 +37,7 @@ nav a:hover {
 
 footer {
     position: relative;
-    background-color: #333;
+    background-color: #253B6E;
     color: #fff;
     text-align: center;
     padding: 40px 0 10px 0;
