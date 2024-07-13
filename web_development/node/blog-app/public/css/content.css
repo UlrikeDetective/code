@@ -1,7 +1,7 @@
 /* content.css */
 
 h1, h2 {
-    color: #333;
+    color: #C8ACD6;
     font-weight: 700; /* Adjust the weight as needed */
 }
 
@@ -40,7 +40,7 @@ textarea {
 
 button {
     padding: 10px 15px;
-    background-color: #28a745;
+    background-color: #433D8B;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -50,13 +50,13 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #2E236C;
 }
 
 a {
     display: inline-block;
     margin-right: 10px;
-    color: #007bff;
+    color: #2E236C;
     text-decoration: none;
     font-weight: 600;
 }
