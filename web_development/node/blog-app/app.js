@@ -17,7 +17,7 @@ app.get('/new-post', (req, res) => {
 });
 
 app.post('/new-post', (req, res) => {
-    const post = { id: Date.now(), title: req.body.title, content: req.body.content };
+    const post = { id: Date.now(), title: req.body.title, content: req.body.content,  author: req.body.author };
     posts.push(post);
     res.redirect('/');
 });

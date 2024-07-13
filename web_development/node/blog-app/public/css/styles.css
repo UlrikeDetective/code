@@ -14,14 +14,10 @@ body {
     padding: 20px;
 }
 
-h1 {
-    color: #253B6E;
-}
-
 button {
     padding: 10px 15px;
     background-color: #1891AC;
-    color: #fff;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -33,14 +29,20 @@ button:hover {
     background-color: #1F5F8B;
 }
 
+h1 {
+    color: #253B6E;
+}
+
+
 /* Link styles */
 .create-post-link {
     display: inline-block;
     margin: 20px 0;
     padding: 10px 15px;
     background-color: #1F5F8B;
-    color: #fff;
+    color: #f5eef5;
     text-decoration: none;
+    font-size: 1.3rem;
     border-radius: 5px;
     font-weight: 600;
     transition: background-color 0.3s;

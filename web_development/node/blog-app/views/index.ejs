@@ -15,14 +15,13 @@
     <%- include('partials/header') %>
     <div class="container">
         <h1>Blog Posts</h1>
-        <!-- Ensure this link is correctly placed and styled -->
         <a href="/new-post" class="create-post-link">Create New Post</a>
         <ul>
             <% posts.forEach(post => { %>
                 <li>
                     <h2><%= post.title %></h2>
                     <p><%= post.content %></p>
-                    <a href="/edit-post/<%= post.id %>">Edit</a>
+                    <a href="/edit-post/<%= post.id %>" class="button">Edit</a>
                     <form action="/delete-post/<%= post.id %>" method="post" style="display:inline;">
                         <button type="submit">Delete</button>
                     </form>
