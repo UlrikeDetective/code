@@ -7,18 +7,31 @@ const PORT = process.env.PORT || 3000;
 
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
-
-// Serve static files from the "public" directory
 app.use(express.static('public'));
+
+// Function to get coordinates using OpenCage API
+async function getCoordinates(city) {
+    try {
+        const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${city}&key=${process.env.OPENCAGE_API_KEY}`);
+        if (response.data.results.length > 0) {
+            const { lat, lng } = response.data.results[0].geometry;
+            return { lat, lng };
+        } else {
+            throw new Error('City not found');
+        }
+    } catch (error) {
+        throw new Error('Error fetching coordinates');
+    }
+}
 
 // Define the root route
 app.get('/', async (req, res) => {
     let location = req.query.location || 'New York'; // default location
-    let latitude = 40.7128; // Replace with actual latitude
-    let longitude = -74.0060; // Replace with actual longitude
 
     try {
-        const response = await axios.get(`https://api.openuv.io/api/v1/uv?lat=${latitude}&lng=${longitude}`, {
+        const { lat, lng } = await getCoordinates(location);
+
+        const response = await axios.get(`https://api.openuv.io/api/v1/uv?lat=${lat}&lng=${lng}`, {
             headers: {
                 'x-access-token': process.env.OPENUV_API_KEY
             }
@@ -30,7 +43,7 @@ app.get('/', async (req, res) => {
         };
         res.render('index', { uvData: uvData, error: null });
     } catch (error) {
-        res.render('index', { uvData: null, error: 'Error fetching UV data' });
+        res.render('index', { uvData: null, error: error.message });
     }
 });
 
