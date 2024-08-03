@@ -1,14 +1,14 @@
-require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
+require('dotenv').config();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Your other code...
-
-
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
+
+// Serve static files from the "public" directory
 app.use(express.static('public'));
 
 // Define the root route
@@ -33,7 +33,6 @@ app.get('/', async (req, res) => {
         res.render('index', { uvData: null, error: 'Error fetching UV data' });
     }
 });
-
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
