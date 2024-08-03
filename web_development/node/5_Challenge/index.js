@@ -20,7 +20,7 @@ app.get('/', async (req, res) => {
     try {
         const response = await axios.get(`https://api.openuv.io/api/v1/uv?lat=${latitude}&lng=${longitude}`, {
             headers: {
-                'x-access-token': 'YOUR_API_KEY' // Replace with your Open UV API key
+                'x-access-token': process.env.OPENUV_API_KEY
             }
         });
 
@@ -33,6 +33,7 @@ app.get('/', async (req, res) => {
         res.render('index', { uvData: null, error: 'Error fetching UV data' });
     }
 });
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
