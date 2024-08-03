@@ -3,15 +3,20 @@ const axios = require('axios');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Set EJS as the templating engine
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+// Define the root route
 app.get('/', async (req, res) => {
     let location = req.query.location || 'New York'; // default location
+    let latitude = 40.7128; // Replace with actual latitude
+    let longitude = -74.0060; // Replace with actual longitude
+
     try {
-        const response = await axios.get(`https://api.openuv.io/api/v1/uv?lat={latitude}&lng={longitude}`, {
+        const response = await axios.get(`https://api.openuv.io/api/v1/uv?lat=${latitude}&lng=${longitude}`, {
             headers: {
-                'x-access-token': 'YOUR_API_KEY'
+                'x-access-token': 'YOUR_API_KEY' // Replace with your Open UV API key
             }
         });
 
@@ -24,7 +29,6 @@ app.get('/', async (req, res) => {
         res.render('index', { uvData: null, error: 'Error fetching UV data' });
     }
 });
-
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
