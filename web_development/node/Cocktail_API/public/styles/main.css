@@ -1,90 +1,75 @@
-/* Reset some default styles */
-body, h1, h2, p, form, input, button {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-}
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Nanum+Gothic&display=swap');
 
+/* Apply global styles */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #fff;
+  font-family: 'Nanum Gothic', sans-serif;
+  background: linear-gradient(135deg, #FFFBF4 25%, #DFD4B8 25%, #DFD4B8 50%, #FFFBF4 50%, #FFFBF4 75%, #DFD4B8 75%, #DFD4B8);
+  background-size: 40px 40px;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
+/* Container for the content */
 .container {
-    border: 10px solid black;
-    padding: 20px;
-    width: 400px;
-    text-align: center;
+  text-align: center;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 90%;
+  max-width: 700px;
 }
 
+/* Cocktail image styling */
+.cocktail img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+}
+
+/* Heading styles */
 h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #333;
+  color: #35D2CB;
+  font-family: 'Bodoni Moda SC', serif;
 }
 
-form {
-    margin-bottom: 20px;
+h2 {
+  margin: 10px 0;
+  color: #4DBB9C;
+  font-family: 'Bodoni Moda SC', serif;
 }
 
-input[type="text"] {
+/* Paragraph and list styles */
+p, ul {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Styling for the list of ingredients */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background: #A9E4EB;
+  border: 1px solid #DFD4B8;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
     padding: 10px;
-    border: 2px solid black;
-    width: 80%;
-    box-sizing: border-box;
-    font-size: 1em;
-    margin-bottom: 10px;
+  }
 }
-
-button {
-    padding: 10px 20px;
-    background-color: black;
-    color: white;
-    border: none;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-.result {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #ffeb3b;
-    border: 2px solid black;
-    font-size: 1.2em;
-}
-
-.result p {
-    margin: 10px 0;
-}
-
-/* Mondrian style elements */
-.mondrian {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 5px;
-    margin-bottom: 20px;
-}
-
-.mondrian div {
-    border: 2px solid black;
-}
-
-.color1 { background-color: #ff0000; }
-.color2 { background-color: #0000ff; }
-.color3 { background-color: #ffff00; }
-.color4 { background-color: #ffffff; }
-
-.mondrian .item1 { grid-column: span 2; grid-row: span 2; }
-.mondrian .item2 { grid-column: span 1; grid-row: span 1; }
-.mondrian .item3 { grid-column: span 2; grid-row: span 1; }
-.mondrian .item4 { grid-column: span 1; grid-row: span 2; }
-.mondrian .item5 { grid-column: span 1; grid-row: span 1; }
-
