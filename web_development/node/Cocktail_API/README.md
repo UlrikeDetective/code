@@ -1,4 +1,5 @@
 # Cocktail Recipe App
+![head_picture](https://github.com/UlrikeDetective/code/blob/main/other_files/head.png)
 
 ## Installation
 
