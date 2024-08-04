@@ -6,6 +6,22 @@
   <title>Cocktail Recipe</title>
   <link rel="stylesheet" href="/public/styles.main.css">
 </head>
+<script>
+  const carouselImages = document.querySelector('.carousel-images');
+  const images = carouselImages.children;
+  let index = 0;
+
+  function showImage(newIndex) {
+    if (newIndex >= images.length) index = 0;
+    else if (newIndex < 0) index = images.length - 1;
+    else index = newIndex;
+    carouselImages.style.transform = `translateX(${-index * 100}%)`;
+  }
+
+  document.querySelector('.prev').addEventListener('click', () => showImage(index - 1));
+  document.querySelector('.next').addEventListener('click', () => showImage(index + 1));
+</script>
+
 <body>
   <div class="container">
     <h1>Random Cocktail Recipe</h1>
