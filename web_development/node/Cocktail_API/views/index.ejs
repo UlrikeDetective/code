@@ -9,6 +9,17 @@
 <body>
   <div class="container">
     <h1>Random Cocktail Recipe</h1>
+    <!-- Add this section inside the .container div -->
+    <div class="carousel">
+      <div class="carousel-images">
+        <img src="/images/cocktail1.png" alt="Cocktail 1">
+        <img src="/images/cocktail2.png" alt="Cocktail 2">
+        <img src="/images/cocktail3.png" alt="Cocktail 3">
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+
     <div class="cocktail">
       <img src="<%= cocktail.strDrinkThumb %>" alt="<%= cocktail.strDrink %>">
       <h2><%= cocktail.strDrink %></h2>
