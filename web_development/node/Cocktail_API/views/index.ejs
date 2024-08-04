@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cocktail Recipe</title>
-  <link rel="stylesheet" href="/public/styles/main.css">
+  <link rel="stylesheet" href="/styles/main.css">
   <style>
     /* Add some basic styles for carousel and cocktail section */
+    /*
     .carousel {
       position: relative;
       max-width: 100%;
@@ -43,6 +44,7 @@
     .next {
       right: 10px;
     }
+    */
 
     .cocktail {
       text-align: center;
@@ -63,26 +65,31 @@
     .cocktail li {
       margin: 5px 0;
     }
+
+    /* Add styles for the form and search results */
+    #drink-form {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #search-results {
+      margin-top: 20px;
+    }
+
+    .result-item {
+      margin-bottom: 20px;
+    }
+
+    .result-item img {
+      max-width: 100px;
+      height: auto;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Random Cocktail Recipe</h1>
 
-    <!-- Carousel Section -->
-    <div class="carousel">
-      <div class="carousel-images">
-        <img src="/images/cocktail01.png" alt="Cocktail 1">
-        <img src="/images/cocktail02.png" alt="Cocktail 2">
-        <img src="/images/cocktail03.png" alt="Cocktail 3">
-        <img src="/images/cocktail04.png" alt="Cocktail 4">
-        <img src="/images/cocktail05.png" alt="Cocktail 5">
-      </div>
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
-    </div>
-
-    <!-- Cocktail Information Section -->
     <div class="cocktail">
       <img src="<%= cocktail.strDrinkThumb %>" alt="<%= cocktail.strDrink %>">
       <h2><%= cocktail.strDrink %></h2>
@@ -97,23 +104,44 @@
         <% } %>
       </ul>
     </div>
+
+    <div id="search-form">
+      <form id="drink-form">
+        <input type="text" id="search" placeholder="Enter cocktail name">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <div id="search-results"></div>
   </div>
 
-  <!-- Carousel JavaScript -->
   <script>
-    const carouselImages = document.querySelector('.carousel-images');
-    const images = carouselImages.children;
-    let index = 0;
+    document.addEventListener("DOMContentLoaded", () => {
+      const searchBtn = document.querySelector("#search");
+      const drinkForm = document.getElementById("drink-form");
+      let filter = '';
 
-    function showImage(newIndex) {
-      if (newIndex >= images.length) index = 0;
-      else if (newIndex < 0) index = images.length - 1;
-      else index = newIndex;
-      carouselImages.style.transform = `translateX(${-index * 100}%)`;
-    }
+      drinkForm.addEventListener("submit", (event) => {
+        event.preventDefault(); // Prevent the form from submitting the default way
+        loadTable(); // Invoke the loadTable function
+      });
 
-    document.querySelector('.prev').addEventListener('click', () => showImage(index - 1));
-    document.querySelector('.next').addEventListener('click', () => showImage(index + 1));
-  </script>
-</body>
-</html>
+      document.getElementById("search").addEventListener("input", () => {
+        filter = document.getElementById("search").value;
+      });
+
+      function loadTable() {
+        let completeUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${filter}`;
+        
+        fetch(completeUrl)
+          .then(response => response.json())
+          .then(data => {
+            const cocktails = []; // Array to hold cocktails
+            const searchResults = document.getElementById("search-results");
+            searchResults.innerHTML = ''; // Clear previous results
+
+            for (let i = 0; i < data.drinks.length; i++) {
+              let drink = {
+                drinkName: data.drinks[i].strDrink,
+                drinkImg: data.drinks[i].strDrinkThumb,
+                alcoholic: data.drinks[i].str
