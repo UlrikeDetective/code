@@ -72,4 +72,39 @@ li {
     width: 95%;
     padding: 10px;
   }
+.carousel {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.carousel-images {
+  display: flex;
+  overflow: hidden;
+}
+
+.carousel-images img {
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+button {
+  background-color: #35D2CB;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
 }
