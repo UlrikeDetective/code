@@ -1,5 +1,4 @@
 # Cocktail Recipe App
-![head_picture](https://github.com/UlrikeDetective/code/blob/main/other_files/head.png)
 
 ## Installation
 
@@ -17,3 +16,5 @@ Feel free to fork this repository and submit pull requests.
 
 ### License
 This project is licensed under the MIT License.
+
+![head_picture](https://github.com/UlrikeDetective/code/blob/main/web_development/node/Cocktail_API/public/images/cocktail02.png)
