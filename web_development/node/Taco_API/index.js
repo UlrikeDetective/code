@@ -1,52 +1,30 @@
 const express = require('express');
 const axios = require('axios');
-require('dotenv').config();
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Set EJS as the templating engine
+// Set the view engine to EJS
 app.set('view engine', 'ejs');
+
+// Serve static files from the "public" directory
 app.use(express.static('public'));
 
-// Function to get coordinates using OpenCage API
-async function getCoordinates(city) {
-    try {
-        const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${city}&key=${process.env.OPENCAGE_API_KEY}`);
-        if (response.data.results.length > 0) {
-            const { lat, lng } = response.data.results[0].geometry;
-            return { lat, lng };
-        } else {
-            throw new Error('City not found');
-        }
-    } catch (error) {
-        throw new Error('Error fetching coordinates');
-    }
-}
-
-// Define the root route
+// Define a route to get a random taco recipe
 app.get('/', async (req, res) => {
-    let location = req.query.location || 'New York'; // default location
-
-    try {
-        const { lat, lng } = await getCoordinates(location);
-
-        const response = await axios.get(`https://api.openuv.io/api/v1/uv?lat=${lat}&lng=${lng}`, {
-            headers: {
-                'x-access-token': process.env.OPENUV_API_KEY
-            }
-        });
-
-        const uvData = {
-            location: location,
-            uvIndex: response.data.result.uv
-        };
-        res.render('index', { uvData: uvData, error: null });
-    } catch (error) {
-        res.render('index', { uvData: null, error: error.message });
-    }
+  try {
+    // Fetch a random taco recipe from the Taco API
+    const response = await axios.get('http://taco-randomizer.herokuapp.com/random/?full-taco=true');
+    const taco = response.data;
+    // Render the index.ejs template with the taco data
+    res.render('index', { taco });
+  } catch (error) {
+    console.error('Error fetching taco data:', error);
+    // Send a 500 error response if there is an issue with the API request
+    res.status(500).send('An error occurred while fetching taco data.');
+  }
 });
 
+// Start the server and listen on the specified port
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
