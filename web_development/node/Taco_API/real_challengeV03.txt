@@ -17,7 +17,7 @@ Demonstrate ability to manipulate, present, and work with data retrieved from AP
 
 Project Idea
 
-Use the CocktailDB API to make a website that gives the user a random cocktail recipe with images of the cocktail.
+Use the Taco API to make a website that gives the user a Taco choice.
 
 
 Requirements
