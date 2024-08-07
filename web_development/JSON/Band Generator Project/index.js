@@ -8,7 +8,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.render("solution.ejs");
+  res.render("index.ejs");
 });
 
 app.post("/submit", (req, res) => {
