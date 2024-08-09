@@ -7,6 +7,12 @@ const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Set the view engine to EJS
+app.set('view engine', 'ejs');
+
+// Serve static files from the "public" directory
+app.use(express.static('public'));
+
 //Get a random joke
 app.get("/random", (req, res) => {
   const randomIndex = Math.floor(Math.random() * jokes.length);
