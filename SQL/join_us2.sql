@@ -2,7 +2,7 @@ Use join_us;
 
 drop table users2;
 
-CREATE TABLE users2 (
+CREATE OR REPLACE TABLE users2 (
     firstName VARCHAR(100),
     lastName VARCHAR(100),  -- corrected typo in field name
     sex VARCHAR(50),
