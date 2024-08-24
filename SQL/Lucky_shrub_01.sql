@@ -12,7 +12,7 @@ select * from Products;
 Drop table Orders_new;
 Drop table Employees;
 
-CREATE TABLE Orders_02 (
+CREATE OR REPLACE TABLE Orders_02 (
     OrderID INT NOT NULL PRIMARY KEY,
     ClientID VARCHAR(10),
     ProductID VARCHAR(10),
@@ -53,7 +53,7 @@ INSERT INTO Orders_02(OrderID, ClientID, ProductID , Quantity, Cost, Date) VALUE
 (29, "Cl3", "P3", 20, 800, "2021-09-03"),  
 (30, "Cl1", "P1", 10, 500, "2022-09-01"); 
 
-CREATE TABLE Orders (
+CREATE OR REPLACE TABLE Orders (
     OrderID INT,
     Department VARCHAR(100),
     OrderDate DATE,
@@ -108,7 +108,7 @@ INSERT INTO Orders VALUES
 (50,'Trees and Shrubs','2022-07-25',100,1000),
 (51,'Decking','2022-07-25',150,1450);
 
-CREATE TABLE employees (
+CREATE OR REPLACE TABLE employees (
   EmployeeID int NOT NULL,
   EmployeeName varchar(150) DEFAULT NULL,
   Department varchar(150) DEFAULT NULL,
@@ -166,7 +166,7 @@ VALUES
 (36, 'Delhi India', 'Management', '555988234', 'delhi.india@example.com', 69000),
 (37, 'Male Maldives', 'Education', '555012345', 'male.maldives@example.com', 52000);
 
-CREATE TABLE employee_orders (
+CREATE OR REPLACE TABLE employee_orders (
  OrderID int NOT NULL,
  EmployeeID int NOT NULL,
  Status VARCHAR(150),
@@ -176,7 +176,7 @@ CREATE TABLE employee_orders (
  FOREIGN KEY (OrderID) REFERENCES orders(OrderID)
 );
 
-CREATE TABLE Notifications (
+CREATE OR REPLACE TABLE Notifications (
     NotificationID INT AUTO_INCREMENT,
     Notification VARCHAR(255),
     DateTime TIMESTAMP NOT NULL,
