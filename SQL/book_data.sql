@@ -1,5 +1,5 @@
 -- Use Bookshop;
--- CREATE TABLE books 
+-- CREATE OR REPLACE TABLE books 
 -- 	(
 -- 		book_id INT NOT NULL AUTO_INCREMENT,
 -- 		title VARCHAR(100),
