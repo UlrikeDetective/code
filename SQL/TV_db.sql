@@ -1,20 +1,20 @@
 Create database tv_db;
 Use tv_db;
 
-CREATE TABLE reviewers (
+CREATE OR REPLACE TABLE reviewers (
     id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL
 );
  
-CREATE TABLE series (
+CREATE OR REPLACE TABLE series (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(100),
     released_year YEAR,
     genre VARCHAR(100)
 );
  
-CREATE TABLE reviews (
+CREATE OR REPLACE TABLE reviews (
     id INT PRIMARY KEY AUTO_INCREMENT,
     rating DECIMAL(2 , 1 ),
     series_id INT,
