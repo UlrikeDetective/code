@@ -6,7 +6,7 @@ select * from customers;
 
 drop table Customers;
 
-CREATE TABLE Customers(  
+CREATE OR REPLACE TABLE Customers(  
 CustomerID INT NOT NULL PRIMARY KEY,   
 FullName VARCHAR(100) NOT NULL,    
 PhoneNumber INT NOT NULL UNIQUE  
@@ -63,7 +63,7 @@ VALUES
 (38, 'Aung San Suu Kyi', '0447536310');
 
 
-CREATE TABLE Bookings (  
+CREATE OR REPLACE TABLE Bookings (  
 BookingID INT NOT NULL PRIMARY KEY,  
 BookingDate DATE NOT NULL,  
 TableNumber INT NOT NULL,   
@@ -135,7 +135,7 @@ VALUES
 (73, '2022-01-23', 4, 5, 14),
 (74, '2022-01-24', 5, 6, 15);
 
-CREATE TABLE MenuItems ( 
+CREATE OR REPLACE TABLE MenuItems ( 
   ItemID INT, 
   Name VARCHAR(200), 
   Type VARCHAR(100), 
@@ -173,7 +173,7 @@ VALUES
 (24, 'Retsina', 'Drinks', 14);
 
 
-CREATE TABLE Menus ( 
+CREATE OR REPLACE TABLE Menus ( 
   MenuID INT, 
   ItemID INT, 
   Cuisine VARCHAR(100), 
@@ -189,7 +189,7 @@ SELECT 3, ItemID, 'Turkish' FROM MenuItems WHERE ItemID IN (5, 17, 11, 16, 20, 2
 
 drop table TableOrders;
 
-CREATE TABLE TableOrders ( 
+CREATE OR REPLACE TABLE TableOrders ( 
   OrderID INT, 
   TableNo INT, 
   MenuID INT, 
@@ -216,7 +216,7 @@ JOIN
 Select * From TableOrders;
 
 -- Create the LowCostMenuItems table
-CREATE TABLE LowCostMenuItems (
+CREATE OR REPLACE TABLE LowCostMenuItems (
     ItemID INT,
     Name VARCHAR(200),
     Price INT
@@ -248,7 +248,7 @@ WHERE Price = ANY (
     GROUP BY Type
 );
 
-CREATE TABLE Courses (
+CREATE OR REPLACE TABLE Courses (
     CourseName VARCHAR(255) PRIMARY KEY,
     Cost DECIMAL(4 , 2 )
 ); 
@@ -262,7 +262,7 @@ VALUES
  ("Kabasa", 17.00), 
  ("Shwarma", 11.30); 
 
-CREATE TABLE DeliveryAddress(     
+CREATE OR REPLACE TABLE DeliveryAddress(     
     ID INT PRIMARY KEY,     
     Address VARCHAR(255) NOT NULL,     
     Type VARCHAR(100) NOT NULL DEFAULT "Private",     
