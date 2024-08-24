@@ -3,113 +3,10 @@ import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
-const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
+const masterKey = process.env.MASTER_KEY || "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT"; // Use environment variable
 
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// Set the view engine to EJS
-app.set('view engine', 'ejs');
-
-// Serve static files from the "public" directory
-app.use(express.static('public'));
-
-//Get a random joke
-app.get("/random", (req, res) => {
-  const randomIndex = Math.floor(Math.random() * jokes.length);
-  res.json(jokes[randomIndex]);
-});
-
-//Get a specific joke
-app.get("/jokes/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const foundJoke = jokes.find((joke) => joke.id === id);
-  res.json(foundJoke);
-});
-
-//Filter jokes by type
-app.get("/filter", (req, res) => {
-  const type = req.query.type;
-  const filteredActivities = jokes.filter((joke) => joke.jokeType === type);
-  res.json(filteredActivities);
-});
-
-// Post a new joke
-app.post("/jokes", (req, res) => {
-  const newJoke = {
-    id: jokes.length + 1,
-    jokeText: req.body.text,
-    jokeType: req.body.type,
-  };
-  jokes.push(newJoke);
-  console.log(jokes.slice(-1));
-  res.json(newJoke);
-});
-
-//Put a joke
-app.put("/jokes/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const replacementJoke = {
-    id: id,
-    jokeText: req.body.text,
-    jokeType: req.body.type,
-  };
-
-  const searchIndex = jokes.findIndex((joke) => joke.id === id);
-
-  jokes[searchIndex] = replacementJoke;
-  // console.log(jokes);
-  res.json(replacementJoke);
-});
-
-//Patch a joke
-app.patch("/jokes/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const existingJoke = jokes.find((joke) => joke.id === id);
-  const replacementJoke = {
-    id: id,
-    jokeText: req.body.text || existingJoke.jokeText,
-    jokeType: req.body.type || existingJoke.jokeType,
-  };
-  const searchIndex = jokes.findIndex((joke) => joke.id === id);
-  jokes[searchIndex] = replacementJoke;
-  console.log(jokes[searchIndex]);
-  res.json(replacementJoke);
-});
-
-//DELETE Specific joke
-//Optional Edge Case Mangement: Can you think of a situation where we might have an issue deleting
-//a specific joke out of the array? Can you think of a solution?
-app.delete("/jokes/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const searchIndex = jokes.findIndex((joke) => joke.id === id);
-  if (searchIndex > -1) {
-    jokes.splice(searchIndex, 1);
-    res.sendStatus(200);
-  } else {
-    res
-      .status(404)
-      .json({ error: `Joke with id: ${id} not found. No jokes were deleted.` });
-  }
-});
-
-//DELETE All jokes
-app.delete("/all", (req, res) => {
-  const userKey = req.query.key;
-  if (userKey === masterKey) {
-    jokes = [];
-    res.sendStatus(200);
-  } else {
-    res
-      .status(404)
-      .json({ error: `You are not authorised to perform this action.` });
-  }
-});
-
-app.listen(port, () => {
-  console.log(`Successfully started server on port ${port}.`);
-});
-
-var jokes = [
+// Initialize jokes array at the top
+const jokes = [
   {
     id: 1,
     jokeText:
@@ -681,3 +578,120 @@ var jokes = [
     jokeType: "Food",
   },
 ];
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+
+// Get a random joke
+app.get("/random", (req, res) => {
+  if (jokes.length === 0) {
+    return res.status(404).json({ error: "No jokes available" });
+  }
+  const randomIndex = Math.floor(Math.random() * jokes.length);
+  res.json(jokes[randomIndex]);
+});
+
+// Get a specific joke
+app.get("/jokes/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const foundJoke = jokes.find((joke) => joke.id === id);
+  if (foundJoke) {
+    res.json(foundJoke);
+  } else {
+    res.status(404).json({ error: `Joke with id: ${id} not found.` });
+  }
+});
+
+// Filter jokes by type
+app.get("/filter", (req, res) => {
+  const type = req.query.type;
+  const filteredActivities = jokes.filter((joke) => joke.jokeType === type);
+  res.json(filteredActivities);
+});
+
+// Post a new joke
+app.post("/jokes", (req, res) => {
+  const newJoke = {
+    id: jokes.length + 1,
+    jokeText: req.body.text,
+    jokeType: req.body.type,
+  };
+  jokes.push(newJoke);
+  console.log(jokes.slice(-1));
+  res.json(newJoke);
+});
+
+// Put a joke
+app.put("/jokes/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const searchIndex = jokes.findIndex((joke) => joke.id === id);
+  
+  if (searchIndex === -1) {
+    return res.status(404).json({ error: `Joke with id: ${id} not found.` });
+  }
+
+  const replacementJoke = {
+    id: id,
+    jokeText: req.body.text,
+    jokeType: req.body.type,
+  };
+
+  jokes[searchIndex] = replacementJoke;
+  res.json(replacementJoke);
+});
+
+// Patch a joke
+app.patch("/jokes/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const searchIndex = jokes.findIndex((joke) => joke.id === id);
+
+  if (searchIndex === -1) {
+    return res.status(404).json({ error: `Joke with id: ${id} not found.` });
+  }
+
+  const existingJoke = jokes[searchIndex];
+  const replacementJoke = {
+    id: id,
+    jokeText: req.body.text || existingJoke.jokeText,
+    jokeType: req.body.type || existingJoke.jokeType,
+  };
+
+  jokes[searchIndex] = replacementJoke;
+  res.json(replacementJoke);
+});
+
+// DELETE Specific joke
+app.delete("/jokes/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const searchIndex = jokes.findIndex((joke) => joke.id === id);
+  
+  if (searchIndex > -1) {
+    jokes.splice(searchIndex, 1);
+    res.sendStatus(200);
+  } else {
+    res.status(404).json({ error: `Joke with id: ${id} not found. No jokes were deleted.` });
+  }
+});
+
+// DELETE All jokes
+app.delete("/all", (req, res) => {
+  const userKey = req.query.key;
+  if (userKey === masterKey) {
+    jokes = [];
+    res.sendStatus(200);
+  } else {
+    res.status(403).json({ error: `You are not authorised to perform this action.` });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server started on port ${port}.`);
+}).on('error', (err) => {
+  console.error('Server error:', err);
+});
+
+app.use(express.json());
+

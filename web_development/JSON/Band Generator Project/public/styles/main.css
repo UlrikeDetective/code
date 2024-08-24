@@ -2,7 +2,10 @@ body {
   background: #222;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
     helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
-  color: hotpink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 main {
@@ -20,6 +23,8 @@ main {
 
 h1 {
   font-size: 3.5rem;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 input {
@@ -33,24 +38,6 @@ input {
   cursor: pointer;
 }
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Nanum+Gothic&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap');
-
-
-/* Reset some default styles */
-body, h1, h2, p, form, input, button {
-    margin: 0;
-    padding: 0;
-    font-family: 'Platypi', serif;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #fff;
-}
 
 .container {
     border: 10px solid black;
@@ -59,11 +46,6 @@ body {
     text-align: center;
 }
 
-h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    color: #333;
-}
 
 form {
     margin-bottom: 20px;
