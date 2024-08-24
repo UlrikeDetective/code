@@ -2,7 +2,7 @@ Create database Instagram_clone;
 
 Use Instagram_clone;
 
-CREATE TABLE users (
+CREATE OR REPLACE TABLE users (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) UNIQUE NOT NULL,
     created_at TIMESTAMP DEFAULT NOW()
@@ -22,7 +22,7 @@ Values ('Corralejo'), ('California'), ('Hawaii'), ('SantaFe'), ('NewMexico'), ('
 
 Select * From users;
 
-CREATE TABLE photos (
+CREATE OR REPLACE TABLE photos (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     image_url VARCHAR(255) NOT NULL,
     user_id INTEGER NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE photos (
     FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
-CREATE TABLE comments (
+CREATE OR REPLACE TABLE comments (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     comment_text VARCHAR(255) NOT NULL,
     photo_id INTEGER NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE comments (
     FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
-CREATE TABLE likes (
+CREATE OR REPLACE TABLE likes (
     user_id INTEGER NOT NULL,
     photo_id INTEGER NOT NULL,
     created_at TIMESTAMP DEFAULT NOW(),
@@ -49,7 +49,7 @@ CREATE TABLE likes (
     PRIMARY KEY(user_id, photo_id)
 );
 
-CREATE TABLE follows (
+CREATE OR REPLACE TABLE follows (
     follower_id INTEGER NOT NULL,
     followee_id INTEGER NOT NULL,
     created_at TIMESTAMP DEFAULT NOW(),
@@ -58,7 +58,7 @@ CREATE TABLE follows (
     PRIMARY KEY(follower_id, followee_id)
 );
 
-CREATE TABLE unfollows (
+CREATE OR REPLACE TABLE unfollows (
     follower_id INTEGER NOT NULL,
     followee_id INTEGER NOT NULL,
     created_at TIMESTAMP DEFAULT NOW(),
@@ -67,13 +67,13 @@ CREATE TABLE unfollows (
     PRIMARY KEY(follower_id, followee_id)
 );
 
-CREATE TABLE tags (
+CREATE OR REPLACE TABLE tags (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
   tag_name VARCHAR(255) UNIQUE,
   created_at TIMESTAMP DEFAULT NOW()
 );
 
-CREATE TABLE photo_tags (
+CREATE OR REPLACE TABLE photo_tags (
     photo_id INTEGER NOT NULL,
     tag_id INTEGER NOT NULL,
     FOREIGN KEY(photo_id) REFERENCES photos(id),
