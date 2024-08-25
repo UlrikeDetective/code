@@ -3,8 +3,8 @@ import bodyParser from "body-parser";
 import pg from "pg";
 
 const db = new pg.Client({
-  user: "postgres",
-  host: "ulrike_imac_air",
+  user: "ulrike_imac_air",
+  host: "localhost",
   database: "world",
   password: "SQL2024",
   port: 5432,
