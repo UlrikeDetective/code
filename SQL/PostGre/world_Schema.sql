@@ -17,3 +17,6 @@ CREATE TABLE flags (
     country VARCHAR(45),
     flag Text
 );
+
+Select * From flags;
+Select * from capital;
