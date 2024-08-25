@@ -3,10 +3,10 @@ import bodyParser from "body-parser";
 import pg from "pg";
 
 const db = new pg.Client({
-  user: "ulrike_imac_air",
+  user: "your_name",
   host: "localhost",
   database: "world",
-  password: "SQL2024",
+  password: "your_pw",
   port: 5432,
 });
 
