@@ -1,0 +1,251 @@
+id,name,flag
+1,Afghanistan,üá¶üá´
+2,Aland Islands,üá¶üáΩ
+3,Albania,üá¶üá±
+4,Algeria,üá©üáø
+5,American Samoa,üá¶üá∏
+6,Andorra,üá¶üá©
+7,Angola,üá¶üá¥
+8,Anguilla,üá¶üáÆ
+9,Antarctica,üá¶üá∂
+10,Antigua And Barbuda,üá¶üá¨
+11,Argentina,üá¶üá∑
+12,Armenia,üá¶üá≤
+13,Aruba,üá¶üáº
+14,Australia,üá¶üá∫
+15,Austria,üá¶üáπ
+16,Azerbaijan,üá¶üáø
+18,Bahrain,üáßüá≠
+19,Bangladesh,üáßüá©
+20,Barbados,üáßüáß
+21,Belarus,üáßüáæ
+22,Belgium,üáßüá™
+23,Belize,üáßüáø
+24,Benin,üáßüáØ
+25,Bermuda,üáßüá≤
+26,Bhutan,üáßüáπ
+27,Bolivia,üáßüá¥
+155,"Bonaire, Sint Eustatius and Saba",üáßüá∂
+28,Bosnia and Herzegovina,üáßüá¶
+29,Botswana,üáßüáº
+30,Bouvet Island,üáßüáª
+31,Brazil,üáßüá∑
+32,British Indian Ocean Territory,üáÆüá¥
+33,Brunei,üáßüá≥
+34,Bulgaria,üáßüá¨
+35,Burkina Faso,üáßüá´
+36,Burundi,üáßüáÆ
+37,Cambodia,üá∞üá≠
+38,Cameroon,üá®üá≤
+39,Canada,üá®üá¶
+40,Cape Verde,üá®üáª
+41,Cayman Islands,üá∞üáæ
+42,Central African Republic,üá®üá´
+43,Chad,üáπüá©
+44,Chile,üá®üá±
+45,China,üá®üá≥
+46,Christmas Island,üá®üáΩ
+47,Cocos (Keeling) Islands,üá®üá®
+48,Colombia,üá®üá¥
+49,Comoros,üá∞üá≤
+50,Congo,üá®üá¨
+52,Cook Islands,üá®üá∞
+53,Costa Rica,üá®üá∑
+54,Cote D'Ivoire (Ivory Coast),üá®üáÆ
+55,Croatia,üá≠üá∑
+56,Cuba,üá®üá∫
+249,Cura√ßao,üá®üáº
+57,Cyprus,üá®üáæ
+58,Czech Republic,üá®üáø
+51,Democratic Republic of the Congo,üá®üá©
+59,Denmark,üá©üá∞
+60,Djibouti,üá©üáØ
+61,Dominica,üá©üá≤
+62,Dominican Republic,üá©üá¥
+63,East Timor,üáπüá±
+64,Ecuador,üá™üá®
+65,Egypt,üá™üá¨
+66,El Salvador,üá∏üáª
+67,Equatorial Guinea,üá¨üá∂
+68,Eritrea,üá™üá∑
+69,Estonia,üá™üá™
+70,Ethiopia,üá™üáπ
+71,Falkland Islands,üá´üá∞
+72,Faroe Islands,üá´üá¥
+73,Fiji Islands,üá´üáØ
+74,Finland,üá´üáÆ
+75,France,üá´üá∑
+76,French Guiana,üá¨üá´
+77,French Polynesia,üáµüá´
+78,French Southern Territories,üáπüá´
+79,Gabon,üá¨üá¶
+80,Gambia The,üá¨üá≤
+81,Georgia,üá¨üá™
+82,Germany,üá©üá™
+83,Ghana,üá¨üá≠
+84,Gibraltar,üá¨üáÆ
+85,Greece,üá¨üá∑
+86,Greenland,üá¨üá±
+87,Grenada,üá¨üá©
+88,Guadeloupe,üá¨üáµ
+89,Guam,üá¨üá∫
+90,Guatemala,üá¨üáπ
+91,Guernsey and Alderney,üá¨üá¨
+92,Guinea,üá¨üá≥
+93,Guinea-Bissau,üá¨üáº
+94,Guyana,üá¨üáæ
+95,Haiti,üá≠üáπ
+96,Heard Island and McDonald Islands,üá≠üá≤
+97,Honduras,üá≠üá≥
+98,Hong Kong S.A.R.,üá≠üá∞
+99,Hungary,üá≠üá∫
+100,Iceland,üáÆüá∏
+101,India,üáÆüá≥
+102,Indonesia,üáÆüá©
+103,Iran,üáÆüá∑
+104,Iraq,üáÆüá∂
+105,Ireland,üáÆüá™
+106,Israel,üáÆüá±
+107,Italy,üáÆüáπ
+108,Jamaica,üáØüá≤
+109,Japan,üáØüáµ
+110,Jersey,üáØüá™
+111,Jordan,üáØüá¥
+112,Kazakhstan,üá∞üáø
+113,Kenya,üá∞üá™
+114,Kiribati,üá∞üáÆ
+248,Kosovo,üáΩüá∞
+117,Kuwait,üá∞üáº
+118,Kyrgyzstan,üá∞üá¨
+119,Laos,üá±üá¶
+120,Latvia,üá±üáª
+121,Lebanon,üá±üáß
+122,Lesotho,üá±üá∏
+123,Liberia,üá±üá∑
+124,Libya,üá±üáæ
+125,Liechtenstein,üá±üáÆ
+126,Lithuania,üá±üáπ
+127,Luxembourg,üá±üá∫
+128,Macau S.A.R.,üá≤üá¥
+130,Madagascar,üá≤üá¨
+131,Malawi,üá≤üáº
+132,Malaysia,üá≤üáæ
+133,Maldives,üá≤üáª
+134,Mali,üá≤üá±
+135,Malta,üá≤üáπ
+136,Man (Isle of),üáÆüá≤
+137,Marshall Islands,üá≤üá≠
+138,Martinique,üá≤üá∂
+139,Mauritania,üá≤üá∑
+140,Mauritius,üá≤üá∫
+141,Mayotte,üáæüáπ
+142,Mexico,üá≤üáΩ
+143,Micronesia,üá´üá≤
+144,Moldova,üá≤üá©
+145,Monaco,üá≤üá®
+146,Mongolia,üá≤üá≥
+147,Montenegro,üá≤üá™
+148,Montserrat,üá≤üá∏
+149,Morocco,üá≤üá¶
+150,Mozambique,üá≤üáø
+151,Myanmar,üá≤üá≤
+152,Namibia,üá≥üá¶
+153,Nauru,üá≥üá∑
+154,Nepal,üá≥üáµ
+156,Netherlands,üá≥üá±
+157,New Caledonia,üá≥üá®
+158,New Zealand,üá≥üáø
+159,Nicaragua,üá≥üáÆ
+160,Niger,üá≥üá™
+161,Nigeria,üá≥üá¨
+162,Niue,üá≥üá∫
+163,Norfolk Island,üá≥üá´
+115,North Korea,üá∞üáµ
+129,North Macedonia,üá≤üá∞
+164,Northern Mariana Islands,üá≤üáµ
+165,Norway,üá≥üá¥
+166,Oman,üá¥üá≤
+167,Pakistan,üáµüá∞
+168,Palau,üáµüáº
+169,Palestinian Territory Occupied,üáµüá∏
+170,Panama,üáµüá¶
+171,Papua new Guinea,üáµüá¨
+172,Paraguay,üáµüáæ
+173,Peru,üáµüá™
+174,Philippines,üáµüá≠
+175,Pitcairn Island,üáµüá≥
+176,Poland,üáµüá±
+177,Portugal,üáµüáπ
+178,Puerto Rico,üáµüá∑
+179,Qatar,üá∂üá¶
+180,Reunion,üá∑üá™
+181,Romania,üá∑üá¥
+182,Russia,üá∑üá∫
+183,Rwanda,üá∑üáº
+184,Saint Helena,üá∏üá≠
+185,Saint Kitts And Nevis,üá∞üá≥
+186,Saint Lucia,üá±üá®
+187,Saint Pierre and Miquelon,üáµüá≤
+188,Saint Vincent And The Grenadines,üáªüá®
+189,Saint-Barthelemy,üáßüá±
+190,Saint-Martin (French part),üá≤üá´
+191,Samoa,üáºüá∏
+192,San Marino,üá∏üá≤
+193,Sao Tome and Principe,üá∏üáπ
+194,Saudi Arabia,üá∏üá¶
+195,Senegal,üá∏üá≥
+196,Serbia,üá∑üá∏
+197,Seychelles,üá∏üá®
+198,Sierra Leone,üá∏üá±
+199,Singapore,üá∏üá¨
+250,Sint Maarten (Dutch part),üá∏üáΩ
+200,Slovakia,üá∏üá∞
+201,Slovenia,üá∏üáÆ
+202,Solomon Islands,üá∏üáß
+203,Somalia,üá∏üá¥
+204,South Africa,üáøüá¶
+205,South Georgia,üá¨üá∏
+116,South Korea,üá∞üá∑
+206,South Sudan,üá∏üá∏
+207,Spain,üá™üá∏
+208,Sri Lanka,üá±üá∞
+209,Sudan,üá∏üá©
+210,Suriname,üá∏üá∑
+211,Svalbard And Jan Mayen Islands,üá∏üáØ
+212,Swaziland,üá∏üáø
+213,Sweden,üá∏üá™
+214,Switzerland,üá®üá≠
+215,Syria,üá∏üáæ
+216,Taiwan,üáπüáº
+217,Tajikistan,üáπüáØ
+218,Tanzania,üáπüáø
+219,Thailand,üáπüá≠
+17,The Bahamas,üáßüá∏
+220,Togo,üáπüá¨
+221,Tokelau,üáπüá∞
+222,Tonga,üáπüá¥
+223,Trinidad And Tobago,üáπüáπ
+224,Tunisia,üáπüá≥
+225,Turkey,üáπüá∑
+226,Turkmenistan,üáπüá≤
+227,Turks And Caicos Islands,üáπüá®
+228,Tuvalu,üáπüáª
+229,Uganda,üá∫üá¨
+230,Ukraine,üá∫üá¶
+231,United Arab Emirates,üá¶üá™
+232,United Kingdom,üá¨üáß
+233,United States,üá∫üá∏
+234,United States Minor Outlying Islands,üá∫üá≤
+235,Uruguay,üá∫üáæ
+236,Uzbekistan,üá∫üáø
+237,Vanuatu,üáªüá∫
+238,Vatican City State (Holy See),üáªüá¶
+239,Venezuela,üáªüá™
+240,Vietnam,üáªüá≥
+241,Virgin Islands (British),üáªüá¨
+242,Virgin Islands (US),üáªüáÆ
+243,Wallis And Futuna Islands,üáºüá´
+244,Western Sahara,üá™üá≠
+245,Yemen,üáæüá™
+246,Zambia,üáøüá≤
+247,Zimbabwe,üáøüáº
