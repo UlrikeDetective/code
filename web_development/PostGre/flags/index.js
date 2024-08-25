@@ -10,12 +10,13 @@ const db = new pg.Client({
   port: 5432,
 });
 
+
 const app = express();
 const port = 3000;
 
 db.connect();
 
-let quiz = [];å
+let quiz = [];
 db.query("SELECT * FROM flags", (err, res) => {
   if (err) {
     console.error("Error executing query", err.stack);
