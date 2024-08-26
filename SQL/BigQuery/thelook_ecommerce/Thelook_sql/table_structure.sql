@@ -46,7 +46,7 @@ CREATE TABLE inventory_items (
 );
 
 CREATE TABLE on_hand_inventory (
-    id,
+    id SERIAL,
     on_hand_count INT,
     product_name_logistics VARCHAR(255),
     PRIMARY KEY(id)
@@ -106,7 +106,7 @@ CREATE TABLE products (
 );
 
 CREATE TABLE shopping_cart (
-    cart_id,
+    cart_id SERIAL,
     quantity INT,
     created_at TIMESTAMP,
     product_id INT,
