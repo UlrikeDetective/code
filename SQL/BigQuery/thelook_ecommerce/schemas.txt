@@ -1,335 +1,135 @@
 distrubition_centers
-
-longitude	FLOAT	NULLABLE	-	-	-	
--	
--
-latitude	FLOAT	NULLABLE	-	-	-	
--	
--
-name	STRING	NULLABLE	-	-	-	
--	
--
-id	INTEGER	NULLABLE	-
+longitude	FLOAT	NULLABLE
+latitude	FLOAT	NULLABLE
+name	STRING	NULLABLE
+id	INTEGER	NULLABLE
 
 
 ga4_events
-
-event_type	STRING	NULLABLE	-	-	-	
--	
--
-uri	STRING	NULLABLE	-	-	-	
--	
--
-postal_code	STRING	NULLABLE	-	-	-	
--	
--
-traffic_source	STRING	NULLABLE	-	-	-	
--	
--
-browser	STRING	NULLABLE	-	-	-	
--	
--
-user_id	INTEGER	NULLABLE	-	-	-	
--	
--
-state	STRING	NULLABLE	-	-	-	
--	
--
-session_id	STRING	NULLABLE	-	-	-	
--	
--
-ip_address	STRING	NULLABLE	-	-	-	
--	
--
-created_at	TIMESTAMP	NULLABLE	-	-	-	
--	
--
-sequence_number	INTEGER	NULLABLE	-	-	-	
--	
--
-city	STRING	NULLABLE	-	-	-	
--	
--
+event_type	STRING	NULLABLE	
+uri	STRING	NULLABLE
+postal_code	STRING	NULLABLE
+traffic_source	STRING	NULLABLE
+browser	STRING	NULLABLE	
+user_id	INTEGER	NULLABLE	
+state	STRING	NULLABLE
+session_id	STRING	NULLABLE
+ip_address	STRING	NULLABLE
+created_at	TIMESTAMP	NULLABLE
+sequence_number	INTEGER	NULLABLE	
+city	STRING	NULLABLE
 id	INTEGER	NULLABLE	
 
 
-inventory_items
-
-	
-product_sku	STRING	NULLABLE	-	-	-	
--	
--
-product_department	STRING	NULLABLE	-	-	-	
--	
--
-sold_at	TIMESTAMP	NULLABLE	-	-	-	
--	
--
-product_retail_price	FLOAT	NULLABLE	-	-	-	
--	
--
-product_distribution_center_id	INTEGER	NULLABLE	-	-	-	
--	
--
-product_brand	STRING	NULLABLE	-	-	-	
--	
--
-product_category	STRING	NULLABLE	-	-	-	
--	
--
-id	INTEGER	NULLABLE	-	-	-	
--	
--
-cost	FLOAT	NULLABLE	-	-	-	
--	
--
-created_at	TIMESTAMP	NULLABLE	-	-	-	
--	
--
-product_id	INTEGER	NULLABLE	-	-	-	
--	
--
+inventory_items	
+product_sku	STRING	NULLABLE
+product_department	STRING	NULLABLE	
+sold_at	TIMESTAMP	NULLABLE
+product_retail_price	FLOAT	NULLABLE
+product_distribution_center_id	INTEGER	NULLABLE	
+product_brand	STRING	NULLABLE
+product_category	STRING	NULLABLE
+id	INTEGER	NULLABLE	
+cost	FLOAT	NULLABLE
+created_at	TIMESTAMP	NULLABLE
+product_id	INTEGER	NULLABLE
 product_name	STRING	NULLABLE	
 
 
 on_hand_inventory
-
-on_hand_count	INTEGER	NULLABLE	-	-	-	
--	
--
+on_hand_count	INTEGER	NULLABLE
 product_name_logistics	STRING	NULLABLE
 
 
 order_items
-
-delivered_at	TIMESTAMP	NULLABLE	-	-	-	
--	
--
-shipped_at	TIMESTAMP	NULLABLE	-	-	-	
--	
--
-created_at	TIMESTAMP	NULLABLE	-	-	-	
--	
--
-status	STRING	NULLABLE	-	-	-	
--	
--
-order_id	INTEGER	NULLABLE	-	-	-	
--	
--
-product_id	INTEGER	NULLABLE	-	-	-	
--	
--
-user_id	INTEGER	NULLABLE	-	-	-	
--	
--
-sale_price	FLOAT	NULLABLE	-	-	-	
--	
--
-inventory_item_id	INTEGER	NULLABLE	-	-	-	
--	
--
-returned_at	TIMESTAMP	NULLABLE	-	-	-	
--	
--
+delivered_at	TIMESTAMP	NULLABLE
+shipped_at	TIMESTAMP	NULLABLE	
+created_at	TIMESTAMP	NULLABLE
+status	STRING	NULLABLE
+order_id	INTEGER	NULLABLE
+product_id	INTEGER	NULLABLE
+user_id	INTEGER	NULLABLE
+sale_price	FLOAT	NULLABLE
+inventory_item_id	INTEGER	NULLABLE	
+returned_at	TIMESTAMP	NULLABLE
 id	INTEGER	NULLABLE	
 
 
 orders
-
-order_id	INTEGER	NULLABLE	-	-	-	
--	
--
-user_id	INTEGER	NULLABLE	-	-	-	
--	
--
-status	STRING	NULLABLE	-	-	-	
--	
--
-gender	STRING	NULLABLE	-	-	-	
--	
--
-created_at	TIMESTAMP	NULLABLE	-	-	-	
--	
--
-returned_at	TIMESTAMP	NULLABLE	-	-	-	
--	
--
-shipped_at	TIMESTAMP	NULLABLE	-	-	-	
--	
--
-delivered_at	TIMESTAMP	NULLABLE	-	-	-	
--	
--
+order_id	INTEGER	NULLABLE
+user_id	INTEGER	NULLABLE
+status	STRING	NULLABLE	
+gender	STRING	NULLABLE
+created_at	TIMESTAMP	NULLABLE
+returned_at	TIMESTAMP	NULLABLE
+shipped_at	TIMESTAMP	NULLABLE	
+delivered_at	TIMESTAMP	NULLABLE
 num_of_item	INTEGER	NULLABLE	
 
 
 orders_by_state
-
-order_year	INTEGER	NULLABLE	-	-	-	
--	
--
-total_sales	FLOAT	NULLABLE	-	-	-	
--	
--
-state	STRING	NULLABLE	-	-	-	
--	
--
+order_year	INTEGER	NULLABLE
+total_sales	FLOAT	NULLABLE
+state	STRING	NULLABLE	
 country	STRING	NULLABLE	
 
 
 products
-
-	
-sku	STRING	NULLABLE	-	-	-	
--	
--
-segment	STRING	NULLABLE	-	-	-	
--	
--
-category	STRING	NULLABLE	-	-	-	
--	
--
-distribution_center_id	INTEGER	NULLABLE	-	-	-	
--	
--
-cost	FLOAT	NULLABLE	-	-	-	
--	
--
-retail_price	FLOAT	NULLABLE	-	-	-	
--	
--
-name	STRING	NULLABLE	-	-	-	
--	
--
-brand	STRING	NULLABLE	-	-	-	
--	
--
-department	STRING	NULLABLE	-	-	-	
--	
--
+sku	STRING	NULLABLE	
+segment	STRING	NULLABLE	
+category	STRING	NULLABLE	
+distribution_center_id	INTEGER	NULLABLE	
+cost	FLOAT	NULLABLE
+retail_price	FLOAT	NULLABLE	
+name	STRING	NULLABLE
+brand	STRING	NULLABLE
+department	STRING	NULLABLE	
 id	INTEGER	NULLABLE	
 
 
 shopping_cart
-
-quantity	INTEGER	NULLABLE	-	-	-	
--	
--
-created_at	TIMESTAMP	NULLABLE	-	-	-	
--	
--
-product_id	INTEGER	NULLABLE	-	-	-	
--	
--
+quantity	INTEGER	NULLABLE
+created_at	TIMESTAMP	NULLABLE	
+product_id	INTEGER	NULLABLE
 session_id	STRING	NULLABLE	
 
 
-taxi_trips
-
-	
-payment_type	FLOAT	NULLABLE	-	-	-	
--	
--
-data_file_month	INTEGER	NULLABLE	-	-	-	
--	
--
-data_file_year	INTEGER	NULLABLE	-	-	-	
--	
--
-trip_type	FLOAT	NULLABLE	-	-	-	
--	
--
-passenger_count	INTEGER	NULLABLE	-	-	-	
--	
--
-dropoff_location_id	INTEGER	NULLABLE	-	-	-	
--	
--
-tolls_amount	FLOAT	NULLABLE	-	-	-	
--	
--
-tip_amount	FLOAT	NULLABLE	-	-	-	
--	
--
-imp_surcharge	FLOAT	NULLABLE	-	-	-	
--	
--
-mta_tax	FLOAT	NULLABLE	-	-	-	
--	
--
-vendor_id	INTEGER	NULLABLE	-	-	-	
--	
--
-fare_amount	FLOAT	NULLABLE	-	-	-	
--	
--
-trip_distance	FLOAT	NULLABLE	-	-	-	
--	
--
-dropoff_datetime	TIMESTAMP	NULLABLE	-	-	-	
--	
--
-total_amount	FLOAT	NULLABLE	-	-	-	
--	
--
-extra	FLOAT	NULLABLE	-	-	-	
--	
--
-rate_code	FLOAT	NULLABLE	-	-	-	
--	
--
-store_and_fwd_flag	BOOLEAN	NULLABLE	-	-	-	
--	
--
-pickup_location_id	INTEGER	NULLABLE	-	-	-	
--	
--
+taxi_trips	
+payment_type	FLOAT	NULLABLE
+data_file_month	INTEGER	NULLABLE
+data_file_year	INTEGER	NULLABLE
+trip_type	FLOAT	NULLABLE
+passenger_count	INTEGER	NULLABLE
+dropoff_location_id	INTEGER	NULLABLE	
+tolls_amount	FLOAT	NULLABLE
+tip_amount	FLOAT	NULLABLE
+imp_surcharge	FLOAT	NULLABLE
+mta_tax	FLOAT	NULLABLE	
+vendor_id	INTEGER	NULLABLE	
+fare_amount	FLOAT	NULLABLE	
+trip_distance	FLOAT	NULLABLE
+dropoff_datetime	TIMESTAMP	NULLABLE
+total_amount	FLOAT	NULLABLE
+extra	FLOAT	NULLABLE
+rate_code	FLOAT	NULLABLE
+store_and_fwd_flag	BOOLEAN	NULLABLE
+pickup_location_id	INTEGER	NULLABLE	
 pickup_datetime	TIMESTAMP	NULLABLE	
 
 
 users
-
-created_at	TIMESTAMP	NULLABLE	-	-	-	
--	
--
-longitude	FLOAT	NULLABLE	-	-	-	
--	
--
-latitude	FLOAT	NULLABLE	-	-	-	
--	
--
-gender	STRING	NULLABLE	-	-	-	
--	
--
-country	STRING	NULLABLE	-	-	-	
--	
--
-traffic_source	STRING	NULLABLE	-	-	-	
--	
--
-postal_code	STRING	NULLABLE	-	-	-	
--	
--
-first_name	STRING	NULLABLE	-	-	-	
--	
--
-state	STRING	NULLABLE	-	-	-	
--	
--
-street_address	STRING	NULLABLE	-	-	-	
--	
--
-age	INTEGER	NULLABLE	-	-	-	
--	
--
-email	STRING	NULLABLE	-	-	-	
--	
--
-last_name	STRING	NULLABLE	-	-	-	
--	
--
-city	STRING	NULLABLE	-	-	-	
--	
--
+created_at	TIMESTAMP	NULLABLE
+longitude	FLOAT	NULLABLE
+latitude	FLOAT	NULLABLE
+gender	STRING	NULLABLE	
+country	STRING	NULLABLE
+traffic_source	STRING	NULLABLE	
+postal_code	STRING	NULLABLE	
+first_name	STRING	NULLABLE
+state	STRING	NULLABLE
+street_address	STRING	NULLABLE	
+age	INTEGER	NULLABLE
+email	STRING	NULLABLE	
+last_name	STRING	NULLABLE
+city	STRING	NULLABLE
 id	INTEGER	NULLABLE	
