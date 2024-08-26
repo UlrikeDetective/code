@@ -1,3 +1,6 @@
+Create database thelook_ecommerce;
+Use thelook_ecommerce;
+
 CREATE TABLE distribution_centers (
     id INT,
     name VARCHAR(255),
