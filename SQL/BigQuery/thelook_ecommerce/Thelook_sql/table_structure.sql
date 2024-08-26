@@ -5,7 +5,8 @@ CREATE TABLE distribution_centers (
     id INT,
     name VARCHAR(255),
     latitude FLOAT,
-    longitude FLOAT
+    longitude FLOAT,
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE ga4_events (
@@ -21,7 +22,9 @@ CREATE TABLE ga4_events (
     ip_address VARCHAR(45),
     created_at TIMESTAMP,
     sequence_number INT,
-    city VARCHAR(255)
+    city VARCHAR(255),
+    FOREIGN KEY(user_id) REFERENCES users.id,
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE inventory_items (
@@ -36,15 +39,21 @@ CREATE TABLE inventory_items (
     cost FLOAT,
     created_at TIMESTAMP,
     product_id INT,
-    product_name VARCHAR(255)
+    product_name VARCHAR(255),
+    FOREIGN KEY(product_id) REFERENCES products.id,
+    FOREIGN KEY(product_distribution_center_id) REFERENCES distribution_centers.id,
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE on_hand_inventory (
+    id,
     on_hand_count INT,
-    product_name_logistics VARCHAR(255)
+    product_name_logistics VARCHAR(255),
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE order_items (
+    order_item_id,
     id INT,
     order_id INT,
     product_id INT,
@@ -55,7 +64,11 @@ CREATE TABLE order_items (
     delivered_at TIMESTAMP,
     shipped_at TIMESTAMP,
     created_at TIMESTAMP,
-    returned_at TIMESTAMP
+    returned_at TIMESTAMP,
+    FOREIGN KEY(order.id) REFERENCES orders.order_id,
+    FOREIGN KEY(product.id) REFERENCES products.id,
+    FOREIGN KEY(inventory_item_id) REFERENCES inventory_items.id,
+    PRIMARY KEY(order_item_id)
 );
 
 CREATE TABLE orders (
@@ -67,7 +80,8 @@ CREATE TABLE orders (
     returned_at TIMESTAMP,
     shipped_at TIMESTAMP,
     delivered_at TIMESTAMP,
-    num_of_item INT
+    num_of_item INT,
+    PRIMARY KEY(order_id)
 );
 
 CREATE TABLE orders_by_state (
@@ -87,14 +101,18 @@ CREATE TABLE products (
     retail_price FLOAT,
     name VARCHAR(255),
     brand VARCHAR(255),
-    department VARCHAR(255)
+    department VARCHAR(255),
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE shopping_cart (
+    cart_id,
     quantity INT,
     created_at TIMESTAMP,
     product_id INT,
-    session_id VARCHAR(255)
+    session_id VARCHAR(255),
+    FOREIGN KEY(product_id) REFERENCES products.id,
+    PRIMARY KEY(cart_id)
 );
 
 
@@ -118,7 +136,8 @@ CREATE TABLE taxi_trips (
     rate_code FLOAT,
     store_and_fwd_flag BOOLEAN,
     pickup_location_id INT,
-    pickup_datetime TIMESTAMP
+    pickup_datetime TIMESTAMP,
+    PRIMARY KEY(trip_id)
 );
 
 CREATE TABLE users (
@@ -136,6 +155,7 @@ CREATE TABLE users (
     age INT,
     email VARCHAR(255),
     last_name VARCHAR(255),
-    city VARCHAR(255)
+    city VARCHAR(255),
+    PRIMARY KEY(id)
 );
 
