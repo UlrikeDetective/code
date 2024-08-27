@@ -1,7 +1,18 @@
 Use thelook_ecommerce;
 
- SELECT * FROM products
- LIMIT 10;
+Select * From distribution_centers Limit 10;
+SELECT * FROM products LIMIT 10;
+
+ 
+-- not working yet
+Select * from ga4_events Limit 10;
+Select * From inventory_items Limit 10;
+Select * From on_hand_inventory Limit 10;
+Select * From order_items Limit 10;
+Select * From orders Limit 10;
+Select * From orders_by_state Limit 10;
+Select * From shopping_cart Limit 10;
+Select * From users Limit 10;
 
 SELECT
 COUNT(*) AS NumberOfRows,
