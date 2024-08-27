@@ -1,5 +1,6 @@
- SELECT * FROM
- `thelook_ecommerce.products`
+Use thelook_ecommerce;
+
+ SELECT * FROM products
  LIMIT 10;
 
 SELECT
