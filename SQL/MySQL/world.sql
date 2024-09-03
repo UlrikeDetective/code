@@ -21,3 +21,9 @@ CREATE TABLE flags (
 -- Select data from the tables
 SELECT * FROM flags;
 SELECT * FROM capital;
+
+CREATE TABLE visited_countries (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    country_code CHAR(2) NOT NULL UNIQUE
+);
+
