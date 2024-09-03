@@ -1,0 +1,5 @@
+CREATE TABLE country_flags (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(45) NOT NULL,
+    flag VARCHAR(5) NOT NULL
+);
