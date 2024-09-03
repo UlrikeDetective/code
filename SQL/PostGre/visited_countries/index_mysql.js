@@ -3,10 +3,10 @@ import bodyParser from "body-parser";
 import mysql from "mysql2/promise"; // Using mysql2 with promises for async/await support
 
 const db = mysql.createPool({
-  host: "localhost",
-  user: "your_name",
+  host: "MacBook-Air-von-Ulrike.local",
+  user: "root@localhost",
   database: "world",
-  password: "your_pw",
+  password: "Susilein",
   port: 3306, // Default MySQL port
 });
 
