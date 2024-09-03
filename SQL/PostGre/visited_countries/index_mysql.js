@@ -4,14 +4,14 @@ import mysql from "mysql2/promise"; // Using mysql2 with promises for async/awai
 
 const db = mysql.createPool({
   host: "MacBook-Air-von-Ulrike.local",
-  user: "root@localhost",
+  user: "root",
   database: "world",
   password: "Susilein",
   port: 3306, // Default MySQL port
 });
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 let quiz = [];
 let totalCorrect = 0;
@@ -20,10 +20,11 @@ let currentQuestion = {};
 // Fetch data from MySQL
 async function fetchData() {
   try {
-    const [rows] = await db.query("SELECT * FROM capitals");
+    const [rows] = await db.query("SELECT * FROM capital");
     quiz = rows;
   } catch (err) {
     console.error("Error executing query", err);
+    quiz = []; // Ensure quiz is an array
   }
 }
 

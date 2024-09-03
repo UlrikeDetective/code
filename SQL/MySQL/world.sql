@@ -27,3 +27,10 @@ CREATE TABLE visited_countries (
     country_code CHAR(2) NOT NULL UNIQUE
 );
 
+INSERT INTO visited_countries (country_code) VALUES
+('FR'),  -- France
+('US'),  -- USA
+('ZA');  -- South Africa
+
+Select * From visited_countries;
+
