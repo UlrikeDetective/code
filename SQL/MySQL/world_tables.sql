@@ -1,5 +1,11 @@
-CREATE TABLE country_flags (
+CREATE TABLE flags (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(45) NOT NULL,
     flag VARCHAR(5) NOT NULL
+);
+
+CREATE TABLE capital (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(45) NOT NULL,
+    capital VARCHAR(45) NOT NULL
 );
