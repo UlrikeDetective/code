@@ -34,3 +34,27 @@ INSERT INTO visited_countries (country_code) VALUES
 
 Select * From visited_countries;
 
+Create Table world_food (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    country Varchar(45) not null,
+    rice_production float,
+    wheat_production float
+    );
+
+INSERT INTO world_food (country, rice_production, wheat_production)
+VALUES
+('Australia', 0.42, 31.9),
+('Brazil', 13.98, 7.9),
+('China', 212.84, 136.9),
+('Ethiopia', 0.2, 5.2),
+('India', 195.43, 109.6),
+('Iran', 1.6, 10.1),
+('Pakistan', 13.98, 27.5),
+('Ukraine', 0.05, 32.2),
+('United States', 8.7, 44.8),
+('Italy', 1.45, 7.3);
+
+Select * From world_food;
+
+	
+
