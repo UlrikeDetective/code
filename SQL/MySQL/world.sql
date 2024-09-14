@@ -34,6 +34,23 @@ INSERT INTO visited_countries (country_code) VALUES
 
 Select * From visited_countries;
 
+CREATE TABLE countries (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    country_code CHAR(2),
+    country_name Char(100)
+);
+
+Drop table countries;
+
+LOAD DATA LOCAL INFILE '/Users/ulrike_imac_air/projects/code/SQL/PostGre/countries.csv'
+INTO TABLE countries
+FIELDS TERMINATED BY ','  -- Use comma as the delimiter
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+Select * From countries;
+
 Create Table world_food (
     id INT AUTO_INCREMENT PRIMARY KEY,
     country Varchar(45) not null,
