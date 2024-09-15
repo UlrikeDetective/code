@@ -1,6 +1,6 @@
-import express from "express";
-import bodyParser from "body-parser";
-import pg from "pg";
+const express = require("express");
+const bodyParser = require("body-parser");
+const pg = require("pg");
 
 const app = express();
 const port = 3000;
@@ -17,6 +17,9 @@ db.connect();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+app.set("view engine", "ejs");
+app.set("views", "./views"); // assuming your .ejs files are inside the "views" folder
+
 async function checkVisisted() {
   const result = await db.query("SELECT country_code FROM visited_countries");
   let countries = [];
@@ -25,13 +28,14 @@ async function checkVisisted() {
   });
   return countries;
 }
+
 // GET home page
 app.get("/", async (req, res) => {
   const countries = await checkVisisted();
   res.render("index.ejs", { countries: countries, total: countries.length });
 });
 
-//INSERT new country
+// INSERT new country
 app.post("/add", async (req, res) => {
   const input = req.body["country"];
 

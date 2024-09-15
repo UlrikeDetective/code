@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import mysql from "mysql2/promise"; // Using mysql2 with promises for async/await support
 
 const db = mysql.createPool({
-  host: "MacBook-Air-von-Ulrike.local",
+  host: "localhost,
   user: "root",
   database: "world",
   password: "Susilein",
