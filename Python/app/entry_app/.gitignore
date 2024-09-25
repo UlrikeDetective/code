@@ -1,0 +1,58 @@
+# Virtual environment
+myenv/
+*.py[cod]
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+wheels/
+share/python-wheels/
+*.log
+*.pot
+*.mo
+*.sqlite3
+*.pyc
+
+# Packaging files
+.Python
+.env
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Distribution / Packaging
+*.egg-info/
+.installed.cfg
+*.egg
+*.whl
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# C extensions
+*.so
+
+# pyenv
+.python-version
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# macOS files
+.DS_Store
