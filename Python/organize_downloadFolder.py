@@ -3,10 +3,12 @@ import shutil
 
 def organize_downloads(download_folder):
     file_types = {
-        'Images': ['.jpg', '.png', '.gif'],
+        'Images': ['.jpg', '.png', '.gif', '.jpeg'],
         'Documents': ['.pdf', '.docx', '.txt'],
         'Audio': ['.mp3', '.wav'],
         'Videos': ['.mp4', '.mov'],
+        'Excel': ['.xlsx', '.csv'],
+        'html': ['.html'],
         
     }
 
