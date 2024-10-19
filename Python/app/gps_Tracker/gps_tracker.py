@@ -32,3 +32,14 @@ def save_gps_data(latitude, longitude):
     with open('gps_data.csv', mode='a') as file:
         writer = csv.writer(file)
         writer.writerow([datetime.now(), latitude, longitude])
+
+# 4. Offline Mapping with osmnx
+# osmnx allows the usage of OpenStreetMap data in Python and can be set up for offline use with pre-downloaded tiles.
+# Example:
+
+import osmnx as ox
+# Load a map of a region, pre-downloaded for offline use
+location = 'Kathmandu, Nepal'
+G = ox.graph_from_place(location, network_type='walk', simplify=True)
+# Visualize the graph locally
+ox.plot_graph(G)
