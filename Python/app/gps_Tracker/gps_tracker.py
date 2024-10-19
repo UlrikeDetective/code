@@ -18,3 +18,17 @@
 #2. GPS Logging
 #Install a GPS package to track the trek route while offline.
 #For desktop use, GPSd can help, while mobile apps could feed GPS data directly into your Python script.
+
+# sudo apt install gpsd gpsd-clients
+
+# 3. Plotting Route (Offline)
+# Store GPS coordinates locally as you trek.
+# Once back online, visualize the stored GPS data on the map.
+# Example of saving coordinates:
+
+import csv
+from datetime import datetime
+def save_gps_data(latitude, longitude):
+    with open('gps_data.csv', mode='a') as file:
+        writer = csv.writer(file)
+        writer.writerow([datetime.now(), latitude, longitude])
