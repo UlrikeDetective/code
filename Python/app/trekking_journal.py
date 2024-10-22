@@ -28,7 +28,7 @@ class JournalApp(toga.App):
         add_button = toga.Button(
             "Add Entry", 
             on_press=self.add_entry, 
-            style=Pack(padding=10, width=150, background_color="#EA8212", color="#FFFFFF")
+            style=Pack(padding=10, width=150, background_color="#8ad8f6", color="#FFFFFF")
         )
         view_button = toga.Button(
             "View Entries", 
@@ -55,7 +55,7 @@ class JournalApp(toga.App):
         # Add input area and buttons to the main column
         main_box = toga.Box(
             children=[self.entry_box, button_box], 
-            style=Pack(direction=COLUMN, padding=10, flex=1, background_color="#64c5a5")
+            style=Pack(direction=COLUMN, padding=10, flex=1, background_color="#caeef9")
         )
 
         # Set the main box to the window and show the window

@@ -39,7 +39,7 @@ def save_gps_data(latitude, longitude):
 
 import osmnx as ox
 # Load a map of a region, pre-downloaded for offline use
-location = 'Kathmandu, Nepal'
+location = 'Leipzig, Germany'
 G = ox.graph_from_place(location, network_type='walk', simplify=True)
 # Visualize the graph locally
 ox.plot_graph(G)
