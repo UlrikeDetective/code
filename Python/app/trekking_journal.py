@@ -6,6 +6,8 @@
 
 # python /Users/ulrike_imac_air/projects/maps/app/Map_appV01/MapApp02.py
 
+# Run the application - python trekking_journal.py
+
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
