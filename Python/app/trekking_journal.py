@@ -7,33 +7,58 @@
 # Run the application - python trekking_journal.py
 
 import toga
-from toga.style import Pack
-from toga.style.pack import COLUMN, ROW, LEFT, CENTER, RIGHT
+from toga.style import Pack, RGB
+from toga.style.pack import COLUMN, ROW, CENTER
 from datetime import datetime
 import os
 
 class JournalApp(toga.App):
 
     def startup(self):
-        # Set up the main window
+        # Set up the main window with a custom background color
         self.main_window = toga.MainWindow(title=self.formal_name)
-        
+
         # Journal Entry Input
-        self.entry_box = toga.MultilineTextInput(placeholder="Write your journal entry here...", style=Pack(flex=1, padding=(10, 10, 10, 10)))
+        self.entry_box = toga.MultilineTextInput(
+            placeholder="Write your journal entry here...", 
+            style=Pack(flex=1, padding=(10, 10, 10, 10), background_color=RGB(240, 240, 240))
+        )
 
-        # Action Buttons
-        add_button = toga.Button("Add Entry", on_press=self.add_entry, style=Pack(padding=10, width=150))
-        view_button = toga.Button("View Entries", on_press=self.view_entries, style=Pack(padding=10, width=150))
-        edit_button = toga.Button("Edit Entry", on_press=self.edit_entry, style=Pack(padding=10, width=150))
-        delete_button = toga.Button("Delete Entry", on_press=self.delete_entry, style=Pack(padding=10, width=150))
+        # Action Buttons with custom background and text color
+        add_button = toga.Button(
+            "Add Entry", 
+            on_press=self.add_entry, 
+            style=Pack(padding=10, width=150, background_color=RGB(70, 130, 180), color="white")
+        )
+        view_button = toga.Button(
+            "View Entries", 
+            on_press=self.view_entries, 
+            style=Pack(padding=10, width=150, background_color=RGB(50, 205, 50), color="white")
+        )
+        edit_button = toga.Button(
+            "Edit Entry", 
+            on_press=self.edit_entry, 
+            style=Pack(padding=10, width=150, background_color=RGB(255, 140, 0), color="white")
+        )
+        delete_button = toga.Button(
+            "Delete Entry", 
+            on_press=self.delete_entry, 
+            style=Pack(padding=10, width=150, background_color=RGB(220, 20, 60), color="white")
+        )
 
-        # Arrange buttons in a row
-        button_box = toga.Box(children=[add_button, view_button, edit_button, delete_button], style=Pack(direction=ROW, alignment=CENTER, padding=10))
-        
+        # Arrange buttons in a row with custom alignment
+        button_box = toga.Box(
+            children=[add_button, view_button, edit_button, delete_button], 
+            style=Pack(direction=ROW, alignment=CENTER, padding=10)
+        )
+
         # Add input area and buttons to the main column
-        main_box = toga.Box(children=[self.entry_box, button_box], style=Pack(direction=COLUMN, padding=10, flex=1))
+        main_box = toga.Box(
+            children=[self.entry_box, button_box], 
+            style=Pack(direction=COLUMN, padding=10, flex=1, background_color=RGB(255, 250, 250))
+        )
 
-        # Add the main box to the window
+        # Set the main box to the window and show the window
         self.main_window.content = main_box
         self.main_window.show()
 
