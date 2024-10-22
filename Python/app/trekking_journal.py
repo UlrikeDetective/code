@@ -8,7 +8,7 @@
 
 import toga
 from toga.style import Pack
-from toga.style.pack import COLUMN, ROW
+from toga.style.pack import COLUMN, ROW, LEFT, CENTER, RIGHT
 from datetime import datetime
 import os
 
@@ -18,18 +18,20 @@ class JournalApp(toga.App):
         # Set up the main window
         self.main_window = toga.MainWindow(title=self.formal_name)
         
-        # Create buttons for actions
-        self.entry_box = toga.MultilineTextInput(placeholder="Write your journal entry here...", style=Pack(flex=1))
-        add_button = toga.Button("Add Entry", on_press=self.add_entry, style=Pack(padding=5))
-        view_button = toga.Button("View Entries", on_press=self.view_entries, style=Pack(padding=5))
-        edit_button = toga.Button("Edit Entry", on_press=self.edit_entry, style=Pack(padding=5))
-        delete_button = toga.Button("Delete Entry", on_press=self.delete_entry, style=Pack(padding=5))
+        # Journal Entry Input
+        self.entry_box = toga.MultilineTextInput(placeholder="Write your journal entry here...", style=Pack(flex=1, padding=(10, 10, 10, 10)))
 
-        # Create a box layout
-        button_box = toga.Box(children=[add_button, view_button, edit_button, delete_button], style=Pack(direction=ROW, padding=10))
+        # Action Buttons
+        add_button = toga.Button("Add Entry", on_press=self.add_entry, style=Pack(padding=10, width=150))
+        view_button = toga.Button("View Entries", on_press=self.view_entries, style=Pack(padding=10, width=150))
+        edit_button = toga.Button("Edit Entry", on_press=self.edit_entry, style=Pack(padding=10, width=150))
+        delete_button = toga.Button("Delete Entry", on_press=self.delete_entry, style=Pack(padding=10, width=150))
+
+        # Arrange buttons in a row
+        button_box = toga.Box(children=[add_button, view_button, edit_button, delete_button], style=Pack(direction=ROW, alignment=CENTER, padding=10))
         
-        # Add input area and buttons to the main box
-        main_box = toga.Box(children=[self.entry_box, button_box], style=Pack(direction=COLUMN, padding=10))
+        # Add input area and buttons to the main column
+        main_box = toga.Box(children=[self.entry_box, button_box], style=Pack(direction=COLUMN, padding=10, flex=1))
 
         # Add the main box to the window
         self.main_window.content = main_box
@@ -63,12 +65,11 @@ class JournalApp(toga.App):
         self.main_window.info_dialog("Info", "Delete feature not implemented yet.")
 
     def get_journal_file_path(self):
-        folder = '/file_to_path/'
+        folder = '/Users/ulrike_imac_air/'
         os.makedirs(folder, exist_ok=True)  # Ensure the folder exists
         return os.path.join(folder, 'journal.txt')
 
 def main():
-    # Set the formal name and app ID for the app
     return JournalApp(formal_name="JournalApp", app_id="com.example.journalapp")
 
 if __name__ == "__main__":
