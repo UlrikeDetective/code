@@ -7,7 +7,7 @@
 # Run the application - python trekking_journal.py
 
 import toga
-from toga.style import Pack, RGB
+from toga.style import Pack
 from toga.style.pack import COLUMN, ROW, CENTER
 from datetime import datetime
 import os
