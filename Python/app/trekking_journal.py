@@ -2,7 +2,7 @@
 
 # source myenv/bin/activate
 
-# python -m pip install toga
+# python -m pip install toga briefcase
 
 # Run the application - python trekking_journal.py
 
@@ -57,20 +57,19 @@ class JournalApp(toga.App):
             self.main_window.error_dialog("Error", "No journal entries found.")
 
     def edit_entry(self, widget):
-        # For simplicity, editing can be implemented in a more advanced version.
         self.main_window.info_dialog("Info", "Edit feature not implemented yet.")
 
     def delete_entry(self, widget):
-        # For simplicity, deleting can be implemented in a more advanced version.
         self.main_window.info_dialog("Info", "Delete feature not implemented yet.")
 
     def get_journal_file_path(self):
-        folder = '/path_to_folder/'
+        folder = '/file_to_path/'
         os.makedirs(folder, exist_ok=True)  # Ensure the folder exists
         return os.path.join(folder, 'journal.txt')
 
 def main():
-    return JournalApp()
+    # Set the formal name and app ID for the app
+    return JournalApp(formal_name="JournalApp", app_id="com.example.journalapp")
 
 if __name__ == "__main__":
     app = main()
