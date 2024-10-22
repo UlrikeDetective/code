@@ -1,3 +1,11 @@
+# python -m venv myenv
+
+# source myenv/bin/activate
+
+# python -m pip install toga
+
+# python /Users/ulrike_imac_air/projects/maps/app/Map_appV01/MapApp02.py
+
 from datetime import datetime
 
 def add_entry(journal_file, entry):
