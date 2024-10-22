@@ -21,29 +21,29 @@ class JournalApp(toga.App):
         # Journal Entry Input
         self.entry_box = toga.MultilineTextInput(
             placeholder="Write your journal entry here...", 
-            style=Pack(flex=1, padding=(10, 10, 10, 10), background_color=RGB(240, 240, 240))
+            style=Pack(flex=1, padding=(10, 10, 10, 10), background_color="#4682B4")
         )
 
         # Action Buttons with custom background and text color
         add_button = toga.Button(
             "Add Entry", 
             on_press=self.add_entry, 
-            style=Pack(padding=10, width=150, background_color=RGB(70, 130, 180), color="white")
+            style=Pack(padding=10, width=150, background_color="#EA8212", color="#FFFFFF")
         )
         view_button = toga.Button(
             "View Entries", 
             on_press=self.view_entries, 
-            style=Pack(padding=10, width=150, background_color=RGB(50, 205, 50), color="white")
+            style=Pack(padding=10, width=150, background_color="#11454C", color="#FFFFFF")
         )
         edit_button = toga.Button(
             "Edit Entry", 
             on_press=self.edit_entry, 
-            style=Pack(padding=10, width=150, background_color=RGB(255, 140, 0), color="white")
+            style=Pack(padding=10, width=150, background_color="#0A9195", color="#FFFFFF")
         )
         delete_button = toga.Button(
             "Delete Entry", 
             on_press=self.delete_entry, 
-            style=Pack(padding=10, width=150, background_color=RGB(220, 20, 60), color="white")
+            style=Pack(padding=10, width=150, background_color="#b6cbee", color="#FFFFFF")
         )
 
         # Arrange buttons in a row with custom alignment
@@ -55,7 +55,7 @@ class JournalApp(toga.App):
         # Add input area and buttons to the main column
         main_box = toga.Box(
             children=[self.entry_box, button_box], 
-            style=Pack(direction=COLUMN, padding=10, flex=1, background_color=RGB(255, 250, 250))
+            style=Pack(direction=COLUMN, padding=10, flex=1, background_color="#64c5a5")
         )
 
         # Set the main box to the window and show the window
