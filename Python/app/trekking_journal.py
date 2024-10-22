@@ -6,89 +6,72 @@
 
 # python /Users/ulrike_imac_air/projects/maps/app/Map_appV01/MapApp02.py
 
+import toga
+from toga.style import Pack
+from toga.style.pack import COLUMN, ROW
 from datetime import datetime
+import os
 
-def add_entry(journal_file, entry):
-    with open(journal_file, 'a') as file:
-        date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        file.write(f"{date}\n{entry}\n\n")
+class JournalApp(toga.App):
 
-def view_entries(journal_file):
-    try:
-        with open(journal_file, 'r') as file:
-            print(file.read())
-    except FileNotFoundError:
-        print("Journal file not found. Please add an entry first.")
+    def startup(self):
+        # Set up the main window
+        self.main_window = toga.MainWindow(title=self.formal_name)
+        
+        # Create buttons for actions
+        self.entry_box = toga.MultilineTextInput(placeholder="Write your journal entry here...", style=Pack(flex=1))
+        add_button = toga.Button("Add Entry", on_press=self.add_entry, style=Pack(padding=5))
+        view_button = toga.Button("View Entries", on_press=self.view_entries, style=Pack(padding=5))
+        edit_button = toga.Button("Edit Entry", on_press=self.edit_entry, style=Pack(padding=5))
+        delete_button = toga.Button("Delete Entry", on_press=self.delete_entry, style=Pack(padding=5))
 
-def edit_entry(journal_file):
-    try:
-        with open(journal_file, 'r') as file:
-            entries = file.readlines()
+        # Create a box layout
+        button_box = toga.Box(children=[add_button, view_button, edit_button, delete_button], style=Pack(direction=ROW, padding=10))
+        
+        # Add input area and buttons to the main box
+        main_box = toga.Box(children=[self.entry_box, button_box], style=Pack(direction=COLUMN, padding=10))
 
-        # Display entries with indices for editing
-        for i in range(0, len(entries), 3):  # 3 lines per entry (date, entry, newline)
-            print(f"{i // 3 + 1}: {entries[i].strip()} - {entries[i+1].strip()}")
+        # Add the main box to the window
+        self.main_window.content = main_box
+        self.main_window.show()
 
-        # Select the entry to edit
-        entry_num = int(input("Enter the number of the entry to edit: "))
-        new_entry = input("Enter the new text: ")
+    def add_entry(self, widget):
+        journal_file = self.get_journal_file_path()
+        entry = self.entry_box.value
+        if entry.strip():
+            with open(journal_file, 'a') as file:
+                date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                file.write(f"{date}\n{entry}\n\n")
+            self.entry_box.value = ""
+            self.main_window.info_dialog("Success", "Journal entry added.")
+        else:
+            self.main_window.error_dialog("Error", "Please enter some text.")
 
-        # Replace the old entry with the new one
-        entries[(entry_num - 1) * 3 + 1] = f"{new_entry}\n"
+    def view_entries(self, widget):
+        journal_file = self.get_journal_file_path()
+        try:
+            with open(journal_file, 'r') as file:
+                content = file.read()
+                self.main_window.info_dialog("Journal Entries", content if content else "No entries found.")
+        except FileNotFoundError:
+            self.main_window.error_dialog("Error", "No journal entries found.")
 
-        # Write the updated entries back to the file
-        with open(journal_file, 'w') as file:
-            file.writelines(entries)
+    def edit_entry(self, widget):
+        # For simplicity, editing can be implemented in a more advanced version.
+        self.main_window.info_dialog("Info", "Edit feature not implemented yet.")
 
-        print("Entry updated successfully.")
-    except (FileNotFoundError, ValueError, IndexError):
-        print("Error editing the entry. Make sure the file exists and the entry number is correct.")
+    def delete_entry(self, widget):
+        # For simplicity, deleting can be implemented in a more advanced version.
+        self.main_window.info_dialog("Info", "Delete feature not implemented yet.")
 
-def delete_entry(journal_file):
-    try:
-        with open(journal_file, 'r') as file:
-            entries = file.readlines()
+    def get_journal_file_path(self):
+        folder = '/Users/ulrike_imac_air/projects/analysis_my_life/goals/'
+        os.makedirs(folder, exist_ok=True)  # Ensure the folder exists
+        return os.path.join(folder, 'journal.txt')
 
-        # Display entries with indices for deleting
-        for i in range(0, len(entries), 3):  # 3 lines per entry (date, entry, newline)
-            print(f"{i // 3 + 1}: {entries[i].strip()} - {entries[i+1].strip()}")
-
-        # Select the entry to delete
-        entry_num = int(input("Enter the number of the entry to delete: "))
-
-        # Remove the selected entry
-        del entries[(entry_num - 1) * 3:(entry_num - 1) * 3 + 3]
-
-        # Write the updated entries back to the file
-        with open(journal_file, 'w') as file:
-            file.writelines(entries)
-
-        print("Entry deleted successfully.")
-    except (FileNotFoundError, ValueError, IndexError):
-        print("Error deleting the entry. Make sure the file exists and the entry number is correct.")
+def main():
+    return JournalApp()
 
 if __name__ == "__main__":
-    journal_file = 'trekking_journal.txt'
-    while True:
-        print("\nOptions:")
-        print("1. Add a new entry")
-        print("2. View all entries")
-        print("3. Edit an entry")
-        print("4. Delete an entry")
-        print("5. Exit")
-
-        choice = input("Choose an option: ")
-
-        if choice == '1':
-            entry = input("Enter your journal entry: ")
-            add_entry(journal_file, entry)
-        elif choice == '2':
-            view_entries(journal_file)
-        elif choice == '3':
-            edit_entry(journal_file)
-        elif choice == '4':
-            delete_entry(journal_file)
-        elif choice == '5':
-            break
-        else:
-            print("Invalid option. Please choose a valid number.")
+    app = main()
+    app.main_loop()
