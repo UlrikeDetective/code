@@ -4,8 +4,6 @@
 
 # python -m pip install toga
 
-# python /Users/ulrike_imac_air/projects/maps/app/Map_appV01/MapApp02.py
-
 # Run the application - python trekking_journal.py
 
 import toga
@@ -67,7 +65,7 @@ class JournalApp(toga.App):
         self.main_window.info_dialog("Info", "Delete feature not implemented yet.")
 
     def get_journal_file_path(self):
-        folder = '/Users/ulrike_imac_air/projects/analysis_my_life/goals/'
+        folder = '/path_to_folder/'
         os.makedirs(folder, exist_ok=True)  # Ensure the folder exists
         return os.path.join(folder, 'journal.txt')
 
