@@ -26,7 +26,7 @@ def start_yoga_session(poses, hold_time, session_name):
     total_time = end_time - start_time
 
     # Log session details into a CSV file
-    with open('yoga_sessions.csv', mode='a', newline='') as file:
+    with open('yoga_sessions01.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([session_name, time.strftime('%Y-%m-%d %H:%M:%S'), ', '.join(completed_poses), f"{total_time:.2f} seconds"])
 
