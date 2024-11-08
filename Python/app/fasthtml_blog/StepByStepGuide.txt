@@ -6,18 +6,6 @@ C. C. Python Programming
 FastHTML, Uvicorn and Python Blog
 FastHTML, a modern Python web framework introduced in July 2024, is a simple yet powerful framework that allows developers to build web applications using pure Python. (No need for complex templating engines). FastHTML is lightweight and easy to work with, making it an excellent choice for small projects like a blogging site. In this guide, we’ll build a very simple blogging application that allows users to create and view blog posts, using FastHTML and SQLite for the backend, and Uvicorn to run the application locally at http://127.0.0.1:8000.
 
-Project Overview
-We’ll follow these steps:
-
-Set up a virtual environment.
-Set up the project structure.
-Set up the SQLite database.
-Define the blog post model and templates.
-Write the FastHTML application.
-Run the application using Uvicorn.
-Step 1: Set Up a Virtual Environment
-The first step is to create a virtual environment to isolate the project’s dependencies.
-
 Create a project directory:
 
 mkdir fasthtml_blog
@@ -26,17 +14,14 @@ Create a virtual environment:
 
 On macOS/Linux:
 python3 -m venv venv
-On Windows:
-python -m venv venv
-Activate the virtual environment:
 
 On macOS/Linux:
 source venv/bin/activate
-On Windows:
-venv\Scripts\activate
+
 With your virtual environment activated, you’re now ready to install the necessary packages.
 
 pip install python-fasthtml uvicorn
+
 Step 2: Set Up the Project Structure
 Next, we’ll create the directory structure for the blogging application. We’ll need an app/ directory to hold the application files and an SQLite database file for storing blog posts.
 
@@ -85,6 +70,7 @@ fasthtml_blog/
 │   ├── templates.py
 └── venv/
 └── create_directory.py
+
 Step 3: Set Up the SQLite Database
 Now, let’s set up the SQLite database to store blog posts. We’ll create a database.py file inside the app/ directory that manages the connection to the SQLite database and creates the necessary table.
 
@@ -114,6 +100,7 @@ def get_db():
         conn.close()
 create_tables() creates the blog_posts table if it doesn’t already exist.
 get_db() is a context manager that provides a connection to the SQLite database.
+
 Step 4: Define the Blog Post Model and Templates
 Now that the database is set up, we need a model to represent blog posts and functions to interact with the database. In the models.py file, we’ll define a BlogPost class and functions to fetch all posts and create new ones.
 
@@ -174,6 +161,8 @@ def create_post_template():
     """
 blog_list_template() renders a list of all blog posts.
 create_post_template() provides a form to create a new blog post.
+
+
 Step 5: Write the FastHTML Application
 Now, we’ll tie everything together in the main.py file. This is where we define the routes and handle requests.
 
@@ -210,6 +199,8 @@ This file defines three main routes:
 GET /: Displays the list of all blog posts.
 GET /create: Displays a form to create a new blog post.
 POST /create: Handles form submission to create a new post.
+
+
 Step 6: Run the Application Using Uvicorn
 FastHTML doesn’t automatically start a server. Instead, we’ll use Uvicorn, an ASGI server, to serve the application.
 
@@ -217,6 +208,8 @@ Run the Application
 To run the application with Uvicorn, use the following command:
 
 uvicorn app.main:app --reload
+
+
 Step 7: Test the Blogging Site
 View all posts: Navigate to http://127.0.0.1:8000/ to see the list of blog posts.
 Create a new post: Go to http://127.0.0.1:8000/create to add a new blog post. After submitting the form, you’ll be redirected with a success message.
