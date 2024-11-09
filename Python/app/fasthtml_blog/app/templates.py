@@ -9,7 +9,7 @@ def blog_list_template(posts):
             <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Pacifico&display=swap" rel="stylesheet">
         </head>
         <body>
-            <h1>All Blog Posts</h1>
+            <h1 class="gradient-text">All Blog Posts</h1>
             <ul>
                 {''.join([f'<li>{post.title}</li>' for post in posts])}
             </ul>
@@ -32,7 +32,8 @@ def create_post_template():
             <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Pacifico&display=swap" rel="stylesheet">
         </head>
         <body>
-            <h1>Create a New Blog Post</h1>
+            <h1 class="gradient-text">Create a New Blog Post</h1>
+
             <form action="/create" method="post">
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title">

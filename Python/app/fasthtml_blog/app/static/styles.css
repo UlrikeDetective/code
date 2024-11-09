@@ -15,6 +15,13 @@ html {
     color: #0d0f0f;
   }
 
+  .resizable-box {
+    width: 300px;
+    height: 150px;
+    resize: both; /* Can be resized both horizontally and vertically */
+    overflow: auto; /* Required for resize to work */
+  }
+
 h1 {
     font-family: "Pacifico", cursive; /* Your chosen font */
     font-weight: 400;
@@ -22,6 +29,12 @@ h1 {
     font-size: 6em;
     color: #4242ee;
 }
+
+.gradient-text {
+    background: linear-gradient(45deg, red, blue);
+    background-clip: text;
+    color: transparent;
+  }
 
 h2 {
     font-family: "Pacifico", cursive; /* Your chosen font */
