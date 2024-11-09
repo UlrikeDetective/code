@@ -35,14 +35,15 @@ def create_post_template():
             <h1 class="gradient-text">Create a New Blog Post</h1>
 
             <form action="/create" method="post">
-                <label for="title">Title:</label>
-                 <input type="text" id="title" name="title">
-    
-                <label for="content">Content:</label>
-                <textarea id="content" name="content"></textarea>
-    
-                
-                <input type="submit" value="Submit">
+                <div class="form-container">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title">
+                    
+                    <label for="content">Content:</label>
+                    <textarea id="content" name="content"></textarea>
+                    
+                    <input type="submit" value="Submit">
+                </div>
             </form>
             <a href="/">Back to posts</a>
         </body>

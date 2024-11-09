@@ -59,6 +59,8 @@ li {
     border: 1px solid #ccc;
     margin: 5px;
     border-radius: 3px;
+    padding-inline: 15px 25px;
+    margin-inline: 20px 30px; 
 }
 
 a {
@@ -72,19 +74,25 @@ a {
 a:hover {
     text-decoration: underline;
     font-weight: bold;
-    color: #ec2323
+    color: #102a70;
+    margin: 10px;
+    border-radius: 3px;
 }
 
-form {
-    max-width: 200px;
-    margin: auto;
-    padding: 5px;
-    background-color: #878e89;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+/* Container to align the form to the left */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns content to the left */
+    width: 100%;
+    max-width: 800px; /* Limits form width, adjust as needed */
+    padding-left: 20px; /* Adds padding from the left side */
 }
 
+/* Styling for form labels to align with textboxes */
+.form-container label {
+    margin-top: 10px;
+}
 label {
     color: #1919f4;
     font-family: "Cutive Mono", monospace;
@@ -94,30 +102,41 @@ label {
     margin-top: 5px;
 }
 
-input[type="text"], textarea {
+/* Individual styling for title and content fields */
+#title, #content {
+    color: #4b4bec;
     font-family: "Cutive Mono", monospace;
-    padding: 2px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 5em;
     margin-top: 5px;
     border-radius: 4px;
-    border: 1px solid #2a2b2a;
+    border: 1px solid #404241;
 }
 
-/* Styling for the title field */
+/* Specific widths for each field */
 #title {
+    color: #4b4bec;
+    font-family: "Cutive Mono", monospace;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 3em;
     width: 700px;
     height: 40px;
     font-size: 18px;
-    border: 1px solid #464847;
 }
 
-/* Styling for the content field */
 #content {
     width: 700px;
     height: 150px;
+    color: #4b4bec;
+    font-family: "Cutive Mono", monospace;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 5em;
     resize: both;
     overflow: auto;
     font-size: 16px;
-    border: 1px solid #3a3b3a;
 }
 
 input[type="submit"] {
@@ -126,20 +145,17 @@ input[type="submit"] {
     font-family: "Pacifico", cursive; 
     font-weight: 200;
     font-style: normal;
-    font-size: 2em;
+    font-size: 3em;
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
-    width: 90%;
+    width: 30%;
 }
 
-input[type="submit"]:hover {
-    background-color: #159f65;
-    font-family: "Pacifico", cursive; 
-    font-weight: 200;
-    font-style: normal;
-    font-size: 3em;
-    color: #11f0c0;
+/* Styling for submit button */
+.form-container input[type="submit"] {
+    margin-top: 15px;
+    font-family: "Pacifico", cursive;
 }
