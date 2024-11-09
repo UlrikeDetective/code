@@ -72,7 +72,7 @@ a {
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration:wavy;
     font-weight: bold;
     color: #102a70;
     margin: 10px;
@@ -158,4 +158,34 @@ input[type="submit"] {
 .form-container input[type="submit"] {
     margin-top: 15px;
     font-family: "Pacifico", cursive;
+}
+
+/* styles.css */
+
+.success-message {
+    background-color: #d4d2ef; /* Light green background */
+    border: 1px solid #303032; /* Border color */
+    padding: 20px;
+    margin: 50px auto;
+    width: 70%; /* Adjust as needed */
+    text-align: center;
+    font-family: "Cutive Mono", monospace;/* Or other font */
+    border-radius: 8px;
+}
+
+.success-message h2 {
+    color: #4422ef;
+    font-family: "Cutive Mono", monospace;
+}
+
+.success-message a {
+    text-decoration: none;
+    color: #3b5998; /* Darker color for link */
+    font-weight: bold;
+    font-family: "Cutive Mono", monospace;
+}
+
+.success-message a:hover {
+    color: #2d4373; /* Hover color for link */
+    text-decoration:wavy;
 }

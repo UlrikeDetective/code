@@ -30,8 +30,22 @@ def create_post_get():
 # Define this as an async function to handle form data properly
 @app.route("/create", methods=["POST"])
 async def create_post_post(request):
-    form_data = await request.form()  # Await for the form data
+    form_data = await request.form()
     title = form_data.get("title")
     content = form_data.get("content")
     create_post(title, content)
-    return f"<h2>Post '{title}' created! <a href='/'>Go back</a></h2>"
+    
+    # Return HTML with CSS class for styling
+    return f"""
+    <html>
+        <head>
+            <link rel="stylesheet" href="/static/styles.css">
+        </head>
+        <body>
+            <div class="success-message">
+                <h2>Post '{title}' created!</h2>
+                <a href="/">Go back</a>
+            </div>
+        </body>
+    </html>
+    """
