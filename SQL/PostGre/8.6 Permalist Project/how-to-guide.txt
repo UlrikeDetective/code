@@ -1,0 +1,7 @@
+Open VS Code (or other graphic interface
+
+Command + N + shift - put folder in window
+
+Npm I express body-parser ejs
+
+Nodemon index.js
