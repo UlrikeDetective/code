@@ -1,0 +1,16 @@
+/* Light Theme (Default) */
+body {
+    background-color: #ffffff; /* Classic white, easy on the eyes! */
+    color: #000000; /* Black text for easy reading */
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
