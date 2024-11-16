@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #75BFD3;
+  }
+  
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  input, button {
+    padding: 10px;
+    margin: 0 5px;
+  }
+  
+  .album {
+    border: 1px solid #c7bace;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    text-align: center;
+    background-color: white;
+  }
+  
+  .album img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+  }
+  
+  .album button {
+    background-color: #ff7fc5;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .album button:hover {
+    background-color: #056186;
+  }
+  

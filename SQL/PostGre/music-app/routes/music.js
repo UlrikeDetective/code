@@ -1,49 +1,39 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../database');
+const pool = require('../database'); // Ensure you have a database.js that exports a pg.Pool instance
 
-// Get all music entries
-router.get('/', async (req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM music ORDER BY listened_at DESC');
-    res.render('music', { music: result.rows });
-  } catch (err) {
-    console.error(err);
-  }
+// Render the music page
+router.get('/', (req, res) => {
+  res.render('music');
 });
 
-// Add a new entry
+// Add a route to handle saving albums
 router.post('/add', async (req, res) => {
-  const { title, artist, album_cover_url, rating } = req.body;
-  try {
-    await pool.query('INSERT INTO music (title, artist, album_cover_url, rating) VALUES ($1, $2, $3, $4)', [title, artist, album_cover_url, rating]);
-    res.redirect('/music');
-  } catch (err) {
-    console.error(err);
-  }
-});
-
-// Update an entry
-router.post('/update/:id', async (req, res) => {
-  const { id } = req.params;
-  const { rating } = req.body;
-  try {
-    await pool.query('UPDATE music SET rating = $1 WHERE id = $2', [rating, id]);
-    res.redirect('/music');
-  } catch (err) {
-    console.error(err);
-  }
-});
-
-// Delete an entry
-router.post('/delete/:id', async (req, res) => {
-  const { id } = req.params;
-  try {
-    await pool.query('DELETE FROM music WHERE id = $1', [id]);
-    res.redirect('/music');
-  } catch (err) {
-    console.error(err);
-  }
-});
+    const { title, artist, album_cover_url, rating } = req.body;
+  
+    // Debug: Log incoming request data
+    console.log('Request body:', req.body);
+  
+    if (!title || !artist || !album_cover_url) {
+      console.log('Error: Missing required fields');
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+  
+    try {
+      const query = 'INSERT INTO albums (title, artist, album_cover_url, rating) VALUES ($1, $2, $3, $4)';
+      const values = [title, artist, album_cover_url, rating];
+      
+      // Debug: Log query and values
+      console.log('Query:', query);
+      console.log('Values:', values);
+  
+      await pool.query(query, values);
+      res.status(201).json({ message: 'Album saved successfully!' });
+    } catch (err) {
+      // Debug: Log database error
+      console.error('Error saving album:', err.message);
+      res.status(500).json({ error: 'Failed to save album' });
+    }
+  });
 
 module.exports = router;
