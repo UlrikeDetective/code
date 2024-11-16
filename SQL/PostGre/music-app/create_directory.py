@@ -1,9 +1,11 @@
-# static file | create_directory.py
 import os
 
 # Define the structure
 directories = [
-    'music-app'
+    'music-app',
+    'music-app/public',
+    'music-app/views',
+    'music-app/routes'
 ]
 
 files = [
@@ -24,6 +26,7 @@ for directory in directories:
 
 # Create empty files
 for file in files:
+    # Ensure parent directories exist (already handled above)
     with open(file, 'w') as f:
         pass
 
