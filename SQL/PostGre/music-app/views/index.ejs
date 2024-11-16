@@ -1,6 +1,6 @@
-<h1>Search Albums</h1>
+<h1>Search Music</h1>
 <form id="search-form">
-  <input type="text" id="search-query" placeholder="Search for an album..." required />
+  <input type="text" id="search-query" placeholder="Search for a title, artist, or album..." required />
   <button type="submit">Search</button>
 </form>
 
@@ -17,40 +17,40 @@
 
     try {
       const response = await fetch(`/api/search?query=${encodeURIComponent(query)}`);
-      const albums = await response.json();
-      resultsDiv.innerHTML = albums.map(album => `
-        <div class="album">
-          <img src="${album.cover}" alt="${album.title}" />
-          <p><strong>${album.title}</strong> by ${album.artist}</p>
-          <a href="${album.link}" target="_blank">Listen on Deezer</a>
-          <button onclick="saveAlbum('${album.title}', '${album.artist}', '${album.cover}')">Save</button>
+      const music = await response.json();
+      resultsDiv.innerHTML = music.map(item => `
+        <div class="music-item">
+          <img src="${item.cover}" alt="${item.title}" />
+          <p><strong>${item.title}</strong> by ${item.artist}</p>
+          <p>Album: ${item.album}</p>
+          <a href="${item.link}" target="_blank">Listen on Deezer</a>
+          <label for="rating-${item.id}">Rate:</label>
+          <input id="rating-${item.id}" type="number" min="1" max="5" value="5">
+          <button onclick="saveMusic('${item.title}', '${item.artist}', '${item.album}', '${item.cover}', document.getElementById('rating-${item.id}').value)">Save</button>
         </div>
       `).join('');
     } catch (err) {
-      console.error('Error fetching albums:', err);
-      resultsDiv.innerHTML = '<p>Failed to fetch albums. Please try again later.</p>';
+      console.error('Error fetching music:', err);
+      resultsDiv.innerHTML = '<p>Failed to fetch music. Please try again later.</p>';
     }
   });
 
-  async function saveAlbum(title, artist, cover) {
-  console.log('Data to send:', { title, artist, album_cover_url: cover, rating: 5 }); // Debugging line
-  try {
-    const response = await fetch('/music/add', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, artist, album_cover_url: cover, rating: 5 }),
-    });
+  async function saveMusic(title, artist, album, cover, rating) {
+    try {
+      const response = await fetch('/music/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, artist, album, album_cover_url: cover, rating }),
+      });
 
-    if (response.ok) {
-      alert('Album saved successfully!');
-    } else {
-      alert('Failed to save the album.');
+      if (response.ok) {
+        alert('Music saved successfully!');
+      } else {
+        alert('Failed to save the music.');
+      }
+    } catch (err) {
+      console.error('Error saving music:', err);
+      alert('An error occurred.');
     }
-  } catch (err) {
-    console.error('Error saving album:', err);
-    alert('An error occurred.');
   }
-}
-
-
 </script>

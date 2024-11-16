@@ -1,39 +1,48 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../database'); // Ensure you have a database.js that exports a pg.Pool instance
+const db = require('../database'); // Ensure this exports a `pg.Pool` instance
 
-// Render the music page
-router.get('/', (req, res) => {
-  res.render('music');
-});
-
-// Add a route to handle saving albums
-router.post('/add', async (req, res) => {
-    const { title, artist, album_cover_url, rating } = req.body;
+// Render the music page with sorting
+router.get('/', async (req, res) => {
+    const { sort } = req.query;
   
-    // Debug: Log incoming request data
-    console.log('Request body:', req.body);
-  
-    if (!title || !artist || !album_cover_url) {
-      console.log('Error: Missing required fields');
-      return res.status(400).json({ error: 'Missing required fields' });
+    let query = 'SELECT * FROM music';
+    if (sort === 'rating') {
+      query += ' ORDER BY rating DESC';
+    } else if (sort === 'recency') {
+      query += ' ORDER BY created_at DESC';
     }
   
     try {
-      const query = 'INSERT INTO albums (title, artist, album_cover_url, rating) VALUES ($1, $2, $3, $4)';
-      const values = [title, artist, album_cover_url, rating];
-      
-      // Debug: Log query and values
-      console.log('Query:', query);
-      console.log('Values:', values);
-  
-      await pool.query(query, values);
-      res.status(201).json({ message: 'Album saved successfully!' });
+      const { rows } = await db.query(query);
+      console.log('Fetched data:', rows); // Log the fetched data
+      res.render('music', { music: rows });
     } catch (err) {
-      // Debug: Log database error
-      console.error('Error saving album:', err.message);
-      res.status(500).json({ error: 'Failed to save album' });
+      console.error('Error fetching music:', err.message);
+      res.status(500).send('Server error');
     }
   });
+  
+
+// Add a new music entry
+router.post('/add', async (req, res) => {
+  const { title, artist, album, album_cover_url, rating } = req.body;
+
+  // Validate required fields
+  if (!title || !artist || !album || !album_cover_url) {
+    return res.status(400).json({ error: 'Missing required fields' });
+  }
+
+  try {
+    await db.query(
+      'INSERT INTO music (title, artist, album, album_cover_url, rating) VALUES ($1, $2, $3, $4, $5)',
+      [title, artist, album, album_cover_url, rating]
+    );
+    res.status(201).json({ message: 'Music added successfully' });
+  } catch (err) {
+    console.error('Error adding music:', err.message);
+    res.status(500).json({ error: 'Failed to add music' });
+  }
+});
 
 module.exports = router;

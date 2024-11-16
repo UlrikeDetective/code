@@ -7,64 +7,22 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <h1>Music App</h1>
+  <h1>Welcome to the Music Page</h1>
 
-  <!-- Search Bar -->
-  <form id="search-form">
-    <input type="text" id="search-query" placeholder="Search for an album..." required />
-    <button type="submit">Search</button>
-  </form>
-
-  <!-- Search Results -->
-  <div id="search-results"></div>
-
-  <script>
-    const form = document.getElementById('search-form');
-    const queryInput = document.getElementById('search-query');
-    const resultsDiv = document.getElementById('search-results');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const query = queryInput.value;
-
-      try {
-        const response = await fetch(`/api/search?query=${encodeURIComponent(query)}`);
-        const albums = await response.json();
-
-        // Display search results
-        resultsDiv.innerHTML = albums.map(album => `
-          <div class="album">
-            <img src="${album.cover}" alt="${album.title}" />
-            <p><strong>${album.title}</strong> by ${album.artist}</p>
-            <a href="${album.link}" target="_blank">Listen on Deezer</a>
-            <button onclick="saveAlbum('${album.title}', '${album.artist}', '${album.cover}')">Save</button>
-          </div>
-        `).join('');
-      } catch (err) {
-        console.error('Error fetching albums:', err);
-        resultsDiv.innerHTML = '<p>Failed to fetch albums. Please try again later.</p>';
-      }
-    });
-
-async function saveAlbum(title, artist, cover) {
-  try {
-    const response = await fetch('/music/add', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, artist, album_cover_url: cover, rating: 5 }), // Match the field names expected by the backend
-    });
-
-    if (response.ok) {
-      alert('Album saved successfully!');
-    } else {
-      alert('Failed to save the album.');
-    }
-  } catch (err) {
-    console.error('Error saving album:', err);
-    alert('An error occurred.');
-  }
-}
-
-  </script>
+  <% if (music.length === 0) { %>
+    <p>No music found. Start by adding some albums!</p>
+  <% } else { %>
+    <ul>
+      <% music.forEach(item => { %>
+        <li>
+          <img src="<%= item.album_cover_url %>" alt="<%= item.title %> cover" width="150">
+          <h2><%= item.title %></h2>
+          <p>Artist: <%= item.artist %></p>
+          <p>Album: <%= item.album %></p>
+          <p>Rating: <%= item.rating %></p>
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
 </body>
 </html>
