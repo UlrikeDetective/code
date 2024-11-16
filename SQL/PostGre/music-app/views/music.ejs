@@ -1,0 +1,39 @@
+<h1>Your Music List</h1>
+<form method="POST" action="/music/add">
+  <input type="text" name="title" placeholder="Title" required />
+  <input type="text" name="artist" placeholder="Artist" required />
+  <input type="text" name="album_cover_url" placeholder="Album Cover URL" />
+  <input type="number" name="rating" placeholder="Rating (1-5)" required />
+  <button type="submit">Add Music</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Album Cover</th>
+      <th>Rating</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% music.forEach(item => { %>
+      <tr>
+        <td><%= item.title %></td>
+        <td><%= item.artist %></td>
+        <td><img src="<%= item.album_cover_url %>" alt="Album Cover" width="100" /></td>
+        <td><%= item.rating %></td>
+        <td>
+          <form method="POST" action="/music/update/<%= item.id %>">
+            <input type="number" name="rating" value="<%= item.rating %>" required />
+            <button type="submit">Update</button>
+          </form>
+          <form method="POST" action="/music/delete/<%= item.id %>">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
