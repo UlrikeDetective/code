@@ -25,62 +25,7 @@
     </ul>
   <% } %>
 
-  <h2>Add New Music</h2>
-<form id="add-music-form">
-  <label for="title">Title:</label>
-  <input type="text" id="title" name="title" required>
-  
-  <label for="artist">Artist:</label>
-  <input type="text" id="artist" name="artist" required>
-  
-  <label for="album">Album:</label>
-  <input type="text" id="album" name="album" required>
-  
-  <label for="album_cover_url">Album Cover URL:</label>
-  <input type="text" id="album_cover_url" name="album_cover_url" required>
-  
-  <label for="rating">Rating:</label>
-  <input type="number" id="rating" name="rating" min="1" max="5" required>
-  
-  <button type="submit">Add Music</button>
-</form>
-
-<script>
-    const form = document.getElementById('add-music-form');
-  
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault(); // Prevent the default form submission
-  
-      const formData = new FormData(form);
-      const data = {
-        title: formData.get('title'),
-        artist: formData.get('artist'),
-        album: formData.get('album'),
-        album_cover_url: formData.get('album_cover_url'),
-        rating: formData.get('rating')
-      };
-  
-      try {
-        const response = await fetch('/music/add', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-  
-        if (response.ok) {
-          alert('Music added successfully!');
-          window.location.reload(); // Reload the page to see the new entry
-        } else {
-          const error = await response.json();
-          alert(`Error: ${error.error}`);
-        }
-      } catch (err) {
-        console.error('Error adding music:', err);
-        alert('Failed to add music. Please try again later.');
-      }
-    });
-  </script>
-  
+ 
 
 </body>
 </html>

@@ -1,19 +1,18 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const musicRoutes = require('./routes/music');
-const apiRoutes = require('./routes/api'); // Import Deezer API routes
+const musicRoutes = require('./routes/music'); // For saved songs
+const addMusicRoutes = require('./routes/addMusic'); // For add/search music
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json()); // This line ensures that JSON payloads are correctly parsed
 
+// Routes
+app.use('/saved', musicRoutes); // Saved songs
+app.use('/add', addMusicRoutes); // Add music manually or search for songs
 
-// Mount routes
-app.use('/music', musicRoutes);
-app.use('/api', apiRoutes);
-
-app.get('/', (req, res) => res.redirect('/music'));
+// Homepage redirects to add music
+app.get('/', (req, res) => res.redirect('/add'));
 
 app.listen(3000, () => console.log('Server running on http://localhost:3000'));

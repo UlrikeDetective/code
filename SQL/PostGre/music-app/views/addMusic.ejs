@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add/Search Music</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Add Music</h1>
+
+  <h2>Add Music Manually</h2>
+  <form id="add-music-form">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="artist">Artist:</label>
+    <input type="text" id="artist" name="artist" required>
+
+    <label for="album">Album:</label>
+    <input type="text" id="album" name="album" required>
+
+    <label for="album_cover_url">Album Cover URL:</label>
+    <input type="text" id="album_cover_url" name="album_cover_url" required>
+
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" name="rating" min="1" max="5" required>
+
+    <button type="submit">Add Music</button>
+  </form>
+
+  <h2>Search for Songs</h2>
+  <form id="search-form">
+    <input type="text" id="query" placeholder="Search for a song..." required>
+    <button type="submit">Search</button>
+  </form>
+
+  <div id="search-results"></div>
+
+  <script>
+    const addMusicForm = document.getElementById('add-music-form');
+    const searchForm = document.getElementById('search-form');
+    const searchResults = document.getElementById('search-results');
+
+    // Add music manually
+    addMusicForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(addMusicForm);
+      const data = {
+        title: formData.get('title'),
+        artist: formData.get('artist'),
+        album: formData.get('album'),
+        album_cover_url: formData.get('album_cover_url'),
+        rating: formData.get('rating'),
+      };
+
+      try {
+        const response = await fetch('/saved/add', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          alert('Music added successfully!');
+          addMusicForm.reset();
+        } else {
+          alert('Failed to add music.');
+        }
+      } catch (err) {
+        console.error('Error adding music:', err);
+      }
+    });
+
+    // Search for songs
+    searchForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const query = document.getElementById('query').value;
+
+      try {
+        const response = await fetch(`/add/search?query=${encodeURIComponent(query)}`);
+        const songs = await response.json();
+
+        searchResults.innerHTML = songs.map(song => `
+          <div class="song">
+            <img src="${song.cover}" alt="${song.title}" />
+            <p><strong>${song.title}</strong> by ${song.artist}</p>
+            <p>Album: ${song.album}</p>
+            <button onclick="saveSong('${song.title}', '${song.artist}', '${song.album}', '${song.cover}')">Save</button>
+          </div>
+        `).join('');
+      } catch (err) {
+        console.error('Error fetching songs:', err);
+        searchResults.innerHTML = '<p>Failed to fetch songs. Try again later.</p>';
+      }
+    });
+
+    // Save searched song
+    async function saveSong(title, artist, album, cover) {
+      try {
+        const response = await fetch('/saved/add', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, artist, album, album_cover_url: cover, rating: 5 }),
+        });
+
+        if (response.ok) {
+          alert('Song saved successfully!');
+        } else {
+          alert('Failed to save song.');
+        }
+      } catch (err) {
+        console.error('Error saving song:', err);
+      }
+    }
+  </script>
+</body>
+</html>
