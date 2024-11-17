@@ -1,0 +1,8 @@
+Optional Enhancements
+
+Search Filters: Allow users to search by specific criteria (e.g., artist only).
+Rating: Add an input field to allow users to set a rating when saving songs.
+Error Handling: Provide user-friendly error messages for common issues like API limits or network failures.
+Styling: Make the search results and save button visually appealing using CSS.
+
+Split website into two - 1. Add music manually or search for a song, 2. display saved songs
