@@ -24,22 +24,27 @@ router.get('/', async (req, res) => {
 
 // Add a new song
 router.post('/add', async (req, res) => {
-  const { title, artist, album, album_cover_url, rating } = req.body;
-
-  if (!title || !artist || !album || !album_cover_url) {
-    return res.status(400).json({ error: 'Missing required fields' });
-  }
-
-  try {
-    await db.query(
-      'INSERT INTO music (title, artist, album, album_cover_url, rating) VALUES ($1, $2, $3, $4, $5)',
-      [title, artist, album, album_cover_url, rating]
-    );
-    res.status(201).json({ message: 'Music added successfully' });
-  } catch (err) {
-    console.error('Error adding music:', err.message);
-    res.status(500).json({ error: 'Failed to add music.' });
-  }
-});
+    const { title, artist, album, album_cover_url, rating } = req.body;
+  
+    // Validate required fields
+    if (!title || !artist || !album || !album_cover_url || !rating) {
+      console.error('Missing fields:', req.body);
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+  
+    try {
+      // Insert data into the database
+      await db.query(
+        'INSERT INTO music (title, artist, album, album_cover_url, rating) VALUES ($1, $2, $3, $4, $5)',
+        [title, artist, album, album_cover_url, rating]
+      );
+      res.status(201).json({ message: 'Music added successfully' });
+    } catch (err) {
+      console.error('Error adding music:', err.message);
+      res.status(500).json({ error: 'Failed to add music.' });
+    }
+  });
+  
+  
 
 module.exports = router;
