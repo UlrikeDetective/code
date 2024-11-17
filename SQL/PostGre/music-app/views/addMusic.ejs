@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add/Search Music</title>
+  <title>Search Music</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <h1>Add Music</h1>
-
+  <h1>Search Music</h1>
 
   <h2>Search for Songs</h2>
   <form id="search-form">
@@ -19,39 +18,17 @@
   <div id="search-results"></div>
 
   <script>
-    const addMusicForm = document.getElementById('add-music-form');
+    // Utility function to escape HTML to prevent injection issues
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+    }
+
     const searchForm = document.getElementById('search-form');
     const searchResults = document.getElementById('search-results');
-
-    // Add music manually
-    addMusicForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(addMusicForm);
-      const data = {
-        title: formData.get('title'),
-        artist: formData.get('artist'),
-        album: formData.get('album'),
-        album_cover_url: formData.get('album_cover_url'),
-        rating: formData.get('rating'),
-      };
-
-      try {
-        const response = await fetch('/saved/add', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-
-        if (response.ok) {
-          alert('Music added successfully!');
-          addMusicForm.reset();
-        } else {
-          alert('Failed to add music.');
-        }
-      } catch (err) {
-        console.error('Error adding music:', err);
-      }
-    });
 
     // Search for songs
     searchForm.addEventListener('submit', async (e) => {
@@ -60,14 +37,17 @@
 
       try {
         const response = await fetch(`/add/search?query=${encodeURIComponent(query)}`);
-        const songs = await response.json();
+        if (!response.ok) {
+          throw new Error('Failed to fetch songs');
+        }
 
+        const songs = await response.json();
         searchResults.innerHTML = songs.map(song => `
           <div class="song">
-            <img src="${song.cover}" alt="${song.title}" />
-            <p><strong>${song.title}</strong> by ${song.artist}</p>
-            <p>Album: ${song.album}</p>
-            <button onclick="saveSong('${song.title}', '${song.artist}', '${song.album}', '${song.cover}')">Save</button>
+            <img src="${escapeHtml(song.cover)}" alt="${escapeHtml(song.title)}" />
+            <p><strong>${escapeHtml(song.title)}</strong> by ${escapeHtml(song.artist)}</p>
+            <p>Album: ${escapeHtml(song.album)}</p>
+            <button onclick="saveSong('${escapeHtml(song.title)}', '${escapeHtml(song.artist)}', '${escapeHtml(song.album)}', '${escapeHtml(song.cover)}')">Save</button>
           </div>
         `).join('');
       } catch (err) {
@@ -78,30 +58,32 @@
 
     // Save searched song
     async function saveSong(title, artist, album, cover) {
-  if (!title || !artist || !album || !cover) {
-    alert('Missing required fields to save the song.');
-    return;
-  }
+      if (!title || !artist || !album || !cover) {
+        alert('Missing required fields to save the song.');
+        return;
+      }
 
-  try {
-    const response = await fetch('/saved/add', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, artist, album, album_cover_url: cover, rating: 5 }),
-    });
+      console.log('Saving song with data:', { title, artist, album, album_cover_url: cover });
 
-    if (response.ok) {
-      alert('Song saved successfully!');
-    } else {
-      const error = await response.json();
-      alert(`Failed to save song: ${error.error}`);
+      try {
+        const response = await fetch('/saved/add', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, artist, album, album_cover_url: cover }),
+        });
+
+        if (response.ok) {
+          alert('Song saved successfully!');
+        } else {
+          const error = await response.json();
+          console.error('Failed to save song:', error);
+          alert(`Failed to save song: ${error.error}`);
+        }
+      } catch (err) {
+        console.error('Error saving song:', err);
+        alert('An error occurred while saving the song.');
+      }
     }
-  } catch (err) {
-    console.error('Error saving song:', err);
-    alert('An error occurred while saving the song.');
-  }
-}
-
-  
+  </script>
 </body>
 </html>

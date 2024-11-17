@@ -1,56 +1,94 @@
-<h1>Search Music</h1>
-<form id="search-form">
-  <input type="text" id="search-query" placeholder="Search for a title, artist, or album..." required />
-  <button type="submit">Search</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Music</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Search Music</h1>
+  <form id="search-form">
+    <input type="text" id="search-query" placeholder="Search for a title, artist, or album..." required />
+    <button type="submit">Search</button>
+  </form>
 
-<div id="search-results"></div>
+  <div id="search-results"></div>
 
-<script>
-  const form = document.getElementById('search-form');
-  const queryInput = document.getElementById('search-query');
-  const resultsDiv = document.getElementById('search-results');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const query = queryInput.value;
-
-    try {
-      const response = await fetch(`/api/search?query=${encodeURIComponent(query)}`);
-      const music = await response.json();
-      resultsDiv.innerHTML = music.map(item => `
-        <div class="music-item">
-          <img src="${item.cover}" alt="${item.title}" />
-          <p><strong>${item.title}</strong> by ${item.artist}</p>
-          <p>Album: ${item.album}</p>
-          <a href="${item.link}" target="_blank">Listen on Deezer</a>
-          <label for="rating-${item.id}">Rate:</label>
-          <input id="rating-${item.id}" type="number" min="1" max="5" value="5">
-          <button onclick="saveMusic('${item.title}', '${item.artist}', '${item.album}', '${item.cover}', document.getElementById('rating-${item.id}').value)">Save</button>
-        </div>
-      `).join('');
-    } catch (err) {
-      console.error('Error fetching music:', err);
-      resultsDiv.innerHTML = '<p>Failed to fetch music. Please try again later.</p>';
+  <script>
+    // Utility function to escape HTML to prevent injection issues
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
     }
-  });
 
-  async function saveMusic(title, artist, album, cover, rating) {
-    try {
-      const response = await fetch('/music/add', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, artist, album, album_cover_url: cover, rating }),
-      });
+    const form = document.getElementById('search-form');
+    const queryInput = document.getElementById('search-query');
+    const resultsDiv = document.getElementById('search-results');
 
-      if (response.ok) {
-        alert('Music saved successfully!');
-      } else {
-        alert('Failed to save the music.');
+    // Handle the search form submission
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const query = queryInput.value.trim();
+
+      if (!query) {
+        alert('Please enter a search query.');
+        return;
       }
-    } catch (err) {
-      console.error('Error saving music:', err);
-      alert('An error occurred.');
+
+      try {
+        const response = await fetch(`/api/search?query=${encodeURIComponent(query)}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch music data');
+        }
+
+        const music = await response.json();
+        resultsDiv.innerHTML = music.map(item => `
+          <div class="music-item">
+            <img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}" />
+            <p><strong>${escapeHtml(item.title)}</strong> by ${escapeHtml(item.artist)}</p>
+            <p>Album: ${escapeHtml(item.album)}</p>
+            <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">Listen on Deezer</a>
+            <button onclick="saveMusic('${escapeHtml(item.title)}', '${escapeHtml(item.artist)}', '${escapeHtml(item.album)}', '${escapeHtml(item.cover)}')">Save</button>
+          </div>
+        `).join('');
+      } catch (err) {
+        console.error('Error fetching music:', err);
+        resultsDiv.innerHTML = '<p>Failed to fetch music. Please try again later.</p>';
+      }
+    });
+
+    // Save music function
+    async function saveMusic(title, artist, album, cover) {
+      if (!title || !artist || !album || !cover) {
+        alert('Missing required fields to save the music.');
+        return;
+      }
+
+      console.log('Saving music with data:', { title, artist, album, album_cover_url: cover });
+
+      try {
+        const response = await fetch('/music/add', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, artist, album, album_cover_url: cover }),
+        });
+
+        if (response.ok) {
+          alert('Music saved successfully!');
+        } else {
+          const error = await response.json();
+          console.error('Error saving music:', error);
+          alert(`Failed to save music: ${error.message || 'Unknown error'}`);
+        }
+      } catch (err) {
+        console.error('Error saving music:', err);
+        alert('An error occurred while saving the music.');
+      }
     }
-  }
-</script>
+  </script>
+</body>
+</html>

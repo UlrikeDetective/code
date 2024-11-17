@@ -12,20 +12,18 @@
   <% if (music.length === 0) { %>
     <p>No music found. Start by adding some albums!</p>
   <% } else { %>
-    <ul>
+    <ul class="music-list">
       <% music.forEach(item => { %>
-        <li>
-          <img src="<%= item.album_cover_url %>" alt="<%= item.title %> cover" width="150">
-          <h2><%= item.title %></h2>
-          <p>Artist: <%= item.artist %></p>
-          <p>Album: <%= item.album %></p>
-          <p>Rating: <%= item.rating %></p>
+        <li class="music-item">
+          <img src="<%= item.album_cover_url %>" alt="<%= item.title %> cover" width="150" height="150">
+          <div class="music-info">
+            <h2><%= item.title %></h2>
+            <p><strong>Artist:</strong> <%= item.artist %></p>
+            <p><strong>Album:</strong> <%= item.album %></p>
+          </div>
         </li>
       <% }); %>
     </ul>
   <% } %>
-
- 
-
 </body>
 </html>
