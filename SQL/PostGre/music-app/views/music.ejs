@@ -9,23 +9,27 @@
 
 </head>
 <body>
-  <h1>Welcome to the Music Page</h1>
-
-  <% if (music.length === 0) { %>
-    <p>No music found. Start by adding some albums!</p>
-  <% } else { %>
-    <ul class="music-list">
-      <% music.forEach(item => { %>
-        <li class="music-item">
-          <img src="<%= item.album_cover_url %>" alt="<%= item.title %> cover" width="150" height="150">
-          <div class="music-info">
-            <h2><%= item.title %></h2>
-            <p><strong>Artist:</strong> <%= item.artist %></p>
-            <p><strong>Album:</strong> <%= item.album %></p>
+  <div class="container">
+    <h1 class="text-center my-4">Saved Music</h1>
+    <% if (music.length === 0) { %>
+      <p class="text-muted text-center">No music found. Start by adding some albums!</p>
+    <% } else { %>
+      <div class="row">
+        <% music.forEach(item => { %>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="<%= item.album_cover_url %>" class="card-img-top" alt="<%= item.title %> cover">
+              <div class="card-body">
+                <h5 class="card-title"><%= item.title %></h5>
+                <p class="card-text">Artist: <%= item.artist %></p>
+                <p class="card-text">Album: <%= item.album %></p>
+              </div>
+            </div>
           </div>
-        </li>
-      <% }); %>
-    </ul>
-  <% } %>
+        <% }); %>
+      </div>
+    <% } %>
+  </div>
 </body>
+
 </html>
