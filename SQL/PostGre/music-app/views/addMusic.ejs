@@ -9,13 +9,30 @@
 
 </head>
 <body>
-  <h1>Search Music</h1>
+    <div class="container">
+      <h1 class="text-center my-4">Search Music</h1>
+      <form id="search-form" class="mb-4">
+        <div class="input-group">
+          <input type="text" id="query" class="form-control" placeholder="Search for a song..." required>
+          <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </form>
+    <div id="search-results" class="row gy-3"></div>
+  </div>
 
-  <h2>Search for Songs</h2>
-  <form id="search-form">
-    <input type="text" id="query" placeholder="Search for a song..." required>
-    <button type="submit">Search</button>
-  </form>
+    <div class="container">
+      <h2 class="text-center my-4">Search for Songs</h2>
+      <form id="search-form" class="mb-4">
+        <div class="input-group">
+          <input type="text" id="query" class="form-control" placeholder="Search for a song..." required>
+          <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </form>
+    <div id="search-results" class="row gy-3"></div>
+  </div>
+
+
+
 
   <div id="search-results"></div>
 
