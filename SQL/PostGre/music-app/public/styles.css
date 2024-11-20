@@ -7,6 +7,42 @@ body {
     background-color: #75BFD3;
     color: #333;
   }
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.my-4 {
+  margin: 20px 0;
+}
+
+.mb-4 {
+  margin-bottom: 20px;
+}
+
   
   h1 {
     text-align: center;
