@@ -1,0 +1,157 @@
+.body {
+    margin: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right, #ff7e5f, #feb47b);
+    padding: 20px;
+}
+
+.shape-container {
+    margin: 20px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 3em;
+    color: white;
+}
+
+.rectangle {
+    width: 500px;
+    height: 300px;
+    background: black;
+}
+
+.square {
+    width: 300px;
+    aspect-ratio: 1;
+    background: black;
+}
+
+.circle {
+    width: 300px;
+    aspect-ratio: 1;
+    background: black;
+    border-radius: 50%;
+}
+
+.ellipse {
+    width: 300px;
+    height: 400px;
+    background: black;
+    border-radius: 50%;
+}
+
+.oval {
+    width: 300px;
+    height: 400px;
+    background: black;
+    border-radius: 100% / 120% 120% 75% 75%;
+}
+
+.bell {
+    width: 300px;
+    height: 400px;
+    background: black;
+    border-radius: 100% / 160% 160% 25% 25%;
+}
+
+.arch {
+    width: 300px;
+    height: 400px;
+    background: black;
+    border-radius: 50% / 100% 100% 0% 0%;
+}
+
+.tear {
+    width: 300px;
+    aspect-ratio: 1;
+    background: black;
+    rotate: 45deg;
+    border-radius: 0 50% 50% 50%;
+}
+
+.heart {
+    width: 150px; /* Smaller width for better proportions */
+    height: 150px; /* Height matching width */
+    background: black;
+    position: relative;
+    transform: rotate(-45deg); /* Rotate to create a heart shape */
+    margin: 20px auto; /* Center within container */
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px; /* Matching the heart size */
+    background: black;
+    border-radius: 50%; /* Makes them circular */
+    top: -75px; /* Position above the heart's square base */
+}
+
+.heart::before {
+    left: 0; /* Left circle for the rounded top */
+}
+
+.heart::after {
+    right: 0; /* Right circle for the rounded top */
+}
+
+.triangle {
+    width: 300px;
+    height: 300px;
+    background: black;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.trapezoid {
+    width: 400px;
+    height: 300px;
+    background: black;
+    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+}
+
+.octagon {
+    width: 300px;
+    height: 300px;
+    background: black;
+    clip-path: polygon(16.66% 16.66%, 50% 0, 83.33% 16.66%, 100% 50%, 83.33% 83.33%, 50% 100%, 16.66% 83.33%, 0 50%);
+}
+
+.spark {
+    width: 300px;
+    aspect-ratio: 1;
+    background: black;
+    clip-path: polygon(40% 40%, 50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%);
+}
+
+.moonCresent {
+    width: 300px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: -90px 0 0 80px black;
+}
+
+.moonDecresent {
+    width: 300px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    -webkit-mask: radial-gradient(circle at 75% 50%, #0000 33%, #000 0);
+}
+
+.stain {
+    width: 300px;
+    height: 300px;
+    background:
+        repeating-conic-gradient(#000 0 3%, #0000 0 11%),
+        repeating-conic-gradient(#0000 0 5%, #000 0 7%) 50% / 60% 60%,
+        repeating-conic-gradient(#0000 0 7%, #000 0 9%) 50% / 70% 70%,
+        repeating-conic-gradient(#0000 0 11%, #000 0 13%) 50% / 80% 80%,
+        radial-gradient(#000 22%, #0000 0),
+        #fff;
+    mix-blend-mode: darken;
+    filter: blur(10px) contrast(100) brightness(1) grayscale(1);
+    box-shadow: 0 0 0 50px #fff;
+}
