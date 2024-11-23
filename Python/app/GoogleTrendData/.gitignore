@@ -55,7 +55,7 @@ sdist/
 var/
 wheels/
 share/python-wheels/
-google-trends_env/
+google_trends_env/
 *.egg-info/
 .installed.cfg
 *.egg
