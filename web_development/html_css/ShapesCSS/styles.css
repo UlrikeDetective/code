@@ -127,18 +127,25 @@
     clip-path: polygon(40% 40%, 50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%);
 }
 
-.moonCresent {
+.moon {
     width: 300px;
     aspect-ratio: 1;
     border-radius: 50%;
     box-shadow: -90px 0 0 80px black;
 }
 
-.moonDecresent {
+.moonCrescent {
     width: 300px;
     aspect-ratio: 1;
     border-radius: 50%;
     -webkit-mask: radial-gradient(circle at 75% 50%, #0000 33%, #000 0);
+}
+
+.moonDecrescent {
+    width: 300px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: -90px 0 0 80px black;
 }
 
 .stain {
