@@ -15,3 +15,21 @@
     border-radius: 50%;
     animation: spinner 5s linear infinite;
   }
+
+  @keyframes spinnerSquare {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+  
+  .spinnerSquare {
+    width: 120px;
+    height: 80px;
+    background-color: transparent;
+    border: 10px inset #3587f1;
+    border-radius: 10%;
+    animation: spinner 15s linear infinite;
+  }
