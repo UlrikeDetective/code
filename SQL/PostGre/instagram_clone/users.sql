@@ -118,7 +118,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('GoldenCoastGal', 'goldencoast@example.com', 'password1', 'Sunny Malibu', 'https://example.com/goldencoast.jpg', 'Beach vibes and golden skies.'),
 ('HollywoodHustler', 'hollywoodhustler@example.com', 'password2', 'Taylor Fame', 'https://example.com/hollywood.jpg', 'Living the dream.'),
-('BayAreaVibes', 'bayarea@example.com', 'password3', 'Jordan Oakland', 'https://example.com/bayarea.jpg', 'Tech, art, and life.'),
+('BayAreaVibes', 'bayarea3@example.com', 'password3', 'Jordan Oakland', 'https://example.com/bayarea.jpg', 'Tech, art, and life.'),
 ('SurfinSantaCruz', 'santacruz@example.com', 'password4', 'Kai Wave', 'https://example.com/santacruz.jpg', 'Hang ten and feel alive.'),
 ('SierraHiker', 'sierrahiker@example.com', 'password5', 'Aspen Trail', 'https://example.com/sierra.jpg', 'Climbing high, living free.'),
 ('CaliSunset', 'calisunset@example.com', 'password6', 'Mia Horizon', 'https://example.com/sunset.jpg', 'Where the sky meets the sea.'),
@@ -177,7 +177,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('OhanaHeart', 'ohanaheart@example.com', 'password7', 'Keanu Lani', 'https://example.com/ohana.jpg', 'Family first, always.'),
 ('TropicalBreeze', 'tropicalbreeze@example.com', 'password8', 'Pua Kahakai', 'https://example.com/breeze.jpg', 'Breathing in island air.'),
 ('LavaFlow', 'lavaflow@example.com', 'password9', 'Ikaika Pele', 'https://example.com/lava.jpg', 'Fire in my soul.'),
-('MolokaiMagic', 'molokaimagic@example.com', 'password10', 'Noelani Wai', 'https://example.com/molokai.jpg', 'Hidden gems and aloha.'),
+('MolokaiMagic10', 'molokaimagic10@example.com', 'password10', 'Noelani Wai', 'https://example.com/molokai.jpg', 'Hidden gems and aloha.'),
 ('HawaiiSunrise', 'hawaiisunrise@example.com', 'password11', 'Kalani Maluhia', 'https://example.com/sunrise.jpg', 'Awakening with the sun.'),
 ('PineappleParadise', 'pineappleparadise@example.com', 'password12', 'Makani Olu', 'https://example.com/pineapple.jpg', 'Sweet and golden.'),
 ('AlohaSpirit', 'alohaspirit@example.com', 'password13', 'Halia Anela', 'https://example.com/spirit.jpg', 'Kindness, always.'),
@@ -264,17 +264,17 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('MunichMeadow', 'munichmeadow@example.com', 'password42', 'Sophie Keller', 'https://example.com/meadow.jpg', 'Green spaces in the city.'),
 ('GermanSights', 'germansights@example.com', 'password43', 'Fabian Hoffmann', 'https://example.com/sights.jpg', 'Seeing it all.'),
 ('KarlsruheKing', 'karlsruhe@example.com', 'password44', 'Melanie Herzog', 'https://example.com/karlsruhe.jpg', 'Living near the Black Forest.'),
-('GermanTrails', 'trails@example.com', 'password45', 'Jakob Kaiser', 'https://example.com/trails.jpg', 'Hiking across Germany.'),
+('GermanTrailsHiking', 'trails@example.com', 'password45', 'Jakob Kaiser', 'https://example.com/trails.jpg', 'Hiking across Germany.'),
 ('SchwäbischSoul', 'swabian@example.com', 'password46', 'Lisa Ziegler', 'https://example.com/swabian.jpg', 'Loving my Swabian roots.'),
 ('KielExplorer', 'kielexplorer@example.com', 'password47', 'Dennis Engel', 'https://example.com/kiel.jpg', 'Sailing through life.'),
 ('GermanGem', 'germangem@example.com', 'password48', 'Clara Brandt', 'https://example.com/gem.jpg', 'Finding hidden treasures.'),
-('FreiburgFan', 'freiburgfan@example.com', 'password49', 'Michael Schmid', 'https://example.com/freiburg.jpg', 'Green energy and vibrant streets.'),
+('FreiburgFan', 'freiburgfan@example.com', 'password49', 'Michael Schmid', 'https://example.com/freiburg.jpg', 'Green energy and vibrant streets.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('TokyoTraveler', 'tokyotraveler@example.com', 'password1', 'Haruto Tanaka', 'https://example.com/tokyo.jpg', 'Exploring Shibuya and Asakusa.'),
 ('KyotoDreamer', 'kyotodreamer@example.com', 'password2', 'Sakura Yamamoto', 'https://example.com/kyoto.jpg', 'Loving temples and cherry blossoms.'),
 ('OsakaEats', 'osakaeats@example.com', 'password3', 'Ren Sato', 'https://example.com/osaka.jpg', 'Takoyaki lover from Osaka.'),
-('FukuokaFlavor', 'fukuokaflavor@example.com', 'password4', 'Yui Nakamura', 'https://example.com/fukuoka.jpg', 'Ramen enthusiast from Fukuoka.'),
+('FukuokaFlavors', 'fukuokaflavors@example.com', 'password4', 'Yui Nakamura', 'https://example.com/fukuoka.jpg', 'Ramen enthusiast from Fukuoka.'),
 ('HokkaidoHiker', 'hokkaidohiker@example.com', 'password5', 'Kaito Suzuki', 'https://example.com/hokkaido.jpg', 'Hiking through snowy mountains.'),
 ('OkinawaOcean', 'okinawaocean@example.com', 'password6', 'Aoi Takahashi', 'https://example.com/okinawa.jpg', 'Island vibes and clear waters.'),
 ('ShinjukuShines', 'shinjukushines@example.com', 'password7', 'Riku Kobayashi', 'https://example.com/shinjuku.jpg', 'Neon lights and cityscapes.'),
@@ -379,7 +379,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('BarcelonaBreeze', 'barcelonabreeze@example.com', 'password2', 'Lucía Martínez', 'https://example.com/barcelona.jpg', 'Sun, sand, and Gaudí dreams.'),
 ('SevilleSpirit', 'sevillespirit@example.com', 'password3', 'Carlos Fernández', 'https://example.com/seville.jpg', 'Dancing through life in Seville.'),
 ('GranadaGlow', 'granadaglow@example.com', 'password4', 'Sofía López', 'https://example.com/granada.jpg', 'Embracing the Alhambra’s beauty.'),
-('ValenciaVibes', 'valenciavibes@example.com', 'password5', 'Javier Sánchez', 'https://example.com/valencia.jpg', 'Paella, beaches, and sunshine.'),
+('ValenciaVibe', 'valenciavibe@example.com', 'password5', 'Javier Sánchez', 'https://example.com/valencia.jpg', 'Paella, beaches, and sunshine.'),
 ('BilbaoWanderer', 'bilbaowanderer@example.com', 'password6', 'Ana Rodríguez', 'https://example.com/bilbao.jpg', 'Discovering Bilbao’s charm.'),
 ('MálagaMuse', 'malagamuse@example.com', 'password7', 'Diego Pérez', 'https://example.com/malaga.jpg', 'Mediterranean vibes in Málaga.'),
 ('ToledoTales', 'toledotales@example.com', 'password8', 'Elena Morales', 'https://example.com/toledo.jpg', 'Stepping back in time in Toledo.'),
@@ -427,7 +427,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('MadridPassion', 'madridpassion@example.com', 'password50', 'Lola Prieto', 'https://example.com/passion.jpg', 'Passionate about Madrid.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
-('NordicExplorer', 'nordicexplorer@example.com', 'password1', 'Erik Johansson', 'https://example.com/nordic1.jpg', 'Exploring the beauty of the North.'),
+('NordicExplorers', 'nordicexplorers@example.com', 'password1', 'Erik Johansson', 'https://example.com/nordic1.jpg', 'Exploring the beauty of the North.'),
 ('SamiNomad', 'saminomad@example.com', 'password2', 'Ingrid Andersson', 'https://example.com/sami1.jpg', 'Living life like a Sami.'),
 ('VikingVoyager', 'vikingvoyager@example.com', 'password3', 'Björn Larsson', 'https://example.com/viking1.jpg', 'Embracing the Viking spirit.'),
 ('FjordDreamer', 'fjorddreamer@example.com', 'password4', 'Astrid Olsen', 'https://example.com/fjord1.jpg', 'Lost in the beauty of the fjords.'),
@@ -584,7 +584,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('BollywoodStar', 'bollywoodstar@example.com', 'password1', 'Amit Sharma', 'https://example.com/bollywood1.jpg', 'Living the dream, just like in Bollywood movies.'),
-('CurryLover', 'currylovers@example.com', 'password2', 'Priya Patel', 'https://example.com/curry1.jpg', 'Spicing up my life with curry.'),
+('CurryLove', 'currylove@example.com', 'password2', 'Priya Patel', 'https://example.com/curry1.jpg', 'Spicing up my life with curry.'),
 ('YogaMaster', 'yogamaster@example.com', 'password3', 'Ananya Desai', 'https://example.com/yoga1.jpg', 'Finding peace and strength through yoga.'),
 ('SpiceQueen', 'spicequeen@example.com', 'password4', 'Neha Gupta', 'https://example.com/spice1.jpg', 'Embracing the bold flavors of Indian spices.'),
 ('BollywoodDiva', 'bollywooddiva@example.com', 'password5', 'Sanya Kapoor', 'https://example.com/diva1.jpg', 'Living the glamorous Bollywood life.'),
@@ -599,7 +599,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('DiwaliLights', 'diwalilights@example.com', 'password14', 'Karan Kapoor', 'https://example.com/diwali1.jpg', 'Celebrating the festival of lights.'),
 ('RagaSoul', 'ragasoul@example.com', 'password15', 'Devika Joshi', 'https://example.com/raga1.jpg', 'Letting my soul sing to the tunes of raga.'),
 ('MangoSeason', 'mangoseason@example.com', 'password16', 'Amitabh Sharma', 'https://example.com/mango1.jpg', 'Indulging in the sweet mango season every year.'),
-('IndigoSky', 'indigosky@example.com', 'password17', 'Sonia Mehra', 'https://example.com/indigo1.jpg', 'Under the vast indigo sky, dreaming big.'),
+('IndigoBlue', 'indigoBlue@example.com', 'password17', 'Sonia Mehra', 'https://example.com/indigo1.jpg', 'Under the vast indigo sky, dreaming big.'),
 ('BindiBeauty', 'bindibeauty@example.com', 'password18', 'Priyanka Rao', 'https://example.com/bindi1.jpg', 'Embracing beauty, culture, and tradition with a bindi.'),
 ('SariElegance', 'sarielelegance@example.com', 'password19', 'Kavya Nair', 'https://example.com/sari1.jpg', 'Elegance in every thread of my sari.'),
 ('BollywoodQueen', 'bollywoodqueen@example.com', 'password20', 'Tanuja Gupta', 'https://example.com/queen1.jpg', 'Shining bright like a Bollywood queen.'),
@@ -887,7 +887,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('TalesAndTreasures', 'talesandtreasures@example.com', 'password42', 'Sophie Hall', 'https://example.com/talesandtreasures1.jpg', 'Collecting tales and treasures from every story.'),
 ('BookishVibes', 'bookishvibes@example.com', 'password43', 'Isabella Walker', 'https://example.com/bookishvibes1.jpg', 'Feeling the vibes of every book I read.'),
 ('BookLoverForever', 'bookloverforever@example.com', 'password44', 'Benjamin Green', 'https://example.com/bookloverforever1.jpg', 'Forever a book lover, and proud of it.'),
-('InkAndImagination', 'inkandimagination@example.com', 'password45', 'Lily Scott', 'https://example.com/inkandimagination1.jpg', 'Where ink meets imagination, stories are born.'),
+('InkAndImagination10', 'inkandimagination10@example.com', 'password45', 'Lily Scott', 'https://example.com/inkandimagination10.jpg', 'Where ink meets imagination, stories are born.'),
 ('ReadingDreams', 'readingdreams@example.com', 'password46', 'Jacob White', 'https://example.com/readingdreams1.jpg', 'Dreaming with every page, lost in the world of stories.'),
 ('LiteratureLover', 'literaturelover@example.com', 'password47', 'Grace Lee', 'https://example.com/literaturelover1.jpg', 'Lover of all literature, from the classics to modern tales.'),
 ('TheBookJunkie', 'thebookjunkie@example.com', 'password48', 'Zara Harris', 'https://example.com/thebookjunkie1.jpg', 'Just a junkie for books, can’t stop reading.'),
@@ -910,7 +910,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('HouseOfCardsPlayer', 'houseofcardsplayer@example.com', 'password13', 'Frank Underwood', 'https://example.com/houseofcardsplayer1.jpg', 'Power is everything, and I’m here to play the game.'),
 ('BlackMirrorWatcher', 'blackmirrorwatcher@example.com', 'password14', 'Victoria', 'https://example.com/blackmirrorwatcher1.jpg', 'The future is darker than you think. Let’s explore it.'),
 ('NarcosFan', 'narcosfan@example.com', 'password15', 'Pablo Escobar', 'https://example.com/narcosfan1.jpg', 'I’m the king of the world. Mess with me, you mess with the cartel.'),
-('TheCrownWatcher', 'thecrownwatcher@example.com', 'password16', 'Queen Elizabeth', 'https://example.com/thecrownwatcher1.jpg', 'The crown weighs heavy, but I wear it with grace.'),
+('CrownWatcher', 'crownwatcher@example.com', 'password16', 'Queen Elizabeth', 'https://example.com/crownwatcher1.jpg', 'The crown weighs heavy, but I wear it with grace.'),
 ('TheSopranosFan', 'thesopranosfan@example.com', 'password17', 'Tony Soprano', 'https://example.com/thesopranosfan1.jpg', 'Family is everything. Let’s keep it that way.'),
 ('TrueDetectiveSeeker', 'truedetectiveseeker@example.com', 'password18', 'Rust Cohle', 'https://example.com/truedetectiveseeker1.jpg', 'Time is a flat circle. Let’s search for the truth.'),
 ('HowIMetYourMotherFan', 'howimetyourmotherfan@example.com', 'password19', 'Ted Mosby', 'https://example.com/howimetyourmotherfan1.jpg', 'Looking for the one, and I’m ready to tell the story.'),
@@ -990,7 +990,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('PunkRockPrincess', 'punkrockprincess@example.com', 'password41', 'Debbie Harry', 'https://example.com/punkrockprincess1.jpg', 'Punk rock runs through my veins. Let’s get rebellious.'),
 ('RapRuler', 'rapruler@example.com', 'password42', 'Jay-Z', 'https://example.com/rapruler1.jpg', 'I’m the ruler of rap. Let’s conquer the streets with lyrics.'),
 ('FunkMaster', 'funkmaster@example.com', 'password43', 'James Brown', 'https://example.com/funkmaster1.jpg', 'I feel good, and so should you. Let’s get down with the funk.'),
-('SalsaQueen', 'salsaqueen@example.com', 'password44', 'Celia Cruz', 'https://example.com/salsaqueen1.jpg', 'Salsa is my life. Let’s dance and celebrate the rhythm of life.'),
+('SalsaQ', 'salsaq@example.com', 'password44', 'Celia Cruz', 'https://example.com/salsaqueen1.jpg', 'Salsa is my life. Let’s dance and celebrate the rhythm of life.'),
 ('AlternativeQueen', 'alternativequeen@example.com', 'password45', 'Lana Del Rey', 'https://example.com/alternativequeen1.jpg', 'A little bit sad, a little bit cinematic, but always iconic.'),
 ('TranceVibes', 'trancevibes@example.com', 'password46', 'Armin van Buuren', 'https://example.com/trancevibes1.jpg', 'Trance music is my mind’s escape. Join me in the sound journey.'),
 ('FunkSoulBrother', 'funksoulbrother@example.com', 'password47', 'Marvin Gaye', 'https://example.com/funksoulbrother1.jpg', 'Let’s get it on with some soulful funk vibes.'),
@@ -1004,7 +1004,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('TechCityGuru', 'techcityguru@example.com', 'password3', 'Sophia Wu', 'https://example.com/techcityguru1.jpg', 'Living in the heart of Silicon Valley. Innovate or die!'),
 ('SFShoreline', 'sfshoreline@example.com', 'password4', 'Lucas Martinez', 'https://example.com/sfshoreline1.jpg', 'Walking the shoreline, soaking in the San Francisco sunsets.'),
 ('MissionDistrictVibes', 'missiondistrictvibes@example.com', 'password5', 'Maya Gonzalez', 'https://example.com/missiondistrictvibes1.jpg', 'Exploring murals, tacos, and the vibrant culture of the Mission.'),
-('FoggyMorning', 'foggymorning@example.com', 'password6', 'Ethan Ross', 'https://example.com/foggymorning1.jpg', 'Chasing the fog around SF. It’s mysterious, just like me.'),
+('FoggyMornings', 'foggymornings@example.com', 'password6', 'Ethan Ross', 'https://example.com/foggymornings1.jpg', 'Chasing the fog around SF. It’s mysterious, just like me.'),
 ('BayBreezeBabe', 'baybreezebabe@example.com', 'password7', 'Lily Smith', 'https://example.com/baybreezebabe1.jpg', 'Let the bay breeze carry me to new adventures.'),
 ('SiliconValleyPro', 'siliconvalleypro@example.com', 'password8', 'Benjamin Lee', 'https://example.com/siliconvalleypro1.jpg', 'Building the future of technology, one startup at a time.'),
 ('SausalitoDreamer', 'sausalitodreamer@example.com', 'password9', 'Isabella Wright', 'https://example.com/sausalitodreamer1.jpg', 'Living the peaceful life across the bay in beautiful Sausalito.'),
@@ -1087,7 +1087,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('RileyFinn25', 'rileyfinn25@example.com', 'password12', 'Riley Finn', 'https://example.com/rileyfinn25.jpg', 'Special Ops soldier. Buffy’s former love interest. Just trying to protect the world.'),
 ('OzWerewolf17', 'ozwerewolf17@example.com', 'password13', 'Oz', 'https://example.com/ozwerewolf17.jpg', 'Werewolf. Guitarist. Calm and collected, even when the full moon hits.'),
 ('JonathanLevinson30', 'jonathanlevinson30@example.com', 'password14', 'Jonathan Levinson', 'https://example.com/jonathanlevinson30.jpg', 'Former nerd turned villain, now just trying to stay out of trouble.'),
-('TheMaster00', 'themaster00@example.com', 'password15', 'The Master', 'https://example.com/themaster00.jpg', 'Big bad villain. Trying to end the world since 1997.'),
+('TheMaster00', 'themaster00@example.com', 'password15', 'The Master', 'https://example.com/themaster00.jpg', 'Big bad villain. Trying to end the world since 1997.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('DonDraper1960', 'dondraper1960@example.com', 'password1', 'Don Draper', 'https://example.com/dondraper1960.jpg', 'Advertising executive. Master of reinvention. Always seeking the next big idea.'),
@@ -1104,7 +1104,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('HarryCranston26', 'harrycranston26@example.com', 'password12', 'Harry Cranston', 'https://example.com/harrycranston26.jpg', 'Television producer. In the business for the long haul. Always thinking ahead.'),
 ('LanePrice33', 'laneprice33@example.com', 'password13', 'Lane Price', 'https://example.com/laneprice33.jpg', 'Chief financial officer. Trying to fit in and find my place in the world of advertising.'),
 ('BertCooper07', 'bertcooper07@example.com', 'password14', 'Bert Cooper', 'https://example.com/bertcooper07.jpg', 'Founder of Sterling Cooper. Philosophy and high culture enthusiast. Always thinking about the bigger picture.'),
-('HenryFrancis45', 'henryfrancis45@example.com', 'password15', 'Henry Francis', 'https://example.com/henryfrancis45.jpg', 'Betty’s second husband. Political strategist. Focused on success and family.'),
+('HenryFrancis45', 'henryfrancis45@example.com', 'password15', 'Henry Francis', 'https://example.com/henryfrancis45.jpg', 'Betty’s second husband. Political strategist. Focused on success and family.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('RoryGilmore18', 'rorygilmore18@example.com', 'password1', 'Rory Gilmore', 'https://example.com/rorygilmore18.jpg', 'Aspiring journalist. Harvard grad. Always chasing dreams and coffee.'),
@@ -1121,7 +1121,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('MichelGerard30', 'michelgerard30@example.com', 'password12', 'Michel Gerard', 'https://example.com/michelgerard30.jpg', 'Hotel receptionist. French, fabulous, and never shy to express my opinions.'),
 ('TanaHarrison08', 'tanaharrison08@example.com', 'password13', 'Tana Harrison', 'https://example.com/tanaharrison08.jpg', 'Co-worker of Rory at the Yale Daily News. Outspoken and unapologetic.'),
 ('LaneKim12', 'lanekim12@example.com', 'password14', 'Lane Kim', 'https://example.com/lanekim12.jpg', 'Musician. Best friend to Rory. Trying to balance life and the dream of being in a rock band.'),
-('ZachVanGerbig03', 'zachvangerbig03@example.com', 'password15', 'Zach Van Gerbig', 'https://example.com/zachvangerbig03.jpg', 'Musician. Member of Hep Alien. Living life one gig at a time.'),
+('ZachVanGerbig03', 'zachvangerbig03@example.com', 'password15', 'Zach Van Gerbig', 'https://example.com/zachvangerbig03.jpg', 'Musician. Member of Hep Alien. Living life one gig at a time.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('BrandonWalsh27', 'brandonwalsh27@example.com', 'password1', 'Brandon Walsh', 'https://example.com/brandonwalsh27.jpg', 'The All-American guy. A loyal friend and brother, navigating life in Beverly Hills.'),
@@ -1138,7 +1138,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('DylanMcKay33', 'dylanmckay33@example.com', 'password12', 'Dylan McKay', 'https://example.com/dylanmckay33.jpg', 'The brooding outsider. Constantly torn between my past and my desire for a fresh start.'),
 ('ValerieMalone27', 'valeriemalone27@example.com', 'password13', 'Valerie Malone', 'https://example.com/valeriemalone27.jpg', 'The wild child with a complicated past. Always seeking the next adventure or drama.'),
 ('RyanAustin22', 'ryanaustin22@example.com', 'password14', 'Ryan Austin', 'https://example.com/ryanaustin22.jpg', 'The mysterious new guy in town. Trying to find my place in a world full of chaos.'),
-('ShannonDoherty18', 'shannondoherty18@example.com', 'password15', 'Shannon Doherty', 'https://example.com/shannondoherty18.jpg', 'Struggling actress. Always on the edge, trying to make it big and find myself in the process.'),
+('ShannonDoherty18', 'shannondoherty18@example.com', 'password15', 'Shannon Doherty', 'https://example.com/shannondoherty18.jpg', 'Struggling actress. Always on the edge, trying to make it big and find myself in the process.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('HarryPotter98', 'harrypotter98@example.com', 'password1', 'Harry Potter', 'https://example.com/harrypotter98.jpg', 'The Boy Who Lived. Defender of Hogwarts. Living the dream of a normal life after defeating darkness.'),
@@ -1160,7 +1160,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('TomRiddle23', 'tomriddle23@example.com', 'password17', 'Tom Riddle', 'https://example.com/tomriddle23.jpg', 'The Dark Lord in the making. I’ve always been destined for greatness.'),
 ('ChoChang18', 'chochang18@example.com', 'password18', 'Cho Chang', 'https://example.com/chochang18.jpg', 'Ravenclaw seeker. Thoughtful and brave, though caught in the complexity of love and loss.'),
 ('ParvatiPatil12', 'parvatipatil12@example.com', 'password19', 'Parvati Patil', 'https://example.com/parvatipatil12.jpg', 'Proud Gryffindor. Quidditch player, friend, and always looking for adventure.'),
-('PadmaPatil15', 'padmapatil15@example.com', 'password20', 'Padma Patil', 'https://example.com/padmapatil15.jpg', 'Smart and determined. Always balancing my studies with my social life.'),
+('PadmaPatil15', 'padmapatil15@example.com', 'password20', 'Padma Patil', 'https://example.com/padmapatil15.jpg', 'Smart and determined. Always balancing my studies with my social life.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('KatnissEverdeen12', 'katnisseverdeen12@example.com', 'password1', 'Katniss Everdeen', 'https://example.com/katniss12.jpg', 'The Girl on Fire. A survivor and fighter. Protecting those I love in a world of rebellion.'),
@@ -1177,7 +1177,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('CatoTheVictor16', 'catothevictor16@example.com', 'password12', 'Cato', 'https://example.com/catothevictor16.jpg', 'The victor of the 74th Hunger Games. Strength and ruthlessness got me where I am today.'),
 ('CloveTheSniper18', 'clovethesniper18@example.com', 'password13', 'Clove', 'https://example.com/clovethesniper18.jpg', 'Fast, lethal, and always ready to strike. There’s no mercy in the arena.'),
 ('ThreshThePowerful14', 'threshthepowerful14@example.com', 'password14', 'Thresh', 'https://example.com/threshthepowerful14.jpg', 'Big, strong, and silent. I do what I must to protect the innocent.'),
-('MadgeUndersee19', 'madgeundersee19@example.com', 'password15', 'Madge Undersee', 'https://example.com/madgeundersee19.jpg', 'A District 12 resident who believed in justice. Not all revolutions are fought in the arena.'),
+('MadgeUndersee19', 'madgeundersee19@example.com', 'password15', 'Madge Undersee', 'https://example.com/madgeundersee19.jpg', 'A District 12 resident who believed in justice. Not all revolutions are fought in the arena.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('LyraBelacqua01', 'lyrabelacqua01@example.com', 'password1', 'Lyra Belacqua', 'https://example.com/lyrabelacqua01.jpg', 'The girl destined to change the world. Courageous, clever, and unafraid to fight for what’s right.'),
@@ -1194,7 +1194,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('Pantalaimon16', 'pantalaimon16@example.com', 'password12', 'Pantalaimon', 'https://example.com/pantalaimon16.jpg', 'Lyra’s daemon, always at her side. Loyal, protective, and sometimes a little mischievous.'),
 ('RuthWilson22', 'ruthwilson22@example.com', 'password13', 'Ruth Wilson', 'https://example.com/ruthwilson22.jpg', 'A master manipulator. Few things matter more than achieving my goals.'),
 ('FatherGomez24', 'fathergomez24@example.com', 'password14', 'Father Gomez', 'https://example.com/fathergomez24.jpg', 'A priest caught between faith and duty. My mission is clear, even if the path is uncertain.'),
-('TheMaster15', 'themaster15@example.com', 'password15', 'The Master', 'https://example.com/themaster15.jpg', 'Cunning, ambitious, and relentless. I seek power, and nothing will stop me from attaining it.')
+('TheMaster15', 'themaster15@example.com', 'password15', 'The Master', 'https://example.com/themaster15.jpg', 'Cunning, ambitious, and relentless. I seek power, and nothing will stop me from attaining it.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('LisbethSalander22', 'lisbethsalander22@example.com', 'password1', 'Lisbeth Salander', 'https://example.com/lisbethsalander22.jpg', 'The girl with the dragon tattoo. Hacker, vigilante, and a force to be reckoned with.'),
@@ -1211,7 +1211,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('MimmiKarlsson19', 'mimmikarlsson19@example.com', 'password12', 'Mimmi Karlsson', 'https://example.com/mimmikarlsson19.jpg', 'An expert in deception. A key player in a game that’s much bigger than it seems.'),
 ('PaoloVanger20', 'paolovanger20@example.com', 'password13', 'Paolo Vanger', 'https://example.com/paolovanger20.jpg', 'The son of a powerful family. My role in this saga is just beginning to unfold.'),
 ('SvenEriksson22', 'sveneriksson22@example.com', 'password14', 'Sven Eriksson', 'https://example.com/sveneriksson22.jpg', 'An investigator with a knack for uncovering the hidden truths that others fear to find.'),
-('DagSundvall23', 'dagsundvall23@example.com', 'password15', 'Dag Sundvall', 'https://example.com/dagsundvall23.jpg', 'Businessman and strategist. The right deal, the right moment, and I’m always in control.')
+('DagSundvall23', 'dagsundvall23@example.com', 'password15', 'Dag Sundvall', 'https://example.com/dagsundvall23.jpg', 'Businessman and strategist. The right deal, the right moment, and I’m always in control.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('LoganRoy01', 'loganroy01@example.com', 'password1', 'Logan Roy', 'https://example.com/loganroy01.jpg', 'The patriarch. A ruthless leader of the media empire. Power, control, and family are my only interests.'),
@@ -1223,7 +1223,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('CarolineCollingwood16', 'carolinecollingwood16@example.com', 'password7', 'Caroline Collingwood', 'https://example.com/carolinecollingwood16.jpg', 'The ex-wife of Logan Roy, playing her own game while watching the family fight over the empire.'),
 ('ConnorRoy20', 'connorroy20@example.com', 'password8', 'Connor Roy', 'https://example.com/connorroy20.jpg', 'The eldest Roy sibling, with dreams of running for president. I may not be a business mogul, but I have my own vision.'),
 ('FrankVazquez17', 'frankvazquez17@example.com', 'password9', 'Frank Vazquez', 'https://example.com/frankvazquez17.jpg', 'A loyal advisor to Logan Roy. I’ve seen it all and I’ve been through the wars. Sometimes loyalty is a curse.'),
-('GerriKellman22', 'gerrikellman22@example.com', 'password10', 'Gerri Kellman', 'https://example.com/gerrikellman22.jpg', 'The seasoned and shrewd General Counsel of Waystar Royco. I’m not afraid of the Roys or anyone else.')
+('GerriKellman22', 'gerrikellman22@example.com', 'password10', 'Gerri Kellman', 'https://example.com/gerrikellman22.jpg', 'The seasoned and shrewd General Counsel of Waystar Royco. I’m not afraid of the Roys or anyone else.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('MiriamMaisel01', 'miriammaisel01@example.com', 'password1', 'Miriam "Midge" Maisel', 'https://example.com/miriammaisel01.jpg', 'A stand-up comic with a sharp wit and a never-give-up attitude. Watch me break barriers one joke at a time.'),
@@ -1235,7 +1235,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('ShyBaldwin17', 'shybaldwin17@example.com', 'password7', 'Shy Baldwin', 'https://example.com/shybaldwin17.jpg', 'The smooth and talented singer with a secret. I’m in the spotlight, but my real story is behind the curtain.'),
 ('ImogeneCleary16', 'imogenecleary16@example.com', 'password8', 'Imogene Cleary', 'https://example.com/imogenecleary16.jpg', 'Midge’s best friend with a knack for gossip. I may not always know what’s going on, but I make sure to keep things interesting.'),
 ('MayBerman20', 'mayberman20@example.com', 'password9', 'May Berman', 'https://example.com/mayberman20.jpg', 'A glamorous and ambitious young woman navigating life in a fast-paced world. Keeping up appearances is just the beginning.'),
-('BenjaminNadler22', 'benjaminnadler22@example.com', 'password10', 'Benjamin Nadler', 'https://example.com/benjaminnadler22.jpg', 'A writer, a thinker, and someone who loves to ponder life’s complexities. But sometimes the simplest things mean the most.')
+('BenjaminNadler22', 'benjaminnadler22@example.com', 'password10', 'Benjamin Nadler', 'https://example.com/benjaminnadler22.jpg', 'A writer, a thinker, and someone who loves to ponder life’s complexities. But sometimes the simplest things mean the most.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('VeronicaMars01', 'veronicamars01@example.com', 'password1', 'Veronica Mars', 'https://example.com/veronicamars01.jpg', 'Private investigator with a knack for solving the unsolvable. I don’t back down, and I always get the truth.'),
@@ -1247,7 +1247,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('TrinaEcholls16', 'trinaecholls16@example.com', 'password7', 'Trina Echolls', 'https://example.com/trinaecholls16.jpg', 'The glamorous and attention-seeking actress. Life’s a stage, and I’m always center stage.'),
 ('Weevil23', 'weevil23@example.com', 'password8', 'Weevil', 'https://example.com/weevil23.jpg', 'The leader of the PCHers. I live by my own rules, and no one messes with my crew.'),
 ('Vince12', 'vince12@example.com', 'password9', 'Vince', 'https://example.com/vince12.jpg', 'A mysterious figure with a dark side. I play by my own set of rules, and I’m always looking for an opportunity.'),
-('ClydeDavis17', 'clydedavis17@example.com', 'password10', 'Clyde Davis', 'https://example.com/clydedavis17.jpg', 'The smart and resourceful guy who knows how to get what he wants. I’m always on the lookout for the next big thing.')
+('ClydeDavis17', 'clydedavis17@example.com', 'password10', 'Clyde Davis', 'https://example.com/clydedavis17.jpg', 'The smart and resourceful guy who knows how to get what he wants. I’m always on the lookout for the next big thing.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('GomezAddams01', 'gomezaddams01@example.com', 'password1', 'Gomez Addams', 'https://example.com/gomezaddams01.jpg', 'A passionate man of elegance and mystery. I live for my family and my wife Morticia. Life is for the dramatic!'),
@@ -1259,7 +1259,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('CousinIt20', 'cousinit20@example.com', 'password7', 'Cousin It', 'https://example.com/cousinit20.jpg', 'I may be a man of few words (literally), but my style is unmatched.'),
 ('Lurch21', 'lurch21@example.com', 'password8', 'Lurch', 'https://example.com/lurch21.jpg', 'The loyal butler of the Addams Family. I’m here to serve, but my silence speaks volumes.'),
 ('ThingAddams23', 'thingaddams23@example.com', 'password9', 'Thing Addams', 'https://example.com/thingaddams23.jpg', 'The hand that does everything. I’m always around, reaching out when needed, and always on the move.'),
-('ItchyAddams25', 'itchyaddams25@example.com', 'password10', 'Itchy Addams', 'https://example.com/itchyaddams25.jpg', 'A distant relative of the Addams family with a lot of… itchy ideas. I live on the wild side of the family!'),
+('ItchyAddams25', 'itchyaddams25@example.com', 'password10', 'Itchy Addams', 'https://example.com/itchyaddams25.jpg', 'A distant relative of the Addams family with a lot of… itchy ideas. I live on the wild side of the family!');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('CarrieBradshaw01', 'carriebradshaw01@example.com', 'password1', 'Carrie Bradshaw', 'https://example.com/carriebradshaw01.jpg', 'Fashionista and writer. I believe in love, friendship, and always wearing the perfect shoes.'),
@@ -1281,7 +1281,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('CharlotteLover17', 'charlottelover17@example.com', 'password17', 'Charlotte Lover', 'https://example.com/charlottelover17.jpg', 'Dreamer at heart, with a love for romance and art. I believe true love will find me one day.'),
 ('MirandaFan18', 'mirandafan18@example.com', 'password18', 'Miranda Fan', 'https://example.com/mirandafan18.jpg', 'Strong-willed and independent, just like Miranda. Life’s too short to not be true to yourself.'),
 ('SteveBradyFan19', 'stevebradyfan19@example.com', 'password19', 'Steve Brady (Fan)', 'https://example.com/stevebradyfan19.jpg', 'Devoted, loyal, and a little bit quirky. I believe in the power of a good drink and a strong relationship.'),
-('StanfordBlatchFan20', 'stanfordblatchfan20@example.com', 'password20', 'Stanford Blatch Fan', 'https://example.com/stanfordblatchfan20.jpg', 'Witty, sassy, and a little bit sarcastic. Life’s too short not to enjoy the moments of comedy and chaos.')
+('StanfordBlatchFan20', 'stanfordblatchfan20@example.com', 'password20', 'Stanford Blatch Fan', 'https://example.com/stanfordblatchfan20.jpg', 'Witty, sassy, and a little bit sarcastic. Life’s too short not to enjoy the moments of comedy and chaos.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('OliverQueen01', 'oliverqueen01@example.com', 'password1', 'Oliver Queen', 'https://example.com/oliverqueen01.jpg', 'The Green Arrow, protector of Star City. I fight for justice and the people I love.'),
@@ -1303,7 +1303,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('KateSpencer17', 'katespencer17@example.com', 'password17', 'Kate Spencer', 'https://example.com/katespencer17.jpg', 'District Attorney. I stand for justice, and I will never back down from the fight.'),
 ('ZoeRamirez18', 'zoeramirez18@example.com', 'password18', 'Zoe Ramirez', 'https://example.com/zoeramirez18.jpg', 'A new recruit in the fight for justice. I might be new, but I’m ready to stand tall.'),
 ('ChienNaWei19', 'chiennawei19@example.com', 'password19', 'Chien Na Wei', 'https://example.com/chiennawei19.jpg', 'A mercenary leader, not afraid to do what it takes for the highest bidder.'),
-('JamesBertinelli20', 'jamesbertinelli20@example.com', 'password20', 'James Bertinelli', 'https://example.com/jamesbertinelli20.jpg', 'A former mobster looking for redemption. I fight for the chance to live a better life.')
+('JamesBertinelli20', 'jamesbertinelli20@example.com', 'password20', 'James Bertinelli', 'https://example.com/jamesbertinelli20.jpg', 'A former mobster looking for redemption. I fight for the chance to live a better life.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('JonSnow01', 'jonsnow01@example.com', 'password1', 'Jon Snow', 'https://example.com/jonsnow01.jpg', 'The true heir to the Iron Throne. I fight for the North and my family.'),
@@ -1325,7 +1325,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('RobbStark17', 'robbstark17@example.com', 'password17', 'Robb Stark', 'https://example.com/robbstark17.jpg', 'The King in the North. My heart belongs to Winterfell and my people.'),
 ('JonConnington18', 'jonconnington18@example.com', 'password18', 'Jon Connington', 'https://example.com/jonconnington18.jpg', 'Exiled knight with loyalty to House Targaryen. I return to claim what’s rightfully ours.'),
 ('OberynMartell19', 'oberynmartell19@example.com', 'password19', 'Oberyn Martell', 'https://example.com/oberynmartell19.jpg', 'The Red Viper. I seek justice for my family and will fight for it to the death.'),
-('Bronn20', 'bronn20@example.com', 'password20', 'Bronn', 'https://example.com/bronn20.jpg', 'A sellsword with no loyalty, but I always fight to survive and make my fortune.')
+('Bronn20', 'bronn20@example.com', 'password20', 'Bronn', 'https://example.com/bronn20.jpg', 'A sellsword with no loyalty, but I always fight to survive and make my fortune.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('xoxoBlair', 'blairwaldorf01@example.com', 'password1', 'Blair Waldorf', 'https://example.com/blairwaldorf01.jpg', 'Queen B. I’m the ultimate socialite and the best friend you’ll ever have.'),
@@ -1342,7 +1342,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('JulietSharp10', 'julietsharp10@example.com', 'password12', 'Juliet Sharp', 'https://example.com/julietsharp10.jpg', 'The girl who came to destroy Serena’s life, but ultimately, I found my own redemption.'),
 ('CharlieRhodes11', 'charlierhodes11@example.com', 'password13', 'Charlie Rhodes', 'https://example.com/charlierhodes11.jpg', 'The girl with a mysterious past. A new face in the Upper East Side, but I’m here to stay.'),
 ('DorotaKrupinski12', 'dorotakrupinski12@example.com', 'password14', 'Dorota Krupinski', 'https://example.com/dorotakrupinski12.jpg', 'Blair’s loyal maid and friend. I keep her secrets and am always there when she needs me.'),
-('BartBass13', 'bartbass13@example.com', 'password15', 'Bart Bass', 'https://example.com/bartbass13.jpg', 'The ruthless business tycoon. In my world, power and control are everything.')
+('BartBass13', 'bartbass13@example.com', 'password15', 'Bart Bass', 'https://example.com/bartbass13.jpg', 'The ruthless business tycoon. In my world, power and control are everything.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('JD_Doctor', 'jd@scrubsmail.com', 'password1', 'John "J.D." Dorian', 'https://example.com/jd.jpg', 'The lovable doctor always looking for meaning in life. I see the world through my daydreams.'),
@@ -1354,7 +1354,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('DrKelso', 'kelso@scrubsmail.com', 'password7', 'Dr. Bob Kelso', 'https://example.com/kelso.jpg', 'The Chief of Medicine with a sarcastic edge. My priority? Cutting costs and maintaining control.'),
 ('Ted_Lawyer', 'ted@scrubsmail.com', 'password8', 'Ted Buckland', 'https://example.com/ted.jpg', 'The hospital lawyer with a love for 80’s music. My self-esteem may not be high, but my legal skills are solid.'),
 ('Jordan_Cox', 'jordan@scrubsmail.com', 'password9', 'Jordan Sullivan', 'https://example.com/jordan.jpg', 'Ex-wife of Dr. Cox and a force to be reckoned with. I’m tough and direct, but I’ll always get what I want.'),
-('Kenny_Brady', 'kenny@scrubsmail.com', 'password10', 'Kenny Brady', 'https://example.com/kenny.jpg', 'The lovable and often confused intern. Trying to survive in the world of Scrubs, one mistake at a time.')
+('Kenny_Brady', 'kenny@scrubsmail.com', 'password10', 'Kenny Brady', 'https://example.com/kenny.jpg', 'The lovable and often confused intern. Trying to survive in the world of Scrubs, one mistake at a time.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('JedBartlet', 'jedbartlet@westwingmail.com', 'password1', 'President Josiah Bartlet', 'https://example.com/jedbartlet.jpg', 'The 43rd President of the United States, dedicated to serving the country with integrity and intellect.'),
@@ -1366,18 +1366,18 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('JoshLyman', 'joshlyman@westwingmail.com', 'password7', 'Josh Lyman', 'https://example.com/joshlyman.jpg', 'Deputy Chief of Staff. Smart, quick-witted, and always in the thick of the action.'),
 ('WillBailey', 'willbailey@westwingmail.com', 'password8', 'Will Bailey', 'https://example.com/willbailey.jpg', 'Special Assistant to the President. Thoughtful, sharp, and the calm voice in a storm of political chaos.'),
 ('AinsleyHayes', 'ainsleyhayes@westwingmail.com', 'password9', 'Ainsley Hayes', 'https://example.com/ainsleyhayes.jpg', 'Republican lawyer turned White House counsel. Smart, passionate, and unafraid to speak my mind.'),
-('CharlieYoung', 'charlieyoung@westwingmail.com', 'password10', 'Charlie Young', 'https://example.com/charlieyoung.jpg', 'Personal Aide to the President. Young, driven, and loyal to President Bartlet.')
+('CharlieYoung', 'charlieyoung@westwingmail.com', 'password10', 'Charlie Young', 'https://example.com/charlieyoung.jpg', 'Personal Aide to the President. Young, driven, and loyal to President Bartlet.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('SerenaWilliams', 'serena@tennismail.com', 'password1', 'Serena Williams', 'https://example.com/serena.jpg', 'Tennis legend with 23 Grand Slam singles titles. Empowering women and girls in sports.'),
 ('LeBronJames', 'lebron@basketballmail.com', 'password2', 'LeBron James', 'https://example.com/lebron.jpg', 'NBA superstar and philanthropist. Known for my leadership both on and off the court.'),
-('CristianoRonaldo', 'cristiano@footballmail.com', 'password3', 'Cristiano Ronaldo', 'https://example.com/cristiano.jpg', 'Football icon, five-time Ballon d\'Or winner. Striving for greatness every day.'),
+('CristianoRonaldo', 'cristiano@footballmail.com', 'password3', 'Cristiano Ronaldo', 'https://example.com/cristiano.jpg', 'Football icon, five-time Ballon winner. Striving for greatness every day.'),
 ('UsainBolt', 'usain@trackmail.com', 'password4', 'Usain Bolt', 'https://example.com/usain.jpg', 'World record holder in the 100m and 200m. Fastest man alive.'),
 ('SimoneBiles', 'simone@gymnasticsmail.com', 'password5', 'Simone Biles', 'https://example.com/simone.jpg', 'Gymnast with multiple Olympic gold medals. Redefining the sport and pushing boundaries.'),
 ('RogerFederer', 'roger@tennismail.com', 'password6', 'Roger Federer', 'https://example.com/roger.jpg', 'Tennis great with 20 Grand Slam singles titles. Master of the court and ambassador of the game.'),
 ('MichaelPhelps', 'michael@swimmingmail.com', 'password7', 'Michael Phelps', 'https://example.com/michael.jpg', 'Most decorated Olympian of all time with 23 gold medals. Swimming into history.'),
 ('TomBrady', 'tom@footballmail.com', 'password8', 'Tom Brady', 'https://example.com/tom.jpg', '7-time Super Bowl champion. Resilient, disciplined, and always hungry for victory.'),
-('MeganRapinoe', 'megan@soccermail.com', 'password9', 'Megan Rapinoe', 'https://example.com/megan.jpg', 'U.S. Women\'s National Soccer Team star. Advocating for equality and inclusion both on and off the field.'),
+('MeganRapinoe', 'megan@soccermail.com', 'password9', 'Megan Rapinoe', 'https://example.com/megan.jpg', 'U.S. Womens National Soccer Team star. Advocating for equality and inclusion both on and off the field.'),
 ('TigerWoods', 'tiger@golfmail.com', 'password10', 'Tiger Woods', 'https://example.com/tiger.jpg', 'Golfing legend with 15 major championships. Resilient and determined to be the best.'),
 ('MichaelJordan', 'michael@basketballmail.com', 'password11', 'Michael Jordan', 'https://example.com/michaeljordan.jpg', '6-time NBA champion, widely regarded as the greatest basketball player of all time.'),
 ('RafaelNadal', 'rafael@tennismail.com', 'password12', 'Rafael Nadal', 'https://example.com/rafael.jpg', 'King of Clay with 22 Grand Slam singles titles. Passionate about my game and my roots.'),
@@ -1390,12 +1390,11 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('JackNicklaus', 'jack@golfmail.com', 'password19', 'Jack Nicklaus', 'https://example.com/jack.jpg', '18-time major golf champion. Committed to the game and inspiring future generations of golfers.'),
 ('ChrisEvert', 'chrisevert@tennismail.com', 'password20', 'Chris Evert', 'https://example.com/chris.jpg', 'Tennis icon with 18 Grand Slam singles titles. A pioneer for women in sports.'),
 ('AndreAgassi', 'andre@tennismail.com', 'password21', 'Andre Agassi', 'https://example.com/andre.jpg', '8-time Grand Slam singles champion. Famous for my comeback story and love of the game.'),
-('ShaquilleONeal', 'shaquille@basketballmail.com', 'password22', 'Shaquille O\'Neal', 'https://example.com/shaquille.jpg', '4-time NBA champion and dominant force on the court. Larger than life in every way.'),
-('AbbyWambach', 'abby@soccermail.com', 'password23', 'Abby Wambach', 'https://example.com/abby.jpg', 'Retired U.S. Women\'s National Soccer Team player. Breaking records and advocating for equality.'),
+('ShaquilleONeal', 'shaquille@basketballmail.com', 'password22', 'Shaquille O Neal', 'https://example.com/shaquille.jpg', '4-time NBA champion and dominant force on the court. Larger than life in every way.'),
+('AbbyWambach', 'abby@soccermail.com', 'password23', 'Abby Wambach', 'https://example.com/abby.jpg', 'Retired U.S. Womens National Soccer Team player. Breaking records and advocating for equality.'),
 ('ZinedineZidane', 'zinedine@footballmail.com', 'password24', 'Zinedine Zidane', 'https://example.com/zinedine.jpg', 'World Cup winner and footballing legend. A master of technique and leadership on the pitch.'),
 ('FloydMayweather', 'floyd@boxingmail.com', 'password25', 'Floyd Mayweather', 'https://example.com/floyd.jpg', 'Undefeated boxing champion with 50-0 record. A true competitor who thrives under pressure.'),
 ('AbbyDelaney', 'abbydelaney@rugbymail.com', 'password26', 'Abby Delaney', 'https://example.com/abbydelaney.jpg', 'Professional rugby player. Breaking boundaries in the sport and inspiring women in athletics.'),
-('LindseyVonn', 'lindsey@skiingmail.com', 'password27', 'Lindsey Vonn', 'https://example.com/lindsey.jpg', 'Olympic skier with numerous World Cup victories. Overcoming obstacles on and off the slopes.'),
 ('BabeRuth', 'babe@baseballmail.com', 'password28', 'Babe Ruth', 'https://example.com/babe.jpg', 'Baseball legend, known for my home run records and love for the game.'),
 ('SteffiGraf', 'steffi@tennismail.com', 'password29', 'Steffi Graf', 'https://example.com/steffi.jpg', '22-time Grand Slam singles champion. The Golden Slam is my crowning achievement.'),
 ('MiaHamm', 'miahamm@soccermail.com', 'password30', 'Mia Hamm', 'https://example.com/miahamm.jpg', 'Soccer legend and two-time World Cup winner. Always striving for excellence on and off the field.'),
@@ -1418,7 +1417,7 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('MichelleKwan', 'michelle@figureiceskatingmail.com', 'password47', 'Michelle Kwan', 'https://example.com/michelle.jpg', 'Five-time World Figure Skating Champion. A true passion for the artistry and athleticism of skating.'),
 ('JohanCruyff', 'johan@footballmail.com', 'password48', 'Johan Cruyff', 'https://example.com/johan.jpg', 'Footballing legend and innovator. Revolutionized the game with my vision and style.'),
 ('DwayneJohnson', 'dwayne@wrestlingmail.com', 'password49', 'Dwayne "The Rock" Johnson', 'https://example.com/dwayne.jpg', 'WWE superstar turned Hollywood icon. Living life with strength, determination, and hustle.'),
-('JackieJoynerKersey', 'jackie@trackmail.com', 'password50', 'Jackie Joyner-Kersee', 'https://example.com/jackie.jpg', 'Olympic heptathlete and long jumper. Champion of perseverance and dedication to my craft.')
+('JackieJoynerKersey', 'jackie@trackmail.com', 'password50', 'Jackie Joyner-Kersee', 'https://example.com/jackie.jpg', 'Olympic heptathlete and long jumper. Champion of perseverance and dedication to my craft.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('LeonardoDiCaprio', 'leonardo@hollywoodmail.com', 'password1', 'Leonardo DiCaprio', 'https://example.com/leonardo.jpg', 'Academy Award-winning actor known for roles in Titanic, Inception, and The Revenant.'),
@@ -1435,38 +1434,38 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('JenniferLawrence', 'jennifer@hollywoodmail.com', 'password12', 'Jennifer Lawrence', 'https://example.com/jennifer.jpg', 'Academy Award-winning actress known for The Hunger Games and Silver Linings Playbook.'),
 ('MorganFreeman', 'morgan@hollywoodmail.com', 'password13', 'Morgan Freeman', 'https://example.com/morgan.jpg', 'Legendary actor known for roles in The Shawshank Redemption, Bruce Almighty, and more.'),
 ('JohnnyDepp', 'johnny@hollywoodmail.com', 'password14', 'Johnny Depp', 'https://example.com/johnny.jpg', 'Known for roles in Pirates of the Caribbean, Edward Scissorhands, and Fantastic Beasts.'),
-('JuliaRoberts', 'julia@hollywoodmail.com', 'password15', 'Julia Roberts', 'https://example.com/julia.jpg', 'Oscar-winning actress known for Pretty Woman, Erin Brockovich, and Ocean\'s Eleven.'),
+('JuliaRoberts', 'julia@hollywoodmail.com', 'password15', 'Julia Roberts', 'https://example.com/julia.jpg', 'Oscar-winning actress known for Pretty Woman, Erin Brockovich, and Oceans Eleven.'),
 ('HughJackman', 'hugh@hollywoodmail.com', 'password16', 'Hugh Jackman', 'https://example.com/hugh.jpg', 'Known for Wolverine in the X-Men series, The Greatest Showman, and Les Misérables.'),
 ('AngelinaJolie', 'angelina@hollywoodmail.com', 'password17', 'Angelina Jolie', 'https://example.com/angelina.jpg', 'Academy Award-winning actress known for Tomb Raider, Maleficent, and humanitarian efforts.'),
 ('MatthewMcConaughey', 'matthew@hollywoodmail.com', 'password18', 'Matthew McConaughey', 'https://example.com/matthew.jpg', 'Academy Award-winning actor known for Dallas Buyers Club and True Detective.'),
 ('AnneHathaway', 'anne@hollywoodmail.com', 'password19', 'Anne Hathaway', 'https://example.com/anne.jpg', 'Academy Award-winning actress known for The Devil Wears Prada, Les Misérables, and more.'),
 ('ChrisHemsworth', 'chris@hollywoodmail.com', 'password20', 'Chris Hemsworth', 'https://example.com/chris.jpg', 'Known for playing Thor in the Marvel Cinematic Universe and roles in Extraction and Snow White and the Huntsman.'),
 ('EmilyBlunt', 'emily@hollywoodmail.com', 'password21', 'Emily Blunt', 'https://example.com/emily.jpg', 'Known for roles in The Devil Wears Prada, Edge of Tomorrow, and Mary Poppins Returns.'),
-('ChrisEvans', 'chris@hollywoodmail.com', 'password22', 'Chris Evans', 'https://example.com/chris.jpg', 'Known for playing Captain America in the Marvel Cinematic Universe.'),
+('ChrisEvans', 'chris.evans@hollywoodmail.com', 'password22', 'Chris Evans', 'https://example.com/chris.jpg', 'Known for playing Captain America in the Marvel Cinematic Universe.'),
 ('ViolaDavis', 'viola@hollywoodmail.com', 'password23', 'Viola Davis', 'https://example.com/viola.jpg', 'Academy Award-winning actress known for Fences, The Help, and How to Get Away with Murder.'),
-('TomCruise', 'tom@hollywoodmail.com', 'password24', 'Tom Cruise', 'https://example.com/tomcruise.jpg', 'Known for roles in Top Gun, Mission: Impossible, and Jerry Maguire.'),
+('TomCruise', 'tom.cruise@hollywoodmail.com', 'password24', 'Tom Cruise', 'https://example.com/tomcruise.jpg', 'Known for roles in Top Gun, Mission: Impossible, and Jerry Maguire.'),
 ('CateBlanchett', 'cate@hollywoodmail.com', 'password25', 'Cate Blanchett', 'https://example.com/cate.jpg', 'Academy Award-winning actress known for The Lord of the Rings, Carol, and Blue Jasmine.'),
 ('DanielCraig', 'daniel@hollywoodmail.com', 'password26', 'Daniel Craig', 'https://example.com/daniel.jpg', 'Known for playing James Bond in Casino Royale and subsequent Bond films.'),
 ('EmmaStone', 'emma@hollywoodmail.com', 'password27', 'Emma Stone', 'https://example.com/emma.jpg', 'Academy Award-winning actress known for La La Land, Easy A, and The Favourite.'),
-('KeanuReeves', 'keanu@hollywoodmail.com', 'password28', 'Keanu Reeves', 'https://example.com/keanu.jpg', 'Known for The Matrix, John Wick, and Bill & Ted\'s Excellent Adventure.'),
+('KeanuReeves', 'keanu@hollywoodmail.com', 'password28', 'Keanu Reeves', 'https://example.com/keanu.jpg', 'Known for The Matrix, John Wick, and Bill & Teds Excellent Adventure.'),
 ('JakeGyllenhaal', 'jake@hollywoodmail.com', 'password29', 'Jake Gyllenhaal', 'https://example.com/jake.jpg', 'Known for Donnie Darko, Nightcrawler, and Brokeback Mountain.'),
 ('HelenMirren', 'helen@hollywoodmail.com', 'password30', 'Helen Mirren', 'https://example.com/helen.jpg', 'Academy Award-winning actress known for The Queen, Red, and more.'),
-('WillFerrell', 'will@hollywoodmail.com', 'password31', 'Will Ferrell', 'https://example.com/will.jpg', 'Comedian and actor known for Anchorman, Talladega Nights, and Step Brothers.'),
+('WillFerrell', 'will.ferrell@hollywoodmail.com', 'password31', 'Will Ferrell', 'https://example.com/will.jpg', 'Comedian and actor known for Anchorman, Talladega Nights, and Step Brothers.'),
 ('RyanReynolds', 'ryan@hollywoodmail.com', 'password32', 'Ryan Reynolds', 'https://example.com/ryan.jpg', 'Known for Deadpool, The Proposal, and his sense of humor on social media.'),
-('KateHudson', 'kate@hollywoodmail.com', 'password33', 'Kate Hudson', 'https://example.com/kate.jpg', 'Known for How to Lose a Guy in 10 Days, Almost Famous, and her fashion brand.'),
-('MatthewPerry', 'matthew@hollywoodmail.com', 'password34', 'Matthew Perry', 'https://example.com/matthew.jpg', 'Known for playing Chandler Bing in Friends.'),
+('KateHudson', 'kate.hudson@hollywoodmail.com', 'password33', 'Kate Hudson', 'https://example.com/kate.jpg', 'Known for How to Lose a Guy in 10 Days, Almost Famous, and her fashion brand.'),
+('MatthewPerry', 'matthew.perry@hollywoodmail.com', 'password34', 'Matthew Perry', 'https://example.com/matthew.jpg', 'Known for playing Chandler Bing in Friends.'),
 ('ZoeSaldana', 'zoe@hollywoodmail.com', 'password35', 'Zoe Saldana', 'https://example.com/zoe.jpg', 'Known for Guardians of the Galaxy, Avatar, and Star Trek.'),
 ('BenAffleck', 'ben@hollywoodmail.com', 'password36', 'Ben Affleck', 'https://example.com/ben.jpg', 'Academy Award-winning actor known for Argo, Good Will Hunting, and Batman v Superman.'),
-('JessicaChastain', 'jessica@hollywoodmail.com', 'password37', 'Jessica Chastain', 'https://example.com/jessica.jpg', 'Academy Award-nominated actress known for Zero Dark Thirty, Interstellar, and Molly\'s Game.'),
+('JessicaChastain', 'jessica@hollywoodmail.com', 'password37', 'Jessica Chastain', 'https://example.com/jessica.jpg', 'Academy Award-nominated actress known for Zero Dark Thirty, Interstellar, and Mollys Game.'),
 ('PaulRudd', 'paul@hollywoodmail.com', 'password38', 'Paul Rudd', 'https://example.com/paul.jpg', 'Known for Ant-Man, Clueless, and his comedic charm.'),
 ('RuthNegga', 'ruth@hollywoodmail.com', 'password39', 'Ruth Negga', 'https://example.com/ruth.jpg', 'Known for Loving, Preacher, and passing performances that stir emotions.'),
 ('EddieRedmayne', 'eddie@hollywoodmail.com', 'password40', 'Eddie Redmayne', 'https://example.com/eddie.jpg', 'Academy Award-winning actor known for The Theory of Everything, Fantastic Beasts, and more.'),
-('JenniferAniston', 'jennifer@hollywoodmail.com', 'password41', 'Jennifer Aniston', 'https://example.com/jenniferaniston.jpg', 'Known for playing Rachel Green in Friends and her work in The Morning Show.'),
-('GeorgeClooney', 'george@hollywoodmail.com', 'password42', 'George Clooney', 'https://example.com/george.jpg', 'Oscar-winning actor and director known for Ocean\'s Eleven, Gravity, and more.'),
+('JenniferAniston', 'jennifer.aniston@hollywoodmail.com', 'password41', 'Jennifer Aniston', 'https://example.com/jenniferaniston.jpg', 'Known for playing Rachel Green in Friends and her work in The Morning Show.'),
+('GeorgeClooney', 'george@hollywoodmail.com', 'password42', 'George Clooney', 'https://example.com/george.jpg', 'Oscar-winning actor and director known for Oceans Eleven, Gravity, and more.'),
 ('SandraBullock', 'sandra@hollywoodmail.com', 'password43', 'Sandra Bullock', 'https://example.com/sandra.jpg', 'Academy Award-winning actress known for The Blind Side, Gravity, and Speed.'),
 ('IdrisElba', 'idris@hollywoodmail.com', 'password44', 'Idris Elba', 'https://example.com/idris.jpg', 'Known for Luther, The Wire, and roles in Marvel films.'),
-('JessicaAlba', 'jessica@hollywoodmail.com', 'password45', 'Jessica Alba', 'https://example.com/jessicaalba.jpg', 'Known for Fantastic Four, Sin City, and launching The Honest Company.'),
-('MatthewMcConaughey', 'matthew2@hollywoodmail.com', 'password46', 'Matthew McConaughey', 'https://example.com/matthew2.jpg', 'Oscar-winning actor known for Dallas Buyers Club and True Detective.'),
+('JessicaAlba', 'jessica.alba@hollywoodmail.com', 'password45', 'Jessica Alba', 'https://example.com/jessicaalba.jpg', 'Known for Fantastic Four, Sin City, and launching The Honest Company.'),
+('MattDamon', 'matt.damon@hollywoodmail.com', 'password46', 'Matt Damon', 'https://example.com/matthew2.jpg', 'Bourne.'),
 ('TessaThompson', 'tessa@hollywoodmail.com', 'password47', 'Tessa Thompson', 'https://example.com/tessa.jpg', 'Known for Creed, Thor, and her powerful performances in various films.'),
 ('GillianAnderson', 'gillian@hollywoodmail.com', 'password48', 'Gillian Anderson', 'https://example.com/gillian.jpg', 'Known for The X-Files and The Fall.'),
 ('SarahPaulson', 'sarah@hollywoodmail.com', 'password49', 'Sarah Paulson', 'https://example.com/sarah.jpg', 'Known for American Horror Story, 12 Years a Slave, and her remarkable acting range.'),
@@ -1474,19 +1473,19 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('ElonMusk', 'elon@forbesmail.com', 'password1', 'Elon Musk', 'https://example.com/elon.jpg', 'CEO of SpaceX and Tesla, known for revolutionizing electric vehicles and space travel.'),
-('JeffBezos', 'jeff@forbesmail.com', 'password2', 'Jeff Bezos', 'https://example.com/jeff.jpg', 'Founder of Amazon, one of the world\'s largest e-commerce platforms.'),
+('JeffBezos', 'jeff@forbesmail.com', 'password2', 'Jeff Bezos', 'https://example.com/jeff.jpg', 'Founder of Amazon, one of the worlds largest e-commerce platforms.'),
 ('BernardArnault', 'bernard@forbesmail.com', 'password3', 'Bernard Arnault', 'https://example.com/bernard.jpg', 'Chairman of LVMH, a leading luxury goods conglomerate.'),
 ('BillGates', 'bill@forbesmail.com', 'password4', 'Bill Gates', 'https://example.com/bill.jpg', 'Co-founder of Microsoft and philanthropist focused on global health and education.'),
-('WarrenBuffett', 'warren@forbesmail.com', 'password5', 'Warren Buffett', 'https://example.com/warren.jpg', 'Chairman and CEO of Berkshire Hathaway, one of the world\'s most successful investors.'),
-('LarryEllison', 'larry@forbesmail.com', 'password6', 'Larry Ellison', 'https://example.com/larry.jpg', 'Co-founder of Oracle Corporation, a major cloud computing and software company.'),
-('LarryPage', 'larry@forbesmail.com', 'password7', 'Larry Page', 'https://example.com/larry2.jpg', 'Co-founder of Google, transforming the internet with search algorithms and AI.'),
+('WarrenBuffett', 'warren@forbesmail.com', 'password5', 'Warren Buffett', 'https://example.com/warren.jpg', 'Chairman and CEO of Berkshire Hathaway, one of the worlds most successful investors.'),
+('LarryEllison', 'larry.ellison@forbesmail.com', 'password6', 'Larry Ellison', 'https://example.com/larry.jpg', 'Co-founder of Oracle Corporation, a major cloud computing and software company.'),
+('LarryPage', 'larry.page@forbesmail.com', 'password7', 'Larry Page', 'https://example.com/larry2.jpg', 'Co-founder of Google, transforming the internet with search algorithms and AI.'),
 ('SergeyBrin', 'sergey@forbesmail.com', 'password8', 'Sergey Brin', 'https://example.com/sergey.jpg', 'Co-founder of Google and a key player in the development of Alphabet.'),
-('MarkZuckerberg', 'mark@forbesmail.com', 'password9', 'Mark Zuckerberg', 'https://example.com/mark.jpg', 'Founder of Facebook, now Meta, reshaping global communication and technology.'),
+('MarkZuckerberg', 'mark.zuckerberg@forbesmail.com', 'password9', 'Mark Zuckerberg', 'https://example.com/mark.jpg', 'Founder of Facebook, now Meta, reshaping global communication and technology.'),
 ('SteveBallmer', 'steve@forbesmail.com', 'password10', 'Steve Ballmer', 'https://example.com/steve.jpg', 'Former CEO of Microsoft and current owner of the LA Clippers.'),
-('MukeshAmbani', 'mukesh@forbesmail.com', 'password11', 'Mukesh Ambani', 'https://example.com/mukesh.jpg', 'Chairman of Reliance Industries, one of India\'s largest conglomerates.'),
-('AmancioOrtega', 'amancio@forbesmail.com', 'password12', 'Amancio Ortega', 'https://example.com/amancio.jpg', 'Founder of Inditex, the world\'s largest fashion retailer, owner of Zara.'),
-('CarlosSlim', 'carlos@forbesmail.com', 'password13', 'Carlos Slim', 'https://example.com/carlos.jpg', 'Mexican business tycoon and one of the world\'s wealthiest individuals.'),
-('FrancoiseBettencourtMeyers', 'francoise@forbesmail.com', 'password14', 'Francoise Bettencourt Meyers', 'https://example.com/francoise.jpg', 'L\'Oréal heiress and France\'s richest woman.'),
+('MukeshAmbani', 'mukesh@forbesmail.com', 'password11', 'Mukesh Ambani', 'https://example.com/mukesh.jpg', 'Chairman of Reliance Industries, one of Indias largest conglomerates.'),
+('AmancioOrtega', 'amancio@forbesmail.com', 'password12', 'Amancio Ortega', 'https://example.com/amancio.jpg', 'Founder of Inditex, the worlds largest fashion retailer, owner of Zara.'),
+('CarlosSlim', 'carlos@forbesmail.com', 'password13', 'Carlos Slim', 'https://example.com/carlos.jpg', 'Mexican business tycoon and one of the worlds wealthiest individuals.'),
+('FrancoiseBettencourtMeyers', 'francoise@forbesmail.com', 'password14', 'Francoise Bettencourt Meyers', 'https://example.com/francoise.jpg', 'L Oréal heiress and Frances richest woman.'),
 ('JimWalton', 'jim@forbesmail.com', 'password15', 'Jim Walton', 'https://example.com/jim.jpg', 'Heir to the Walmart fortune and son of founder Sam Walton.'),
 ('AliceWalton', 'alice@forbesmail.com', 'password16', 'Alice Walton', 'https://example.com/alice.jpg', 'Heir to the Walmart fortune and philanthropist.'),
 ('RobWalton', 'rob@forbesmail.com', 'password17', 'Rob Walton', 'https://example.com/rob.jpg', 'Heir to the Walmart fortune and former chairman of Walmart.'),
@@ -1501,47 +1500,46 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('HowardSchultz', 'howard@forbesmail.com', 'password27', 'Howard Schultz', 'https://example.com/howard.jpg', 'Former CEO of Starbucks, creating a global coffee culture.'),
 ('PeterThiel', 'peter@forbesmail.com', 'password28', 'Peter Thiel', 'https://example.com/peter.jpg', 'Co-founder of PayPal and venture capitalist in Silicon Valley.'),
 ('RichardBranson', 'richard@forbesmail.com', 'password29', 'Richard Branson', 'https://example.com/richard.jpg', 'Founder of the Virgin Group, a multinational conglomerate.'),
-('LarryFink', 'larry@forbesmail.com', 'password30', 'Larry Fink', 'https://example.com/larryfink.jpg', 'Founder and CEO of BlackRock, the world\'s largest asset manager.'),
+('LarryFink', 'larry.fink@forbesmail.com', 'password30', 'Larry Fink', 'https://example.com/larryfink.jpg', 'Founder and CEO of BlackRock, the worlds largest asset manager.'),
 ('RalphLauren', 'ralph@forbesmail.com', 'password31', 'Ralph Lauren', 'https://example.com/ralph.jpg', 'Iconic American fashion designer and business executive behind the Ralph Lauren brand.'),
 ('DavidKoch', 'david@forbesmail.com', 'password32', 'David Koch', 'https://example.com/david.jpg', 'Executive Vice President of Koch Industries, involved in energy, chemicals, and more.'),
 ('KenGriffin', 'ken@forbesmail.com', 'password33', 'Ken Griffin', 'https://example.com/ken.jpg', 'Founder and CEO of Citadel, a global financial institution.'),
 ('StevenCohen', 'steven@forbesmail.com', 'password34', 'Steven Cohen', 'https://example.com/steven.jpg', 'Hedge fund manager and owner of the New York Mets.'),
 ('JohnPaulson', 'john@forbesmail.com', 'password35', 'John Paulson', 'https://example.com/john.jpg', 'Founder of Paulson & Co., a hedge fund with a focus on distressed assets.'),
 ('GeorgeSoros', 'george@forbesmail.com', 'password36', 'George Soros', 'https://example.com/george.jpg', 'Investor and philanthropist known for his hedge fund and contributions to political causes.'),
-('MarkCuban', 'mark@forbesmail.com', 'password37', 'Mark Cuban', 'https://example.com/markcuban.jpg', 'Entrepreneur and owner of the Dallas Mavericks, known for his appearances on Shark Tank.'),
-('RayDalio', 'ray@forbesmail.com', 'password38', 'Ray Dalio', 'https://example.com/ray.jpg', 'Founder of Bridgewater Associates, the world\'s largest hedge fund.'),
-('DwayneJohnson', 'dwayne@forbesmail.com', 'password39', 'Dwayne Johnson', 'https://example.com/dwayne.jpg', 'Actor, producer, and former professional wrestler, known as "The Rock."'),
-('OprahWinfrey', 'oprah@forbesmail.com', 'password40', 'Oprah Winfrey', 'https://example.com/oprah.jpg', 'Media mogul and philanthropist, known for The Oprah Winfrey Show and her charitable work.'),
-('TedTurner', 'ted@forbesmail.com', 'password41', 'Ted Turner', 'https://example.com/ted.jpg',
+('MarkCuban', 'mark.cuban@forbesmail.com', 'password37', 'Mark Cuban', 'https://example.com/markcuban.jpg', 'Entrepreneur and owner of the Dallas Mavericks, known for his appearances on Shark Tank.'),
+('RayDalio', 'ray@forbesmail.com', 'password38', 'Ray Dalio', 'https://example.com/ray.jpg', 'Founder of Bridgewater Associates, the worlds largest hedge fund.'),
+('OprahWinfrey', 'oprah@forbesmail.com', 'password40', 'Oprah Winfrey', 'https://example.com/oprah.jpg', 'Media mogul and philanthropist, known for The Oprah Winfrey Show and her charitable work.');
+
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
-('GigiHadid', 'gigi@models.com', 'password1', 'Gigi Hadid', 'https://example.com/gigi.jpg', 'Supermodel and fashion icon, known for her work with Victoria\'s Secret and other major brands.'),
-('BellaHadid', 'bella@models.com', 'password2', 'Bella Hadid', 'https://example.com/bella.jpg', 'Renowned model, recognized for her work with top designers and being a Victoria\'s Secret Angel.'),
+('GigiHadid', 'gigi@models.com', 'password1', 'Gigi Hadid', 'https://example.com/gigi.jpg', 'Supermodel and fashion icon, known for her work with Victorias Secret and other major brands.'),
+('BellaHadid', 'bella@models.com', 'password2', 'Bella Hadid', 'https://example.com/bella.jpg', 'Renowned model, recognized for her work with top designers and being a Victorias Secret Angel.'),
 ('KendallJenner', 'kendall@models.com', 'password3', 'Kendall Jenner', 'https://example.com/kendall.jpg', 'Model and media personality, part of the Kardashian-Jenner family and an iconic fashion figure.'),
 ('CaraDelevingne', 'cara@models.com', 'password4', 'Cara Delevingne', 'https://example.com/cara.jpg', 'British model, actress, and socialite known for her bold look and strong presence in the fashion world.'),
 ('HaileyBieber', 'hailey@models.com', 'password5', 'Hailey Bieber', 'https://example.com/hailey.jpg', 'Model and social media personality, known for her high-profile marriage to Justin Bieber.'),
 ('JourdanDunn', 'jourdan@models.com', 'password6', 'Jourdan Dunn', 'https://example.com/jourdan.jpg', 'British supermodel, widely recognized for her runway work and campaigns for major brands.'),
-('KarlieKloss', 'karlie@models.com', 'password7', 'Karlie Kloss', 'https://example.com/karlie.jpg', 'Supermodel and entrepreneur, famous for her Victoria\'s Secret Angel status and Kode with Klossy initiative.'),
-('AdrianaLima', 'adriana@models.com', 'password8', 'Adriana Lima', 'https://example.com/adriana.jpg', 'Brazilian supermodel and former Victoria\'s Secret Angel, known for her long career and stunning runway presence.'),
-('CandiceSwanepoel', 'candice@models.com', 'password9', 'Candice Swanepoel', 'https://example.com/candice.jpg', 'South African model best known for her work with Victoria\'s Secret and high-end fashion brands.'),
+('KarlieKloss', 'karlie@models.com', 'password7', 'Karlie Kloss', 'https://example.com/karlie.jpg', 'Supermodel and entrepreneur, famous for her Victorias Secret Angel status and Kode with Klossy initiative.'),
+('AdrianaLima', 'adriana@models.com', 'password8', 'Adriana Lima', 'https://example.com/adriana.jpg', 'Brazilian supermodel and former Victorias Secret Angel, known for her long career and stunning runway presence.'),
+('CandiceSwanepoel', 'candice@models.com', 'password9', 'Candice Swanepoel', 'https://example.com/candice.jpg', 'South African model best known for her work with Victorias Secret and high-end fashion brands.'),
 ('EmilyRatajkowski', 'emily@models.com', 'password10', 'Emily Ratajkowski', 'https://example.com/emily.jpg', 'Model, actress, and entrepreneur, known for her work in both fashion and activism.'),
 ('IrinaShayk', 'irina@models.com', 'password11', 'Irina Shayk', 'https://example.com/irina.jpg', 'Russian model and actress, known for her work with Sports Illustrated and major fashion houses.'),
-('MirandaKerr', 'miranda@models.com', 'password12', 'Miranda Kerr', 'https://example.com/miranda.jpg', 'Australian supermodel and former Victoria\'s Secret Angel, known for her healthy lifestyle and business ventures.'),
-('LiuWen', 'liu@models.com', 'password13', 'Liu Wen', 'https://example.com/liu.jpg', 'Chinese supermodel, one of the first Chinese models to walk for Victoria\'s Secret.'),
+('MirandaKerr', 'miranda@models.com', 'password12', 'Miranda Kerr', 'https://example.com/miranda.jpg', 'Australian supermodel and former Victorias Secret Angel, known for her healthy lifestyle and business ventures.'),
+('LiuWen', 'liu@models.com', 'password13', 'Liu Wen', 'https://example.com/liu.jpg', 'Chinese supermodel, one of the first Chinese models to walk for Victorias Secret.'),
 ('KateMoss', 'kate@models.com', 'password14', 'Kate Moss', 'https://example.com/kate.jpg', 'British supermodel and style icon, widely considered one of the most influential models of her generation.'),
 ('NaomiCampbell', 'naomi@models.com', 'password15', 'Naomi Campbell', 'https://example.com/naomi.jpg', 'Iconic British supermodel, known for her groundbreaking career in the fashion industry.'),
 ('JoanSmalls', 'joan@models.com', 'password16', 'Joan Smalls', 'https://example.com/joan.jpg', 'Puerto Rican model, known for her work with major fashion houses and being a prominent African-American model.'),
 ('SukiWaterhouse', 'suki@models.com', 'password17', 'Suki Waterhouse', 'https://example.com/suki.jpg', 'British model and actress, known for her work with Burberry and as a rising star in fashion.'),
 ('AnjaRubik', 'anja@models.com', 'password18', 'Anja Rubik', 'https://example.com/anja.jpg', 'Polish supermodel, known for her runway presence and campaigns with luxury brands like Chanel and Dior.'),
-('StellaMaxwell', 'stella@models.com', 'password19', 'Stella Maxwell', 'https://example.com/stella.jpg', 'Belgian-born model and Victoria\'s Secret Angel, known for her stunning looks and international appeal.'),
-('SophieTunner', 'sophie@models.com', 'password20', 'Sophie Tunner', 'https://example.com/sophie.jpg', 'Australian model and social media personality, known for her work in fashion and her advocacy for women\'s rights.')
+('StellaMaxwell', 'stella@models.com', 'password19', 'Stella Maxwell', 'https://example.com/stella.jpg', 'Belgian-born model and Victorias Secret Angel, known for her stunning looks and international appeal.'),
+('SophieTunner', 'sophie@models.com', 'password20', 'Sophie Tunner', 'https://example.com/sophie.jpg', 'Australian model and social media personality, known for her work in fashion and her advocacy for womens rights.');
 
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('ArianaGrande', 'ariana@music.com', 'password1', 'Ariana Grande', 'https://example.com/ariana.jpg', 'Pop diva, known for her powerful voice and hit albums like "Dangerous Woman" and "Thank U, Next."'),
 ('EdSheeran', 'ed@music.com', 'password2', 'Ed Sheeran', 'https://example.com/ed.jpg', 'Singer-songwriter, known for chart-topping hits like "Shape of You" and "Perfect."'),
 ('BillieEilish', 'billie@music.com', 'password3', 'Billie Eilish', 'https://example.com/billie.jpg', 'Grammy-winning pop star known for her unique style and hits like "Bad Guy" and "Everything I Wanted."'),
 ('Drake', 'drake@music.com', 'password4', 'Drake', 'https://example.com/drake.jpg', 'Rapper and singer, known for albums like "Views" and "Scorpion," and hits like "Hotline Bling."'),
-('DuaLipa', 'dua@music.com', 'password5', 'Dua Lipa', 'https://example.com/dua.jpg', 'Pop sensation, known for her breakout album "Future Nostalgia" and hits like "Don\'t Start Now."'),
+('DuaLipa', 'dua@music.com', 'password5', 'Dua Lipa', 'https://example.com/dua.jpg', 'Pop sensation, known for her breakout album "Future Nostalgia" and hits like "Dont Start Now."'),
 ('TaylorSwift', 'taylor@music.com', 'password6', 'Taylor Swift', 'https://example.com/taylor.jpg', 'Country-turned-pop superstar with massive success across albums like "1989" and "Folklore."'),
 ('KendrickLamar', 'kendrick@music.com', 'password7', 'Kendrick Lamar', 'https://example.com/kendrick.jpg', 'Influential rapper and songwriter known for his albums "DAMN." and "To Pimp a Butterfly."'),
 ('Beyonce', 'beyonce@music.com', 'password8', 'Beyoncé', 'https://example.com/beyonce.jpg', 'Queen Bey, an icon of pop and R&B with albums like "Lemonade" and "The Carters."'),
@@ -1549,11 +1547,11 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('KatyPerry', 'katy@music.com', 'password10', 'Katy Perry', 'https://example.com/katy.jpg', 'Pop star known for her colorful hits like "Firework" and "Roar."'),
 ('JustinBieber', 'justin@music.com', 'password11', 'Justin Bieber', 'https://example.com/justin.jpg', 'Pop and R&B sensation, known for songs like "Sorry" and "Peaches."'),
 ('Lorde', 'lorde@music.com', 'password12', 'Lorde', 'https://example.com/lorde.jpg', 'New Zealand singer known for her unique sound and hits like "Royals" and "Green Light."'),
-('TheWeeknd', 'weeknd@music.com', 'password13', 'The Weeknd', 'https://example.com/weeknd.jpg', 'Canadian singer known for his smooth R&B hits like "Blinding Lights" and "Can\'t Feel My Face."'),
+('TheWeeknd', 'weeknd@music.com', 'password13', 'The Weeknd', 'https://example.com/weeknd.jpg', 'Canadian singer known for his smooth R&B hits like "Blinding Lights" and "Cant Feel My Face."'),
 ('Halsey', 'halsey@music.com', 'password14', 'Halsey', 'https://example.com/halsey.jpg', 'Pop star and singer-songwriter, known for albums like "Badlands" and "Manic."'),
 ('PostMalone', 'post@music.com', 'password15', 'Post Malone', 'https://example.com/post.jpg', 'Rapper and singer known for his hits "Rockstar" and "Circles."'),
 ('LilNasX', 'lilnasx@music.com', 'password16', 'Lil Nas X', 'https://example.com/lilnasx.jpg', 'Rapper and singer known for the viral hit "Old Town Road" and his genre-blending music.'),
-('AliciaKeys', 'alicia@music.com', 'password17', 'Alicia Keys', 'https://example.com/alicia.jpg', 'Soul and R&B legend known for her powerful voice and hits like "If I Ain\'t Got You" and "No One."'),
+('AliciaKeys', 'alicia@music.com', 'password17', 'Alicia Keys', 'https://example.com/alicia.jpg', 'Soul and R&B legend known for her powerful voice and hits like "If I Aint Got You" and "No One."'),
 ('HarryStyles', 'harry@music.com', 'password18', 'Harry Styles', 'https://example.com/harry.jpg', 'Former One Direction member, now a successful solo artist with albums like "Fine Line."'),
 ('Sia', 'sia@music.com', 'password19', 'Sia', 'https://example.com/sia.jpg', 'Singer-songwriter known for hits like "Chandelier" and "Elastic Heart," and her distinct style.'),
 ('BrunoMars', 'bruno@music.com', 'password20', 'Bruno Mars', 'https://example.com/bruno.jpg', 'Pop and R&B singer known for his energetic performances and hits like "Uptown Funk" and "Just the Way You Are."'),
@@ -1565,9 +1563,9 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('SamSmith', 'sam@music.com', 'password26', 'Sam Smith', 'https://example.com/sam.jpg', 'Grammy-winning British singer known for their powerful vocals and hits like "Stay With Me" and "Too Good at Goodbyes."'),
 ('FrankOcean', 'frank@music.com', 'password27', 'Frank Ocean', 'https://example.com/frank.jpg', 'Alternative R&B singer known for his soulful voice and albums like "Channel Orange" and "Blonde."'),
 ('TravisScott', 'travis@music.com', 'password28', 'Travis Scott', 'https://example.com/travis.jpg', 'Rapper and producer known for hits like "Sicko Mode" and his collaborations with major artists.'),
-('TylerTheCreator', 'tyler@music.com', 'password29', 'Tyler, The Creator', 'https://example.com/tyler.jpg', 'Rapper, producer, and fashion designer known for his creative and boundary-pushing work in music.'),
+('TylerTheCreator', 'tylerthecreator@music.com', 'password29', 'Tyler, The Creator', 'https://example.com/tyler.jpg', 'Rapper, producer, and fashion designer known for his creative and boundary-pushing work in music.'),
 ('MeganTheeStallion', 'megan@music.com', 'password30', 'Megan Thee Stallion', 'https://example.com/megan.jpg', 'Rapper and songwriter, known for her empowering lyrics and hits like "Savage" and "WAP."'),
-('Shakira', 'shakira@music.com', 'password31', 'Shakira', 'https://example.com/shakira.jpg', 'Colombian singer known for her hits like "Hips Don\'t Lie" and her signature belly-dancing moves.'),
+('Shakira', 'shakira@music.com', 'password31', 'Shakira', 'https://example.com/shakira.jpg', 'Colombian singer known for her hits like "Hips Dont Lie" and her signature belly-dancing moves.'),
 ('LadyGaga', 'gaga@music.com', 'password32', 'Lady Gaga', 'https://example.com/gaga.jpg', 'Pop icon known for her flamboyant style, acting career, and hits like "Bad Romance" and "Shallow."'),
 ('NickiMinaj', 'nicki@music.com', 'password33', 'Nicki Minaj', 'https://example.com/nicki.jpg', 'Rapper and pop star known for her colorful persona and chart-topping hits like "Super Bass" and "Anaconda."'),
 ('Kesha', 'kesha@music.com', 'password34', 'Kesha', 'https://example.com/kesha.jpg', 'Pop singer known for hits like "Tik Tok" and her empowerment anthems.'),
@@ -1581,8 +1579,6 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('TylerHubbard', 'tyler@music.com', 'password42', 'Tyler Hubbard', 'https://example.com/tylerhubbard.jpg', 'Country artist known for being part of Florida Georgia Line and hits like "Cruise."'),
 ('NiallHoran', 'niall@music.com', 'password43', 'Niall Horan', 'https://example.com/niall.jpg', 'Former One Direction member, now a solo artist with hits like "Slow Hands" and "This Town."'),
 ('JohnLegend', 'john@music.com', 'password44', 'John Legend', 'https://example.com/john.jpg', 'R&B singer and songwriter, known for his powerful voice and hits like "All of Me" and "Ordinary People."'),
-('Khalid', 'khalid@music.com', 'password45', 'Khalid', 'https://example.com/khalid.jpg', 'R&B singer known for his smooth voice and hits like "Location" and "Talk."'),
-('WillSmith', 'will@music.com', 'password46', 'Will Smith', 'https://example.com/will.jpg', 'Actor and rapper known for his career in entertainment and hit songs like "Gettin\' Jiggy Wit It."'),
 ('JLo', 'jlo@music.com', 'password47', 'Jennifer Lopez', 'https://example.com/jlo.jpg', 'Superstar singer, actress, and businesswoman known for hits like "On the Floor" and "Jenny from the Block."'),
 ('MandyMoore', 'mandy@music.com', 'password48', 'Mandy Moore', 'https://example.com/mandy.jpg', 'Pop singer and actress, known for her hits like "Candy" and her role in "This Is Us."'),
 ('ChrisBrown', 'chris@music.com', 'password49', 'Chris Brown', 'https://example.com/chris.jpg', 'R&B singer and dancer known for his hits like "With You" and "Forever."'),
@@ -1609,3 +1605,127 @@ INSERT INTO users (username, email, password, full_name, profile_picture, bio) V
 ('MayimBialik', 'mayim@science.com', 'password18', 'Mayim Bialik', 'https://example.com/mayim.jpg', 'Neurobiologist and actress, known for her work on "The Big Bang Theory" and her contributions to brain research.'),
 ('ShinyaYamanaka', 'shinya@science.com', 'password19', 'Shinya Yamanaka', 'https://example.com/shinya.jpg', 'Stem cell biologist, Nobel laureate for his discovery of induced pluripotent stem cells, revolutionizing regenerative medicine.'),
 ('DavidAttenborough', 'david@science.com', 'password20', 'David Attenborough', 'https://example.com/david.jpg', 'Naturalist and broadcaster, known for his documentaries on wildlife and his contributions to conservation efforts.');
+
+INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
+('SundarPichai', 'sundar@google.com', 'password3', 'Sundar Pichai', 'https://example.com/sundar.jpg', 'CEO of Google and Alphabet, responsible for overseeing the development of Google products and innovations.'),
+('TimCook', 'tim@apple.com', 'password4', 'Tim Cook', 'https://example.com/tim.jpg', 'CEO of Apple, instrumental in expanding Apple product lineup and driving innovation in the tech industry.'),
+('SatyaNadella', 'satya@microsoft.com', 'password5', 'Satya Nadella', 'https://example.com/satya.jpg', 'CEO of Microsoft, leading the company through a cloud computing transformation and AI advancements.'),
+('ReedHastings', 'reed@netflix.com', 'password7', 'Reed Hastings', 'https://example.com/reed.jpg', 'CEO of Netflix, pioneering the streaming industry and transforming the entertainment world with original content.'),
+('JamieDimon', 'jamie@jpmorgan.com', 'password8', 'Jamie Dimon', 'https://example.com/jamie.jpg', 'Chairman and CEO of JPMorgan Chase, one of the worlds largest and most influential financial institutions.'),
+('BrianChesky', 'brian@airbnb.com', 'password11', 'Brian Chesky', 'https://example.com/brian.jpg', 'CEO of Airbnb, revolutionizing the hospitality industry by offering short-term rental accommodations.'),
+('MarillynHewson', 'marillyn@lockheed.com', 'password12', 'Marillyn Hewson', 'https://example.com/marillyn.jpg', 'Former CEO of Lockheed Martin, known for leading the aerospace and defense company through periods of growth.'),
+('MichaelDell', 'michael@dell.com', 'password13', 'Michael Dell', 'https://example.com/michael.jpg', 'Founder and CEO of Dell Technologies, revolutionizing the PC industry and leading innovations in IT infrastructure.'),
+('IndraNooyi', 'indra@pepsico.com', 'password15', 'Indra Nooyi', 'https://example.com/indra.jpg', 'Former CEO of PepsiCo, known for driving the companys growth and commitment to corporate social responsibility.'),
+('AnneMulcahy', 'anne@xerox.com', 'password16', 'Anne Mulcahy', 'https://example.com/anne.jpg', 'Former CEO of Xerox, known for successfully leading the company through a difficult period of financial challenges.'),
+('SherylSandberg', 'sheryl@facebook.com', 'password19', 'Sheryl Sandberg', 'https://example.com/sheryl.jpg', 'Former COO of Facebook (Meta), helping to grow the company into a global advertising powerhouse.'),
+('EvanSpiegel', 'evan@snap.com', 'password20', 'Evan Spiegel', 'https://example.com/evan.jpg', 'Co-founder and CEO of Snap Inc., the company behind Snapchat, revolutionizing social media with innovative features.');
+
+INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
+('BigBenWatcher', 'ben@london.com', 'password1', 'Benjamin Clark', 'https://example.com/ben.jpg', 'A lover of London’s iconic Big Ben and all things historical.'),
+('LondonEyeFan', 'ella@london.com', 'password2', 'Ella Morgan', 'https://example.com/ella.jpg', 'Enjoying the best views of London from the London Eye!'),
+('BoroughMarketBite', 'tom@london.com', 'password3', 'Tom Parker', 'https://example.com/tom.jpg', 'Foodie exploring the delicious bites at Borough Market.'),
+('WestminsterWanderer', 'lily.thompson@london.com', 'password4', 'Lily Thompson', 'https://example.com/lily.jpg', 'Wandering through Westminster and enjoying the rich culture of London.'),
+('CamdenVibes', 'jack@london.com', 'password5', 'Jack Reynolds', 'https://example.com/jack.jpg', 'Loving the eclectic vibes of Camden, the home of alternative culture!'),
+('KensingtonCulture', 'sophie@london.com', 'password6', 'Sophie Davis', 'https://example.com/sophie.jpg', 'Passionate about the art galleries and cultural landmarks of Kensington.'),
+('HydeParkHiker', 'michael@london.com', 'password7', 'Michael Lee', 'https://example.com/michael.jpg', 'Exploring the expansive beauty of Hyde Park every chance I get.'),
+('SohoScribe', 'grace@london.com', 'password8', 'Grace Harris', 'https://example.com/grace.jpg', 'Living and breathing the artsy side of Soho.'),
+('OxfordCircusShopper', 'charlotte@london.com', 'password9', 'Charlotte Green', 'https://example.com/charlotte.jpg', 'Shopping and sightseeing around Oxford Circus, where fashion meets culture.'),
+('BrickLaneExplorer', 'james@london.com', 'password10', 'James Wright', 'https://example.com/james.jpg', 'Exploring the vibrant street art and food stalls of Brick Lane.'),
+('PiccadillyLover', 'olivia@london.com', 'password11', 'Olivia Moore', 'https://example.com/olivia.jpg', 'In love with the buzzing energy of Piccadilly Circus!'),
+('CoventGardenFan', 'benjamin@london.com', 'password12', 'Benjamin Scott', 'https://example.com/benjamin.jpg', 'Always enjoying the street performances and markets in Covent Garden.'),
+('ShoreditchSnapper', 'emily@london.com', 'password13', 'Emily Walker', 'https://example.com/emily.jpg', 'Capturing the creative essence of Shoreditch through my camera lens.'),
+('TheShardSeeker', 'harry@london.com', 'password14', 'Harry Turner', 'https://example.com/harry.jpg', 'Always trying to catch the best views from The Shard.'),
+('NottingHillDreamer', 'lily@london.com', 'password15', 'Lily Carter', 'https://example.com/lily2.jpg', 'Dreaming of a peaceful life in the colorful streets of Notting Hill.'),
+('TowerBridgeFanatic', 'lucas@london.com', 'password16', 'Lucas Evans', 'https://example.com/lucas.jpg', 'Obsessed with the beauty and history of Tower Bridge.'),
+('RegentStreetRambler', 'mia@london.com', 'password17', 'Mia Mitchell', 'https://example.com/mia.jpg', 'Exploring the shops and history along Regent Street.'),
+('GreenwichExplorer', 'jacob@london.com', 'password18', 'Jacob Martin', 'https://example.com/jacob.jpg', 'Loving the views and history at Greenwich. The prime meridian is fascinating!'),
+('BrixtonBeat', 'amanda@london.com', 'password19', 'Amanda Baker', 'https://example.com/amanda.jpg', 'Grooving to the vibrant music and cultural scene in Brixton.'),
+('HampsteadHeights', 'chloe@london.com', 'password20', 'Chloe Davis', 'https://example.com/chloe.jpg', 'Enjoying peaceful walks and views over Hampstead Heath.');
+
+INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
+('TimesSquareTina', 'tina@times.com', 'password1', 'Tina Williams', 'https://example.com/timessquare.jpg', 'Exploring the lights and excitement of Times Square. Always on the go in NYC!'),
+('BrooklynBrandon', 'brandon@brooklyn.com', 'password2', 'Brandon Thomas', 'https://example.com/brooklyn.jpg', 'Living the Brooklyn life! From the Brooklyn Bridge to the best pizza spots.'),
+('CentralParkCatherine', 'catherine@centralpark.com', 'password3', 'Catherine Green', 'https://example.com/centralpark.jpg', 'Spending my days at Central Park, enjoying nature in the middle of the city.'),
+('ManhattanMax', 'max@manhattan.com', 'password4', 'Max Johnson', 'https://example.com/manhattan.jpg', 'Loving the city that never sleeps. Exploring every corner of Manhattan!'),
+('StatueLibertyLily', 'lily@statueliberty.com', 'password5', 'Lily Adams', 'https://example.com/statueliberty.jpg', 'Feeling inspired by the Statue of Liberty every day. A true symbol of freedom.'),
+('EmpireStateElla', 'ella@empirestate.com', 'password6', 'Ella Martinez', 'https://example.com/empirestate.jpg', 'Always in awe of the Empire State Building. My NYC adventure starts here!'),
+('WallStreetWade', 'wade@wallstreet.com', 'password7', 'Wade Smith', 'https://example.com/wallstreet.jpg', 'Living the fast-paced life of Wall Street. In the heart of New Yorks financial district.'),
+('SoHoSophie', 'sophie@soho.com', 'password8', 'Sophie Brown', 'https://example.com/soho.jpg', 'Exploring the art galleries, shops, and cafes in the stylish SoHo district.'),
+('FifthAvenueFelix', 'felix@fifthavenue.com', 'password9', 'Felix Turner', 'https://example.com/fifthavenue.jpg', 'Shopping and dining along Fifth Avenue. Enjoying the high life in NYC!'),
+('GreenwichVillageGrace', 'grace@greenwichvillage.com', 'password10', 'Grace Lee', 'https://example.com/greenwichvillage.jpg', 'Living in the heart of Greenwich Village. Exploring the bohemian culture of NYC.'),
+('ChinatownCharlie', 'charlie@chinatown.com', 'password11', 'Charlie Thomas', 'https://example.com/chinatown.jpg', 'Lover of Chinatown’s vibrant culture and delicious food. Always trying new dishes!'),
+('HarlemHannah', 'hannah@harlem.com', 'password12', 'Hannah Williams', 'https://example.com/harlem.jpg', 'Proud of Harlem’s rich history and culture. Exploring jazz clubs and soul food spots!'),
+('NYCskateboarderNate', 'nate@nycskateboarder.com', 'password13', 'Nate Davis', 'https://example.com/skateboarder.jpg', 'Skateboarding through NYC streets. Enjoying the freedom and energy of the city.'),
+('TimesSquareTerry', 'terry@timessquare.com', 'password14', 'Terry Moore', 'https://example.com/timessquareterry.jpg', 'Captivated by the lights and energy of Times Square. Always at the center of it all.'),
+('EastVillageEve', 'eve@eastvillage.com', 'password15', 'Eve Roberts', 'https://example.com/eastvillage.jpg', 'Exploring the quirky culture of East Village. A mix of art, food, and nightlife.'),
+('UpperEastSideUrsula', 'ursula@uppereastside.com', 'password16', 'Ursula Clark', 'https://example.com/uppereastside.jpg', 'Living in luxury on the Upper East Side. Shopping, dining, and enjoying high society.'),
+('BronxBrandon', 'brandon@bronx.com', 'password17', 'Brandon White', 'https://example.com/bronx.jpg', 'Born and raised in the Bronx. Always repping my neighborhood with pride.'),
+('ConeyIslandCora', 'cora@coneyisland.com', 'password18', 'Cora Gray', 'https://example.com/coneyisland.jpg', 'Spending my summers at Coney Island. Enjoying the beach, boardwalk, and amusement parks.'),
+('ChelseaCaitlin', 'caitlin@chelsea.com', 'password19', 'Caitlin Nelson', 'https://example.com/chelsea.jpg', 'Living the Chelsea life. Exploring art galleries, cafes, and enjoying everything this neighborhood has to offer.'),
+('RockefellerRiley', 'riley@rockefeller.com', 'password20', 'Riley Walker', 'https://example.com/rockefeller.jpg', 'Admiring the views from the top of Rockefeller Center. Always part of the NYC action!');
+
+INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
+('SeattleSkylineSophie', 'sophie@seattleskyline.com', 'password1', 'Sophie Johnson', 'https://example.com/seattleskyline.jpg', 'Living the Seattle life with a view of the skyline and Space Needle. Coffee in hand!'),
+('PortlandPenny', 'penny@portland.com', 'password2', 'Penny Davis', 'https://example.com/portland.jpg', 'Loving Portland’s unique vibe. Craft beer, food trucks, and always a good time!'),
+('VancouverVera', 'vera@vancouver.com', 'password3', 'Vera Clark', 'https://example.com/vancouver.jpg', 'Enjoying the beautiful outdoors and city life in Vancouver, British Columbia.'),
+('TacomaTim', 'tim@tacoma.com', 'password4', 'Tim Brown', 'https://example.com/tacoma.jpg', 'Exploring Tacoma’s art scene and waterfront views. Always a new adventure!'),
+('OlympiaOlivia', 'olivia@olympia.com', 'password5', 'Olivia Smith', 'https://example.com/olympia.jpg', 'Living in Olympia and enjoying the slower pace and natural beauty of Washington state.'),
+('BellinghamBea', 'bea@bellingham.com', 'password6', 'Bea Taylor', 'https://example.com/bellingham.jpg', 'Loving the small-town charm of Bellingham with its lakes, mountains, and perfect coffee shops.'),
+('WhistlerWill', 'will@whistler.com', 'password7', 'Will Harris', 'https://example.com/whistler.jpg', 'Skiing and snowboarding in Whistler, Canada. The ultimate winter destination!'),
+('AstoriaAmy', 'amy@astoria.com', 'password8', 'Amy Walker', 'https://example.com/astoria.jpg', 'Exploring Astoria, Oregon – the coastal beauty and the historic vibe of this amazing town.'),
+('MountRainierMaggie', 'maggie@rainier.com', 'password9', 'Maggie Taylor', 'https://example.com/mountrainier.jpg', 'Hiking in the shadow of Mount Rainier. Living the Pacific Northwest dream.'),
+('PugetSoundPaul', 'paul@pugetsound.com', 'password10', 'Paul Roberts', 'https://example.com/pugetsound.jpg', 'Living near Puget Sound and enjoying the incredible views, seafood, and maritime lifestyle.'),
+('CoastalCatherine', 'catherine@coastal.com', 'password11', 'Catherine Lee', 'https://example.com/coastal.jpg', 'Loving the coastal beauty of the Pacific Northwest. Always by the water!'),
+('CascadesCody', 'cody@cascades.com', 'password12', 'Cody Nelson', 'https://example.com/cascades.jpg', 'Enjoying outdoor adventures in the Cascade Mountains. Hiking, biking, and exploring!'),
+('RainCityRiley', 'riley@raincity.com', 'password13', 'Riley Green', 'https://example.com/raincity.jpg', 'Living in Seattle – always embracing the rain and coffee culture of the city!'),
+('SanJuanSophie', 'sophie@sanjuan.com', 'password14', 'Sophie Turner', 'https://example.com/sanjuan.jpg', 'Exploring the San Juan Islands. Kayaking, hiking, and soaking up the Pacific Northwest vibes.'),
+('PortlandiaParker', 'parker@portlandia.com', 'password15', 'Parker Davis', 'https://example.com/portlandia.jpg', 'Living the Portlandia dream. From food trucks to quirky festivals, Portland has it all!'),
+('ColumbiaRiverClara', 'clara@columbiariver.com', 'password16', 'Clara White', 'https://example.com/columbiariver.jpg', 'Admiring the stunning Columbia River Gorge. Always amazed by nature’s beauty here.'),
+('EugeneEddie', 'eddie@eugene.com', 'password17', 'Eddie Martinez', 'https://example.com/eugene.jpg', 'Living in Eugene, Oregon – where the outdoors meet a vibrant, artistic city.'),
+('LeavenworthLila', 'lila@leavenworth.com', 'password18', 'Lila Walker', 'https://example.com/leavenworth.jpg', 'Loving the Bavarian charm of Leavenworth, Washington. A true gem in the mountains.'),
+('VancouverVince', 'vince@vancouverbc.com', 'password19', 'Vince King', 'https://example.com/vancouverbc.jpg', 'Enjoying the dynamic life of Vancouver, BC – a city where culture and nature blend perfectly.'),
+('OlympicPeninsulaOlivia', 'olivia@olympicpeninsula.com', 'password20', 'Olivia Harris', 'https://example.com/olympicpeninsula.jpg', 'Spending weekends exploring the Olympic Peninsula – mountains, beaches, and forests!');
+
+INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
+('WaveRiderSam', 'sam@waverider.com', 'password1', 'Sam Thompson', 'https://example.com/waverider.jpg', 'Catching the biggest waves and living for the surf life!'),
+('SurferGirlMaya', 'maya@surfgirl.com', 'password2', 'Maya Davis', 'https://example.com/surfgirl.jpg', 'Chasing waves around the world. Surfing is life!'),
+('OceanBreezZack', 'zack@oceanbreez.com', 'password3', 'Zack Johnson', 'https://example.com/oceanbreez.jpg', 'Surfer at heart, beach lover by nature. Always seeking the perfect wave!'),
+('HangTenHolly', 'holly@hangten.com', 'password4', 'Holly Matthews', 'https://example.com/hangten.jpg', 'Riding the waves from coast to coast. Surfing is my passion!'),
+('BarrelRiderJake', 'jake@barrelrider.com', 'password5', 'Jake Wilson', 'https://example.com/barrelrider.jpg', 'Living for the barrel and chasing the perfect wave every day.'),
+('SaltWaterSophie', 'sophie@saltysurf.com', 'password6', 'Sophie Turner', 'https://example.com/saltwater.jpg', 'Salt in my hair, surfboard in hand. Living the dream on the beach!'),
+('SurfboardSteve', 'steve@surfboard.com', 'password7', 'Steve Harris', 'https://example.com/surfboard.jpg', 'Surfer by morning, beach bum by afternoon. Living the California dream!'),
+('BigWaveBella', 'bella@bigwave.com', 'password8', 'Bella Green', 'https://example.com/bigwave.jpg', 'Always looking for the biggest wave to ride. Surfer girl at heart!'),
+('TidalWaveTom', 'tom@tidalwave.com', 'password9', 'Tom Brown', 'https://example.com/tildalwave.jpg', 'Catching the biggest tides and chasing that endless summer vibe.'),
+('SunsetSurferSally', 'sally@sunsetsurfer.com', 'password10', 'Sally White', 'https://example.com/sunsetsurfer.jpg', 'Surfer chasing sunsets and waves across the coast. The ocean is my second home.'),
+('RidingTheBreakKyle', 'kyle@ridingthebreak.com', 'password11', 'Kyle King', 'https://example.com/ridingthebreak.jpg', 'Riding the break and loving the surf life. My board is my best friend!'),
+('PacificWavePaige', 'paige@pacificwave.com', 'password12', 'Paige Lopez', 'https://example.com/pacificwave.jpg', 'Riding the Pacific waves and living the laid-back surf lifestyle.'),
+('ShakaShane', 'shane@shaka.com', 'password13', 'Shane Scott', 'https://example.com/shaka.jpg', 'Shaka and good vibes. Surfing and enjoying the good life on the coast!'),
+('BeachBumBrody', 'brody@beachbum.com', 'password14', 'Brody Smith', 'https://example.com/beachbum.jpg', 'Living the beach bum life. Surfing is all I need to make my day perfect.'),
+('SurfNSeasRiley', 'riley@surfseas.com', 'password15', 'Riley Green', 'https://example.com/surfseas.jpg', 'Surfer who lives for the perfect wave and the salt in the air.'),
+('TheSurfinSharkElla', 'ella@surfinshark.com', 'password16', 'Ella Martinez', 'https://example.com/surfinshark.jpg', 'Surfer, shark lover, and beach enthusiast. Chasing the horizon, one wave at a time.'),
+('TropicsTravis', 'travis@tropicstrav.com', 'password17', 'Travis Robinson', 'https://example.com/tropicstrav.jpg', 'Catching tropical waves and soaking in the sun. Living life the surfer way!'),
+('Waves4LifeLena', 'lena@waves4life.com', 'password18', 'Lena White', 'https://example.com/waves4life.jpg', 'Surfer, adventurer, and lover of all things ocean. Waves for life!'),
+('BoardwalkBeau', 'beau@boardwalkbeau.com', 'password19', 'Beau Walker', 'https://example.com/boardwalkbeau.jpg', 'Surfer at heart, boardwalk wanderer by day. Chasing waves and sunsets every day.'),
+('BikiniBoarderKara', 'kara@bikiniboarder.com', 'password20', 'Kara Adams', 'https://example.com/bikiniboarder.jpg', 'Bikini, board, and beach life. Living for the next big wave.');
+
+INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
+('ZenMasterLila', 'lila@zenmaster.com', 'password1', 'Lila Rodriguez', 'https://example.com/zenmaster.jpg', 'Finding peace in every breath. Yoga is my path to mindfulness and serenity.'),
+('NamasteNina', 'nina@namaste.com', 'password2', 'Nina Patel', 'https://example.com/namaste.jpg', 'Namaste! Embracing balance and mindfulness on and off the mat.'),
+('SerenitySophie', 'sophie@serenity.com', 'password3', 'Sophie Johnson', 'https://example.com/serenity.jpg', 'Serenity within, peace without. Practicing yoga to align mind, body, and soul.'),
+('BreatheWithAva', 'ava@breathewithava.com', 'password4', 'Ava Williams', 'https://example.com/breathewithava.jpg', 'Breath is life. Exploring the power of yoga to find inner strength and peace.'),
+('FlowingGraceMaya', 'maya@flowinggrace.com', 'password5', 'Maya Davis', 'https://example.com/flowinggrace.jpg', 'Flowing with grace in every movement. Yoga is my journey to self-discovery.'),
+('YogaChicElena', 'elena@yogachic.com', 'password6', 'Elena Brown', 'https://example.com/yogachic.jpg', 'Yoga is my style, my passion, and my therapy. Living life mindfully.'),
+('TheYogaGuruSam', 'sam@theyogaguru.com', 'password7', 'Sam Clark', 'https://example.com/theyogaguru.jpg', 'Connecting body, mind, and soul through yoga. Inspiring others to find peace.'),
+('PeacefulPalmsTara', 'tara@peacefulpalms.com', 'password8', 'Tara Green', 'https://example.com/peacefulpalms.jpg', 'Breathe in peace, exhale stress. Yoga as a tool for mental clarity and physical strength.'),
+('SoulStretchRachel', 'rachel@soulstretch.com', 'password9', 'Rachel Lee', 'https://example.com/soulstretch.jpg', 'Stretching the soul, not just the body. Yoga is my personal transformation.'),
+('YogaVibesOlivia', 'olivia@yogavibes.com', 'password10', 'Olivia Turner', 'https://example.com/yogavibes.jpg', 'Good vibes and positive energy, one yoga pose at a time. Living mindfully.'),
+('InnerPeaceSophie', 'sophie@innerpeace.com', 'password11', 'Sophie Taylor', 'https://example.com/innerpeace.jpg', 'My practice is my meditation. Yoga to find balance, peace, and happiness.'),
+('ZenYogaHannah', 'hannah@zenyoga.com', 'password12', 'Hannah White', 'https://example.com/zenyoga.jpg', 'Yoga for the soul. Finding my zen through every movement and breath.'),
+('HolisticHarper', 'harper@holistic.com', 'password13', 'Harper King', 'https://example.com/holistic.jpg', 'Yoga is my foundation for a balanced life. Holistic approach to mind, body, and spirit.'),
+('MindfulMaya', 'maya@mindfulyoga.com', 'password14', 'Maya Roberts', 'https://example.com/mindfulmaya.jpg', 'Mindful movements and deep breaths. Yoga as a way to live with intention.'),
+('BendAndBreatheLily', 'lily@bendandbreathe.com', 'password15', 'Lily Harris', 'https://example.com/bendandbreathe.jpg', 'Bend, breathe, and let go. Yoga is my sanctuary for mental and physical strength.'),
+('SunSalutationZoe', 'zoe@salutation.com', 'password16', 'Zoe Morgan', 'https://example.com/sunsalutation.jpg', 'Starting every day with a sun salutation and a grateful heart. Yoga is life.'),
+('TranquilTessa', 'tessa@tranquil.com', 'password17', 'Tessa Walker', 'https://example.com/tranquil.jpg', 'Yoga to bring calm and clarity. Practicing mindfulness one pose at a time.'),
+('AsanaAdventurerJade', 'jade@asanaadventure.com', 'password18', 'Jade Evans', 'https://example.com/asanaadventure.jpg', 'Every asana is an adventure. Yoga is a journey to discover inner strength and peace.'),
+('FlexAndFlowPaige', 'paige@flexandflow.com', 'password19', 'Paige Scott', 'https://example.com/flexandflow.jpg', 'Flexibility of the body and flow of the mind. Yoga connects me to my true self.'),
+('TheYogaExplorerEva', 'eva@theyogaexplorer.com', 'password20', 'Eva Perez', 'https://example.com/theyogaexplorer.jpg', 'Exploring yoga from every angle, finding peace in each breath. A true yoga explorer.');
