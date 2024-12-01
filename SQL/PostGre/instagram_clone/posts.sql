@@ -3,4 +3,8 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (1, 'https://example.com/image1.jpg', 'First post by User One'),
 (2, 'https://example.com/image2.jpg', 'Exciting post from User Two'),
 (3, 'https://example.com/image3.jpg', 'Great vibes! #life'),
-(4, 'https://example.com/image4.jpg', 'Final post for testing.');
+(4, 'https://example.com/image4.jpg', 'Final post for testing.'),
+(1, 'https://example.com/image1.jpg', 'Chilling in the Arctic 🐧'),
+(5, 'https://example.com/image2.jpg', 'Skyline dreams! 🌃'),
+(8, 'https://example.com/image3.jpg', 'Another peak conquered 🏔️'),
+(10, 'https://example.com/image20.jpg', 'This is just the beginning...');
