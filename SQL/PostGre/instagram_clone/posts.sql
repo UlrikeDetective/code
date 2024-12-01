@@ -8,3 +8,16 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (9, 'https://example.com/image2.jpg', 'Skyline dreams! 🌃'),
 (3, 'https://example.com/image3.jpg', 'Another peak conquered 🏔️'),
 (3, 'https://example.com/image20.jpg', 'This is just the beginning...');
+
+INSERT INTO posts (user_id, image_url, caption)
+VALUES (3, 'https://example.com/image21.jpg', 'Another peak conquered 🏔️');
+
+
+SELECT * FROM posts WHERE user_id = 1;
+
+UPDATE posts
+SET caption = 'Updated caption for this awesome post!'
+WHERE id = 1;
+
+DELETE FROM posts WHERE id = 20;
+

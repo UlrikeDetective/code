@@ -8,4 +8,25 @@ INSERT INTO followers (follower_id, following_id) VALUES
 (1, 7), (1, 10),
 (7, 2), (7, 4), (7, 8), (7, 9),
 (10, 9), (9, 10), 
-(8,1), (8, 2), (8, 3), (8, 3), (8, 4), (8, 5), (8, 6), (8, 7), (8, 9), (8, 10);
+(8,1), (8, 2), (8, 3), (8, 4), (8, 5), (8, 6), (8, 7), (8, 9), (8, 10);
+
+-- List all followers of a user:
+SELECT u.username AS follower
+FROM followers f
+JOIN users u ON f.follower_id = u.id
+WHERE f.following_id = 1;
+
+-- List all users a person follows:
+SELECT u.username AS following
+FROM followers f
+JOIN users u ON f.following_id = u.id
+WHERE f.follower_id = 1;
+
+-- Add a new follower:
+INSERT INTO followers (follower_id, following_id)
+VALUES (2, 11), (11, 4), (11, 6);
+
+-- remove a follower
+DELETE FROM followers
+WHERE follower_id = 2 AND following_id = 3;
+
