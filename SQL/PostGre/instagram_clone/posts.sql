@@ -75,14 +75,14 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (50, 'https://example.com/post50.jpg', 'Exploring the hidden gems of the Amalfi Coast in Italy. This place is magical. #AmalfiCoast #TravelGoals');
 
 INSERT INTO posts (user_id, image_url, caption) VALUES
-(333, 'https://example.com/post1.jpg', 'Exploring the beautiful streets of Paris, living my best travel life! #Paris #Wanderlust'),
-(333, 'https://example.com/post2.jpg', 'Hiking through the Swiss Alps was a dream come true. The views were breathtaking! #AdventureAwaits #SwissAlps'),
+(212, 'https://example.com/post1.jpg', 'Exploring the beautiful streets of Paris, living my best travel life! #Paris #Wanderlust'),
+(212, 'https://example.com/post2.jpg', 'Hiking through the Swiss Alps was a dream come true. The views were breathtaking! #AdventureAwaits #SwissAlps'),
 (811, 'https://example.com/post3.jpg', 'Made it to the top of Machu Picchu! Feeling on top of the world. #Peru #MachuPicchu'),
 (811, 'https://example.com/post4.jpg', 'Strolling along the beaches of Bali. The sand, the sea, the sunset – pure bliss. #Bali #BeachVibes'),
 (121, 'https://example.com/post5.jpg', 'Catching a glimpse of the Northern Lights in Iceland. Magical experience! #Iceland #NorthernLights'),
-(333, 'https://example.com/post6.jpg', 'Wandered through the vibrant markets of Marrakech today. So much color and life! #Marrakech #TravelGoals'),
-(333, 'https://example.com/post7.jpg', 'Exploring the ancient ruins of Rome. So much history in one place. #Rome #History'),
-(333, 'https://example.com/post8.jpg', 'A peaceful afternoon in the lavender fields of Provence. This place is a dream! #Provence #LavenderFields'),
+(212, 'https://example.com/post6.jpg', 'Wandered through the vibrant markets of Marrakech today. So much color and life! #Marrakech #TravelGoals'),
+(212, 'https://example.com/post7.jpg', 'Exploring the ancient ruins of Rome. So much history in one place. #Rome #History'),
+(212, 'https://example.com/post8.jpg', 'A peaceful afternoon in the lavender fields of Provence. This place is a dream! #Provence #LavenderFields'),
 (1279, 'https://example.com/post9.jpg', 'Kayaking in the crystal-clear waters of the Maldives. It doesn’t get better than this! #Maldives #TropicalParadise'),
 (1279, 'https://example.com/post10.jpg', 'Admiring the stunning landscapes in New Zealand. Nature at its finest. #NewZealand #NatureLover'),
 (35, 'https://example.com/post11.jpg', 'Caught a gorgeous sunset in Santorini. Couldn’t ask for a better view! #Santorini #SunsetLover'),
@@ -135,25 +135,25 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (255, 'https://example.com/japan6.jpg', 'Took a boat ride through the canals of Tokyo. The city’s energy is unbeatable! #Tokyo #CanalRide'),
 (255, 'https://example.com/japan7.jpg', 'Walking through the colorful streets of Harajuku. This place is full of life and fashion! #Tokyo #Harajuku'),
 (255, 'https://example.com/japan8.jpg', 'Spent the day in Nara, feeding the friendly deer at Nara Park. What an experience! #Nara #Japan #TravelDiaries'),
-(339, 'https://example.com/japan9.jpg', 'Admiring the beauty of the cherry blossoms in full bloom. A perfect spring day in Japan! #Sakura #CherryBlossoms'),
-(339, 'https://example.com/japan10.jpg', 'Exploring the serene temples of Kyoto. The peace and quiet are magical. #Kyoto #JapaneseTemples'),
-(339, 'https://example.com/japan11.jpg', 'Visited the incredible Fushimi Inari Taisha and walked through thousands of red torii gates. #Kyoto #InariTaisha'),
+(226, 'https://example.com/japan9.jpg', 'Admiring the beauty of the cherry blossoms in full bloom. A perfect spring day in Japan! #Sakura #CherryBlossoms'),
+(226, 'https://example.com/japan10.jpg', 'Exploring the serene temples of Kyoto. The peace and quiet are magical. #Kyoto #JapaneseTemples'),
+(226, 'https://example.com/japan11.jpg', 'Visited the incredible Fushimi Inari Taisha and walked through thousands of red torii gates. #Kyoto #InariTaisha'),
 (100, 'https://example.com/japan12.jpg', 'Had a relaxing day in the hot springs of Hakone. So rejuvenating! #Hakone #Onsen'),
 (232, 'https://example.com/japan13.jpg', 'Riding the Shinkansen to Osaka. Can’t wait to explore the city! #Shinkansen #Osaka #JapanAdventure'),
-(339, 'https://example.com/japan14.jpg', 'Exploring the historic streets of Kanazawa. This city has such charm! #Kanazawa #JapaneseHeritage'),
-(339, 'https://example.com/japan15.jpg', 'Tasting street food in Osaka. Takoyaki and Okonomiyaki are a must! #Osaka #JapaneseFood'),
+(226, 'https://example.com/japan14.jpg', 'Exploring the historic streets of Kanazawa. This city has such charm! #Kanazawa #JapaneseHeritage'),
+(226, 'https://example.com/japan15.jpg', 'Tasting street food in Osaka. Takoyaki and Okonomiyaki are a must! #Osaka #JapaneseFood'),
 (100, 'https://example.com/japan16.jpg', 'Wandering around the peaceful temples in Kamigamo Shrine. #Kyoto #KamigamoShrine #JapanTravel'),
 (325, 'https://example.com/japan17.jpg', 'Trekking through the Japanese Alps. Stunning landscapes! #JapanAlps #NatureAdventure'),
-(339, 'https://example.com/japan18.jpg', 'Took a day trip to Hiroshima and visited the Peace Memorial Park. Such a humbling experience. #Hiroshima #Peace'),
+(226, 'https://example.com/japan18.jpg', 'Took a day trip to Hiroshima and visited the Peace Memorial Park. Such a humbling experience. #Hiroshima #Peace'),
 (325, 'https://example.com/japan19.jpg', 'Exploring the vibrant streets of Osaka. This city is full of surprises! #Osaka #CityExploration'),
-(339, 'https://example.com/japan20.jpg', 'Had an amazing time visiting the beautiful island of Okinawa. A tropical paradise! #Okinawa #JapanIslands'),
+(226, 'https://example.com/japan20.jpg', 'Had an amazing time visiting the beautiful island of Okinawa. A tropical paradise! #Okinawa #JapanIslands'),
 (409, 'https://example.com/japan21.jpg', 'Visiting the famous Tsukiji Fish Market in Tokyo. The freshest seafood! #Tokyo #TsukijiMarket'),
 (255, 'https://example.com/japan22.jpg', 'Enjoying the peaceful vibe in Arashiyama Bamboo Grove. Kyoto is so tranquil. #Kyoto #BambooGrove'),
 (255, 'https://example.com/japan23.jpg', 'Exploring the ancient ruins of Himeji Castle. History and beauty in one place. #HimejiCastle #JapanHistory'),
 (255, 'https://example.com/japan24.jpg', 'Taking a scenic walk along the Philosopher’s Path in Kyoto. The cherry blossoms are perfect! #Kyoto #PhilosophersPath'),
 (255, 'https://example.com/japan25.jpg', 'Had an unforgettable time at a sumo match in Tokyo. Such an exciting experience! #Sumo #TokyoCulture'),
 (409, 'https://example.com/japan26.jpg', 'Visited the Odaiba district in Tokyo. The views of the Rainbow Bridge were incredible! #Tokyo #Odaiba'),
-(339, 'https://example.com/japan27.jpg', 'Spent the day exploring the iconic Shinto shrines of Nikko. A true cultural experience. #Nikko #ShintoShrines'),
+(226, 'https://example.com/japan27.jpg', 'Spent the day exploring the iconic Shinto shrines of Nikko. A true cultural experience. #Nikko #ShintoShrines'),
 (232, 'https://example.com/japan28.jpg', 'Hiking in the scenic Mount Takao near Tokyo. Stunning nature just outside the city. #MountTakao #JapanNature'),
 (409, 'https://example.com/japan29.jpg', 'Taking in the breathtaking views of the Japanese countryside on the way to Nagano. #Nagano #JapanCountryside'),
 (411, 'https://example.com/japan30.jpg', 'Visited the vibrant Dotonbori district in Osaka. The neon lights are amazing! #Dotonbori #OsakaNightlife'),
@@ -161,7 +161,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (412, 'https://example.com/japan32.jpg', 'Had a beautiful afternoon in the Gion district of Kyoto. The traditional teahouses are stunning! #Kyoto #GionDistrict'),
 (411, 'https://example.com/japan33.jpg', 'Took a peaceful stroll through the gardens of the Imperial Palace in Tokyo. #Tokyo #ImperialPalaceGardens'),
 (325, 'https://example.com/japan34.jpg', 'Spent the day wandering around the vibrant city of Sapporo. What a hidden gem in Hokkaido! #Sapporo #JapanTravel'),
-(339, 'https://example.com/japan35.jpg', 'Had the best ramen of my life in Fukuoka. Ramen capital of Japan! #Fukuoka #RamenLover'),
+(226, 'https://example.com/japan35.jpg', 'Had the best ramen of my life in Fukuoka. Ramen capital of Japan! #Fukuoka #RamenLover'),
 (413, 'https://example.com/japan36.jpg', 'Visiting the historic Nijo Castle in Kyoto. Such an incredible place! #NijoCastle #KyotoHistory'),
 (414, 'https://example.com/japan37.jpg', 'Hiking up Mount Fuji at sunrise was an unforgettable experience. Worth every step! #MountFuji #JapanAdventure'),
 (415, 'https://example.com/japan38.jpg', 'Exploring the beautiful gardens of Shinjuku Gyoen National Garden in Tokyo. A peaceful escape. #Tokyo #ShinjukuGyoen'),
@@ -174,7 +174,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (406, 'https://example.com/japan45.jpg', 'Had the best sushi dinner in Ginza, Tokyo. Can’t get any fresher than this! #Tokyo #SushiDinner'),
 (409, 'https://example.com/japan46.jpg', 'Enjoying the beautiful views from the top of Tokyo Tower. #TokyoTower #JapanViews'),
 (404, 'https://example.com/japan47.jpg', 'Visited the stunning Lake Kawaguchi with Mount Fuji in the background. Unforgettable! #LakeKawaguchi #MountFuji'),
-(339, 'https://example.com/japan48.jpg', 'Admiring the beautiful autumn colors at the temples of Kyoto. #Kyoto #AutumnInJapan'),
+(226, 'https://example.com/japan48.jpg', 'Admiring the beautiful autumn colors at the temples of Kyoto. #Kyoto #AutumnInJapan'),
 (410, 'https://example.com/japan49.jpg', 'Had a fun time at Universal Studios Japan in Osaka. The rides were amazing! #UniversalStudios #OsakaAdventure'),
 (412, 'https://example.com/japan50.jpg', 'Taking in the incredible views from the top of the Skytree in Tokyo. #TokyoSkytree #TokyoViews');
 
@@ -215,7 +215,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (1360, 'https://example.com/california34.jpg', 'Took a scenic walk through Golden Gate Park in San Francisco. Beautiful! #GoldenGatePark #SanFrancisco'),
 (1366, 'https://example.com/california35.jpg', 'Visited the amazing Lake Arrowhead. It’s so peaceful up here! #LakeArrowhead #CaliforniaMountains'),
 (1365, 'https://example.com/california36.jpg', 'Had the most delicious fish tacos in Santa Barbara. #SantaBarbara #FishTacos #CaliforniaEats'),
-(339, 'https://example.com/california37.jpg', 'Exploring the colorful murals of Balmy Alley in San Francisco. Such vibrant art! #BalmyAlley #SanFranciscoArt'),
+(226, 'https://example.com/california37.jpg', 'Exploring the colorful murals of Balmy Alley in San Francisco. Such vibrant art! #BalmyAlley #SanFranciscoArt'),
 (1365, 'https://example.com/california38.jpg', 'Spent the afternoon at the Getty Center in Los Angeles. The views and art are amazing! #GettyCenter #LosAngelesCulture'),
 (150, 'https://example.com/california39.jpg', 'Hiking to the top of the Torrey Pines State Reserve. The views were worth it! #TorreyPines #SanDiegoHiking'),
 (1359, 'https://example.com/california40.jpg', 'Had an unforgettable experience at the California State Fair in Sacramento. #CaliforniaStateFair #SacramentoFun'),
@@ -231,17 +231,17 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (1453, 'https://example.com/california50.jpg', 'Spent the day in the vibrant town of Laguna Beach. The art scene here is amazing! #LagunaBeach #CaliforniaArts');
 
 INSERT INTO posts (user_id, image_url, caption) VALUES
-(339, 'https://example.com/hawaii1.jpg', 'Exploring the volcanic landscapes of Hawaii Volcanoes National Park. Incredible experience! #HawaiiVolcanoes #BigIsland'),
-(339, 'https://example.com/hawaii2.jpg', 'Had the most relaxing time at Waikiki Beach. Perfect spot to unwind. #WaikikiBeach #Oahu'),
-(339, 'https://example.com/hawaii3.jpg', 'Trekking through the lush trails of Kauai. Nature here is just breathtaking! #Kauai #HawaiiAdventure'),
-(339, 'https://example.com/hawaii4.jpg', 'Sunset at Hanauma Bay is an absolute must. The colors are unreal! #HanaumaBay #OahuSunset'),
-(339, 'https://example.com/hawaii5.jpg', 'Enjoyed a scenic helicopter ride over the Na Pali Coast. Views that you’ll never forget! #NaPaliCoast #KauaiHelicopterTour'),
+(226, 'https://example.com/hawaii1.jpg', 'Exploring the volcanic landscapes of Hawaii Volcanoes National Park. Incredible experience! #HawaiiVolcanoes #BigIsland'),
+(226, 'https://example.com/hawaii2.jpg', 'Had the most relaxing time at Waikiki Beach. Perfect spot to unwind. #WaikikiBeach #Oahu'),
+(226, 'https://example.com/hawaii3.jpg', 'Trekking through the lush trails of Kauai. Nature here is just breathtaking! #Kauai #HawaiiAdventure'),
+(226, 'https://example.com/hawaii4.jpg', 'Sunset at Hanauma Bay is an absolute must. The colors are unreal! #HanaumaBay #OahuSunset'),
+(226, 'https://example.com/hawaii5.jpg', 'Enjoyed a scenic helicopter ride over the Na Pali Coast. Views that you’ll never forget! #NaPaliCoast #KauaiHelicopterTour'),
 (325, 'https://example.com/hawaii6.jpg', 'Spent the day exploring Pearl Harbor. A truly humbling experience. #PearlHarbor #OahuHistory'),
-(339, 'https://example.com/hawaii7.jpg', 'Visiting the beaches of Maui. The sands are perfect, and the waves are incredible for surfing! #MauiBeaches #HawaiiSurfing'),
-(339, 'https://example.com/hawaii8.jpg', 'Hiking the famous Diamond Head Trail. The view from the top of Oahu is incredible! #DiamondHead #OahuHikes'),
+(226, 'https://example.com/hawaii7.jpg', 'Visiting the beaches of Maui. The sands are perfect, and the waves are incredible for surfing! #MauiBeaches #HawaiiSurfing'),
+(226, 'https://example.com/hawaii8.jpg', 'Hiking the famous Diamond Head Trail. The view from the top of Oahu is incredible! #DiamondHead #OahuHikes'),
 (100, 'https://example.com/hawaii9.jpg', 'Snorkeling in the crystal-clear waters of Molokini Crater. What an unforgettable experience! #MolokiniCrater #HawaiiSnorkeling'),
 (100, 'https://example.com/hawaii10.jpg', 'Enjoying the serene beauty of Waimea Canyon. Often called the Grand Canyon of the Pacific! #WaimeaCanyon #Kauai'),
-(339, 'https://example.com/hawaii11.jpg', 'Watching the surfers at Sunset Beach. Such an iconic spot on the North Shore! #SunsetBeach #NorthShoreOahu'),
+(226, 'https://example.com/hawaii11.jpg', 'Watching the surfers at Sunset Beach. Such an iconic spot on the North Shore! #SunsetBeach #NorthShoreOahu'),
 (325, 'https://example.com/hawaii12.jpg', 'Hiking through the bamboo forest in Hana. The jungle vibes are surreal! #HanaBambooForest #MauiHikes'),
 (100, 'https://example.com/hawaii13.jpg', 'Exploring the unique black sand beaches of Punaluu. An incredible sight! #PunaluuBeach #BigIsland'),
 (244, 'https://example.com/hawaii14.jpg', 'Sunrise at Haleakalā National Park. Watching the sun rise from the top of the world! #HaleakalaSunrise #MauiViews'),
@@ -273,7 +273,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (260, 'https://example.com/hawaii40.jpg', 'Went for a peaceful paddleboard session at Ala Moana Beach Park. #AlaMoanaBeach #Honolulu'),
 (260, 'https://example.com/hawaii41.jpg', 'Just finished an amazing dive at the wreck of the USS Liberty in Hawaii. So much history underwater! #USSLibertyWreck #HawaiiDiving'),
 (244, 'https://example.com/hawaii42.jpg', 'Enjoyed a magical sunset boat ride along the coast of Maui. Such a serene experience! #MauiSunset #HawaiiCoast'),
-(339, 'https://example.com/hawaii43.jpg', 'Taking in the view from the top of the scenic Pali Lookout. A must-see in Oahu! #PaliLookout #OahuViews'),
+(226, 'https://example.com/hawaii43.jpg', 'Taking in the view from the top of the scenic Pali Lookout. A must-see in Oahu! #PaliLookout #OahuViews'),
 (246, 'https://example.com/hawaii44.jpg', 'Had a great time at the Ala Moana Center shopping in Honolulu. What a vibrant mall! #AlaMoanaCenter #OahuShopping'),
 (325, 'https://example.com/hawaii45.jpg', 'Took a relaxing stroll through the beautiful Koko Crater Botanical Garden. #KokoCraterBotanicalGarden #OahuNature'),
 (326, 'https://example.com/hawaii46.jpg', 'Visited the Hana Cultural Center. So much history and culture in this beautiful town. #HanaCulturalCenter #MauiHistory'),
@@ -334,7 +334,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (862, 'https://example.com/sf49.jpg', 'Enjoying a peaceful evening walk through the Bay Area’s amazing parks. #SFOutdoors #BayAreaParks'),
 (862, 'https://example.com/sf50.jpg', 'Spending the afternoon at the Golden Gate Bridge Visitor Center. It’s great to learn more about the bridge’s history. #GoldenGateVisitorCenter #SanFranciscoLandmarks');
 
-  INSERT INTO posts (user_id, image_url, caption) VALUES
+INSERT INTO posts (user_id, image_url, caption) VALUES
 (801, 'https://example.com/sf_startup1.jpg', 'Excited to start my journey in a tech startup in the heart of the Bay Area! The possibilities are endless. #TechStartup #BayAreaLife'),
 (811, 'https://example.com/sf_startup2.jpg', 'First day at the new startup office. The energy here is contagious! #FirstDay #StartupLife'),
 (811, 'https://example.com/sf_startup3.jpg', 'The startup culture in SF is incredible. From free coffee to brainstorming sessions, I’m loving it! #StartupCulture #BayAreaTech'),
@@ -344,7 +344,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (863, 'https://example.com/sf_startup7.jpg', 'Taking a break at the rooftop terrace of our office. The views of the Bay Area are amazing! #TechStartupViews #BayAreaViews'),
 (841, 'https://example.com/sf_startup8.jpg', 'It’s crazy to think I’m now part of a startup that’s shaping the future of tech! Feeling so inspired. #TechInnovation #SFStartup'),
 (851, 'https://example.com/sf_startup9.jpg', 'Every day at the startup brings a new learning experience. Couldn’t have asked for a better start to my tech career. #TechCareer #StartupGrowth'),
-(339, 'https://example.com/sf_startup10.jpg', 'Visited a coworking space in San Francisco today. The startup ecosystem here is thriving! #Coworking #BayAreaTech'),
+(226, 'https://example.com/sf_startup10.jpg', 'Visited a coworking space in San Francisco today. The startup ecosystem here is thriving! #Coworking #BayAreaTech'),
 (844, 'https://example.com/sf_startup11.jpg', 'Celebrating the small wins at our tech startup. It’s all about the hustle here! #StartUpWins #TechStartupLife'),
 (854, 'https://example.com/sf_startup12.jpg', 'Just wrapped up a strategy session at work. Collaborating with such brilliant minds is a huge privilege. #Teamwork #TechLeadership'),
 (855, 'https://example.com/sf_startup13.jpg', 'Tech startup life isn’t easy, but it’s definitely exciting! Looking forward to seeing what the future holds. #StartupGrind #BayAreaTech'),
@@ -440,68 +440,68 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 
 INSERT INTO posts (user_id, image_url, caption) 
 VALUES 
-(2491, 'https://example.com/nyc1.jpg', 'Living my best life in NYC. The energy here is unlike anywhere else! #NYCLiving #CityThatNeverSleeps'),
-(2501, 'https://example.com/nyc2.jpg', 'Taking in the view from the top of the Empire State Building today. This city never gets old. #EmpireState #NYCViews'),
-(2502, 'https://example.com/nyc3.jpg', 'First weekend in New York City, and I’m loving the hustle and bustle. #NYCWeekend #CityVibes'),
-(2502, 'https://example.com/nyc4.jpg', 'From the subway to the skyscrapers, there’s always something exciting happening in NYC. #NYCAdventures #BigApple'),
-(2503, 'https://example.com/nyc5.jpg', 'Exploring Central Park this weekend. It’s the perfect escape from the city’s fast pace. #CentralPark #NYCExploration'),
-(2504, 'https://example.com/nyc6.jpg', 'Had a great time checking out the Brooklyn Bridge today. Can’t believe I live here now! #BrooklynBridge #NYCLife'),
-(2504, 'https://example.com/nyc7.jpg', 'Living in the heart of Manhattan is a dream come true. Every day feels like an adventure. #ManhattanLiving #BigCityLife'),
-(2505, 'https://example.com/nyc8.jpg', 'NYC’s food scene is unreal. Just had the best pizza I’ve ever tasted in Little Italy. #NYCFood #PizzaLovers'),
-(2505, 'https://example.com/nyc9.jpg', 'Catching a Broadway show tonight—one of the best things about living in New York. #BroadwayNights #NYCEvents'),
-(2506, 'https://example.com/nyc10.jpg', 'Riding the subway in NYC has become part of my daily routine. It’s so iconic! #SubwayLife #NYCCommute'),
-(2507, 'https://example.com/nyc11.jpg', 'Living in NYC means constant inspiration. The art, the culture, the vibe—it’s all here. #NYCInspiration #UrbanLiving'),
-(2507, 'https://example.com/nyc12.jpg', 'Sunset views over the Hudson River never get old. NYC, you’re beautiful. #HudsonRiver #NYCSunset'),
-(2508, 'https://example.com/nyc13.jpg', 'Exploring the streets of SoHo and loving the vibe. NYC has some of the best shopping. #SoHoShopping #NYCExploration'),
-(2509, 'https://example.com/nyc14.jpg', 'Woke up to the sound of sirens and honking cars. Welcome to New York! #NYCLife #CitySoundtrack'),
-(2510, 'https://example.com/nyc15.jpg', 'Caught the ferry to Staten Island today. The skyline views were stunning! #StatenIslandFerry #NYCViews'),
-(2510, 'https://example.com/nyc16.jpg', 'Lunch break in Times Square. Can’t believe I get to experience this every day. #TimesSquare #NYCWorkLife'),
-(2511, 'https://example.com/nyc17.jpg', 'Enjoying a coffee at a café in the East Village. NYC mornings are something else. #EastVillage #CoffeeTime'),
-(2512, 'https://example.com/nyc18.jpg', 'Had the most amazing bagel from a street cart in Brooklyn. NYC food always hits the spot. #NYCBagels #FoodieLife'),
-(2513, 'https://example.com/nyc19.jpg', 'Living in NYC means always having something to do. From museums to rooftop bars, there’s never a dull moment. #NYCActivities #CityLiving'),
-(339, 'https://example.com/nyc20.jpg', 'Taking a stroll along the High Line today. This city has such a unique charm. #HighLine #NYCViews'),
+(1547, 'https://example.com/nyc1.jpg', 'Living my best life in NYC. The energy here is unlike anywhere else! #NYCLiving #CityThatNeverSleeps'),
+(1552, 'https://example.com/nyc2.jpg', 'Taking in the view from the top of the Empire State Building today. This city never gets old. #EmpireState #NYCViews'),
+(1555, 'https://example.com/nyc3.jpg', 'First weekend in New York City, and I’m loving the hustle and bustle. #NYCWeekend #CityVibes'),
+(1555, 'https://example.com/nyc4.jpg', 'From the subway to the skyscrapers, there’s always something exciting happening in NYC. #NYCAdventures #BigApple'),
+(1556, 'https://example.com/nyc5.jpg', 'Exploring Central Park this weekend. It’s the perfect escape from the city’s fast pace. #CentralPark #NYCExploration'),
+(1556, 'https://example.com/nyc6.jpg', 'Had a great time checking out the Brooklyn Bridge today. Can’t believe I live here now! #BrooklynBridge #NYCLife'),
+(1556, 'https://example.com/nyc7.jpg', 'Living in the heart of Manhattan is a dream come true. Every day feels like an adventure. #ManhattanLiving #BigCityLife'),
+(1559, 'https://example.com/nyc8.jpg', 'NYC’s food scene is unreal. Just had the best pizza I’ve ever tasted in Little Italy. #NYCFood #PizzaLovers'),
+(1559, 'https://example.com/nyc9.jpg', 'Catching a Broadway show tonight—one of the best things about living in New York. #BroadwayNights #NYCEvents'),
+(1566, 'https://example.com/nyc10.jpg', 'Riding the subway in NYC has become part of my daily routine. It’s so iconic! #SubwayLife #NYCCommute'),
+(1566, 'https://example.com/nyc11.jpg', 'Living in NYC means constant inspiration. The art, the culture, the vibe—it’s all here. #NYCInspiration #UrbanLiving'),
+(1566, 'https://example.com/nyc12.jpg', 'Sunset views over the Hudson River never get old. NYC, you’re beautiful. #HudsonRiver #NYCSunset'),
+(1413, 'https://example.com/nyc13.jpg', 'Exploring the streets of SoHo and loving the vibe. NYC has some of the best shopping. #SoHoShopping #NYCExploration'),
+(1421, 'https://example.com/nyc14.jpg', 'Woke up to the sound of sirens and honking cars. Welcome to New York! #NYCLife #CitySoundtrack'),
+(1421, 'https://example.com/nyc15.jpg', 'Caught the ferry to Staten Island today. The skyline views were stunning! #StatenIslandFerry #NYCViews'),
+(1421, 'https://example.com/nyc16.jpg', 'Lunch break in Times Square. Can’t believe I get to experience this every day. #TimesSquare #NYCWorkLife'),
+(226, 'https://example.com/nyc17.jpg', 'Enjoying a coffee at a café in the East Village. NYC mornings are something else. #EastVillage #CoffeeTime'),
+(226, 'https://example.com/nyc18.jpg', 'Had the most amazing bagel from a street cart in Brooklyn. NYC food always hits the spot. #NYCBagels #FoodieLife'),
+(828, 'https://example.com/nyc19.jpg', 'Living in NYC means always having something to do. From museums to rooftop bars, there’s never a dull moment. #NYCActivities #CityLiving'),
+(226, 'https://example.com/nyc20.jpg', 'Taking a stroll along the High Line today. This city has such a unique charm. #HighLine #NYCViews'),
 (325, 'https://example.com/nyc21.jpg', 'Walked through Times Square tonight. It’s like the city never sleeps. #TimesSquare #NYCAtNight');
 
 INSERT INTO posts (user_id, image_url, caption) 
 VALUES 
-(2514, 'https://example.com/nyc22.jpg', 'The view from my apartment is insane. I love waking up to NYC’s skyline every day. #NYCApartment #CityViews'),
-(2515, 'https://example.com/nyc23.jpg', 'Walking through the streets of Chelsea, where art and culture meet. NYC is always inspiring. #ChelseaArt #NYCLife'),
-(2515, 'https://example.com/nyc24.jpg', 'Took a bike ride along the West Side Highway today. So many great spots to explore in the city. #NYCBikeRide #WestSideHighway'),
-(2516, 'https://example.com/nyc25.jpg', 'NYC is the best place to meet new people from all over the world. Loving the diverse culture. #NYCDiversity #GlobalCity'),
-(2517, 'https://example.com/nyc26.jpg', 'Saw a street performance in Washington Square Park today. So many talented people in NYC! #WashingtonSquarePark #StreetPerformance'),
-(2517, 'https://example.com/nyc27.jpg', 'Loving my new life in NYC. There’s always something to do, something new to try. #NYCAdventures #CityLife'),
-(2518, 'https://example.com/nyc28.jpg', 'From the Brooklyn Bridge Park to DUMBO, Brooklyn is full of amazing views. #BrooklynViews #NYCExploration'),
-(2519, 'https://example.com/nyc29.jpg', 'Living in NYC has taught me to appreciate the little things, like a quiet morning walk through the city. #NYCMornings #CityLiving'),
-(2519, 'https://example.com/nyc30.jpg', 'After work, I love grabbing a drink at a rooftop bar in Manhattan. Can’t beat these views! #RooftopBars #NYCNights'),
-(2520, 'https://example.com/nyc31.jpg', 'Had a blast at a rooftop party in Brooklyn last night. NYC is the place to be for fun! #BrooklynRooftop #NYCNightLife'),
-(2520, 'https://example.com/nyc32.jpg', 'Took a weekend trip to upstate New York. Such a great escape from the city’s chaos. #UpstateNY #WeekendGetaway');
+(834, 'https://example.com/nyc22.jpg', 'The view from my apartment is insane. I love waking up to NYC’s skyline every day. #NYCApartment #CityViews'),
+(834, 'https://example.com/nyc23.jpg', 'Walking through the streets of Chelsea, where art and culture meet. NYC is always inspiring. #ChelseaArt #NYCLife'),
+(834, 'https://example.com/nyc24.jpg', 'Took a bike ride along the West Side Highway today. So many great spots to explore in the city. #NYCBikeRide #WestSideHighway'),
+(857, 'https://example.com/nyc25.jpg', 'NYC is the best place to meet new people from all over the world. Loving the diverse culture. #NYCDiversity #GlobalCity'),
+(1588, 'https://example.com/nyc26.jpg', 'Saw a street performance in Washington Square Park today. So many talented people in NYC! #WashingtonSquarePark #StreetPerformance'),
+(1588, 'https://example.com/nyc27.jpg', 'Loving my new life in NYC. There’s always something to do, something new to try. #NYCAdventures #CityLife'),
+(359, 'https://example.com/nyc28.jpg', 'From the Brooklyn Bridge Park to DUMBO, Brooklyn is full of amazing views. #BrooklynViews #NYCExploration'),
+(658, 'https://example.com/nyc29.jpg', 'Living in NYC has taught me to appreciate the little things, like a quiet morning walk through the city. #NYCMornings #CityLiving'),
+(658, 'https://example.com/nyc30.jpg', 'After work, I love grabbing a drink at a rooftop bar in Manhattan. Can’t beat these views! #RooftopBars #NYCNights'),
+(630, 'https://example.com/nyc31.jpg', 'Had a blast at a rooftop party in Brooklyn last night. NYC is the place to be for fun! #BrooklynRooftop #NYCNightLife'),
+(630, 'https://example.com/nyc32.jpg', 'Took a weekend trip to upstate New York. Such a great escape from the city’s chaos. #UpstateNY #WeekendGetaway');
 
 INSERT INTO posts (user_id, image_url, caption) 
 VALUES 
-(2521, 'https://example.com/nyc33.jpg', 'Love getting lost in the streets of NYC. Every corner has something new to discover. #NYCExploration #CityAdventures'),
-(2522, 'https://example.com/nyc34.jpg', 'I’ll never get tired of the views from the Empire State Building. NYC from above is breathtaking. #EmpireStateBuilding #CityViews'),
-(2522, 'https://example.com/nyc35.jpg', 'Had a great day exploring the museums in NYC. So much art and culture in one place! #NYCMuseums #ArtCulture');
+(226, 'https://example.com/nyc33.jpg', 'Love getting lost in the streets of NYC. Every corner has something new to discover. #NYCExploration #CityAdventures'),
+(226, 'https://example.com/nyc34.jpg', 'I’ll never get tired of the views from the Empire State Building. NYC from above is breathtaking. #EmpireStateBuilding #CityViews'),
+(226, 'https://example.com/nyc35.jpg', 'Had a great day exploring the museums in NYC. So much art and culture in one place! #NYCMuseums #ArtCulture');
 
 INSERT INTO posts (user_id, image_url, caption) 
 VALUES 
-(2523, 'https://example.com/nyc37.jpg', 'Living in NYC means constant excitement but also learning to slow down and appreciate the moment. #NYCSlowDown'),
-(2524, 'https://example.com/nyc38.jpg', 'Visiting the Statue of Liberty today. One of the best experiences in NYC! #StatueOfLiberty');
+(330, 'https://example.com/nyc37.jpg', 'Living in NYC means constant excitement but also learning to slow down and appreciate the moment. #NYCSlowDown'),
+(330, 'https://example.com/nyc38.jpg', 'Visiting the Statue of Liberty today. One of the best experiences in NYC! #StatueOfLiberty');
 
 INSERT INTO posts (user_id, image_url, caption) 
 VALUES 
-(2524, 'https://example.com/nyc39.jpg', 'Enjoying the night skyline from the Brooklyn Heights Promenade. This city is magical at night. #BrooklynHeights #NYCViews'),
-(2525, 'https://example.com/nyc40.jpg', 'Explored the Upper West Side today. NYC’s neighborhoods are so unique and full of charm. #UpperWestSide #NeighborhoodExploration'),
-(2526, 'https://example.com/nyc41.jpg', 'Visited the 9/11 Memorial today. An emotional experience, but so important. #911Memorial #NYCHistory'),
-(2526, 'https://example.com/nyc42.jpg', 'Took a walk in Prospect Park today. It’s one of the best hidden gems in Brooklyn. #ProspectPark #Brooklyn'),
-(2527, 'https://example.com/nyc43.jpg', 'Brunch at a cute café in the West Village. NYC’s brunch scene is unbeatable. #WestVillageBrunch #NYCFood'),
-(2528, 'https://example.com/nyc44.jpg', 'Spent my Sunday in Chinatown today. NYC is full of diverse cultures and cuisines. #ChinatownNYC #CulturalExploration'),
-(2528, 'https://example.com/nyc45.jpg', 'Another day, another view. NYC’s skyline still takes my breath away. #NYCViews #Skyscrapers'),
-(2529, 'https://example.com/nyc46.jpg', 'Living in NYC means always being surrounded by art, creativity, and ambition. #CreativeCity #NYCArt'),
-(339, 'https://example.com/nyc47.jpg', 'Explored the streets of Harlem today. Such rich history and culture in this neighborhood. #HarlemNYC #CulturalTour'),
-(2520, 'https://example.com/nyc48.jpg', 'New York is the city that never sleeps, and neither do I. #CityThatNeverSleeps #NYCAdventures'),
-(2520, 'https://example.com/nyc49.jpg', 'Tried a new restaurant in the East Village today. Cant beat NYC’s food scene. #EastVillageEats #NYCFood');
+(330, 'https://example.com/nyc39.jpg', 'Enjoying the night skyline from the Brooklyn Heights Promenade. This city is magical at night. #BrooklynHeights #NYCViews'),
+(139, 'https://example.com/nyc40.jpg', 'Explored the Upper West Side today. NYC’s neighborhoods are so unique and full of charm. #UpperWestSide #NeighborhoodExploration'),
+(139, 'https://example.com/nyc41.jpg', 'Visited the 9/11 Memorial today. An emotional experience, but so important. #911Memorial #NYCHistory'),
+(139, 'https://example.com/nyc42.jpg', 'Took a walk in Prospect Park today. It’s one of the best hidden gems in Brooklyn. #ProspectPark #Brooklyn'),
+(761, 'https://example.com/nyc43.jpg', 'Brunch at a cute café in the West Village. NYC’s brunch scene is unbeatable. #WestVillageBrunch #NYCFood'),
+(761, 'https://example.com/nyc44.jpg', 'Spent my Sunday in Chinatown today. NYC is full of diverse cultures and cuisines. #ChinatownNYC #CulturalExploration'),
+(761, 'https://example.com/nyc45.jpg', 'Another day, another view. NYC’s skyline still takes my breath away. #NYCViews #Skyscrapers'),
+(1000, 'https://example.com/nyc46.jpg', 'Living in NYC means always being surrounded by art, creativity, and ambition. #CreativeCity #NYCArt'),
+(226, 'https://example.com/nyc47.jpg', 'Explored the streets of Harlem today. Such rich history and culture in this neighborhood. #HarlemNYC #CulturalTour'),
+(630, 'https://example.com/nyc48.jpg', 'New York is the city that never sleeps, and neither do I. #CityThatNeverSleeps #NYCAdventures'),
+(630, 'https://example.com/nyc49.jpg', 'Tried a new restaurant in the East Village today. Cant beat NYC’s food scene. #EastVillageEats #NYCFood');
 
 INSERT INTO posts (user_id, image_url, caption) 
 VALUES 
-(2519, 'https://example.com/nyc50.jpg', 'Just had a stroll through Central Park at sunrise. This city is pure magic. #CentralPark #NYCMornings'),
-(2520, 'https://example.com/nyc51.jpg', 'Exploring the best coffee spots in Brooklyn. #BrooklynCoffee #NYCAdventures');
+(658, 'https://example.com/nyc50.jpg', 'Just had a stroll through Central Park at sunrise. This city is pure magic. #CentralPark #NYCMornings'),
+(630, 'https://example.com/nyc51.jpg', 'Exploring the best coffee spots in Brooklyn. #BrooklynCoffee #NYCAdventures');
