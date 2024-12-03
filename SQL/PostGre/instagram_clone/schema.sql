@@ -54,3 +54,10 @@ CREATE TABLE messages (
     content TEXT NOT NULL,
     sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+Drop table messages;
+Drop table followers;
+Drop table comments;
+Drop table likes;
+Drop table posts;
+Drop table users;
