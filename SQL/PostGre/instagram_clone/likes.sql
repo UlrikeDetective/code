@@ -2,17 +2,20 @@
 SELECT u.username
 FROM likes l
 JOIN users u ON l.user_id = u.id
-WHERE l.post_id = 1;
+WHERE l.post_id = 5;
 
 -- Count likes on a specific post:
 SELECT COUNT(*) AS like_count
 FROM likes
 WHERE post_id = 1;
 
-SELECT COUNT(*) AS like_count
+Select * from likes limit 10;
+
+SELECT COUNT(post_id) AS like_count, user_id
 FROM likes
-Group by user_id
-Order by post_id desc;
+GROUP BY user_id
+ORDER BY like_count DESC;
+
 
 -- Add a like
 INSERT INTO likes (user_id, post_id)
