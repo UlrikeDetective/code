@@ -7,7 +7,7 @@ WITH frequent_posts AS (
 -- Generate random user_id and biased post_id
 generated_likes AS (
     SELECT
-        (SELECT floor(random() * 1600 + 1)::int) AS user_id, -- Random user_id between 1 and 1600
+        (SELECT floor(random() * 1626 + 1)::int) AS user_id, -- Random user_id between 1 and 1600
         (CASE 
             WHEN random() < 0.5 THEN (SELECT post_id FROM frequent_posts ORDER BY random() LIMIT 1) -- Bias towards frequent_posts
             ELSE floor(random() * 300 + 1)::int -- Random post_id between 1 and 300

@@ -16,6 +16,13 @@ FROM likes
 GROUP BY user_id
 ORDER BY like_count DESC;
 
+SELECT COUNT(user_id) AS like_count, post_id
+FROM likes
+GROUP BY post_id
+ORDER BY like_count DESC;
+
+Select count(post_id) as posts
+from likes;
 
 -- Add a like
 INSERT INTO likes (user_id, post_id)

@@ -1,3 +1,5 @@
+Select * from followers limit 10;
+
 -- Insert sample followers
 INSERT INTO followers (follower_id, following_id) VALUES
 (1, 2), (2, 1), (1, 3), (3, 1),(4, 2), 
@@ -9,6 +11,19 @@ INSERT INTO followers (follower_id, following_id) VALUES
 (7, 2), (7, 4), (7, 8), (7, 9),
 (10, 9), (9, 10), 
 (8,1), (8, 2), (8, 3), (8, 4), (8, 5), (8, 6), (8, 7), (8, 9), (8, 10);
+
+SELECT COUNT(follower_id) AS follower_count, following_id
+FROM followers
+GROUP BY following_id
+ORDER BY follower_count DESC;
+
+SELECT COUNT(following_id) AS following_count, follower_id
+FROM followers
+GROUP BY follower_id
+ORDER BY following_count DESC;
+
+Select count(follower_id) as follower
+from followers;
 
 -- List all followers of a user:
 SELECT u.username AS follower

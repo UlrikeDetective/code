@@ -1,3 +1,5 @@
+SELECT MAX(id) FROM users;
+
 -- Insert sample users
 INSERT INTO users (username, email, password, full_name, profile_picture, bio) VALUES
 ('user1', 'user1@example.com', 'password1', 'User One', 'https://example.com/user1.jpg', 'Bio of User One'),
