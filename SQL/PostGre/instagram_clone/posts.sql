@@ -1,3 +1,5 @@
+SELECT MAX(id) FROM posts;
+
 -- Insert sample posts
 INSERT INTO posts (user_id, image_url, caption) VALUES
 (1, 'https://example.com/image1.jpg', 'First post by User One'),
@@ -12,14 +14,14 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 INSERT INTO posts (user_id, image_url, caption)
 VALUES (3, 'https://example.com/image21.jpg', 'Another peak conquered 🏔️');
 
-
-SELECT * FROM posts WHERE user_id = 1;
+SELECT * FROM posts;
+SELECT * FROM posts WHERE id = 466;
 
 UPDATE posts
 SET caption = 'Updated caption for this awesome post!'
 WHERE id = 1;
 
-DELETE FROM posts WHERE id = 20;
+DELETE FROM posts WHERE id = 484;
 
 
 INSERT INTO posts (user_id, image_url, caption) VALUES

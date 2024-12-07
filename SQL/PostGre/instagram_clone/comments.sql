@@ -1,3 +1,7 @@
+SELECT MAX(id) FROM comments;
+
+Select * From comments;
+
 -- Insert sample comments
 INSERT INTO comments (user_id, post_id, content) VALUES
 (1, 2, 'Great post!'), 

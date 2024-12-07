@@ -1,3 +1,5 @@
+SELECT MAX(id) FROM followers;
+
 Select * from followers limit 10;
 
 -- Insert sample followers
