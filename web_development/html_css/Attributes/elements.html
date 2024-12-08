@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div[popover]::backdrop {
+          background-color: rgba(215, 29, 168, 0.647);
+        }
+        
+        div[popover] {
+          padding: 12px;
+          border: none;
+        }
+      </style>
+      
+      <div id="pop" popover>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      </div>
+      
+      <h1><button popovertarget="pop">Show popover</button></h1>
+</body>
+</html>
