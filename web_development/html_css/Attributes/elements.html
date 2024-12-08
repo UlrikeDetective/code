@@ -22,5 +22,16 @@
       </div>
       
       <h1><button popovertarget="pop">Show popover</button></h1>
+
+      <dialog id="dlg">
+        <form method="dialog">
+          <input type="text" placeholder="Firstname" value="John" />
+          <div style="height: 8px"></div>
+          <input type="text" placeholder="Lastname" autofocus/>
+          <div style="height: 8px"></div>
+          <button>Save</button>
+        </form>
+      </dialog>
+      <button onclick="document.getElementById('dlg').showModal()" autofocus>Show modal</button>
 </body>
 </html>
