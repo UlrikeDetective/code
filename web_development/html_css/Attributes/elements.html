@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+   
     <style>
         div[popover]::backdrop {
           background-color: rgba(215, 29, 168, 0.647);
@@ -45,5 +46,42 @@
          />
         <input type="submit"/>
       </form>
+
+      <br>
+      <style>
+        input[type=text] {
+          border: #000 1px solid;
+          border-radius: 4px;
+          outline: none;
+          padding: 6px;
+        }
+      
+        input[type=text]:invalid {
+          border: red 1px solid;
+           + span::before {
+            content: '✖';
+            display: inline;
+            color: red;
+          }
+        }
+        
+        input[type=text]:valid {
+          border: green 1px solid;
+          + span::before {
+            content: '✓';
+            display: inline;
+            color: green;
+          }
+        }
+      
+      </style>
+      
+      <input 
+        type="text" 
+        placeholder="i.e., GR-100200" 
+        pattern="[A-Z]{2}-[0-9]{6}" required
+      />
+      <span></span>
+
 </body>
 </html>
