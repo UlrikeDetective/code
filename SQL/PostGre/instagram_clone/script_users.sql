@@ -1,6 +1,6 @@
 DO $$
 DECLARE
-    activity_choices TEXT[] := ARRAY['walking in the countryside', 'kayaking', 'playing in a band'];
+    activity_choices TEXT[] := ARRAY['partying all weekend', 'hanging out with friends', 'playing in a band', 'modeling', 'shopping'];
     user_count INT := 100;
     i INT := 1;
     username TEXT;
@@ -12,7 +12,7 @@ BEGIN
     WHILE i <= user_count LOOP
         -- Generate random username and email
         username := 'user_' || i || '_' || FLOOR(random() * 1000)::TEXT;
-        email := username || '@outdoor.com';
+        email := username || '@influencer.com';
 
         -- Generate random full name
         full_name := 'User ' || i || ' ' || chr(65 + FLOOR(random() * 26)::INT) || '.';

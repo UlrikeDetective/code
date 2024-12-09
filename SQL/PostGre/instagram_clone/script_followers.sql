@@ -6,8 +6,8 @@ DECLARE
 BEGIN
     WHILE i < 200 LOOP
         -- Generate random follower and following IDs
-        follower_id := FLOOR(random() * 1726 + 1)::INT;
-        following_id := FLOOR(random() * 1726 + 1)::INT;
+        follower_id := FLOOR(random() * 1826 + 1)::INT;
+        following_id := FLOOR(random() * 1826 + 1)::INT;
 
         -- Ensure they are not the same and the combination is unique
         IF follower_id != following_id THEN

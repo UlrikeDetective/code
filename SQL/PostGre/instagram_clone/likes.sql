@@ -1,3 +1,6 @@
+Select count(id) from likes;
+Select * from likes limit 10;
+
 -- List all likes on a specific post:
 SELECT u.username
 FROM likes l
