@@ -27,8 +27,6 @@ cdmx = (
         Inauguration="Inauguration",
         Ridership="Ridership"
     )
-
-    
     .fmt_date(columns='Inauguration', date_style="m_day_year")
     .sub_missing(missing_text="")
     .tab_source_note(source_note=md('''**Jesus L. Monroy**<br>*Economist & Data Scientist*<br><br>'''))
