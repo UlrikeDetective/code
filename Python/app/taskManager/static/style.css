@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: gold;
+}
+h1 {
+    color: #333;
+}
+form {
+    margin-bottom: 20px;
+}
+input {
+    padding: 5px;
+    width: 200px;
+}
+button {
+    padding: 5px 10px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 5px auto;
+    width: 50%;
+}
+.completed {
+    text-decoration: line-through;
+    color: grey;
+}
+a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: blue;
+}
+
+.circle-basic {
+    width: 200px;
+    height: 200px;
+    background-color: #90e293; /* Green background */
+    border-radius: 50%; /* Turns the square into a circle */
+  }
