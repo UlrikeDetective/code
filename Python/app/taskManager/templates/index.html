@@ -7,22 +7,36 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Task Manager</h1>
-    <form action="/add" method="post">
-        <input type="text" name="title" placeholder="Enter new task" required>
-        <button type="submit">Add Task</button>
-    </form>
-    <ul>
-        {% for task in tasks %}
-        <li class="{{ 'completed' if task.completed else '' }}">
-            {{ task.title }}
-            <a href="{{ url_for('complete_task', task_id=task.id) }}">
-                {% if task.completed %} Undo {% else %} Complete {% endif %}
-            </a>
-            <a href="{{ url_for('delete_task', task_id=task.id) }}">Delete</a>
-        </li>
-        {% endfor %}
-    </ul>
-    <div class="circle-basic"></div>
+
+
+    <div class="container">
+    
+        <h2>Task Manager</h2>
+    </div>
+    <div class="card">
+        <h3>
+            <form action="/add" method="post">
+                <input type="text" name="title" placeholder="Enter new task" required>
+                <button type="submit">Add Task</button>
+            </form>
+            <ul>
+                {% for task in tasks %}
+                <li class="{{ 'completed' if task.completed else '' }}">
+                    {{ task.title }}
+                    <a href="{{ url_for('complete_task', task_id=task.id) }}">
+                        {% if task.completed %} Undo {% else %} Complete {% endif %}
+                    </a>
+                    <a href="{{ url_for('delete_task', task_id=task.id) }}">Delete</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </h3>
+    </div>
+    <div class="content">
+        <p>Add more!
+        </p>   
+        <a href="">Read More...</a> 
+ 
+        </div>
 </body>
 </html>
