@@ -5,6 +5,11 @@
     --white: white;
     --orange: red;
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 .body {
     margin: 10;
     display: flex;
@@ -190,4 +195,12 @@ element.style {
     height: 164px;
     position: absolute;
     z-index: 1; /* Bring the element to the front */
+}
+
+.w-form {
+    margin-top: auto; /* Push the form to the bottom */
+    width: 100%; /* Ensure it takes the full width */
+    padding: 20px; /* Add some padding for better appearance */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    margin: 0 0 15px;
 }
