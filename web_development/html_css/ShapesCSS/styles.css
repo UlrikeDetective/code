@@ -1,8 +1,10 @@
 :root {
-    --orange: #FFA500; /* Define the orange color */
-    --blue: #0000FF; /* Define the blue color */
+    --grey: #e0e3e7;
+    --black: #242424;
+    --blue: #0c8fcf;
+    --white: white;
+    --orange: red;
 }
-
 .body {
     margin: 10;
     display: flex;
@@ -11,6 +13,7 @@
     justify-content: center;
     background-image: linear-gradient(to right, #ff7e5f, #feb47b);
     padding: 20px;
+    font-family: Inconsolata, monospace;
 }
 
 .shape-container {
@@ -123,6 +126,7 @@
     height: 300px;
     background: black;
     clip-path: polygon(16.66% 16.66%, 50% 0, 83.33% 16.66%, 100% 50%, 83.33% 83.33%, 50% 100%, 16.66% 83.33%, 0 50%);
+
 }
 
 .spark {
@@ -167,16 +171,20 @@
     filter: blur(10px) contrast(100) brightness(1) grayscale(1);
     box-shadow: 0 0 0 50px #fff;
 }
+element.style {
+    : ;
+}
 
 .circle-object.contact {
     z-index: 1; /* Bring the element to the front */
-    background-color: var(--orange);
-    top: 400px; /* Adjusted to position under the text */
-    left: 20; /* Centered under the text */
-    transform: rotate(-46deg);
+    background: linear-gradient(to bottom, red 0%, red 33%, rgb(242, 78, 78) 33%, rgb(242, 78, 78) 66%, rgb(241, 149, 149) 66%, rgb(241, 149, 149) 100%);
+    /* background: linear-gradient(to bottom, red 0%, red 33%, darkred 33%, darkred 66%, firebrick 66%, firebrick 100%); */
+    top: 320px; /* Adjusted to position under the text */
+    left: 30; /* Centered under the text */
+    transform: rotate(-0deg);
 }
 .circle-object {
-    background-color: var(--blue);
+    /* background-color: var(--blue); */
     border-radius: 200px;
     width: 164px;
     height: 164px;
