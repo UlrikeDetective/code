@@ -15,10 +15,10 @@ def fetch_daily_trends():
     try:
         pytrends = TrendReq(hl="en-US", tz=360)
         pytrends.build_payload(kw_list=["example keyword"])  # Replace with desired keywords
-        daily_trends = pytrends.trending_searches(pn="germany")  # Replace with desired region "united_states"
+        daily_trends = pytrends.trending_searches(pn="united_states")  # Replace with desired region "united_states"
 
         # Save to SQLite
-        conn = sqlite3.connect("trendsGermany.db")
+        conn = sqlite3.connect("trendsUSA.db")
         cursor = conn.cursor()
 
         # Create table if it doesn't exist
