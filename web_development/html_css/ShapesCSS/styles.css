@@ -191,8 +191,8 @@ element.style {
 .circle-object {
     /* background-color: var(--blue); */
     border-radius: 200px;
-    width: 164px;
-    height: 164px;
+    width: 250px;
+    height: 250px;
     position: absolute;
     z-index: 1; /* Bring the element to the front */
 }
