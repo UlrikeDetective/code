@@ -1,3 +1,8 @@
+:root {
+    --orange: #FFA500; /* Define the orange color */
+    --blue: #0000FF; /* Define the blue color */
+}
+
 .body {
     margin: 10;
     display: flex;
@@ -161,4 +166,20 @@
     mix-blend-mode: darken;
     filter: blur(10px) contrast(100) brightness(1) grayscale(1);
     box-shadow: 0 0 0 50px #fff;
+}
+
+.circle-object.contact {
+    z-index: 1; /* Bring the element to the front */
+    background-color: var(--orange);
+    top: 400px; /* Adjusted to position under the text */
+    left: 20; /* Centered under the text */
+    transform: rotate(-46deg);
+}
+.circle-object {
+    background-color: var(--blue);
+    border-radius: 200px;
+    width: 164px;
+    height: 164px;
+    position: absolute;
+    z-index: 1; /* Bring the element to the front */
 }
