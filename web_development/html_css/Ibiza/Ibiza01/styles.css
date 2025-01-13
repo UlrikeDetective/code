@@ -1,4 +1,3 @@
-
 body {
     background-color: #e4e2e2;
     color: #000;
@@ -55,12 +54,13 @@ header {
 
 .banner__content img {
     position: absolute;
-    top: 1px; /* Adjust this value to move the image closer to the top */
+    top: 100%; /* Start from the bottom */
     left: 50%;
     transform: translateX(-50%);
     max-width: 100%;
     height: auto;
-    animation: moveFromBottomToTop 10s forwards; /* Apply the animation */
+    animation: moveFromBottomToTop 20s forwards; /* Apply the animation */
+    opacity: 0.9; /* Make the image a bit transparent */
 }
 
 .description {
@@ -149,6 +149,6 @@ html {
         top: 100%; /* Start from the bottom */
     }
     100% {
-        top: 10px; /* End near the top */
+        top: 0; /* End at the top */
     }
 }
