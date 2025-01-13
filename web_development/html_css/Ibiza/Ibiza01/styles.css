@@ -43,24 +43,14 @@ header {
     text-align: center;
     padding: 50px 20px;
     background-color: #fff;
-    height: 500px;
+    height: 600px;
 }
 
 .banner__content {
     position: relative;
     padding-top: 1px; /* Add some padding to the top */
-    font-size: 4em;
-}
-
-.banner__content img {
-    position: absolute;
-    top: 100%; /* Start from the bottom */
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 100%;
-    height: auto;
-    animation: moveFromBottomToTop 20s forwards; /* Apply the animation */
-    opacity: 0.9; /* Make the image a bit transparent */
+    font-size: 5em;
+    line-height: 1.5;
 }
 
 .description {
@@ -99,12 +89,6 @@ header {
     box-sizing: border-box;
 }
 
-.template-landing.ed-2022 .sol img {
-    display: block;
-    height: auto;
-    margin: auto;
-    width: 78vw;
-}
 
 img {
     max-width: 100%;
@@ -151,4 +135,21 @@ html {
     100% {
         top: 0; /* End at the top */
     }
+}
+
+.sol-section {
+    position: relative;
+    height: 100px; /* Adjust height as needed */
+
+}
+
+.sol-section img {
+    position: absolute;
+    top: 120%; /* Start from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 120%;
+    height: auto;
+    animation: moveFromBottomToTop 10s forwards; /* Apply the animation */
+    opacity: 0.9; /* Make the image a bit transparent */
 }
