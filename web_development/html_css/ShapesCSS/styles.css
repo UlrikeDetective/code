@@ -183,11 +183,12 @@ element.style {
 .circle-object.contact {
     z-index: 1; /* Bring the element to the front */
     background: linear-gradient(to bottom, red 0%, red 33%, rgb(242, 78, 78) 33%, rgb(242, 78, 78) 66%, rgb(241, 149, 149) 66%, rgb(241, 149, 149) 100%);
-    /* background: linear-gradient(to bottom, red 0%, red 33%, darkred 33%, darkred 66%, firebrick 66%, firebrick 100%); */
     top: 320px; /* Adjusted to position under the text */
-    left: 30; /* Centered under the text */
+    left: 30px; /* Centered under the text */
     transform: rotate(-0deg);
+    animation: moveFromBottomToTop 10s forwards; /* Apply the animation */
 }
+
 .circle-object {
     /* background-color: var(--blue); */
     border-radius: 200px;
@@ -195,6 +196,25 @@ element.style {
     height: 250px;
     position: absolute;
     z-index: 1; /* Bring the element to the front */
+}
+
+@keyframes moveFromBottomToTop {
+    0% {
+        top: 100%; /* Start from the bottom */
+    }
+    70% {
+        top: 0; /* End at the top */
+    }
+}
+
+.circle-object img {
+    position: absolute;
+    top: 90%; /* Start from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 120%;
+    height: auto;
+    opacity: 0.9; /* Make the image a bit transparent */
 }
 
 .w-form {
