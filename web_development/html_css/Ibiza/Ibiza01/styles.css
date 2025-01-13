@@ -1,0 +1,198 @@
+:root {
+    --grey: #e0e3e7;
+    --black: #242424;
+    --blue: #0c8fcf;
+    --white: white;
+    --orange: red;
+    --toastify-color-light: #fff;
+    --toastify-color-dark: #121212;
+    --toastify-color-info: #3498db;
+    --toastify-color-success: #07bc0c;
+    --toastify-color-warning: #f1c40f;
+    --toastify-color-error: #e74c3c;
+    --toastify-color-transparent: hsla(0, 0%, 100%, .7);
+    --toastify-icon-color-info: var(--toastify-color-info);
+    --toastify-icon-color-success: var(--toastify-color-success);
+    --toastify-icon-color-warning: var(--toastify-icon-color-warning);
+    --toastify-icon-color-error: var(--toastify-icon-color-error);
+    --toastify-toast-width: 320px;
+    --toastify-toast-offset: 16px;
+    --toastify-toast-top: max(var(--toastify-toast-offset), env(safe-area-inset-top));
+    --toastify-toast-right: max(var(--toastify-toast-offset), env(safe-area-inset-right));
+    --toastify-toast-left: max(var(--toastify-toast-offset), env(safe-area-inset-left));
+    --toastify-toast-bottom: max(var(--toastify-toast-offset), env(safe-area-inset-bottom));
+    --toastify-toast-background: #fff;
+    --toastify-toast-min-height: 64px;
+    --toastify-toast-max-height: 800px;
+    --toastify-toast-bd-radius: 6px;
+    --toastify-font-family: sans-serif;
+    --toastify-z-index: 9999;
+    --toastify-text-color-light: #757575;
+    --toastify-text-color-dark: #fff;
+    --toastify-text-color-info: #fff;
+    --toastify-text-color-success: #fff;
+    --toastify-text-color-warning: #fff;
+    --toastify-text-color-error: #fff;
+    --toastify-spinner-color: #616161;
+    --toastify-spinner-color-empty-area: #e0e0e0;
+    --toastify-color-progress-light: linear-gradient(90deg, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+    --toastify-color-progress-dark: #bb86fc;
+    --toastify-color-progress-info: var(--toastify-color-info);
+    --toastify-color-progress-success: var(--toastify-color-success);
+    --toastify-color-progress-warning: var(--toastify-color-warning);
+    --toastify-color-progress-error: var(--toastify-color-error);
+    --toastify-color-progress-bgo: 0.2;
+    --swiper-navigation-size: 44px;
+    --swiper-theme-color: #007aff;
+}
+
+body {
+    background-color: #e4e2e2;
+    color: #000;
+    font-family: GeneralSans, sans-serif;
+    font-size: 3em;
+    font-weight: 500;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    counter-reset: katexEqnNo mmlEqnNo;
+    opacity: 1;
+    transition: opacity .3s ease;
+}
+
+header {
+    background-color: #dad4d2;
+    padding: 20px;
+    text-align: center;
+}
+
+.header__logo img {
+    max-width: 100px;
+}
+
+.header__menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.header__menu__nav__item {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.banner {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.banner__content {
+    position: relative;
+    padding-top: 1px; /* Add some padding to the top */
+}
+
+.banner__content img {
+    position: absolute;
+    top: 10px; /* Adjust this value to move the image closer to the top */
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
+    height: auto;
+    animation: moveFromBottomToTop 5s forwards; /* Apply the animation */
+}
+
+.description {
+    margin: 20px 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
+    background-color: #dddcdc;
+}
+
+.description__text {
+    max-width: 800px;
+
+}
+
+.artistas, .partners {
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.footer {
+    background-color: #dad4d2;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer__title h2 {
+    margin: 0;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+.template-landing.ed-2022 .sol img {
+    display: block;
+    height: auto;
+    margin: auto;
+    width: 78vw;
+}
+
+img {
+    max-width: 100%;
+}
+
+user agent stylesheet
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+:where(:not(iframe,canvas,img,svg,video):not(svg *)) {
+    all: unset;
+    display: revert;
+}
+
+user agent stylesheet
+body {
+    display: block;
+    margin: 8px;
+}
+
+html {
+    font-size: clamp(25%, .75vw, 41%);
+}
+
+::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #232323;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+@keyframes moveFromBottomToTop {
+    0% {
+        top: 100%; /* Start from the bottom */
+    }
+    100% {
+        top: 10px; /* End near the top */
+    }
+}
