@@ -3,18 +3,12 @@ body {
     color: #000;
     font-family: GeneralSans, sans-serif;
     font-size: 3em;
-    font-weight: 500;
     line-height: 1.25;
     margin: 10;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    text-rendering: geometricPrecision;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    counter-reset: katexEqnNo mmlEqnNo;
     opacity: 10;
-    transition: opacity 1.3s ease;
 }
 
 header {
@@ -43,7 +37,7 @@ header {
     text-align: center;
     padding: 50px 20px;
     background-color: #fff;
-    height: 600px;
+    height: 800px;
 }
 
 .banner__content {
@@ -54,8 +48,8 @@ header {
 }
 
 .description {
-    margin: 20px 20px 20px 20px;
-    padding: 20px 20px 20px 20px;
+    margin: 20px;
+    padding: 20px;
     background-color: #dddcdc;
     text-align: center;
 }
@@ -94,22 +88,6 @@ img {
     max-width: 100%;
 }
 
-user agent stylesheet
-img {
-    overflow-clip-margin: content-box;
-    overflow: clip;
-}
-
-:where(:not(iframe,canvas,img,svg,video):not(svg *)) {
-    all: unset;
-    display: revert;
-}
-
-user agent stylesheet
-body {
-    display: block;
-    margin: 8px;
-}
 
 html {
     font-size: clamp(25%, .75vw, 41%);
@@ -137,13 +115,13 @@ html {
     }
 }
 
-.sol-section {
+.sol {
     position: relative;
     height: 100px; /* Adjust height as needed */
 
 }
 
-.sol-section img {
+.sol img {
     position: absolute;
     top: 120%; /* Start from the bottom */
     left: 50%;
