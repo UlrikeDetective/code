@@ -1,11 +1,10 @@
 body {
-    background-color: #e4e2e2;
-    color: #000;
+    background-color: #f8b120;
+    color: #000 !important;
     font-family: GeneralSans, sans-serif;
     font-size: 3em;
     line-height: 1.25;
     margin: 10;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     opacity: 10;
@@ -17,7 +16,7 @@ header {
     padding: 20px;
     text-align: center;
     position: relative; /* Ensure the header is a positioned ancestor */
-    z-index: 12; /* Ensure the header is above the background */
+    z-index:11; /* Ensure the header is above the background */
 }
 
 .header__logo img {
@@ -36,34 +35,24 @@ header {
     font-weight: bold;
 }
 
-.background-degradado {
-    background-color: #f8b120;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #000;
-    bottom: 0;
-    height: calc(100% - 60vh);
-    position: absolute;
-    width: 100%;
-    z-index: 11; /* Ensure the background is below the header */
-}
-
-
 .banner {
     text-align: center;
-    padding: 50px 20px;
+    padding: 20px 20px;
     background-color: #fff;
-    height: 800px;
-    color: #000;
-    z-index: 10;
+    height: 10px;
+    z-index: 8;
+    position: relative; /* Ensure the banner is a positioned ancestor */
 }
 
-.banner__content {
+.banner_deco {
     position: relative;
-    padding-top: 1px; /* Add some padding to the top */
-    font-size: 5em;
-    line-height: 1.5;
+    text-align: center;
+    background-color: #fff;
+    padding-top: -41px; /* Add some padding to the top */
+    font-size: 3em;
+    line-height: 1.0;
+    z-index: 7;
+    color: #000 !important; /* Ensure the text color is black */
 }
 
 .description {
@@ -73,7 +62,17 @@ header {
 }
 
 .description__text {
-    max-width: 800px;
+    max-width: 1200px;
+    background-color: #f8b120;
+    background-position: top;
+    background-repeat: no-repeat;
+    color: #000;
+    bottom: 0;
+    height: calc(100% - 60vh);
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    z-index: 11; /* Ensure the background is below the header */
 }
 
 .artistas, .partners {
@@ -128,7 +127,7 @@ html {
         top: -50%; /* Start from above the top */
     }
     100% {
-        top: 50%; /* End in the middle */
+        top: 30%; /* End in the middle */
     }
 }
 
@@ -146,7 +145,7 @@ html {
     top: -50%; /* Start from above the top */
     left: 50%;
     transform: translateX(-50%);
-    max-width: 40vw;
+    max-width: 80vw;
     height: auto;
     animation: moveFromTopToMiddle 10s forwards; /* Apply the animation */
     opacity: 0.9; /* Make the image a bit transparent */
