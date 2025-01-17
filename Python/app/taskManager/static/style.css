@@ -118,3 +118,58 @@ a:hover {
 .content a:hover {
     text-decoration: underline;
 }
+
+@keyframes moveFromTopToMiddle {
+    0% {
+        top: -50%; /* Start from above the top */
+    }
+    100% {
+        top: 30%; /* End in the middle */
+    }
+}
+
+.sol {
+    position: relative;
+    height: 20vh; /* Full viewport height */
+    background: transparent; /* Transparent background */
+    display: flex;
+    align-items:first baseline;
+    justify-content:left;
+}
+
+.sol img {
+    position: absolute;
+    top: -20%; /* Start from above the top */
+    left: 20%;
+    transform: translateX(-50%);
+    max-width: 20vw;
+    height: auto;
+    animation: moveFromTopToMiddle 10s forwards; /* Apply the animation */
+    opacity: 0.9; /* Make the image a bit transparent */
+}
+
+@keyframes moveFromBottomToTop2 {
+    0% {
+        top: 100%; /* Start from the bottom */
+    }
+    100% {
+        top: 0; /* End at the top */
+    }
+}
+
+.sol2 {
+    position: relative;
+    height: 100px; /* Adjust height as needed */
+
+}
+
+.sol2 img {
+    position: absolute;
+    top: 120%; /* Start from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 120%;
+    height: auto;
+    animation: moveFromBottomToTop2 10s forwards; /* Apply the animation */
+    opacity: 0.9; /* Make the image a bit transparent */
+}
