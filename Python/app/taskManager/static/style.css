@@ -12,8 +12,13 @@ body {
 }
 
 .container {
-    text-align: center;
+    text-align: left; /* Align text to the left */
     margin-bottom: 20px;
+    align-self: flex-start; /* Position the container on the left side */
+    margin-left: 20px; /* Add some left margin */
+    margin-top: 20px; /* Add some top margin */
+    position: absolute; /* Position the container absolutely */
+    top: 0; /* Align to the top */
 }
 
 h2 {
@@ -29,6 +34,8 @@ h2 {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
+    position: absolute; /* Position the card absolutely */
+    top: 100px; /* Align to the top with some margin */
 }
 
 h3 {
@@ -126,13 +133,13 @@ a:hover {
         top: -50%; /* Start from above the top */
     }
     100% {
-        top: 30%; /* End in the middle */
+        top: 70%; /* End in the middle */
     }
 }
 
 .sol {
     position: relative;
-    height: 80vh; /* Full viewport height */
+    height: 40vh; /* Full viewport height */
     background: transparent; /* Transparent background */
     display: flex;
     align-items:center;
