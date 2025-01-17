@@ -19,6 +19,7 @@ body {
     margin-top: 20px; /* Add some top margin */
     position: absolute; /* Position the container absolutely */
     top: 0; /* Align to the top */
+    
 }
 
 h2 {
@@ -31,11 +32,13 @@ h2 {
 .card {
     background: #fff;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 400px;
     position: absolute; /* Position the card absolutely */
     top: 100px; /* Align to the top with some margin */
+    background: linear-gradient(to bottom, rgba(243, 247, 6, 0.813) 0%, rgb(53, 83, 248) 100%);
+    font-size: 1.5em;
 }
 
 h3 {
@@ -109,8 +112,12 @@ a:hover {
 .content {
     font-family: "Space Mono", serif;
     font-weight: 400;
-    margin-top: 20px;
-    text-align: center;
+    margin-top: 40px;
+    text-align: right; /* Align text to the right */
+    position: absolute; /* Position the content absolutely */
+    top: 0; /* Align to the top */
+    right: 20px; /* Align to the right with some margin */
+    font-size: 2em;
 }
 
 .content p {
