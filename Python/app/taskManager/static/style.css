@@ -1,13 +1,14 @@
 body {
     font-family: "Space Mono", serif;
-    background-color: #6464f6;
     margin: 0;
+    background: linear-gradient(to bottom, rgb(53, 83, 248) 0%, rgba(243, 247, 6, 0.813) 100%);
     padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-size: cover;
 }
 
 .container {
@@ -18,7 +19,8 @@ body {
 h2 {
     font-family: "Space Mono", serif;
     font-weight: 700;
-    color: #333;
+    color: #f7ef0b;
+    font-size: 5em;
 }
 
 .card {
@@ -159,7 +161,8 @@ a:hover {
 
 .sol2 {
     position: relative;
-    height: 100px; /* Adjust height as needed */
+    height: 20px; /* Adjust height as needed */
+    justify-content:right;
 
 }
 
