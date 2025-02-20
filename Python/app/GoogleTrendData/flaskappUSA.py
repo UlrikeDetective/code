@@ -16,6 +16,9 @@ def fetch_daily_trends():
         pytrends = TrendReq(hl="en-US", tz=360)
         pytrends.build_payload(kw_list=["example keyword"])  # Replace with desired keywords
         daily_trends = pytrends.trending_searches(pn="united_states")  # Replace with desired region "united_states"
+        
+        # Debugging information
+        print("Fetched daily trends:", daily_trends.head())
 
         # Save to SQLite
         conn = sqlite3.connect("trendsUSA.db")
