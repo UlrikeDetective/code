@@ -1,5 +1,15 @@
 # run env + pip install
 
+""" Create a histogram to analyze the distribution of customer spending per 
+visit at a shopping mall, using 'mintcream' for low spenders, 'salmon' for 
+medium spenders, and 'darkcyan' for high spenders.
+
+Matplotlib Color Mapping: colors = {'Low Spenders': 'mintcream', 
+'Medium Spenders': 'salmon', 'High Spenders': 'darkcyan'}Matplotlib 
+Figure Size: figsize=(12, 6)Plotly Color Mapping: color_discrete_map = 
+{'Low Spenders': 'mintcream', 'Medium Spenders': 'salmon', 'High Spenders': 
+ 'darkcyan'} """
+
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly.express as px
