@@ -1,0 +1,158 @@
+How to Build a Simple To-Do List App in Python: A Step-by-Step Guide to-do app
+
+Creating a to-do list app is a classic exercise in programming. It introduces fundamental concepts like file handling, user input, error handling, & loops. In this article, we’ll explore how to build simple yet functional to-do list manager in Python.
+
+This application will let users add, show, edit, and complete (remove) tasks. It will store all tasks in a text file, ensuring persistence even after the program is closed.
+
+Step-by-Step Breakdown of the To-Do List Application:
+The core of this to-do list manager is a while loop that continuously prompts the user to input an action: adding a new task, displaying all tasks,
+
+editing an existing task, marking a task as complete, or exiting the program. Let’s dive into the details of how each function works and handle various cases.
+
+Setting Up the Program
+To start, we use an infinite loop with while True to keep the program running until the user decides to exit. The user is prompted to choose one of the actions (add, show, edit, complete, or exit). Input is normalized to lowercase for consistent handling.
+
+In essence: Add a new task? Show all tasks? Edit one? Mark as done? You decide! And crucially — no matter what — tasks are safe in a text file for future reference.
+
+user_action = input("Type add, show, edit, complete or exit: ")
+user_action = user_action.strip().lower()  # Normalize input to lowercase
+2. Ensuring File Existence
+
+Before any operations are performed, the program checks whether the file todos.txt exists. This file serves as the storage for the to-do list items. If it does not exist, the program creates an empty file. This step prevents potential errors when attempting to read from a non-existent file.
+
+if not os.path.exists('todos.txt'):
+    with open('todos.txt', 'w') as file:
+        pass
+3. Reading the To-Do List
+
+At the beginning of each loop iteration, the program reads the current contents of todos.txt into a list called todos. This approach allows us to keep the task list up to date with any changes.
+
+with open('todos.txt', 'r') as file:
+    todos = file.readlines()
+4. Adding a New Task
+
+If the user chooses to add a new task, the program prompts for the task description, appends it to the list, and writes the updated list back to the file.
+
+case 'add':
+    todo = input("Enter a todo: ") + "\n"
+    todos.append(todo)
+    with open('todos.txt', 'w') as file:
+        file.writelines(todos)
+5. Displaying All Tasks
+
+When the user selects the “show” option, the program checks if there are any tasks in the list. If tasks are found, they are displayed with their corresponding numbers; if not, the program informs the user that no tasks are available.
+
+case 'show':
+    if todos:
+        for index, item in enumerate(todos):
+            item = item.strip('\n')
+            row = f"{index + 1} - {item}"
+            print(row)
+    else:
+        print("No todos found.")
+6. Editing an Existing Task
+
+The edit functionality allows the user to modify an existing task. The user is asked to provide the task number they wish to edit. The program ensures the input is valid and within the range of the current list. If everything checks out, it updates the selected task.
+
+case 'edit':
+    try:
+        number = int(input("Number of the todo to edit: ")) - 1
+        if 0 <= number < len(todos):
+            new_todo = input("Enter new todo: ")
+            todos[number] = new_todo + '\n'
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
+        else:
+            print("Invalid number. Please enter a valid number.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+7. Completing (Removing) a Task
+
+When a task is marked as complete, it is removed from the list. Similar to editing, the program prompts the user for the task number, checks if it is valid, and then removes the corresponding item from the list. The updated list is then written back to the file.
+
+case 'complete':
+    try:
+        number = int(input("Number of the todo to complete: ")) - 1
+        if 0 <= number < len(todos):
+            todo_to_remove = todos.pop(number).strip('\n')
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
+            print(f"Todo '{todo_to_remove}' was removed from the list.")
+        else:
+            print("Invalid number. Please enter a valid number.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+8. Exiting the Program
+
+The user can exit the program at any time by typing “exit”. This breaks the loop, allowing the program to end gracefully.
+
+case 'exit':
+    print("Bye!")
+    break
+9. Handling Invalid Actions
+
+If the user enters an action that is not recognized, the program informs the user and prompts them again, ensuring a smooth experience.
+
+case _:
+    print("Invalid action. Please choose add, show, edit, complete, or exit.")
+Here is a code:
+
+import os
+while True:
+    user_action = input("Type add, show, edit, complete or exit: ")
+    user_action = user_action.strip().lower()  # Normalize input to lowercase
+    # Ensure the file exists before reading
+    if not os.path.exists('todos.txt'):
+        with open('todos.txt', 'w') as file:
+            pass
+    # Read todos at the start of each loop
+    with open('todos.txt', 'r') as file:
+        todos = file.readlines()
+    match user_action:
+        case 'add':
+            todo = input("Enter a todo: ") + "\n"
+            todos.append(todo)
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
+        case 'show':
+            if todos:
+                for index, item in enumerate(todos):
+                    item = item.strip('\n')
+                    row = f"{index + 1} - {item}"
+                    print(row)
+            else:
+                print("No todos found.")
+        case 'edit':
+            try:
+                number = int(input("Number of the todo to edit: ")) - 1
+                if 0 <= number < len(todos):
+                    new_todo = input("Enter new todo: ")
+                    todos[number] = new_todo + '\n'
+                    with open('todos.txt', 'w') as file:
+                        file.writelines(todos)
+                else:
+                    print("Invalid number. Please enter a valid number.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+        case 'complete':
+            try:
+                number = int(input("Number of the todo to complete: ")) - 1
+                if 0 <= number < len(todos):
+                    todo_to_remove = todos.pop(number).strip('\n')
+                    with open('todos.txt', 'w') as file:
+                        file.writelines(todos)
+                    print(f"Todo '{todo_to_remove}' was removed from the list.")
+                else:
+                    print("Invalid number. Please enter a valid number.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+        case 'exit':
+            print("Bye!")
+            break
+        case _:
+            print("Invalid action. Please choose add, show, edit, complete, or exit.")
+Conclusion
+
+This easy to-do list app in Python shows how to handle files, take in user input, & manage basic errors. The program uses a loop and handles different user commands by switching cases. It becomes a responsive tool for basic task management.
+
+With a few tweaks (like adding a user interface or using a database for task storage), this simple script could be turned into the base for a more complex and feature-rich to-do list app.
