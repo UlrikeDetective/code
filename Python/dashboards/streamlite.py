@@ -1,3 +1,13 @@
+# This is a simple Streamlit dashboard example that includes various UI elements
+# such as text input, checkboxes, and a line chart. It also demonstrates how to use
+# columns for layout and an expander for additional information.
+
+# pip install streamlit
+# To run this script, save it as streamlite.py and execute the following command in your terminal:
+# streamlit --version
+
+# Import necessary libraries
+
 import streamlit as st
 import pandas as pd
 import numpy as np
