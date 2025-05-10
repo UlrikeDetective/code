@@ -1,0 +1,30 @@
+python app.py
+
+Build a Task Manager in Python: Step-by-Step Guide for Beginners
+
+Looking to build an easy, powerful task manager in Python? You are at the right spot! In this tutorial, we will take you step by step through building a functional task manager application using Python and Flask.
+
+This project will guide you through Python web development from setting up your environment right through styling your app interface. Let’s get cracking!
+
+What You’ll Need to Get Started
+To kick things off, ensure you have Python installed on your machine. We’ll also be using Flask, a lightweight Python framework ideal for web app development. Here’s what you need:
+
+Python installed (Python 3.x recommended)
+Flask library (install with pip install flask)
+Project Overview
+Our task manager will allow users to:
+
+Add new tasks
+Mark tasks as completed
+Delete tasks as needed
+Let’s jump into creating a structured project and get this app up and running!
+
+What’s Next? Expand Your Task Manager!
+Here are a few ideas to level up your task manager:
+
+User Authentication: Enable multiple users to have their own task lists.
+Categories and Tags: Let users organize tasks by category for better tracking.
+Due Dates and Notifications: Add deadlines for tasks and send alerts when they’re due.
+This way, you have created a pretty simple but working task manager in Python using the Flask web application framework.
+
+Such a project will not only perfect your skills in Python but also give a good baseline for other, more complex web development projects.

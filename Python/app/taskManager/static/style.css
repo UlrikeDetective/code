@@ -1,0 +1,192 @@
+body {
+    font-family: "Space Mono", serif;
+    margin: 0;
+    background: linear-gradient(to bottom, rgb(53, 83, 248) 0%, rgba(243, 247, 6, 0.813) 100%);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+}
+
+.container {
+    text-align: left; /* Align text to the left */
+    margin-bottom: 20px;
+    align-self: flex-start; /* Position the container on the left side */
+    margin-left: 20px; /* Add some left margin */
+    margin-top: 20px; /* Add some top margin */
+    position: absolute; /* Position the container absolutely */
+    top: 0; /* Align to the top */
+    
+}
+
+h2 {
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    color: #f7ef0b;
+    font-size: 5em;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    position: absolute; /* Position the card absolutely */
+    top: 100px; /* Align to the top with some margin */
+    background: linear-gradient(to bottom, rgba(243, 247, 6, 0.813) 0%, rgb(53, 83, 248) 100%);
+    font-size: 1.5em;
+}
+
+h3 {
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    font-family: "Space Mono", serif;
+    font-weight: 400;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 70%;
+}
+
+button {
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    padding: 10px 15px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    font-family: "Space Mono", serif;
+    font-weight: 400;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+a {
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    font-family: "Space Mono", serif;
+    font-weight: 400;
+    margin-top: 40px;
+    text-align: right; /* Align text to the right */
+    position: absolute; /* Position the content absolutely */
+    top: 0; /* Align to the top */
+    right: 20px; /* Align to the right with some margin */
+    font-size: 2em;
+}
+
+.content p {
+    margin: 0;
+}
+
+.content a {
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+}
+
+.content a:hover {
+    text-decoration: underline;
+}
+
+@keyframes moveFromTopToMiddle {
+    0% {
+        top: -50%; /* Start from above the top */
+    }
+    100% {
+        top: 70%; /* End in the middle */
+    }
+}
+
+.sol {
+    position: relative;
+    height: 40vh; /* Full viewport height */
+    background: transparent; /* Transparent background */
+    display: flex;
+    align-items:center;
+    justify-content:left;
+}
+
+.sol img {
+    position: absolute;
+    top: -20%; /* Start from above the top */
+    left: 20%;
+    transform: translateX(-50%);
+    max-width: 80vw;
+    height: auto;
+    animation: moveFromTopToMiddle 10s forwards; /* Apply the animation */
+    opacity: 0.9; /* Make the image a bit transparent */
+}
+
+@keyframes moveFromBottomToTop2 {
+    0% {
+        top: 100%; /* Start from the bottom */
+    }
+    100% {
+        top: 0; /* End at the top */
+    }
+}
+
+.sol2 {
+    position: relative;
+    height: 20px; /* Adjust height as needed */
+    justify-content:right;
+
+}
+
+.sol2 img {
+    position: absolute;
+    top: 120%; /* Start from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 120%;
+    height: auto;
+    animation: moveFromBottomToTop2 10s forwards; /* Apply the animation */
+    opacity: 0.9; /* Make the image a bit transparent */
+}

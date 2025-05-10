@@ -1,0 +1,89 @@
+
+  /* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #75BFD3;
+    color: #333;
+  }
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.my-4 {
+  margin: 20px 0;
+}
+
+.mb-4 {
+  margin-bottom: 20px;
+}
+
+  
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  p {
+    text-align: center;
+  }
+  
+  /* Music list styles */
+  .music-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 800px;
+  }
+  
+  .music-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .music-item img {
+    border-radius: 4px;
+    margin-right: 15px;
+  }
+  
+  .music-info h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #007BFF;
+  }
+  
+  .music-info p {
+    margin: 5px 0;
+  }
+  

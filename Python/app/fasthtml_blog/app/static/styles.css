@@ -1,0 +1,191 @@
+html {
+    box-sizing: border-box;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    background: #d6dacf;
+    color: #0d0f0f;
+  }
+
+  .resizable-box {
+    width: 300px;
+    height: 150px;
+    resize: both; /* Can be resized both horizontally and vertically */
+    overflow: auto; /* Required for resize to work */
+  }
+
+h1 {
+    font-family: "Pacifico", cursive; /* Your chosen font */
+    font-weight: 400;
+    font-style: normal;
+    font-size: 6em;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, red, blue);
+    background-clip: text;
+    color: transparent;
+  }
+
+h2 {
+    font-family: "Pacifico", cursive; /* Your chosen font */
+    font-weight: 200;
+    font-style: normal;
+    font-size: 3em;
+    color: #11f0c0;
+}
+
+ul {
+    list-style: none;
+    font-family: "Cutive Mono", monospace; 
+    font-weight: 200;
+    font-size: 1.5em;
+    font-style: normal;
+    color:aliceblue
+    padding: 0;
+}
+
+li {
+    padding: 5px;
+    background-color: rgb(194, 194, 246);
+    border: 1px solid #ccc;
+    margin: 5px;
+    border-radius: 3px;
+    padding-inline: 15px 25px;
+    margin-inline: 20px 30px; 
+}
+
+a {
+    color: #4b4bec;
+    font-family: "Cutive Mono", monospace;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+a:hover {
+    text-decoration:wavy;
+    font-weight: bold;
+    color: #102a70;
+    margin: 10px;
+    border-radius: 3px;
+}
+
+/* Container to align the form to the left */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns content to the left */
+    width: 100%;
+    max-width: 800px; /* Limits form width, adjust as needed */
+    padding-left: 20px; /* Adds padding from the left side */
+}
+
+/* Styling for form labels to align with textboxes */
+.form-container label {
+    margin-top: 10px;
+}
+label {
+    color: #1919f4;
+    font-family: "Cutive Mono", monospace;
+    font-weight: bold;
+    font-size: 2em;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Individual styling for title and content fields */
+#title, #content {
+    color: #4b4bec;
+    font-family: "Cutive Mono", monospace;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 5em;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #404241;
+}
+
+/* Specific widths for each field */
+#title {
+    color: #4b4bec;
+    font-family: "Cutive Mono", monospace;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 3em;
+    width: 700px;
+    height: 40px;
+    font-size: 18px;
+}
+
+#content {
+    width: 700px;
+    height: 150px;
+    color: #4b4bec;
+    font-family: "Cutive Mono", monospace;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 5em;
+    resize: both;
+    overflow: auto;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #b2b2e7;
+    color: white;
+    font-family: "Pacifico", cursive; 
+    font-weight: 200;
+    font-style: normal;
+    font-size: 3em;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 30%;
+}
+
+/* Styling for submit button */
+.form-container input[type="submit"] {
+    margin-top: 15px;
+    font-family: "Pacifico", cursive;
+}
+
+/* styles.css */
+
+.success-message {
+    background-color: #d4d2ef; /* Light green background */
+    border: 1px solid #303032; /* Border color */
+    padding: 20px;
+    margin: 50px auto;
+    width: 70%; /* Adjust as needed */
+    text-align: center;
+    font-family: "Cutive Mono", monospace;/* Or other font */
+    border-radius: 8px;
+}
+
+.success-message h2 {
+    color: #4422ef;
+    font-family: "Cutive Mono", monospace;
+}
+
+.success-message a {
+    text-decoration: none;
+    color: #3b5998; /* Darker color for link */
+    font-weight: bold;
+    font-family: "Cutive Mono", monospace;
+}
+
+.success-message a:hover {
+    color: #2d4373; /* Hover color for link */
+    text-decoration:wavy;
+}

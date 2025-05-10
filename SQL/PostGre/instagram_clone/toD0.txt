@@ -1,0 +1,10 @@
+create more Posts
+
+example:
+Please add posts to the posts table in that format: INSERT INTO posts (user_id, image_url, caption) VALUES - 
+The highest user_id is 1627. Use random user_id in that range. Please write 50 posts on living in New York City. 
+Choose 10 user_ids (from the 1627) for this.
+
+- also for surfing, baking, reading, watching TV, Sunsets, shopping...
+
+create likes, comments, messages (use the posts for this.
