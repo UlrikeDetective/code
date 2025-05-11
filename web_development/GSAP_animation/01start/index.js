@@ -22,3 +22,4 @@ gsap.to(target, {
   // and special properties
   duration: 12
 })
+gsap.to(".circle", { x: 200, borderRadius: "50%" });
