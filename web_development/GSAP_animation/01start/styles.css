@@ -11,12 +11,22 @@ body {
 }
 
 .box {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   margin: 1rem;
 }
 
 .green {
   background-color: rgb(25, 245, 25);
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  margin: 1rem;
+}
+
+.pink {
+  background-color: rgb(234, 25, 245);
 }
 
