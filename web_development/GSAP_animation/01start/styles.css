@@ -5,7 +5,7 @@ body {
   flex-direction: column; /* Change layout to column */
   align-items: center; /* Center items horizontally */
   justify-content: center; /* Center items vertically */
-  min-height: 100vh;
+  min-height: 70vh;
   margin: 0;
   overflow: hidden;
   background-color: black;
@@ -21,11 +21,14 @@ body {
 .green {
   background-color: rgb(25, 245, 25);
 }
+.yellow{
+  background-color: rgb(213, 251, 0);
+}
 
 .circle {
-  width: 100px;
-  height: 100px;
-  margin: 1rem;
+  width: 150px;
+  height: 150px;
+  margin: 2rem;
 }
 
 .pink {
