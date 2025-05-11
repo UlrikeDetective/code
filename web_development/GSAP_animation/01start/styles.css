@@ -1,0 +1,22 @@
+/* Global styles come from external css https://codepen.io/GreenSock/pen/gOWxmWG */
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  margin: 1rem;
+}
+
+.green {
+  background-color: rgb(25, 245, 25);
+}
+
