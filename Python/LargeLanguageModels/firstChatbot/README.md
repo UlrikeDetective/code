@@ -388,3 +388,72 @@ This is the full code of PepTalk — our LLM chatbot: streamlit_app.py
 You can run your chatbot on your browser locally — open your terminal by pressing ctrl + ` then enter the following command:
 
 streamlit run streamlit_app.py
+
+![alt text](image.png)
+
+  For better performance, install the Watchdog module:
+
+  $ xcode-select --install
+  $ pip install watchdog
+
+#### Deploy the Chatbot — Step 5
+If your chatbot works as expected in your local browser, then bravo!
+
+It’s time to deploy.
+
+Push your Code to GitHub
+Create a GitHub account if you do not already have one.
+Log in to your GitHub and Create a new repository.
+
+Go back to VS Code, and connect it to your GitHub account by running these commands:
+git config --global user.name "Your GitHub username"
+git config --global user.email "your-email@example.com"
+
+Replace “Your GitHub username” with your actual GitHub username and “your-email@example.com” with the email you used to create a GitHub account.
+
+Get the web URL from your GitHub Repo: Click on the copy icon in front of the web URL to copy it to your clipboard.
+
+In your VS code terminal, clone your repository with the following command:
+git clone https://github.com/your-username/your-repository.git
+Replace https://github.com/your-username/your-repository.gitwith the web URL of your repo which you’ve copied.
+
+Initialize git, run the command:
+git init
+
+Link your local project folder to the remote GitHub repo
+git remote add origin https://github.com/your-username/your-repository.git
+Don’t forget to replace https://github.com/your-username/your-repository.gitwith the web URL of your repo.
+
+Add the files in your project directory to Git by running this command in your terminal:
+git add .
+Commit the changes with a message; run this command:
+git commit -m "Initial commit"
+
+Push the changes to GitHub by running this final command:
+git push -u origin main
+Go to your GitHub repository in your browser. You should see your project files there.
+
+Deploy your Chatbot with Streamlit Share
+Once you’ve pushed your code to GitHub, it’s time to deploy it using Streamlit Share.
+
+Create a Streamlit share account (it’s free). I recommend using GitHub as your authentication mode.
+
+Click on Create New App at the top right.
+
+Choose ‘Deploy a public app from GitHub’
+
+If you created your Streamlit share account with GitHub auth, then you should see a drop-down list of all your GitHub repos. Just select the repo that contains your chatbot project.
+
+If not done automatically, specify the branch as ‘main’ and set the main file path as streamlit_app.py.
+Customize your chatbot web URL (just give it a better name, this is optional)
+
+Click on advanced settings and put your API key in the secrets text area exactly the way it is in your secrets.toml file.
+Click on deploy
+
+In 2–3 minutes, your chatbot should be live!
+
+And any future changes you make to your GitHub repo will be automatically updated in the live app.
+
+That’s it! You did it!
+
+
