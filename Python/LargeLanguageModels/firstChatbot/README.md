@@ -170,6 +170,8 @@ Open your terminal and run:
 streamlit run streamlit_app.py
 ```
 
+![Chatbot example](image.png)
+
 For better performance, install the Watchdog module:
 ```sh
 xcode-select --install
