@@ -370,6 +370,7 @@ def main():
         
         # Append the assistant's response to the session state
         st.session_state.messages.append({"role": "assistant", "content": chat_response})
+```
 
 # Run the app
 if __name__ == "__main__":
