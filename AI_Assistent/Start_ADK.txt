@@ -1,0 +1,63 @@
+Step 1: Clone the Repository
+Open Terminal and run:
+
+
+git clone https://github.com/cuppibla/ADK_Basic.git
+cd ADK_Basic
+
+
+Step 2: Set Up Virtual Environment and Install Dependencies
+Option A: Automated Setup (Recommended)
+
+
+# Run the setup script
+chmod +x setup_venv.sh
+./setup_venv.sh
+Option B: Manual Setup
+
+
+# Create virtual environment
+python3 -m venv .adk_env
+
+# Activate virtual environment
+source .adk_env/bin/activate
+
+# Install dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+
+Step 3: 🔥 IMPORTANT - Create Environment Variables
+⚠️ Don't skip this step! Create a .env file in the agent/ directory:
+
+
+# Create the .env file
+touch agent/.env
+
+# Open it in your default text editor
+open agent/.env
+Add these lines to the file:
+
+
+GOOGLE_GENAI_USE_VERTEXAI=FALSE
+GOOGLE_API_KEY=your_actual_api_key_here
+
+Step 4: Activate Virtual Environment (if not already active)
+
+source .adk_env/bin/activate
+You should see (.adk_env) at the beginning of your terminal prompt.
+
+Step 5: Run the ADK Web Interface
+
+adk web
+
+Step 6: Open Your Browser
+
+Open your browser and go to the URL shown in terminal (usually http://localhost:8000)
+In the top-left dropdown, select agent
+Start chatting with your day trip planning agent!
+
+Deactivating the Environment
+When you're done working with the project:
+
+
+deactivate
