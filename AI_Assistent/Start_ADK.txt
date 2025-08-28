@@ -13,6 +13,7 @@ Option A: Automated Setup (Recommended)
 # Run the setup script
 chmod +x setup_venv.sh
 ./setup_venv.sh
+
 Option B: Manual Setup
 
 
