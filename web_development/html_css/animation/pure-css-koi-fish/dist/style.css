@@ -1,3 +1,7 @@
+h1 {
+  left: -50rem;
+}
+
 :root {
   --coilSize: 14px;
   --delayCount: 40ms;
