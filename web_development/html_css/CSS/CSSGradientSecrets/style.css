@@ -1,0 +1,46 @@
+.multi-btn {
+    background: linear-gradient(to right, #ff7e5f, #feb47b 30%, #feb47b 70%, #ff7e5f);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.spinner {
+    width: 100px;
+    height: 100px;
+    background: conic-gradient(from 0deg, #ff0000, #ffff00 90deg, #00ff00 180deg, #0000ff 270deg, #ff0000);
+    border-radius: 50%;
+}
+
+.testhero-bg {
+    background: repeating-linear-gradient(45deg, #f0f0f0 0px, #ea2929 10px, #f0f0f0 20px);
+    height: 400px;
+}
+
+.cardtest {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    color: white;
+    border-radius: 10px;
+}
+
+@keyframes grad-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.pulse-btntest {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: grad-shift 15s ease infinite;
+    padding: 1rem;
+}
