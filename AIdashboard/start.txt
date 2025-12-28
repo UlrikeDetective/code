@@ -1,6 +1,0 @@
-Generate a detailed UI component for a 'multi-select dropdown' in its active (open) state.
-
-- **Product Context:** A project management tool's task assignment modal.
-- **Design System/Style:** Clean, professional, using a minimalist aesthetic with subtle shadows.
-- **Key Visual Elements:** Input field showing selected items as small tags, a dropdown list with checkboxes next to each option, and a scrollbar.
-- **Interaction Hint:** The dropdown should clearly indicate which items are currently selected.

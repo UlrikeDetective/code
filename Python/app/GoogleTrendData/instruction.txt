@@ -1,8 +1,0 @@
-python3 -m venv google_trends_env
-source google_trends_env/bin/activate
-
-pip install pytrends flask panda
-
-python flaskapp.py
-
-python flaskappUSA.py

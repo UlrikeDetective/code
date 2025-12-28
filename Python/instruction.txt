@@ -1,4 +1,0 @@
-python3 -m venv code_python_env
-source code_python_env/bin/activate
-
-pip install great-tables polars
