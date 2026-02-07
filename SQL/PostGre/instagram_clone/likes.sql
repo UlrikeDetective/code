@@ -35,6 +35,59 @@ VALUES (11, 5);
 DELETE FROM likes
 WHERE user_id = 3 AND post_id = 1;
 
+-- random likes
+-- 1. General Engagement: Everyone likes a few random posts
+INSERT INTO likes (user_id, post_id)
+SELECT 
+    u.id, 
+    p.id
+FROM users u
+CROSS JOIN LATERAL (
+    SELECT id FROM posts 
+    ORDER BY random() 
+    LIMIT floor(random() * 5 + 1) -- Each user likes 1-5 random posts
+) p
+ON CONFLICT DO NOTHING;
+
+-- 2. The "Viral" Effect: Boost posts from your Influencers
+-- We target posts from users who have the most followers
+INSERT INTO likes (user_id, post_id)
+WITH influencer_posts AS (
+    SELECT p.id AS post_id
+    FROM posts p
+    JOIN (
+        -- Identify the top 30 users by follower count
+        SELECT following_id, COUNT(*) as f_count 
+        FROM followers 
+        GROUP BY following_id 
+        ORDER BY f_count DESC 
+        LIMIT 30
+    ) influencers ON p.user_id = influencers.following_id
+)
+SELECT 
+    u.id, 
+    ip.post_id
+FROM users u
+CROSS JOIN LATERAL (
+    SELECT post_id FROM influencer_posts 
+    ORDER BY random() 
+    LIMIT 1
+) ip
+WHERE random() < 0.3 -- 30% chance a user likes an influencer's post
+ON CONFLICT DO NOTHING;
+
+SELECT 
+    p.id AS post_id, 
+    p.caption, 
+    u.id AS author_id,
+    COUNT(l.user_id) AS total_likes
+FROM posts p
+JOIN users u ON p.user_id = u.id
+LEFT JOIN likes l ON p.id = l.post_id
+GROUP BY p.id, u.id
+ORDER BY total_likes DESC
+LIMIT 100;
+
 -- Insert sample likes
 INSERT INTO likes (user_id, post_id) VALUES
 (1, 2), (2, 1), (3, 1), (1, 3),(3, 2),(4, 2), (4, 1), (4, 8), (4, 7),(4, 6), (6, 5), (6, 6), (6, 7), (6, 8),(7, 2), (8, 2), (8, 1), (9, 1), (10, 3),(9, 2),

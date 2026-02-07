@@ -11,9 +11,6 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (3, 'https://example.com/image3.jpg', 'Another peak conquered 🏔️'),
 (3, 'https://example.com/image20.jpg', 'This is just the beginning...');
 
-INSERT INTO posts (user_id, image_url, caption)
-VALUES (3, 'https://example.com/image21.jpg', 'Another peak conquered 🏔️');
-
 SELECT * FROM posts;
 SELECT * FROM posts WHERE id = 466;
 
@@ -74,9 +71,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (47, 'https://example.com/post47.jpg', 'Spent the day cycling through the picturesque streets of Copenhagen. #Copenhagen #CyclingAdventures'),
 (48, 'https://example.com/post48.jpg', 'Walking through the medieval streets of Prague. The city is full of charm. #Prague #CityWalk'),
 (49, 'https://example.com/post49.jpg', 'Admiring the view of the Colosseum in Rome. Such an iconic landmark. #Rome #Colosseum'),
-(50, 'https://example.com/post50.jpg', 'Exploring the hidden gems of the Amalfi Coast in Italy. This place is magical. #AmalfiCoast #TravelGoals');
-
-INSERT INTO posts (user_id, image_url, caption) VALUES
+(50, 'https://example.com/post50.jpg', 'Exploring the hidden gems of the Amalfi Coast in Italy. This place is magical. #AmalfiCoast #TravelGoals'),
 (212, 'https://example.com/post1.jpg', 'Exploring the beautiful streets of Paris, living my best travel life! #Paris #Wanderlust'),
 (212, 'https://example.com/post2.jpg', 'Hiking through the Swiss Alps was a dream come true. The views were breathtaking! #AdventureAwaits #SwissAlps'),
 (811, 'https://example.com/post3.jpg', 'Made it to the top of Machu Picchu! Feeling on top of the world. #Peru #MachuPicchu'),
@@ -126,9 +121,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (75, 'https://example.com/post47.jpg', 'Spent the day cycling through the picturesque streets of Copenhagen. #Copenhagen #CyclingAdventures'),
 (138, 'https://example.com/post48.jpg', 'Walking through the medieval streets of Prague. The city is full of charm. #Prague #CityWalk'),
 (138, 'https://example.com/post49.jpg', 'Admiring the view of the Colosseum in Rome. Such an iconic landmark. #Rome #Colosseum'),
-(431, 'https://example.com/post50.jpg', 'Exploring the hidden gems of the Amalfi Coast in Italy. This place is magical. #AmalfiCoast #TravelGoals');
-
-INSERT INTO posts (user_id, image_url, caption) VALUES
+(431, 'https://example.com/post50.jpg', 'Exploring the hidden gems of the Amalfi Coast in Italy. This place is magical. #AmalfiCoast #TravelGoals'),
 (232, 'https://example.com/japan1.jpg', 'Exploring the bustling streets of Shibuya. Tokyo never sleeps! #Tokyo #Shibuya #CityLife'),
 (232, 'https://example.com/japan2.jpg', 'Caught a glimpse of Mount Fuji while hiking. Simply majestic! #MountFuji #Japan #NatureLover'),
 (232, 'https://example.com/japan3.jpg', 'Had the most amazing sushi in Tsukiji Market. Best food I’ve ever had! #Tokyo #SushiLover'),
@@ -178,9 +171,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (404, 'https://example.com/japan47.jpg', 'Visited the stunning Lake Kawaguchi with Mount Fuji in the background. Unforgettable! #LakeKawaguchi #MountFuji'),
 (226, 'https://example.com/japan48.jpg', 'Admiring the beautiful autumn colors at the temples of Kyoto. #Kyoto #AutumnInJapan'),
 (410, 'https://example.com/japan49.jpg', 'Had a fun time at Universal Studios Japan in Osaka. The rides were amazing! #UniversalStudios #OsakaAdventure'),
-(412, 'https://example.com/japan50.jpg', 'Taking in the incredible views from the top of the Skytree in Tokyo. #TokyoSkytree #TokyoViews');
-
-INSERT INTO posts (user_id, image_url, caption) VALUES
+(412, 'https://example.com/japan50.jpg', 'Taking in the incredible views from the top of the Skytree in Tokyo. #TokyoSkytree #TokyoViews'),
 (121, 'https://example.com/california1.jpg', 'Exploring the beautiful beaches of Malibu. The sunsets here are stunning! #Malibu #CaliforniaBeaches'),
 (145, 'https://example.com/california2.jpg', 'Had a fantastic hike up to the top of Mount Whitney. The views are breathtaking! #MountWhitney #CaliforniaAdventure'),
 (118, 'https://example.com/california3.jpg', 'Enjoying the incredible food scene in San Francisco. So many amazing restaurants! #SanFrancisco #FoodieLife'),
@@ -230,9 +221,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (1345, 'https://example.com/california47.jpg', 'Took a relaxing boat ride on the Napa River. #NapaValley #CaliforniaWine'),
 (1456, 'https://example.com/california48.jpg', 'Exploring the beautiful Mission San Juan Capistrano. Such a historic gem! #MissionSanJuanCapistrano #CaliforniaHistory'),
 (1450, 'https://example.com/california49.jpg', 'Had an unforgettable experience at the California Science Center in LA. #CaliforniaScienceCenter #LosAngeles'),
-(1453, 'https://example.com/california50.jpg', 'Spent the day in the vibrant town of Laguna Beach. The art scene here is amazing! #LagunaBeach #CaliforniaArts');
-
-INSERT INTO posts (user_id, image_url, caption) VALUES
+(1453, 'https://example.com/california50.jpg', 'Spent the day in the vibrant town of Laguna Beach. The art scene here is amazing! #LagunaBeach #CaliforniaArts'),
 (226, 'https://example.com/hawaii1.jpg', 'Exploring the volcanic landscapes of Hawaii Volcanoes National Park. Incredible experience! #HawaiiVolcanoes #BigIsland'),
 (226, 'https://example.com/hawaii2.jpg', 'Had the most relaxing time at Waikiki Beach. Perfect spot to unwind. #WaikikiBeach #Oahu'),
 (226, 'https://example.com/hawaii3.jpg', 'Trekking through the lush trails of Kauai. Nature here is just breathtaking! #Kauai #HawaiiAdventure'),
@@ -282,9 +271,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (326, 'https://example.com/hawaii47.jpg', 'Tried traditional Hawaiian food at a local luau. The flavors are incredible! #HawaiianLuau #HawaiiEats'),
 (326, 'https://example.com/hawaii48.jpg', 'Made my way to the top of the Diamond Head Crater Trail. A challenging hike, but the view is worth it! #DiamondHeadTrail #OahuHikes'),
 (253, 'https://example.com/hawaii49.jpg', 'Spent the day in the botanical gardens at the National Tropical Botanical Garden. #NationalTropicalBotanicalGarden #Kauai'),
-(252, 'https://example.com/hawaii50.jpg', 'Exploring the beautiful Makapu’u Beach in Oahu. The water is so blue! #Makapu’uBeach #OahuNature');
-
-INSERT INTO posts (user_id, image_url, caption) VALUES
+(252, 'https://example.com/hawaii50.jpg', 'Exploring the beautiful Makapu’u Beach in Oahu. The water is so blue! #Makapu’uBeach #OahuNature'),
 (845, 'https://example.com/sf1.jpg', 'Waking up to a foggy morning in San Francisco. The Golden Gate Bridge never gets old. #GoldenGateBridge #SFViews'),
 (858, 'https://example.com/sf2.jpg', 'Enjoying the beautiful streets of Sausalito. Just a short ferry ride from SF but feels like a world away. #Sausalito #BayAreaLiving'),
 (800, 'https://example.com/sf3.jpg', 'Spending the weekend in Marin County. The views from Mt. Tamalpais are breathtaking! #MarinCounty #BayAreaHikes'),
@@ -334,9 +321,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (841, 'https://example.com/sf47.jpg', 'Visited the California Palace of the Legion of Honor. The art collections here are amazing! #LegionOfHonor #SFMuseums'),
 (836, 'https://example.com/sf48.jpg', 'Took a ferry ride to Angel Island today. So much history and amazing views! #AngelIsland #SFHistory'),
 (862, 'https://example.com/sf49.jpg', 'Enjoying a peaceful evening walk through the Bay Area’s amazing parks. #SFOutdoors #BayAreaParks'),
-(862, 'https://example.com/sf50.jpg', 'Spending the afternoon at the Golden Gate Bridge Visitor Center. It’s great to learn more about the bridge’s history. #GoldenGateVisitorCenter #SanFranciscoLandmarks');
-
-INSERT INTO posts (user_id, image_url, caption) VALUES
+(862, 'https://example.com/sf50.jpg', 'Spending the afternoon at the Golden Gate Bridge Visitor Center. It’s great to learn more about the bridge’s history. #GoldenGateVisitorCenter #SanFranciscoLandmarks'),
 (801, 'https://example.com/sf_startup1.jpg', 'Excited to start my journey in a tech startup in the heart of the Bay Area! The possibilities are endless. #TechStartup #BayAreaLife'),
 (811, 'https://example.com/sf_startup2.jpg', 'First day at the new startup office. The energy here is contagious! #FirstDay #StartupLife'),
 (811, 'https://example.com/sf_startup3.jpg', 'The startup culture in SF is incredible. From free coffee to brainstorming sessions, I’m loving it! #StartupCulture #BayAreaTech'),
@@ -386,9 +371,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (812, 'https://example.com/sf_startup47.jpg', 'Diving into the world of tech development. Loving every minute of it. #TechDevelopment #BayAreaStartups'),
 (819, 'https://example.com/sf_startup48.jpg', 'Wrapping up a successful meeting with the team. Startups are all about collaboration and innovation. #TeamWork #TechStartup'),
 (813, 'https://example.com/sf_startup49.jpg', 'Feeling thankful for my incredible colleagues. We’re building something amazing at the startup. #TechTeam #StartUpJourney'),
-(820, 'https://example.com/sf_startup50.jpg', 'Another busy but exciting week at the startup. So proud of the progress we’ve made. #StartUpSuccess #TechJourney');
-
-INSERT INTO posts (user_id, image_url, caption) VALUES
+(820, 'https://example.com/sf_startup50.jpg', 'Another busy but exciting week at the startup. So proud of the progress we’ve made. #StartUpSuccess #TechJourney'),
 (901, 'https://example.com/sf_bigtech1.jpg', 'Excited to start my journey in a big tech company here in the Bay Area. Let’s get this started! #TechLife #BayAreaLiving'),
 (901, 'https://example.com/sf_bigtech2.jpg', 'Enjoying the perks of working at a big tech company in SF. Free snacks and coffee all day long! #TechPerks #BayAreaLife'),
 (902, 'https://example.com/sf_bigtech3.jpg', 'First day at the new tech company! The office is huge, and the energy is incredible. #BigTech #SFStartup'),
@@ -438,10 +421,7 @@ INSERT INTO posts (user_id, image_url, caption) VALUES
 (870, 'https://example.com/sf_bigtech47.jpg', 'Another amazing week in the tech world here in San Francisco. Grateful for this incredible journey. #TechJourney #SFLife'),
 (875, 'https://example.com/sf_bigtech48.jpg', 'Learning so much about cloud computing and tech solutions at work. SF is the best place to be! #CloudTech #SFStartups'),
 (872, 'https://example.com/sf_bigtech49.jpg', 'Surrounded by smart, passionate people at work. This is why I love working in tech. #TechLife #SFBigTech'),
-(876, 'https://example.com/sf_bigtech50.jpg', 'The journey has just begun, but I’m already excited for the opportunities ahead. #NewBeginnings #SFTech');
-
-INSERT INTO posts (user_id, image_url, caption) 
-VALUES 
+(876, 'https://example.com/sf_bigtech50.jpg', 'The journey has just begun, but I’m already excited for the opportunities ahead. #NewBeginnings #SFTech'),
 (1547, 'https://example.com/nyc1.jpg', 'Living my best life in NYC. The energy here is unlike anywhere else! #NYCLiving #CityThatNeverSleeps'),
 (1552, 'https://example.com/nyc2.jpg', 'Taking in the view from the top of the Empire State Building today. This city never gets old. #EmpireState #NYCViews'),
 (1555, 'https://example.com/nyc3.jpg', 'First weekend in New York City, and I’m loving the hustle and bustle. #NYCWeekend #CityVibes'),
@@ -462,10 +442,7 @@ VALUES
 (226, 'https://example.com/nyc18.jpg', 'Had the most amazing bagel from a street cart in Brooklyn. NYC food always hits the spot. #NYCBagels #FoodieLife'),
 (828, 'https://example.com/nyc19.jpg', 'Living in NYC means always having something to do. From museums to rooftop bars, there’s never a dull moment. #NYCActivities #CityLiving'),
 (226, 'https://example.com/nyc20.jpg', 'Taking a stroll along the High Line today. This city has such a unique charm. #HighLine #NYCViews'),
-(325, 'https://example.com/nyc21.jpg', 'Walked through Times Square tonight. It’s like the city never sleeps. #TimesSquare #NYCAtNight');
-
-INSERT INTO posts (user_id, image_url, caption) 
-VALUES 
+(325, 'https://example.com/nyc21.jpg', 'Walked through Times Square tonight. It’s like the city never sleeps. #TimesSquare #NYCAtNight'),
 (834, 'https://example.com/nyc22.jpg', 'The view from my apartment is insane. I love waking up to NYC’s skyline every day. #NYCApartment #CityViews'),
 (834, 'https://example.com/nyc23.jpg', 'Walking through the streets of Chelsea, where art and culture meet. NYC is always inspiring. #ChelseaArt #NYCLife'),
 (834, 'https://example.com/nyc24.jpg', 'Took a bike ride along the West Side Highway today. So many great spots to explore in the city. #NYCBikeRide #WestSideHighway'),
@@ -476,21 +453,12 @@ VALUES
 (658, 'https://example.com/nyc29.jpg', 'Living in NYC has taught me to appreciate the little things, like a quiet morning walk through the city. #NYCMornings #CityLiving'),
 (658, 'https://example.com/nyc30.jpg', 'After work, I love grabbing a drink at a rooftop bar in Manhattan. Can’t beat these views! #RooftopBars #NYCNights'),
 (630, 'https://example.com/nyc31.jpg', 'Had a blast at a rooftop party in Brooklyn last night. NYC is the place to be for fun! #BrooklynRooftop #NYCNightLife'),
-(630, 'https://example.com/nyc32.jpg', 'Took a weekend trip to upstate New York. Such a great escape from the city’s chaos. #UpstateNY #WeekendGetaway');
-
-INSERT INTO posts (user_id, image_url, caption) 
-VALUES 
+(630, 'https://example.com/nyc32.jpg', 'Took a weekend trip to upstate New York. Such a great escape from the city’s chaos. #UpstateNY #WeekendGetaway'),
 (226, 'https://example.com/nyc33.jpg', 'Love getting lost in the streets of NYC. Every corner has something new to discover. #NYCExploration #CityAdventures'),
 (226, 'https://example.com/nyc34.jpg', 'I’ll never get tired of the views from the Empire State Building. NYC from above is breathtaking. #EmpireStateBuilding #CityViews'),
-(226, 'https://example.com/nyc35.jpg', 'Had a great day exploring the museums in NYC. So much art and culture in one place! #NYCMuseums #ArtCulture');
-
-INSERT INTO posts (user_id, image_url, caption) 
-VALUES 
+(226, 'https://example.com/nyc35.jpg', 'Had a great day exploring the museums in NYC. So much art and culture in one place! #NYCMuseums #ArtCulture'),
 (330, 'https://example.com/nyc37.jpg', 'Living in NYC means constant excitement but also learning to slow down and appreciate the moment. #NYCSlowDown'),
-(330, 'https://example.com/nyc38.jpg', 'Visiting the Statue of Liberty today. One of the best experiences in NYC! #StatueOfLiberty');
-
-INSERT INTO posts (user_id, image_url, caption) 
-VALUES 
+(330, 'https://example.com/nyc38.jpg', 'Visiting the Statue of Liberty today. One of the best experiences in NYC! #StatueOfLiberty'),
 (330, 'https://example.com/nyc39.jpg', 'Enjoying the night skyline from the Brooklyn Heights Promenade. This city is magical at night. #BrooklynHeights #NYCViews'),
 (139, 'https://example.com/nyc40.jpg', 'Explored the Upper West Side today. NYC’s neighborhoods are so unique and full of charm. #UpperWestSide #NeighborhoodExploration'),
 (139, 'https://example.com/nyc41.jpg', 'Visited the 9/11 Memorial today. An emotional experience, but so important. #911Memorial #NYCHistory'),
@@ -501,9 +469,63 @@ VALUES
 (1000, 'https://example.com/nyc46.jpg', 'Living in NYC means always being surrounded by art, creativity, and ambition. #CreativeCity #NYCArt'),
 (226, 'https://example.com/nyc47.jpg', 'Explored the streets of Harlem today. Such rich history and culture in this neighborhood. #HarlemNYC #CulturalTour'),
 (630, 'https://example.com/nyc48.jpg', 'New York is the city that never sleeps, and neither do I. #CityThatNeverSleeps #NYCAdventures'),
-(630, 'https://example.com/nyc49.jpg', 'Tried a new restaurant in the East Village today. Cant beat NYC’s food scene. #EastVillageEats #NYCFood');
-
-INSERT INTO posts (user_id, image_url, caption) 
-VALUES 
+(630, 'https://example.com/nyc49.jpg', 'Tried a new restaurant in the East Village today. Cant beat NYC’s food scene. #EastVillageEats #NYCFood'),
 (658, 'https://example.com/nyc50.jpg', 'Just had a stroll through Central Park at sunrise. This city is pure magic. #CentralPark #NYCMornings'),
 (630, 'https://example.com/nyc51.jpg', 'Exploring the best coffee spots in Brooklyn. #BrooklynCoffee #NYCAdventures');
+
+INSERT INTO posts (user_id, image_url, caption)
+WITH user_types AS (
+    SELECT id,
+    CASE 
+        WHEN random() > 0.95 THEN 'creator'  -- 5% are power posters
+        ELSE 'casual' 
+    END as profile_type
+    FROM users
+),
+expanded_posts AS (
+    SELECT 
+        ut.id as user_id,
+        -- Power posters get 10-50 posts, casuals get 0-3
+        generate_series(1, CASE WHEN ut.profile_type = 'creator' THEN floor(random() * 40 + 10)::int 
+                                ELSE floor(random() * 4)::int END) as post_num
+    FROM user_types ut
+)
+SELECT 
+    user_id,
+    'https://picsum.photos/seed/' || (user_id * 100 + post_num) || '/600/600' as image_url,
+    (ARRAY[
+        'Living my best life! #blessed', 
+        'Monday blues... #worklife', 
+        'Golden hour hits different. 🌅', 
+        'Can we talk about this view? #travel', 
+        'Best meal I have had in ages! 🍝', 
+        'Throwback to last weekend.', 
+        'Stay focused and extra sparkly.', 
+        'Just another day in paradise.', 
+        'Current mood: Coffee. ☕', 
+        'Adventure is calling!',
+        'Proof that I can do both.',
+        'Sundays are for relaxing. #vibes'
+		'Living my best life! #blessed', 'Monday blues... #worklife', 
+        'Golden hour hits different. 🌅', 'Can we talk about this view? #travel', 
+        'Best meal I have had in ages! 🍝', 'Throwback to last weekend.', 
+        'Stay focused and extra sparkly.', 'Just another day in paradise.', 
+        'Current mood: Coffee. ☕', 'Adventure is calling!',
+        'Proof that I can do both.', 'Sundays are for relaxing. #vibes',
+        'Not all those who wander are lost. ✨ #explore', 'Doing big things in small steps. #motivation',
+        'Collect moments, not things. 📸', 'Life is better in flip flops. 🏖️',
+        'New hair, who dis? #transformation', 'Work hard, play harder. 🥂',
+        'POV: You never want to leave this spot.', 'Grateful for the little things in life. ❤️',
+        'Saturday night fever! 💃✨', 'Escape the ordinary. #nature'
+		'blah, blah, blah', 'Everything is perfect. #blah'
+		'Love Japan', 'Sunset. #japan'
+    ])[floor(random() * 12 + 1)] as caption
+FROM expanded_posts;
+
+SELECT 
+    user_id, 
+    COUNT(*) as total_posts 
+FROM posts 
+GROUP BY user_id 
+ORDER BY total_posts DESC 
+LIMIT 25;
