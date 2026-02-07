@@ -1,18 +1,52 @@
 SELECT MAX(id) FROM followers;
 
 Select * from followers limit 10;
+TRUNCATE TABLE followers RESTART IDENTITY;
 
 -- Insert sample followers
 INSERT INTO followers (follower_id, following_id) VALUES
 (1, 2), (2, 1), (1, 3), (3, 1),(4, 2), 
-(3, 2), (3, 4), (3, 6), (3, 8), (3, 10),
-(5, 1), (5, 2), (5, 6), (5, 9),
-(2, 6), (2, 7), (2, 8), (2, 10),
-(4, 1), (4, 5), (4, 7), (4, 9), (4, 10),
-(1, 7), (1, 10),
-(7, 2), (7, 4), (7, 8), (7, 9),
-(10, 9), (9, 10), 
-(8,1), (8, 2), (8, 3), (8, 4), (8, 5), (8, 6), (8, 7), (8, 9), (8, 10);
+(3, 2), (3, 4), (3, 6), (3, 8), (3, 10);
+
+-- instert random followers
+-- 1. Create Influencers (Large Gap)
+-- Every user follows up to 15 people from a random "Elite" pool of 20
+INSERT INTO followers (follower_id, following_id)
+WITH influencers AS (
+    SELECT id FROM users ORDER BY random() LIMIT 20
+)
+SELECT u.id, i.id
+FROM users u
+CROSS JOIN LATERAL (
+    SELECT id FROM influencers 
+    WHERE id != u.id 
+    ORDER BY random() 
+    LIMIT floor(random() * 15)
+) i
+ON CONFLICT DO NOTHING;
+
+-- 2. Create Regular "Social" follows
+-- Everyone follows 3 completely random people
+INSERT INTO followers (follower_id, following_id)
+SELECT u.id, r.id
+FROM users u
+CROSS JOIN LATERAL (
+    SELECT id FROM users 
+    WHERE id != u.id 
+    ORDER BY random() 
+    LIMIT 3
+) r
+ON CONFLICT DO NOTHING;
+
+-- 3. The Follow-Back (The Mutual Effect)
+-- Select existing follows and flip them (with a 40% probability)
+INSERT INTO followers (follower_id, following_id)
+SELECT following_id, follower_id
+FROM followers
+WHERE random() < 0.40
+ON CONFLICT DO NOTHING;
+
+select * from followers;
 
 SELECT COUNT(follower_id) AS follower_count, following_id
 FROM followers
@@ -37,7 +71,7 @@ WHERE f.following_id = 1;
 SELECT u.username AS following
 FROM followers f
 JOIN users u ON f.following_id = u.id
-WHERE f.follower_id = 1;
+WHERE f.follower_id = 100;
 
 -- Add a new follower:
 INSERT INTO followers (follower_id, following_id)
