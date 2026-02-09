@@ -1,0 +1,11 @@
+{
+  "name": "bookshop-hacker-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.12.0",
+    "ejs": "^3.1.10",
+    "body-parser": "^1.20.2"
+  }
+}

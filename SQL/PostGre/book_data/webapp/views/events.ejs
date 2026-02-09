@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SYS_BOOKSHOP // EVENTS</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="/">[BACK_TO_HOME]</a>
+        <h1>MARKETING_INTEL</h1>
+        
+        <h2>Upcoming Events</h2>
+        <table>
+            <tr>
+                <th>EVENT_NAME</th>
+                <th>DATE</th>
+                <th>LOCATION</th>
+            </tr>
+            <% events.forEach(e => { %>
+                <tr>
+                    <td><%= e.name %></td>
+                    <td><%= e.event_date.toDateString() %></td>
+                    <td><%= e.location %></td>
+                </tr>
+            <% }) %>
+        </table>
+
+        <h2>Registration Logs</h2>
+        <table>
+            <tr>
+                <th>EVENT</th>
+                <th>CUSTOMER</th>
+                <th>REG_DATE</th>
+            </tr>
+            <% registrations.forEach(reg => { %>
+                <tr>
+                    <td><%= reg.event_name %></td>
+                    <td><%= reg.first_name %> <%= reg.last_name %></td>
+                    <td><%= reg.registered_at.toLocaleDateString() %></td>
+                </tr>
+            <% }) %>
+        </table>
+    </div>
+</body>
+</html>

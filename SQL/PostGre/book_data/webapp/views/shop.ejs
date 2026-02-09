@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SYS_BOOKSHOP // SHOP</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="/">[BACK_TO_HOME]</a>
+        <h1>CATALOG_OVERVIEW</h1>
+        
+        <h2>Books & Inventory</h2>
+        <table>
+            <tr>
+                <th>TITLE</th>
+                <th>AUTHOR</th>
+                <th>GENRE</th>
+                <th>PRICE</th>
+                <th>STOCK</th>
+            </tr>
+            <% books.forEach(book => { %>
+                <tr>
+                    <td><%= book.title %></td>
+                    <td><%= book.first_name %> <%= book.last_name %></td>
+                    <td><%= book.genre %></td>
+                    <td>$<%= book.price %></td>
+                    <td><%= book.stock_quantity %></td>
+                </tr>
+            <% }) %>
+        </table>
+
+        <h2>Customer Reviews</h2>
+        <table>
+            <tr>
+                <th>BOOK</th>
+                <th>CUSTOMER</th>
+                <th>RATING</th>
+                <th>COMMENT</th>
+            </tr>
+            <% reviews.forEach(rev => { %>
+                <tr>
+                    <td><%= rev.book %></td>
+                    <td><%= rev.customer %></td>
+                    <td><%= rev.rating %>/5</td>
+                    <td><%= rev.comment %></td>
+                </tr>
+            <% }) %>
+        </table>
+    </div>
+</body>
+</html>

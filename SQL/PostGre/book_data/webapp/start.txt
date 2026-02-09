@@ -1,0 +1,18 @@
+Features:
+   - Aesthetic: Modern Hacker/Minimalist Monospace with a dark theme, green accents, and monospace fonts.
+   - Entry Page: index.ejs serves as a "SYS_BOOKSHOP // ENTRY" with links to sub-pages.
+   - Shop Page: Displays books (joined with authors and genres) and reviews.
+   - Events Page: Displays events and event_registrations.
+   - Backend Page: Displays customers, orders, and order_items.
+   - Backend: Node.js/Express app (app.js) using the pg client.
+
+
+  To Run the App:
+   1. Ensure you have a PostgreSQL database named books.
+   2. Execute the improved schema and seeding scripts:
+      - SQL/PostGre/book_data/book_tables_improved.sql
+      - SQL/PostGre/book_data/seeding_improved.sql
+   3. Navigate to the app directory: cd SQL/PostGre/book_data/webapp
+   4. Install dependencies: npm install
+   5. Run the server: node app.js
+   6. Open your browser at http://localhost:3000.
