@@ -55,6 +55,13 @@ VALUES
 ('Consider the Lobster', 'David', 'Foster Wallace', 2005, 92, 343),
 ('10% Happier', 'Dan', 'Harris', 2014, 29, 256), 
 ('fake_book', 'Freida', 'Harris', 2001, 287, 428),
+('Beach read', 'Emily', 'Henry', 2014, 35, 361),
+('Talking as Fast As I can', 'Lauren', 'Graham', 2018, 5, 193),
+('Crazy rich asians', 'Kevin', 'Kwan', 2011, 25, 316),
+('China rich girlfriend', 'Kevin', 'Kwan', 2015, 11, 356),
+('Rich people problem', 'Kevin', 'Kwan', 2017, 4, 328),
+('Younger', 'Pamela', 'Redmond Satran', 2001, 17, 357),
+('Older', 'Pamela', 'Redmond Satran', 2021, 4, 329),
 ('Lincoln In The Bardo', 'George', 'Saunders', 2017, 1000, 367);
 
 INSERT INTO customers (first_name, last_name, email) 
