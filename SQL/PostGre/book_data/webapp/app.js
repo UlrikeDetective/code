@@ -32,13 +32,27 @@ app.get('/', (req, res) => {
 // BOOKSHOP - Books, Authors, Genres, Reviews
 app.get('/shop', async (req, res) => {
   const customerId = req.query.customerId;
+  const search = req.query.search || '';
   try {
-    const booksRes = await db.query(`
+    let queryText = `
       SELECT b.id, b.title, a.first_name, a.last_name, g.name as genre, b.price, b.stock_quantity 
       FROM books b 
       JOIN authors a ON b.author_id = a.id 
       LEFT JOIN genres g ON b.genre_id = g.id
-    `);
+    `;
+    let queryParams = [];
+
+    if (search) {
+      queryText += `
+        WHERE b.title ILIKE $1 
+        OR a.first_name ILIKE $1 
+        OR a.last_name ILIKE $1 
+        OR g.name ILIKE $1
+      `;
+      queryParams.push(`%${search}%`);
+    }
+
+    const booksRes = await db.query(queryText, queryParams);
     const reviewsRes = await db.query(`
       SELECT r.rating, r.comment, b.title as book, c.first_name as customer
       FROM reviews r
@@ -59,7 +73,8 @@ app.get('/shop', async (req, res) => {
       books: booksRes.rows, 
       reviews: reviewsRes.rows, 
       customers: allCustomersRes.rows,
-      currentCustomer: currentCustomer
+      currentCustomer: currentCustomer,
+      search: search
     });
   } catch (err) {
     console.error(err);
@@ -121,14 +136,18 @@ app.post('/register', async (req, res) => {
 app.get('/events', async (req, res) => {
   const customerId = req.query.customerId;
   try {
-    const eventsRes = await db.query('SELECT * FROM events');
+    // Only fetch events that haven't happened yet
+    const eventsRes = await db.query('SELECT * FROM events WHERE event_date >= NOW() ORDER BY event_date ASC');
     const regRes = await db.query(`
       SELECT e.name as event_name, c.first_name, c.last_name, er.registered_at
       FROM event_registrations er
       JOIN events e ON er.event_id = e.id
       JOIN customers c ON er.customer_id = c.id
+      ORDER BY er.registered_at DESC
     `);
 
+    const allCustomersRes = await db.query('SELECT * FROM customers ORDER BY first_name');
+    
     let currentCustomer = null;
     if (customerId) {
       const custRes = await db.query('SELECT * FROM customers WHERE id = $1', [customerId]);
@@ -138,6 +157,7 @@ app.get('/events', async (req, res) => {
     res.render('events', { 
       events: eventsRes.rows, 
       registrations: regRes.rows,
+      customers: allCustomersRes.rows,
       currentCustomer: currentCustomer
     });
   } catch (err) {
@@ -162,17 +182,34 @@ app.get('/admin', async (req, res) => {
     `);
     const authorsRes = await db.query('SELECT * FROM authors');
     const genresRes = await db.query('SELECT * FROM genres');
+    const booksRes = await db.query('SELECT id, title, stock_quantity FROM books ORDER BY title');
     
     res.render('admin', { 
       customers: customersRes.rows, 
       orders: ordersRes.rows, 
       items: itemsRes.rows,
       authors: authorsRes.rows,
-      genres: genresRes.rows
+      genres: genresRes.rows,
+      books: booksRes.rows
     });
   } catch (err) {
     console.error(err);
     res.send("DB Error");
+  }
+});
+
+// ADMIN: Restock Inventory
+app.post('/admin/restock', async (req, res) => {
+  const { book_id, additional_stock } = req.body;
+  try {
+    await db.query(
+      'UPDATE books SET stock_quantity = stock_quantity + $1 WHERE id = $2',
+      [additional_stock, book_id]
+    );
+    res.redirect('/admin');
+  } catch (err) {
+    console.error(err);
+    res.send("Error updating stock");
   }
 });
 

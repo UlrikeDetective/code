@@ -8,6 +8,40 @@
     <div class="container">
         <a href="/">[BACK_TO_HOME]</a>
         <h1>MARKETING_INTEL</h1>
+
+        <% if (!currentCustomer) { %>
+            <div class="auth-section">
+                <h2>IDENTIFICATION_REQUIRED_FOR_EVENTS</h2>
+                <div class="auth-grid">
+                    <div class="auth-box">
+                        <h3>SIGN_IN_EXISTING</h3>
+                        <form action="/events" method="GET">
+                            <select name="customerId" onchange="this.form.submit()">
+                                <option value="">SELECT_USER</option>
+                                <% customers.forEach(c => { %>
+                                    <option value="<%= c.id %>"><%= c.first_name %> <%= c.last_name %> (<%= c.email %>)</option>
+                                <% }) %>
+                            </select>
+                        </form>
+                    </div>
+                    <div style="border-left: 1px solid #333; padding-left: 20px;"></div>
+                    <div class="auth-box">
+                        <h3>REGISTER_NEW_ENTITY</h3>
+                        <form action="/register" method="POST">
+                            <input type="text" name="first_name" placeholder="FIRST_NAME" required><br>
+                            <input type="text" name="last_name" placeholder="LAST_NAME" required><br>
+                            <input type="email" name="email" placeholder="EMAIL" required><br>
+                            <button type="submit">[REGISTER_AND_ACCESS_EVENTS]</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <% } else { %>
+            <div class="logged-in-bar">
+                <span>ENTITY_CONNECTED: <%= currentCustomer.first_name %> <%= currentCustomer.last_name %> (#<%= currentCustomer.id %>)</span>
+                <a href="/events">[CHANGE_USER/LOGOUT]</a>
+            </div>
+        <% } %>
         
         <h2>Upcoming Events</h2>
         <table>
@@ -18,6 +52,9 @@
                 <th>LOCATION</th>
                 <th>ACTION</th>
             </tr>
+            <% if (events.length === 0) { %>
+                <tr><td colspan="5" style="text-align: center; color: #666;">NO_UPCOMING_EVENTS_FOUND</td></tr>
+            <% } %>
             <% events.forEach(e => { %>
                 <tr>
                     <td>#<%= e.id %></td>
@@ -25,11 +62,15 @@
                     <td><%= e.event_date.toDateString() %></td>
                     <td><%= e.location %></td>
                     <td>
-                        <form action="/events/register" method="POST">
-                            <input type="hidden" name="event_id" value="<%= e.id %>">
-                            <input type="number" name="customer_id" placeholder="CUST_ID" required>
-                            <button type="submit">[REGISTER]</button>
-                        </form>
+                        <% if (currentCustomer) { %>
+                            <form action="/events/register" method="POST">
+                                <input type="hidden" name="event_id" value="<%= e.id %>">
+                                <input type="hidden" name="customer_id" value="<%= currentCustomer.id %>">
+                                <button type="submit">[REGISTER]</button>
+                            </form>
+                        <% } else { %>
+                            <span style="font-size: 0.7em; color: #666;">SIGN_IN_TO_BOOK</span>
+                        <% } %>
                     </td>
                 </tr>
             <% }) %>
