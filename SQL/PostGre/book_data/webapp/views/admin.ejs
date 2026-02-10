@@ -6,72 +6,93 @@
 </head>
 <body>
     <div class="container">
-        <a href="/">[BACK_TO_HOME]</a>
-        <h1>SYSTEM_BACKEND</h1>
+        <a href="/"><- Back to Home</a>
+        <h1>Store Management</h1>
         
-        <div style="display: flex; gap: 40px; margin-bottom: 40px; border-bottom: 1px dashed #00ff41; padding-bottom: 20px;">
+        <div style="display: flex; gap: 30px; margin-bottom: 50px; background: var(--background); padding: 30px; border-radius: 8px;">
             <div style="flex: 1;">
-                <h2 style="font-size: 1.8em; color: #fff; text-shadow: 0 0 5px #00ff41;">ADD NEW BOOK</h2>
+                <h3>Add New Book</h3>
                 <form action="/admin/add-book" method="POST">
-                    <input type="text" name="title" placeholder="TITLE" required style="width: 100%; margin-bottom: 10px;"><br>
-                    <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-                        <input type="text" name="author_first_name" placeholder="AUTHOR_FIRST_NAME" required style="flex: 1;">
-                        <input type="text" name="author_last_name" placeholder="AUTHOR_LAST_NAME" required style="flex: 1;">
+                    <input type="text" name="title" placeholder="Book Title" required>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" name="author_first_name" placeholder="Author First Name" required>
+                        <input type="text" name="author_last_name" placeholder="Author Last Name" required>
                     </div>
-                    <input type="text" name="genre_name" placeholder="GENRE" required style="width: 100%; margin-bottom: 10px;"><br>
-                    <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-                        <input type="number" step="0.01" name="price" placeholder="PRICE" required style="flex: 1;">
-                        <input type="number" name="stock" placeholder="STOCK" required style="flex: 1;">
+                    <input type="text" name="genre_name" placeholder="Genre" required>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="number" step="0.01" name="price" placeholder="Price" required>
+                        <input type="number" name="stock" placeholder="Initial Stock" required>
                     </div>
-                    <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-                        <input type="number" name="pages" placeholder="PAGES" style="flex: 1;">
-                        <input type="number" name="year" placeholder="YEAR" style="flex: 1;">
-                    </div>
-                    <button type="submit" style="width: 100%; padding: 10px; font-weight: bold;">[EXECUTE_ADD_BOOK]</button>
+                    <button type="submit" style="width: 100%;">Add to Catalog</button>
                 </form>
             </div>
             <div style="flex: 1;">
-                <h2 style="font-size: 1.8em; color: #fff; text-shadow: 0 0 5px #00ff41;">ADD NEW EVENT</h2>
+                <h3>Create Event</h3>
                 <form action="/admin/add-event" method="POST">
-                    <input type="text" name="name" placeholder="EVENT_NAME" required style="width: 100%; margin-bottom: 10px;"><br>
-                    <input type="datetime-local" name="date" required style="width: 100%; margin-bottom: 10px;"><br>
-                    <input type="text" name="location" placeholder="LOCATION" style="width: 100%; margin-bottom: 10px;"><br>
-                    <textarea name="description" placeholder="DESCRIPTION" style="width: 100%; height: 60px; margin-bottom: 10px;"></textarea><br>
-                    <button type="submit" style="width: 100%; padding: 10px; font-weight: bold;">[EXECUTE_ADD_EVENT]</button>
+                    <input type="text" name="name" placeholder="Event Name" required>
+                    <input type="datetime-local" name="date" required>
+                    <input type="text" name="location" placeholder="Location">
+                    <button type="submit" style="width: 100%;">Schedule Event</button>
                 </form>
             </div>
             <div style="flex: 1;">
-                <h2 style="font-size: 1.8em; color: #fff; text-shadow: 0 0 5px #00ff41;">RESTOCK_INVENTORY</h2>
+                <h3>Restock Inventory</h3>
                 <form action="/admin/restock" method="POST">
-                    <select name="book_id" required style="width: 100%; margin-bottom: 10px;">
-                        <option value="">SELECT_BOOK_TO_RESTOCK</option>
+                    <select name="book_id" required>
+                        <option value="">Select book</option>
                         <% books.forEach(b => { %>
-                            <option value="<%= b.id %>"><%= b.title %> (CURRENT_STOCK: <%= b.stock_quantity %>)</option>
+                            <option value="<%= b.id %>"><%= b.title %> (<%= b.stock_quantity %> in stock)</option>
                         <% }) %>
-                    </select><br>
-                    <input type="number" name="additional_stock" placeholder="ADDITIONAL_QUANTITY" required style="width: 100%; margin-bottom: 10px;"><br>
-                    <button type="submit" style="width: 100%; padding: 10px; font-weight: bold;">[UPDATE_STOCK_LEVELS]</button>
+                    </select>
+                    <input type="number" name="additional_stock" placeholder="Quantity to add" required>
+                    <button type="submit" style="width: 100%; background-color: var(--secondary); color: #1d5a4d;">Update Stock</button>
                 </form>
             </div>
         </div>
 
-        <h2>Customer Database</h2>
+        <h2>Member Directory</h2>
         <table>
-            <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>EMAIL</th>
-            </tr>
-            <% customers.forEach(c => { %>
+            <thead>
                 <tr>
-                    <td>#<%= c.id %></td>
-                    <td><%= c.first_name %> <%= c.last_name %></td>
-                    <td><%= c.email %></td>
+                    <th>Member ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
                 </tr>
-            <% }) %>
+            </thead>
+            <tbody>
+                <% customers.forEach(c => { %>
+                    <tr>
+                        <td style="color: #888;">#<%= c.id %></td>
+                        <td style="font-weight: 600;"><%= c.first_name %> <%= c.last_name %></td>
+                        <td><%= c.email %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
         </table>
 
-        <h2>Order Headers</h2>
+        <h2>Recent Sales</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order Ref</th>
+                    <th>Member Email</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% orders.forEach(o => { %>
+                    <tr>
+                        <td style="color: #888;">REF-<%= o.id %></td>
+                        <td><%= o.email %></td>
+                        <td><%= o.order_date.toLocaleDateString() %></td>
+                        <td style="font-weight: 600; color: var(--primary);">$<%= o.total_amount %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
         <table>
             <tr>
                 <th>ORDER_ID</th>

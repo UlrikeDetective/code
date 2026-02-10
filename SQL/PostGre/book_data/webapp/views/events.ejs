@@ -6,77 +6,96 @@
 </head>
 <body>
     <div class="container">
-        <a href="/">[BACK_TO_HOME]</a>
-        <h1>MARKETING_INTEL</h1>
+        <a href="/"><- Back to Home</a>
+        <h1>Upcoming Events</h1>
 
         <% if (!currentCustomer) { %>
             <div class="auth-section">
-                <h2>IDENTIFICATION_REQUIRED_FOR_EVENTS</h2>
+                <h2>Join an Event</h2>
                 <div class="auth-grid">
                     <div class="auth-box">
-                        <h3>SIGN_IN_EXISTING</h3>
+                        <h3>Sign In</h3>
                         <form action="/events" method="GET">
                             <select name="customerId" onchange="this.form.submit()">
-                                <option value="">SELECT_USER</option>
+                                <option value="">Select your account</option>
                                 <% customers.forEach(c => { %>
-                                    <option value="<%= c.id %>"><%= c.first_name %> <%= c.last_name %> (<%= c.email %>)</option>
+                                    <option value="<%= c.id %>"><%= c.first_name %> <%= c.last_name %></option>
                                 <% }) %>
                             </select>
                         </form>
                     </div>
-                    <div style="border-left: 1px solid #333; padding-left: 20px;"></div>
                     <div class="auth-box">
-                        <h3>REGISTER_NEW_ENTITY</h3>
+                        <h3>New Member</h3>
                         <form action="/register" method="POST">
-                            <input type="text" name="first_name" placeholder="FIRST_NAME" required><br>
-                            <input type="text" name="last_name" placeholder="LAST_NAME" required><br>
-                            <input type="email" name="email" placeholder="EMAIL" required><br>
-                            <button type="submit">[REGISTER_AND_ACCESS_EVENTS]</button>
+                            <input type="text" name="first_name" placeholder="First Name" required>
+                            <input type="text" name="last_name" placeholder="Last Name" required>
+                            <input type="email" name="email" placeholder="Email Address" required>
+                            <button type="submit">Join & Attend</button>
                         </form>
                     </div>
                 </div>
             </div>
         <% } else { %>
             <div class="logged-in-bar">
-                <span>ENTITY_CONNECTED: <%= currentCustomer.first_name %> <%= currentCustomer.last_name %> (#<%= currentCustomer.id %>)</span>
-                <a href="/events">[CHANGE_USER/LOGOUT]</a>
+                <span>Active Session: <%= currentCustomer.first_name %> <%= currentCustomer.last_name %></span>
+                <a href="/events" style="color: inherit; text-decoration: underline;">Switch Account</a>
             </div>
         <% } %>
         
-        <h2>Upcoming Events</h2>
+        <h2>Store Events</h2>
         <table>
-            <tr>
-                <th>ID</th>
-                <th>EVENT_NAME</th>
-                <th>DATE</th>
-                <th>LOCATION</th>
-                <th>ACTION</th>
-            </tr>
-            <% if (events.length === 0) { %>
-                <tr><td colspan="5" style="text-align: center; color: #666;">NO_UPCOMING_EVENTS_FOUND</td></tr>
-            <% } %>
-            <% events.forEach(e => { %>
+            <thead>
                 <tr>
-                    <td>#<%= e.id %></td>
-                    <td><%= e.name %></td>
-                    <td><%= e.event_date.toDateString() %></td>
-                    <td><%= e.location %></td>
-                    <td>
-                        <% if (currentCustomer) { %>
-                            <form action="/events/register" method="POST">
-                                <input type="hidden" name="event_id" value="<%= e.id %>">
-                                <input type="hidden" name="customer_id" value="<%= currentCustomer.id %>">
-                                <button type="submit">[REGISTER]</button>
-                            </form>
-                        <% } else { %>
-                            <span style="font-size: 0.7em; color: #666;">SIGN_IN_TO_BOOK</span>
-                        <% } %>
-                    </td>
+                    <th>Event</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th></th>
                 </tr>
-            <% }) %>
+            </thead>
+            <tbody>
+                <% if (events.length === 0) { %>
+                    <tr><td colspan="4" style="text-align: center; color: #888; padding: 40px;">No upcoming events at this time.</td></tr>
+                <% } %>
+                <% events.forEach(e => { %>
+                    <tr>
+                        <td style="font-weight: 600;"><%= e.name %></td>
+                        <td><%= e.event_date.toDateString() %></td>
+                        <td><%= e.location %></td>
+                        <td style="text-align: right;">
+                            <% if (currentCustomer) { %>
+                                <form action="/events/register" method="POST">
+                                    <input type="hidden" name="event_id" value="<%= e.id %>">
+                                    <input type="hidden" name="customer_id" value="<%= currentCustomer.id %>">
+                                    <button type="submit">Reserve Spot</button>
+                                </form>
+                            <% } %>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
         </table>
 
-        <h2>Registration Logs</h2>
+        <h2>Attendance History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Member</th>
+                    <th>Registered On</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% registrations.forEach(reg => { %>
+                    <tr>
+                        <td><%= reg.event_name %></td>
+                        <td><%= reg.first_name %> <%= reg.last_name %></td>
+                        <td style="font-size: 0.8em; color: #888;"><%= reg.registered_at.toLocaleDateString() %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
         <table>
             <tr>
                 <th>EVENT</th>

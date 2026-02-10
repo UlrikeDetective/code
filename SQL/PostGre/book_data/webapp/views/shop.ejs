@@ -6,91 +6,93 @@
 </head>
 <body>
     <div class="container">
-        <a href="/">[BACK_TO_HOME]</a>
-        <h1>CATALOG_OVERVIEW</h1>
+        <a href="/"><- Back to Home</a>
+        <h1>Book Collection</h1>
 
         <% if (!currentCustomer) { %>
             <div class="auth-section">
-                <h2>IDENTIFICATION_REQUIRED</h2>
+                <h2>Welcome to the Bookshop</h2>
                 <div class="auth-grid">
                     <div class="auth-box">
-                        <h3>SIGN_IN_EXISTING</h3>
+                        <h3>Sign In</h3>
                         <form action="/shop" method="GET">
                             <select name="customerId" onchange="this.form.submit()">
-                                <option value="">SELECT_USER</option>
+                                <option value="">Select your account</option>
                                 <% customers.forEach(c => { %>
-                                    <option value="<%= c.id %>"><%= c.first_name %> <%= c.last_name %> (<%= c.email %>)</option>
+                                    <option value="<%= c.id %>"><%= c.first_name %> <%= c.last_name %></option>
                                 <% }) %>
                             </select>
                         </form>
                     </div>
-                    <div style="border-left: 1px solid #333; padding-left: 20px;"></div>
                     <div class="auth-box">
-                        <h3>REGISTER_NEW_ENTITY</h3>
+                        <h3>Join our Community</h3>
                         <form action="/register" method="POST">
-                            <input type="text" name="first_name" placeholder="FIRST_NAME" required><br>
-                            <input type="text" name="last_name" placeholder="LAST_NAME" required><br>
-                            <input type="email" name="email" placeholder="EMAIL" required><br>
-                            <button type="submit">[REGISTER_AND_LOGIN]</button>
+                            <input type="text" name="first_name" placeholder="First Name" required>
+                            <input type="text" name="last_name" placeholder="Last Name" required>
+                            <input type="email" name="email" placeholder="Email Address" required>
+                            <button type="submit">Create Account</button>
                         </form>
                     </div>
                 </div>
             </div>
         <% } else { %>
             <div class="logged-in-bar">
-                <span>ENTITY_CONNECTED: <%= currentCustomer.first_name %> <%= currentCustomer.last_name %> (#<%= currentCustomer.id %>)</span>
-                <a href="/shop">[CHANGE_USER/LOGOUT]</a>
+                <span>Active Session: <%= currentCustomer.first_name %> <%= currentCustomer.last_name %></span>
+                <a href="/shop" style="color: inherit; text-decoration: underline;">Switch Account</a>
             </div>
         <% } %>
 
         <!-- SEARCH SECTION -->
-        <div style="margin-bottom: 20px; border: 1px solid #333; padding: 15px;">
+        <div style="margin-bottom: 30px;">
             <form action="/shop" method="GET" style="display: flex; gap: 10px;">
                 <% if (currentCustomer) { %>
                     <input type="hidden" name="customerId" value="<%= currentCustomer.id %>">
                 <% } %>
-                <input type="text" name="search" placeholder="SEARCH_BY_TITLE_AUTHOR_OR_GENRE..." value="<%= search %>" style="flex: 1; padding: 10px;">
-                <button type="submit" style="padding: 10px 20px;">[QUERY_DATABASE]</button>
+                <input type="text" name="search" placeholder="Search by title, author, or genre..." value="<%= search %>" style="flex: 1;">
+                <button type="submit">Search</button>
                 <% if (search) { %>
-                    <a href="/shop<%= currentCustomer ? '?customerId=' + currentCustomer.id : '' %>" style="padding: 8px 15px; border: 1px solid #666; color: #666;">[CLEAR]</a>
+                    <a href="/shop<%= currentCustomer ? '?customerId=' + currentCustomer.id : '' %>" style="line-height: 40px;">Clear</a>
                 <% } %>
             </form>
         </div>
         
         <div class="shop-layout">
-            <!-- FULL WIDTH COLUMN: BOOKS & BUYING -->
-            <div class="column-left" style="flex: 1; border-right: none; padding-right: 0;">
-                <h2>Books & Inventory</h2>
+            <div class="column-left" style="flex: 1;">
+                <h2>Current Inventory</h2>
                 <table>
-                    <tr>
-                        <th>TITLE</th>
-                        <th>AUTHOR</th>
-                        <th>GENRE</th>
-                        <th>PRICE</th>
-                        <th>STOCK</th>
-                        <th>ACTION</th>
-                    </tr>
-                    <% books.forEach(book => { %>
+                    <thead>
                         <tr>
-                            <td><%= book.title %></td>
-                            <td><%= book.first_name %> <%= book.last_name %></td>
-                            <td><%= book.genre %></td>
-                            <td>$<%= book.price %></td>
-                            <td><%= book.stock_quantity %></td>
-                            <td>
-                                <% if (currentCustomer) { %>
-                                    <form action="/shop/buy" method="POST">
-                                        <input type="hidden" name="book_id" value="<%= book.id %>">
-                                        <input type="hidden" name="customer_id" value="<%= currentCustomer.id %>">
-                                        <input type="number" name="quantity" value="1" min="1" max="<%= book.stock_quantity %>" style="width: 40px;">
-                                        <button type="submit">[BUY]</button>
-                                    </form>
-                                <% } else { %>
-                                    <span style="font-size: 0.7em; color: #666;">SIGN_IN_TO_BUY</span>
-                                <% } %>
-                            </td>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Genre</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th></th>
                         </tr>
-                    <% }) %>
+                    </thead>
+                    <tbody>
+                        <% books.forEach(book => { %>
+                            <tr>
+                                <td style="font-weight: 600;"><%= book.title %></td>
+                                <td><%= book.first_name %> <%= book.last_name %></td>
+                                <td><span style="font-size: 0.8em; background: #eee; padding: 2px 6px; border-radius: 3px;"><%= book.genre %></span></td>
+                                <td style="color: var(--primary); font-weight: 600;">$<%= book.price %></td>
+                                <td style="color: <%= book.stock_quantity < 5 ? 'var(--accent)' : 'inherit' %>">
+                                    <%= book.stock_quantity %> left
+                                </td>
+                                <td>
+                                    <% if (currentCustomer) { %>
+                                        <form action="/shop/buy" method="POST" style="display: flex; gap: 5px;">
+                                            <input type="hidden" name="book_id" value="<%= book.id %>">
+                                            <input type="hidden" name="customer_id" value="<%= currentCustomer.id %>">
+                                            <input type="number" name="quantity" value="1" min="1" max="<%= book.stock_quantity %>" style="width: 50px; margin: 0;">
+                                            <button type="submit">Buy</button>
+                                        </form>
+                                    <% } %>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
                 </table>
             </div>
         </div>
