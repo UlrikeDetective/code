@@ -16,3 +16,18 @@ Features:
    4. Install dependencies: npm install
    5. Run the server: node app.js
    6. Open your browser at http://localhost:3000.
+
+   * For the Bookstore (Admin):
+       * Added forms in the [BACKEND] page to add new books (with dropdowns for authors and genres) and create new events.
+       * Updated the backend logic to handle these additions and refresh the database.
+   * For Customers:
+       * Buy Books: In the [SHOP] page, customers can now specify their CUSTOMER_ID and a quantity to purchase a book. The system automatically creates an order
+         record, adds the order items, and updates the inventory stock.
+       * Write Reviews: Customers can now leave a rating (1-5) and a comment for any book directly from the shop catalog.
+       * Book Event Tickets: In the [EVENTS] page, a registration form allows customers to sign up for upcoming events.
+
+
+  How to use:
+   1. Navigate to [BACKEND] (/admin) to find your CUSTOMER_ID (or add a new book/event).
+   2. Go to [SHOP] (/shop) to buy books or leave reviews using your ID.
+   3. Go to [EVENTS] (/events) to register for upcoming store events.

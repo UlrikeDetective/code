@@ -12,19 +12,44 @@
         <h2>Books & Inventory</h2>
         <table>
             <tr>
+                <th>ID</th>
                 <th>TITLE</th>
                 <th>AUTHOR</th>
                 <th>GENRE</th>
                 <th>PRICE</th>
                 <th>STOCK</th>
+                <th>ACTIONS</th>
             </tr>
             <% books.forEach(book => { %>
                 <tr>
+                    <td>#<%= book.id %></td>
                     <td><%= book.title %></td>
                     <td><%= book.first_name %> <%= book.last_name %></td>
                     <td><%= book.genre %></td>
                     <td>$<%= book.price %></td>
                     <td><%= book.stock_quantity %></td>
+                    <td>
+                        <form action="/shop/buy" method="POST" style="display:inline;">
+                            <input type="hidden" name="book_id" value="<%= book.id %>">
+                            <input type="number" name="customer_id" placeholder="CUST_ID" style="width: 60px;" required>
+                            <input type="number" name="quantity" value="1" min="1" max="<%= book.stock_quantity %>" style="width: 40px;">
+                            <button type="submit">[BUY]</button>
+                        </form>
+                        <hr>
+                        <form action="/shop/review" method="POST" style="display:inline;">
+                            <input type="hidden" name="book_id" value="<%= book.id %>">
+                            <input type="number" name="customer_id" placeholder="CUST_ID" style="width: 60px;" required>
+                            <select name="rating" required>
+                                <option value="5">5/5</option>
+                                <option value="4">4/5</option>
+                                <option value="3">3/5</option>
+                                <option value="2">2/5</option>
+                                <option value="1">1/5</option>
+                            </select>
+                            <input type="text" name="comment" placeholder="COMMENT" required>
+                            <button type="submit">[REVIEW]</button>
+                        </form>
+                    </td>
                 </tr>
             <% }) %>
         </table>

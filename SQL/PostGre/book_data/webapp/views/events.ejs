@@ -12,15 +12,25 @@
         <h2>Upcoming Events</h2>
         <table>
             <tr>
+                <th>ID</th>
                 <th>EVENT_NAME</th>
                 <th>DATE</th>
                 <th>LOCATION</th>
+                <th>ACTION</th>
             </tr>
             <% events.forEach(e => { %>
                 <tr>
+                    <td>#<%= e.id %></td>
                     <td><%= e.name %></td>
                     <td><%= e.event_date.toDateString() %></td>
                     <td><%= e.location %></td>
+                    <td>
+                        <form action="/events/register" method="POST">
+                            <input type="hidden" name="event_id" value="<%= e.id %>">
+                            <input type="number" name="customer_id" placeholder="CUST_ID" required>
+                            <button type="submit">[REGISTER]</button>
+                        </form>
+                    </td>
                 </tr>
             <% }) %>
         </table>

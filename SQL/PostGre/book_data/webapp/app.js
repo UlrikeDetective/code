@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 app.get('/shop', async (req, res) => {
   try {
     const booksRes = await db.query(`
-      SELECT b.title, a.first_name, a.last_name, g.name as genre, b.price, b.stock_quantity 
+      SELECT b.id, b.title, a.first_name, a.last_name, g.name as genre, b.price, b.stock_quantity 
       FROM books b 
       JOIN authors a ON b.author_id = a.id 
       LEFT JOIN genres g ON b.genre_id = g.id
@@ -68,7 +68,7 @@ app.get('/events', async (req, res) => {
   }
 });
 
-// BACKEND - Customers, Orders, Items
+// BACKEND - Customers, Orders, Items, Authors, Genres
 app.get('/admin', async (req, res) => {
   try {
     const customersRes = await db.query('SELECT * FROM customers');
@@ -82,10 +82,113 @@ app.get('/admin', async (req, res) => {
       FROM order_items oi
       JOIN books b ON oi.book_id = b.id
     `);
-    res.render('admin', { customers: customersRes.rows, orders: ordersRes.rows, items: itemsRes.rows });
+    const authorsRes = await db.query('SELECT * FROM authors');
+    const genresRes = await db.query('SELECT * FROM genres');
+    
+    res.render('admin', { 
+      customers: customersRes.rows, 
+      orders: ordersRes.rows, 
+      items: itemsRes.rows,
+      authors: authorsRes.rows,
+      genres: genresRes.rows
+    });
   } catch (err) {
     console.error(err);
     res.send("DB Error");
+  }
+});
+
+// --- POST ROUTES ---
+
+// ADMIN: Add Book
+app.post('/admin/add-book', async (req, res) => {
+  const { title, author_id, genre_id, price, stock, pages, year } = req.body;
+  try {
+    await db.query(
+      'INSERT INTO books (title, author_id, genre_id, price, stock_quantity, pages, released_year) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+      [title, author_id, genre_id, price, stock, pages, year]
+    );
+    res.redirect('/admin');
+  } catch (err) {
+    console.error(err);
+    res.send("Error adding book");
+  }
+});
+
+// ADMIN: Add Event
+app.post('/admin/add-event', async (req, res) => {
+  const { name, date, location, description } = req.body;
+  try {
+    await db.query(
+      'INSERT INTO events (name, event_date, location, description) VALUES ($1, $2, $3, $4)',
+      [name, date, location, description]
+    );
+    res.redirect('/admin');
+  } catch (err) {
+    console.error(err);
+    res.send("Error adding event");
+  }
+});
+
+// CUSTOMER: Buy Book
+app.post('/shop/buy', async (req, res) => {
+  const { book_id, customer_id, quantity } = req.body;
+  try {
+    // 1. Get book price
+    const bookRes = await db.query('SELECT price FROM books WHERE id = $1', [book_id]);
+    const price = bookRes.rows[0].price;
+    const total = price * quantity;
+
+    // 2. Create Order
+    const orderRes = await db.query(
+      'INSERT INTO orders (customer_id, total_amount) VALUES ($1, $2) RETURNING id',
+      [customer_id, total]
+    );
+    const orderId = orderRes.rows[0].id;
+
+    // 3. Create Order Item
+    await db.query(
+      'INSERT INTO order_items (order_id, book_id, quantity, unit_price) VALUES ($1, $2, $3, $4)',
+      [orderId, book_id, quantity, price]
+    );
+
+    // 4. Update Stock
+    await db.query('UPDATE books SET stock_quantity = stock_quantity - $1 WHERE id = $2', [quantity, book_id]);
+
+    res.redirect('/shop');
+  } catch (err) {
+    console.error(err);
+    res.send("Error processing purchase");
+  }
+});
+
+// CUSTOMER: Write Review
+app.post('/shop/review', async (req, res) => {
+  const { book_id, customer_id, rating, comment } = req.body;
+  try {
+    await db.query(
+      'INSERT INTO reviews (book_id, customer_id, rating, comment) VALUES ($1, $2, $3, $4)',
+      [book_id, customer_id, rating, comment]
+    );
+    res.redirect('/shop');
+  } catch (err) {
+    console.error(err);
+    res.send("Error adding review (Maybe you already reviewed this book?)");
+  }
+});
+
+// CUSTOMER: Register for Event
+app.post('/events/register', async (req, res) => {
+  const { event_id, customer_id } = req.body;
+  try {
+    await db.query(
+      'INSERT INTO event_registrations (event_id, customer_id) VALUES ($1, $2)',
+      [event_id, customer_id]
+    );
+    res.redirect('/events');
+  } catch (err) {
+    console.error(err);
+    res.send("Error registering for event");
   }
 });
 
