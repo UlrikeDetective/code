@@ -8,69 +8,119 @@
     <div class="container">
         <a href="/">[BACK_TO_HOME]</a>
         <h1>CATALOG_OVERVIEW</h1>
-        
-        <h2>Books & Inventory</h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>TITLE</th>
-                <th>AUTHOR</th>
-                <th>GENRE</th>
-                <th>PRICE</th>
-                <th>STOCK</th>
-                <th>ACTIONS</th>
-            </tr>
-            <% books.forEach(book => { %>
-                <tr>
-                    <td>#<%= book.id %></td>
-                    <td><%= book.title %></td>
-                    <td><%= book.first_name %> <%= book.last_name %></td>
-                    <td><%= book.genre %></td>
-                    <td>$<%= book.price %></td>
-                    <td><%= book.stock_quantity %></td>
-                    <td>
-                        <form action="/shop/buy" method="POST" style="display:inline;">
-                            <input type="hidden" name="book_id" value="<%= book.id %>">
-                            <input type="number" name="customer_id" placeholder="CUST_ID" style="width: 60px;" required>
-                            <input type="number" name="quantity" value="1" min="1" max="<%= book.stock_quantity %>" style="width: 40px;">
-                            <button type="submit">[BUY]</button>
-                        </form>
-                        <hr>
-                        <form action="/shop/review" method="POST" style="display:inline;">
-                            <input type="hidden" name="book_id" value="<%= book.id %>">
-                            <input type="number" name="customer_id" placeholder="CUST_ID" style="width: 60px;" required>
-                            <select name="rating" required>
-                                <option value="5">5/5</option>
-                                <option value="4">4/5</option>
-                                <option value="3">3/5</option>
-                                <option value="2">2/5</option>
-                                <option value="1">1/5</option>
-                            </select>
-                            <input type="text" name="comment" placeholder="COMMENT" required>
-                            <button type="submit">[REVIEW]</button>
-                        </form>
-                    </td>
-                </tr>
-            <% }) %>
-        </table>
 
-        <h2>Customer Reviews</h2>
-        <table>
-            <tr>
-                <th>BOOK</th>
-                <th>CUSTOMER</th>
-                <th>RATING</th>
-                <th>COMMENT</th>
-            </tr>
-            <% reviews.forEach(rev => { %>
-                <tr>
-                    <td><%= rev.book %></td>
-                    <td><%= rev.customer %></td>
-                    <td><%= rev.rating %>/5</td>
-                    <td><%= rev.comment %></td>
-                </tr>
-            <% }) %>
-        </table>
+        <% if (!currentCustomer) { %>
+            <div class="auth-section">
+                <h2>IDENTIFICATION_REQUIRED</h2>
+                <div class="auth-grid">
+                    <div class="auth-box">
+                        <h3>SIGN_IN_EXISTING</h3>
+                        <form action="/shop" method="GET">
+                            <select name="customerId" onchange="this.form.submit()">
+                                <option value="">SELECT_USER</option>
+                                <% customers.forEach(c => { %>
+                                    <option value="<%= c.id %>"><%= c.first_name %> <%= c.last_name %> (<%= c.email %>)</option>
+                                <% }) %>
+                            </select>
+                        </form>
+                    </div>
+                    <div style="border-left: 1px solid #333; padding-left: 20px;"></div>
+                    <div class="auth-box">
+                        <h3>REGISTER_NEW_ENTITY</h3>
+                        <form action="/register" method="POST">
+                            <input type="text" name="first_name" placeholder="FIRST_NAME" required><br>
+                            <input type="text" name="last_name" placeholder="LAST_NAME" required><br>
+                            <input type="email" name="email" placeholder="EMAIL" required><br>
+                            <button type="submit">[REGISTER_AND_LOGIN]</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <% } else { %>
+            <div class="logged-in-bar">
+                <span>ENTITY_CONNECTED: <%= currentCustomer.first_name %> <%= currentCustomer.last_name %> (#<%= currentCustomer.id %>)</span>
+                <a href="/shop">[CHANGE_USER/LOGOUT]</a>
+            </div>
+        <% } %>
+        
+        <div class="shop-layout">
+            <!-- LEFT COLUMN: BOOKS & BUYING -->
+            <div class="column-left">
+                <h2>Books & Inventory</h2>
+                <table>
+                    <tr>
+                        <th>TITLE</th>
+                        <th>AUTHOR</th>
+                        <th>PRICE</th>
+                        <th>STOCK</th>
+                        <th>ACTION</th>
+                    </tr>
+                    <% books.forEach(book => { %>
+                        <tr>
+                            <td><%= book.title %></td>
+                            <td><%= book.first_name %> <%= book.last_name %></td>
+                            <td>$<%= book.price %></td>
+                            <td><%= book.stock_quantity %></td>
+                            <td>
+                                <% if (currentCustomer) { %>
+                                    <form action="/shop/buy" method="POST">
+                                        <input type="hidden" name="book_id" value="<%= book.id %>">
+                                        <input type="hidden" name="customer_id" value="<%= currentCustomer.id %>">
+                                        <input type="number" name="quantity" value="1" min="1" max="<%= book.stock_quantity %>" style="width: 40px;">
+                                        <button type="submit">[BUY]</button>
+                                    </form>
+                                <% } else { %>
+                                    <span style="font-size: 0.7em; color: #666;">SIGN_IN_TO_BUY</span>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </table>
+
+                <% if (currentCustomer) { %>
+                    <div style="margin-top: 30px; border: 1px solid #333; padding: 15px;">
+                        <h3>QUICK_REVIEW_FORM</h3>
+                        <form action="/shop/review" method="POST">
+                            <input type="hidden" name="customer_id" value="<%= currentCustomer.id %>">
+                            <select name="book_id" required>
+                                <option value="">SELECT_BOOK_TO_REVIEW</option>
+                                <% books.forEach(b => { %>
+                                    <option value="<%= b.id %>"><%= b.title %></option>
+                                <% }) %>
+                            </select><br>
+                            <select name="rating" required>
+                                <option value="5">5/5 - EXCELLENT</option>
+                                <option value="4">4/5 - GOOD</option>
+                                <option value="3">3/5 - AVERAGE</option>
+                                <option value="2">2/5 - POOR</option>
+                                <option value="1">1/5 - CRITICAL_FAILURE</option>
+                            </select><br>
+                            <textarea name="comment" placeholder="WRITE_YOUR_REVIEW_HERE..." style="width: 100%; height: 60px;" required></textarea><br>
+                            <button type="submit" style="width: 100%;">[SUBMIT_REVIEW]</button>
+                        </form>
+                    </div>
+                <% } %>
+            </div>
+
+            <!-- RIGHT COLUMN: REVIEWS -->
+            <div class="column-right">
+                <h2>Customer Intelligence (Reviews)</h2>
+                <% reviews.forEach(rev => { %>
+                    <div style="border: 1px solid #00ff41; padding: 10px; margin-bottom: 15px; background-color: #111;">
+                        <div style="font-weight: bold; border-bottom: 1px solid #333; margin-bottom: 5px; display: flex; justify-content: space-between;">
+                            <span><%= rev.book %></span>
+                            <span style="color: #fff;"><%= rev.rating %>/5</span>
+                        </div>
+                        <div style="font-style: italic; font-size: 0.9em; margin-bottom: 10px;">
+                            "<%= rev.comment %>"
+                        </div>
+                        <div style="font-size: 0.7em; text-align: right; color: #666;">
+                            BY: <%= rev.customer %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
     </div>
 </body>
 </html>

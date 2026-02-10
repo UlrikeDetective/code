@@ -31,6 +31,7 @@ app.get('/', (req, res) => {
 
 // BOOKSHOP - Books, Authors, Genres, Reviews
 app.get('/shop', async (req, res) => {
+  const customerId = req.query.customerId;
   try {
     const booksRes = await db.query(`
       SELECT b.id, b.title, a.first_name, a.last_name, g.name as genre, b.price, b.stock_quantity 
@@ -43,16 +44,47 @@ app.get('/shop', async (req, res) => {
       FROM reviews r
       JOIN books b ON r.book_id = b.id
       JOIN customers c ON r.customer_id = c.id
+      ORDER BY r.created_at DESC
     `);
-    res.render('shop', { books: booksRes.rows, reviews: reviewsRes.rows });
+    
+    const allCustomersRes = await db.query('SELECT * FROM customers ORDER BY first_name');
+    
+    let currentCustomer = null;
+    if (customerId) {
+      const custRes = await db.query('SELECT * FROM customers WHERE id = $1', [customerId]);
+      currentCustomer = custRes.rows[0];
+    }
+
+    res.render('shop', { 
+      books: booksRes.rows, 
+      reviews: reviewsRes.rows, 
+      customers: allCustomersRes.rows,
+      currentCustomer: currentCustomer
+    });
   } catch (err) {
     console.error(err);
-    res.send("DB Error: Check if 'books' database exists and tables are seeded.");
+    res.send("DB Error");
+  }
+});
+
+// CUSTOMER: Register
+app.post('/register', async (req, res) => {
+  const { first_name, last_name, email } = req.body;
+  try {
+    const result = await db.query(
+      'INSERT INTO customers (first_name, last_name, email) VALUES ($1, $2, $3) RETURNING id',
+      [first_name, last_name, email]
+    );
+    res.redirect(`/shop?customerId=${result.rows[0].id}`);
+  } catch (err) {
+    console.error(err);
+    res.send("Registration Error (Email might already exist)");
   }
 });
 
 // EVENTS - Events and Registrations
 app.get('/events', async (req, res) => {
+  const customerId = req.query.customerId;
   try {
     const eventsRes = await db.query('SELECT * FROM events');
     const regRes = await db.query(`
@@ -61,7 +93,18 @@ app.get('/events', async (req, res) => {
       JOIN events e ON er.event_id = e.id
       JOIN customers c ON er.customer_id = c.id
     `);
-    res.render('events', { events: eventsRes.rows, registrations: regRes.rows });
+
+    let currentCustomer = null;
+    if (customerId) {
+      const custRes = await db.query('SELECT * FROM customers WHERE id = $1', [customerId]);
+      currentCustomer = custRes.rows[0];
+    }
+
+    res.render('events', { 
+      events: eventsRes.rows, 
+      registrations: regRes.rows,
+      currentCustomer: currentCustomer
+    });
   } catch (err) {
     console.error(err);
     res.send("DB Error");
@@ -102,16 +145,46 @@ app.get('/admin', async (req, res) => {
 
 // ADMIN: Add Book
 app.post('/admin/add-book', async (req, res) => {
-  const { title, author_id, genre_id, price, stock, pages, year } = req.body;
+  const { title, author_first_name, author_last_name, genre_name, price, stock, pages, year } = req.body;
   try {
+    // 1. Get or Create Author
+    let authorRes = await db.query(
+      'SELECT id FROM authors WHERE first_name = $1 AND last_name = $2',
+      [author_first_name, author_last_name]
+    );
+    let authorId;
+    if (authorRes.rows.length > 0) {
+      authorId = authorRes.rows[0].id;
+    } else {
+      const newAuthor = await db.query(
+        'INSERT INTO authors (first_name, last_name) VALUES ($1, $2) RETURNING id',
+        [author_first_name, author_last_name]
+      );
+      authorId = newAuthor.rows[0].id;
+    }
+
+    // 2. Get or Create Genre
+    let genreRes = await db.query('SELECT id FROM genres WHERE name = $1', [genre_name]);
+    let genreId;
+    if (genreRes.rows.length > 0) {
+      genreId = genreRes.rows[0].id;
+    } else {
+      const newGenre = await db.query(
+        'INSERT INTO genres (name) VALUES ($1) RETURNING id',
+        [genre_name]
+      );
+      genreId = newGenre.rows[0].id;
+    }
+
+    // 3. Insert Book
     await db.query(
       'INSERT INTO books (title, author_id, genre_id, price, stock_quantity, pages, released_year) VALUES ($1, $2, $3, $4, $5, $6, $7)',
-      [title, author_id, genre_id, price, stock, pages, year]
+      [title, authorId, genreId, price, stock, pages, year]
     );
     res.redirect('/admin');
   } catch (err) {
     console.error(err);
-    res.send("Error adding book");
+    res.send("Error adding book: " + err.message);
   }
 });
 
