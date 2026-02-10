@@ -40,6 +40,19 @@
                     <button type="submit" style="width: 100%; padding: 10px; font-weight: bold;">[EXECUTE_ADD_EVENT]</button>
                 </form>
             </div>
+            <div style="flex: 1;">
+                <h2 style="font-size: 1.8em; color: #fff; text-shadow: 0 0 5px #00ff41;">RESTOCK_INVENTORY</h2>
+                <form action="/admin/restock" method="POST">
+                    <select name="book_id" required style="width: 100%; margin-bottom: 10px;">
+                        <option value="">SELECT_BOOK_TO_RESTOCK</option>
+                        <% books.forEach(b => { %>
+                            <option value="<%= b.id %>"><%= b.title %> (CURRENT_STOCK: <%= b.stock_quantity %>)</option>
+                        <% }) %>
+                    </select><br>
+                    <input type="number" name="additional_stock" placeholder="ADDITIONAL_QUANTITY" required style="width: 100%; margin-bottom: 10px;"><br>
+                    <button type="submit" style="width: 100%; padding: 10px; font-weight: bold;">[UPDATE_STOCK_LEVELS]</button>
+                </form>
+            </div>
         </div>
 
         <h2>Customer Database</h2>
