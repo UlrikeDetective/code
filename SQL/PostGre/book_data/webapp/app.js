@@ -67,6 +67,41 @@ app.get('/shop', async (req, res) => {
   }
 });
 
+// CUSTOMER REVIEWS PAGE - See bought books and review them
+app.get('/reviews', async (req, res) => {
+  const customerId = req.query.customerId;
+  try {
+    const allCustomersRes = await db.query('SELECT * FROM customers ORDER BY first_name');
+    let currentCustomer = null;
+    let boughtBooks = [];
+
+    if (customerId) {
+      const custRes = await db.query('SELECT * FROM customers WHERE id = $1', [customerId]);
+      currentCustomer = custRes.rows[0];
+
+      // Fetch books this customer has actually bought
+      const boughtRes = await db.query(`
+        SELECT DISTINCT b.id, b.title, a.first_name, a.last_name
+        FROM books b
+        JOIN authors a ON b.author_id = a.id
+        JOIN order_items oi ON b.id = oi.book_id
+        JOIN orders o ON oi.order_id = o.id
+        WHERE o.customer_id = $1
+      `, [customerId]);
+      boughtBooks = boughtRes.rows;
+    }
+
+    res.render('reviews', {
+      customers: allCustomersRes.rows,
+      currentCustomer: currentCustomer,
+      boughtBooks: boughtBooks
+    });
+  } catch (err) {
+    console.error(err);
+    res.send("DB Error");
+  }
+});
+
 // CUSTOMER: Register
 app.post('/register', async (req, res) => {
   const { first_name, last_name, email } = req.body;

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SYS_BOOKSHOP // MY_REVIEWS</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="/">[BACK_TO_HOME]</a>
+        <h1>POST_PURCHASE_INTEL (MY_REVIEWS)</h1>
+
+        <% if (!currentCustomer) { %>
+            <div class="auth-section">
+                <h2>IDENTIFICATION_REQUIRED_FOR_FEEDBACK</h2>
+                <div class="auth-box">
+                    <h3>SELECT_IDENTITY_TO_SEE_BOUGHT_BOOKS</h3>
+                    <form action="/reviews" method="GET">
+                        <select name="customerId" onchange="this.form.submit()">
+                            <option value="">SELECT_USER</option>
+                            <% customers.forEach(c => { %>
+                                <option value="<%= c.id %>"><%= c.first_name %> <%= c.last_name %></option>
+                            <% }) %>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        <% } else { %>
+            <div class="logged-in-bar">
+                <span>ENTITY_CONNECTED: <%= currentCustomer.first_name %> <%= currentCustomer.last_name %> (#<%= currentCustomer.id %>)</span>
+                <a href="/reviews">[CHANGE_USER]</a>
+            </div>
+
+            <div class="shop-layout">
+                <div class="column-left">
+                    <h2>Books You Have Purchased</h2>
+                    <% if (boughtBooks.length === 0) { %>
+                        <p style="color: #666;">[!] NO_PURCHASE_HISTORY_FOUND. BUY_BOOKS_FIRST_TO_REVIEW.</p>
+                        <a href="/shop?customerId=<%= currentCustomer.id %>">>> [GOTO_SHOP]</a>
+                    <% } else { %>
+                        <table>
+                            <tr>
+                                <th>TITLE</th>
+                                <th>AUTHOR</th>
+                                <th>ACTION</th>
+                            </tr>
+                            <% boughtBooks.forEach(book => { %>
+                                <tr>
+                                    <td><%= book.title %></td>
+                                    <td><%= book.first_name %> <%= book.last_name %></td>
+                                    <td>
+                                        <button onclick="document.getElementById('review-form-<%= book.id %>').style.display='block'">[WRITE_REVIEW]</button>
+                                    </td>
+                                </tr>
+                                <tr id="review-form-<%= book.id %>" style="display: none; background-color: #111;">
+                                    <td colspan="3">
+                                        <form action="/shop/review" method="POST">
+                                            <input type="hidden" name="customer_id" value="<%= currentCustomer.id %>">
+                                            <input type="hidden" name="book_id" value="<%= book.id %>">
+                                            <label>RATING:</label>
+                                            <select name="rating" required>
+                                                <option value="5">5/5 - EXCELLENT</option>
+                                                <option value="4">4/5 - GOOD</option>
+                                                <option value="3">3/5 - AVERAGE</option>
+                                                <option value="2">2/5 - POOR</option>
+                                                <option value="1">1/5 - FAILURE</option>
+                                            </select><br>
+                                            <textarea name="comment" placeholder="ENTER_INTEL..." style="width: 100%; height: 50px; margin-top: 10px;" required></textarea><br>
+                                            <button type="submit">[SUBMIT_TO_SYSTEM]</button>
+                                            <button type="button" onclick="this.parentElement.parentElement.parentElement.style.display='none'">[CANCEL]</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                        </table>
+                    <% } %>
+                </div>
+                <div class="column-right">
+                    <div class="status-bar">SYSTEM_HINT: Only books verified in your order history are eligible for review in this terminal.</div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
