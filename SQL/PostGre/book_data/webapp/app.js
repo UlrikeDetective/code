@@ -217,7 +217,7 @@ app.post('/admin/restock', async (req, res) => {
 
 // ADMIN: Add Book
 app.post('/admin/add-book', async (req, res) => {
-  const { title, author_first_name, author_last_name, genre_name, price, stock, pages, year } = req.body;
+  const { title, author_first_name, author_last_name, genre_name, isbn, price, stock, pages, year } = req.body;
   try {
     // 1. Get or Create Author
     let authorRes = await db.query(
@@ -250,8 +250,8 @@ app.post('/admin/add-book', async (req, res) => {
 
     // 3. Insert Book
     await db.query(
-      'INSERT INTO books (title, author_id, genre_id, price, stock_quantity, pages, released_year) VALUES ($1, $2, $3, $4, $5, $6, $7)',
-      [title, authorId, genreId, price, stock, pages, year]
+      'INSERT INTO books (title, isbn, author_id, genre_id, price, stock_quantity, pages, released_year) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
+      [title, isbn, authorId, genreId, price, stock, pages, year]
     );
     res.redirect('/admin');
   } catch (err) {

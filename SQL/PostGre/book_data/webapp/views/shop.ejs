@@ -56,15 +56,15 @@
             </form>
         </div>
         
-        <div class="shop-layout">
-            <div class="column-left" style="flex: 1;">
+        <div class="shop-layout" style="display: flex; gap: 40px; margin-top: 30px;">
+            <!-- Main Catalog -->
+            <div class="column-left" style="flex: 2.5;">
                 <h2>Current Inventory</h2>
                 <table>
                     <thead>
                         <tr>
                             <th>Title</th>
                             <th>Author</th>
-                            <th>Genre</th>
                             <th>Price</th>
                             <th>Stock</th>
                             <th></th>
@@ -73,20 +73,22 @@
                     <tbody>
                         <% books.forEach(book => { %>
                             <tr>
-                                <td style="font-weight: 600;"><%= book.title %></td>
+                                <td>
+                                    <div style="font-weight: 600;"><%= book.title %></div>
+                                    <div style="font-size: 0.75em; color: #888;"><%= book.genre %></div>
+                                </td>
                                 <td><%= book.first_name %> <%= book.last_name %></td>
-                                <td><span style="font-size: 0.8em; background: #eee; padding: 2px 6px; border-radius: 3px;"><%= book.genre %></span></td>
                                 <td style="color: var(--primary); font-weight: 600;">$<%= book.price %></td>
-                                <td style="color: <%= book.stock_quantity < 5 ? 'var(--accent)' : 'inherit' %>">
+                                <td style="font-size: 0.9em; color: <%= book.stock_quantity < 5 ? 'var(--accent)' : '#888' %>">
                                     <%= book.stock_quantity %> left
                                 </td>
-                                <td>
+                                <td style="text-align: right;">
                                     <% if (currentCustomer) { %>
-                                        <form action="/shop/buy" method="POST" style="display: flex; gap: 5px;">
+                                        <form action="/shop/buy" method="POST" style="display: flex; gap: 5px; justify-content: flex-end;">
                                             <input type="hidden" name="book_id" value="<%= book.id %>">
                                             <input type="hidden" name="customer_id" value="<%= currentCustomer.id %>">
-                                            <input type="number" name="quantity" value="1" min="1" max="<%= book.stock_quantity %>" style="width: 50px; margin: 0;">
-                                            <button type="submit">Buy</button>
+                                            <input type="number" name="quantity" value="1" min="1" max="<%= book.stock_quantity %>" style="width: 50px; margin: 0; padding: 5px;">
+                                            <button type="submit" style="padding: 5px 15px;">Buy</button>
                                         </form>
                                     <% } %>
                                 </td>
@@ -94,6 +96,25 @@
                         <% }) %>
                     </tbody>
                 </table>
+            </div>
+
+            <!-- Community Sidebar -->
+            <div class="column-right" style="flex: 1; border-left: 1px solid var(--border); padding-left: 30px;">
+                <h3 style="font-size: 1.1rem; border-bottom: 1px solid var(--border); padding-bottom: 10px;">Community Feedback</h3>
+                <% if (reviews.length === 0) { %>
+                    <p style="color: #888; font-size: 0.9rem;">No reviews yet. Be the first to share your thoughts!</p>
+                <% } %>
+                <% reviews.slice(0, 5).forEach(rev => { %>
+                    <div class="review-card" style="padding: 15px; margin-bottom: 15px; border-radius: 4px; background: #fff;">
+                        <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;"><%= rev.book %></div>
+                        <div style="font-size: 0.8rem; font-style: italic; color: #555; margin-bottom: 8px;">"<%= rev.comment %>"</div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: #aaa; text-transform: uppercase;">
+                            <span><%= rev.customer %></span>
+                            <span style="color: var(--accent);"><%= rev.rating %>/5</span>
+                        </div>
+                    </div>
+                <% }) %>
+                <a href="/reviews" style="font-size: 0.8rem; color: var(--primary);">View all journal entries -></a>
             </div>
         </div>
     </div>
