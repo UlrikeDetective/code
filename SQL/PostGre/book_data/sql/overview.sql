@@ -1,8 +1,8 @@
 select * from authors;
-select * from books;
+select * from books order by id desc;
 select * from genres;
 select * from events;
-select * from customers;
-select * from order_items;
-select * from orders;
+select * from customers order by id desc;
+select * from order_items order by id desc;
+select * from orders order by id desc;
 select * from reviews;
