@@ -1,2 +1,6 @@
 improve webapp so that I can add books, events as bookshop and so that I can buy books,
  write reviews and book tickets to events as a customer.
+
+ - bought books
+ - queries
+ - improve webapp - dashboard, see what books customers has already reviewed

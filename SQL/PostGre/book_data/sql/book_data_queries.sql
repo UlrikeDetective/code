@@ -9,8 +9,6 @@ FROM
     
 SELECT REPLACE(title, ' ', '-') FROM books;
 
-SELECT * FROM books;
-
 SELECT * FROM books
 WHERE author_fname LIKE '_a_'; 
 
@@ -84,3 +82,20 @@ CASE
     ELSE '20th century lit' 
 END AS genre
 FROM books;
+
+--- books sold today ---
+SELECT title, stock_quantity FROM books;
+
+--- books sold this week ---
+SELECT title, stock_quantity FROM books;
+
+--- books sold this month ---
+SELECT title, stock_quantity FROM books;
+
+--- books sold this year ---
+SELECT title, stock_quantity FROM books;
+
+--- sum of earnings from book sales ---
+SELECT title, stock_quantity FROM books;
+
+Sign in to enable AI completions, or disable inline completions in Settings (DBCode > AI).Sign in to enable AI completions, or disable inline completions in Settings (DBCode > AI).
