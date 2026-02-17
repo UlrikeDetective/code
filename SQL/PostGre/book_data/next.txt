@@ -4,3 +4,7 @@ improve webapp so that I can add books, events as bookshop and so that I can buy
  - bought books
  - queries
  - improve webapp - dashboard, see what books customers has already reviewed
+
+ On event page - Dashboard - how many registration per event - max 100
+ On bookshop page after picking customer - showing which books the customer has already bought
+ On review page after log-in - showing which books have already a review
