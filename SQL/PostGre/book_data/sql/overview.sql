@@ -1,21 +1,19 @@
-select * from authors;
-select * from books order by id desc;
-select * from genres;
-select * from events;
-select * from event_registrations;
-select * from customers order by id desc;
-select * from order_items order by id desc;
-select * from orders order by id desc;
-select * from reviews;
+-- ==========================================================
+-- BOOKSHOP BUSINESS OVERVIEW REPORT
+-- ==========================================================
+-- Current System Date: 2026-02-21
+
+-- 1. QUICK SYSTEM CHECKS (Basic Table Dumps)
+-- ==========================================================
+-- These help verify data integrity at a glance
+SELECT * FROM authors LIMIT 5;
+SELECT * FROM books ORDER BY id DESC LIMIT 5;
+SELECT * FROM customers ORDER BY id DESC LIMIT 5;
+SELECT * FROM orders ORDER BY id DESC LIMIT 5;
 
 
-SELECT * FROM authors WHERE first_name = 'Toby';
-Select * From books where author_id = 12;
-
--- BOOKSHOP BUSINESS OVERVIEW --
--- Current System Date for context: 2026-02-21
-
--- 1. CUSTOMER METRICS
+-- 2. CUSTOMER METRICS
+-- ==========================================================
 -- Total number of customers
 SELECT COUNT(*) AS total_customers 
 FROM customers;
@@ -26,9 +24,9 @@ FROM customers
 WHERE joined_date >= '2026-02-21'::timestamp - INTERVAL '1 month';
 
 
--- 2. SALES PERFORMANCE
--- Total books sold per title (Top 15)
--- This tracks actual volume of sales from the order_items table
+-- 3. SALES PERFORMANCE
+-- ==========================================================
+-- Top 15 Best Selling Books (by Volume)
 SELECT b.title, SUM(oi.quantity) AS total_units_sold
 FROM order_items oi
 JOIN books b ON oi.book_id = b.id
@@ -36,12 +34,13 @@ GROUP BY b.id, b.title
 ORDER BY total_units_sold DESC
 LIMIT 15;
 
--- This tracks actual volume of sales is zero
-SELECT b.title, SUM(oi.quantity) AS total_units_sold
-FROM order_items oi
-JOIN books b ON oi.book_id = b.id
+-- Books with ZERO Sales (Using LEFT JOIN to find unsold inventory)
+SELECT b.title, COALESCE(SUM(oi.quantity), 0) AS total_units_sold
+FROM books b
+LEFT JOIN order_items oi ON b.id = oi.book_id
 GROUP BY b.id, b.title
-Where total_units_sold is 0
+HAVING COALESCE(SUM(oi.quantity), 0) = 0
+ORDER BY b.title ASC
 LIMIT 15;
 
 -- Best-selling Authors by quantity sold
@@ -54,7 +53,6 @@ ORDER BY units_sold DESC
 LIMIT 10;
 
 -- Revenue by Genre
--- Shows which categories are the most profitable
 SELECT g.name AS genre, SUM(oi.quantity * oi.unit_price) AS total_revenue
 FROM order_items oi
 JOIN books b ON oi.book_id = b.id
@@ -63,21 +61,23 @@ GROUP BY g.id, g.name
 ORDER BY total_revenue DESC;
 
 
--- 3. INVENTORY & STOCK MANAGEMENT
--- Current stock levels (Lowest stock first, highlighting items needing reorder)
+-- 4. INVENTORY & STOCK MANAGEMENT
+-- ==========================================================
+-- Critical Stock Levels (Lowest stock first)
 SELECT title, stock_quantity, price
 FROM books
 ORDER BY stock_quantity ASC
 LIMIT 20;
 
--- Books currently Out of Stock
+-- Current Out of Stock List
 SELECT title, isbn, released_year
 FROM books
 WHERE stock_quantity = 0;
 
 
--- 4. SOCIAL ENGAGEMENT (REVIEWS)
--- Highest rated books (with at least 2 reviews)
+-- 5. SOCIAL & EVENT ENGAGEMENT
+-- ==========================================================
+-- Highest Rated Books (with at least 2 reviews)
 SELECT b.title, ROUND(AVG(r.rating), 2) AS avg_rating, COUNT(r.id) AS review_count
 FROM reviews r
 JOIN books b ON r.book_id = b.id
@@ -85,22 +85,16 @@ GROUP BY b.id, b.title
 HAVING COUNT(r.id) >= 2
 ORDER BY avg_rating DESC, review_count DESC;
 
-
--- 5. EVENT PERFORMANCE
--- Registrations per event (Upcoming and Past)
+-- Registrations per event
 SELECT e.name AS event_name, e.event_date, COUNT(er.customer_id) AS total_registrations
 FROM events e
 LEFT JOIN event_registrations er ON e.id = er.event_id
 GROUP BY e.id, e.name, e.event_date
 ORDER BY e.event_date ASC;
 
--- Most popular event locations
-SELECT location, COUNT(*) AS event_count
-FROM events
-GROUP BY location;
-
 
 -- 6. FINANCIAL OVERVIEW
+-- ==========================================================
 -- Total Revenue to date
 SELECT SUM(total_amount) AS total_lifetime_revenue 
 FROM orders;
