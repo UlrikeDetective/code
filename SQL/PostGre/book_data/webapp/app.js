@@ -195,23 +195,90 @@ app.get('/admin', async (req, res) => {
       SELECT o.id, c.email, o.order_date, o.total_amount 
       FROM orders o 
       JOIN customers c ON o.customer_id = c.id
+      ORDER BY o.order_date DESC
+      LIMIT 50
     `);
     const itemsRes = await db.query(`
       SELECT oi.order_id, b.title, oi.quantity, oi.unit_price 
       FROM order_items oi
       JOIN books b ON oi.book_id = b.id
+      ORDER BY oi.id DESC
+      LIMIT 50
     `);
     const authorsRes = await db.query('SELECT * FROM authors');
     const genresRes = await db.query('SELECT * FROM genres');
     const booksRes = await db.query('SELECT id, title, stock_quantity FROM books ORDER BY title');
+
+    // --- DASHBOARD QUERIES ---
     
+    // 1. Out of Stock
+    const outOfStockRes = await db.query('SELECT title, stock_quantity FROM books WHERE stock_quantity = 0');
+
+    // 2. Best Selling Books
+    const bestSellersRes = await db.query(`
+      SELECT b.title, SUM(oi.quantity) as total_sold
+      FROM order_items oi
+      JOIN books b ON oi.book_id = b.id
+      GROUP BY b.id, b.title
+      ORDER BY total_sold DESC
+      LIMIT 5
+    `);
+
+    // 3. Best Selling Authors
+    const topAuthorsRes = await db.query(`
+      SELECT a.first_name, a.last_name, SUM(oi.quantity) as total_sold
+      FROM order_items oi
+      JOIN books b ON oi.book_id = b.id
+      JOIN authors a ON b.author_id = a.id
+      GROUP BY a.id, a.first_name, a.last_name
+      ORDER BY total_sold DESC
+      LIMIT 5
+    `);
+
+    // 4. Books that don't sell (Zero Sales)
+    const zeroSalesRes = await db.query(`
+      SELECT b.title FROM books b
+      LEFT JOIN order_items oi ON b.id = oi.book_id
+      GROUP BY b.id, b.title
+      HAVING COUNT(oi.id) = 0
+      LIMIT 10
+    `);
+
+    // 5. Top Customers (Highest Spenders)
+    const topSpendersRes = await db.query(`
+      SELECT c.first_name, c.last_name, SUM(o.total_amount) as total_spent
+      FROM customers c
+      JOIN orders o ON c.id = o.customer_id
+      GROUP BY c.id
+      ORDER BY total_spent DESC
+      LIMIT 5
+    `);
+
+    // 6. Inactive Customers (No orders in last 3 months, or never)
+    const inactiveCustomersRes = await db.query(`
+      SELECT c.first_name, c.last_name, c.email, MAX(o.order_date) as last_order
+      FROM customers c
+      LEFT JOIN orders o ON c.id = o.customer_id
+      GROUP BY c.id
+      HAVING MAX(o.order_date) < NOW() - INTERVAL '3 months' OR MAX(o.order_date) IS NULL
+      LIMIT 10
+    `);
+
     res.render('admin', { 
       customers: customersRes.rows, 
       orders: ordersRes.rows, 
       items: itemsRes.rows,
       authors: authorsRes.rows,
       genres: genresRes.rows,
-      books: booksRes.rows
+      books: booksRes.rows,
+      stats: {
+        outOfStock: outOfStockRes.rows,
+        bestSellers: bestSellersRes.rows,
+        topAuthors: topAuthorsRes.rows,
+        zeroSales: zeroSalesRes.rows,
+        topSpenders: topSpendersRes.rows,
+        inactiveCustomers: inactiveCustomersRes.rows
+      }
     });
   } catch (err) {
     console.error(err);

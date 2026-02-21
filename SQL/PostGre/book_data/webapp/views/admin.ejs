@@ -8,6 +8,74 @@
     <div class="container">
         <a href="/"><- Back to Home</a>
         <h1>Store Management</h1>
+
+        <!-- BUSINESS INTELLIGENCE DASHBOARD -->
+        <h2 style="border-bottom: 2px solid var(--secondary); padding-bottom: 10px; margin-top: 40px;">Business Intelligence Dashboard</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 50px;">
+            
+            <!-- Out of Stock -->
+            <div style="background: #fff; border: 1px solid #ffcccc; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #cc0000; font-size: 1rem; margin-top: 0;">⚠️ Out of Stock</h3>
+                <ul style="padding-left: 20px; font-size: 0.85rem;">
+                    <% if (stats.outOfStock.length === 0) { %><li style="color: #888;">No stock issues found.</li><% } %>
+                    <% stats.outOfStock.forEach(b => { %>
+                        <li><%= b.title %></li>
+                    <% }) %>
+                </ul>
+            </div>
+
+            <!-- Best Sellers -->
+            <div style="background: #fff; border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
+                <h3 style="color: var(--primary); font-size: 1rem; margin-top: 0;">⭐ Top Sellers (Volume)</h3>
+                <ul style="padding-left: 20px; font-size: 0.85rem;">
+                    <% stats.bestSellers.forEach(b => { %>
+                        <li><%= b.title %> (<%= b.total_sold %> units)</li>
+                    <% }) %>
+                </ul>
+            </div>
+
+            <!-- Best Selling Authors -->
+            <div style="background: #fff; border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
+                <h3 style="color: var(--secondary); font-size: 1rem; margin-top: 0;">✍️ Top Authors</h3>
+                <ul style="padding-left: 20px; font-size: 0.85rem;">
+                    <% stats.topAuthors.forEach(a => { %>
+                        <li><%= a.first_name %> <%= a.last_name %> (<%= a.total_sold %> units)</li>
+                    <% }) %>
+                </ul>
+            </div>
+
+            <!-- Zero Sales -->
+            <div style="background: #fff; border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
+                <h3 style="color: #888; font-size: 1rem; margin-top: 0;">📉 Zero Sales (Action Required)</h3>
+                <ul style="padding-left: 20px; font-size: 0.85rem; color: #666;">
+                    <% stats.zeroSales.forEach(b => { %>
+                        <li><%= b.title %></li>
+                    <% }) %>
+                </ul>
+            </div>
+
+            <!-- Top Customers -->
+            <div style="background: #fff; border: 1px solid #d4edda; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #28a745; font-size: 1rem; margin-top: 0;">🏆 VIP Customers</h3>
+                <ul style="padding-left: 20px; font-size: 0.85rem;">
+                    <% stats.topSpenders.forEach(c => { %>
+                        <li><%= c.first_name %> <%= c.last_name %> ($<%= c.total_spent %>)</li>
+                    <% }) %>
+                </ul>
+            </div>
+
+            <!-- Inactive Customers -->
+            <div style="background: #fff; border: 1px solid #fff3cd; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #856404; font-size: 1rem; margin-top: 0;">⏳ Inactive/Potential Churn</h3>
+                <ul style="padding-left: 20px; font-size: 0.85rem;">
+                    <% stats.inactiveCustomers.forEach(c => { %>
+                        <li title="Last Order: <%= c.last_order ? c.last_order.toLocaleDateString() : 'Never' %>">
+                            <%= c.first_name %> <%= c.last_name %> (<%= c.email %>)
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
         
         <!-- Management Grid -->
         <div style="display: flex; gap: 30px; margin-bottom: 50px; background: var(--background); padding: 30px; border-radius: 8px; flex-wrap: wrap;">
