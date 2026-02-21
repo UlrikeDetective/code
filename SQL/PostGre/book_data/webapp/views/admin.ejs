@@ -134,35 +134,14 @@
 
         <!-- Data Tables -->
         <div style="display: flex; gap: 40px; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 300px;">
-                <h2>Member Directory</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% customers.forEach(c => { %>
-                            <tr>
-                                <td style="color: #888;">#<%= c.id %></td>
-                                <td style="font-weight: 600;"><%= c.first_name %> <%= c.last_name %></td>
-                                <td><%= c.email %></td>
-                            </tr>
-                        <% }) %>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div style="flex: 1.5; min-width: 400px;">
+            <div style="flex: 1; min-width: 400px;">
                 <h2>Recent Sales History</h2>
                 <table>
                     <thead>
                         <tr>
                             <th>Ref</th>
-                            <th>Customer Email</th>
+                            <th>First name</th>
+                            <th>Last name</th>
                             <th>Date</th>
                             <th>Total</th>
                         </tr>
@@ -171,7 +150,8 @@
                         <% orders.forEach(o => { %>
                             <tr>
                                 <td style="color: #888;">REF-<%= o.id %></td>
-                                <td><%= o.email %></td>
+                                <td><%= o.first_name %></td>
+                                <td><%= o.last_name %></td>
                                 <td><%= o.order_date.toLocaleDateString() %></td>
                                 <td style="font-weight: 600; color: var(--primary);">$<%= o.total_amount %></td>
                             </tr>

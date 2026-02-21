@@ -213,18 +213,18 @@ app.get('/admin', async (req, res) => {
   try {
     const customersRes = await db.query('SELECT * FROM customers');
     const ordersRes = await db.query(`
-      SELECT o.id, c.email, o.order_date, o.total_amount 
+      SELECT o.id, c.first_name, c.last_name, o.order_date, o.total_amount 
       FROM orders o 
       JOIN customers c ON o.customer_id = c.id
       ORDER BY o.order_date DESC
-      LIMIT 50
+      LIMIT 5
     `);
     const itemsRes = await db.query(`
       SELECT oi.order_id, b.title, oi.quantity, oi.unit_price 
       FROM order_items oi
       JOIN books b ON oi.book_id = b.id
       ORDER BY oi.id DESC
-      LIMIT 50
+      LIMIT 5
     `);
     const authorsRes = await db.query('SELECT * FROM authors');
     const genresRes = await db.query('SELECT * FROM genres');
