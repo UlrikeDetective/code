@@ -14,7 +14,7 @@
                 <h2>Share your thoughts</h2>
                 <div class="auth-box">
                     <h3>Select your account to view purchases</h3>
-                    <form action="/reviews" method="GET">
+                    <form action="/login" method="POST">
                         <select name="customerId" onchange="this.form.submit()">
                             <option value="">Select account</option>
                             <% customers.forEach(c => { %>
@@ -25,9 +25,11 @@
                 </div>
             </div>
         <% } else { %>
-            <div class="logged-in-bar">
+            <div class="logged-in-bar" style="display: flex; justify-content: space-between; align-items: center;">
                 <span>Active Session: <%= currentCustomer.first_name %> <%= currentCustomer.last_name %></span>
-                <a href="/reviews" style="color: inherit; text-decoration: underline;">Switch Account</a>
+                <form action="/logout" method="POST" style="margin: 0;">
+                    <button type="submit" style="background: transparent; border: 1px solid #1d5a4d; color: #1d5a4d; padding: 5px 15px;">Logout</button>
+                </form>
             </div>
 
             <div class="shop-layout">
@@ -35,7 +37,7 @@
                     <h2>Purchased Books</h2>
                     <% if (boughtBooks.length === 0) { %>
                         <p style="color: #666;">You haven't purchased any books yet.</p>
-                        <a href="/shop?customerId=<%= currentCustomer.id %>">Visit the shop to browse books.</a>
+                        <a href="/shop">Visit the shop to browse books.</a>
                     <% } else { %>
                         <table>
                             <thead>
@@ -68,7 +70,6 @@
                                     <tr id="review-form-<%= book.id %>" style="display: none;">
                                         <td colspan="3" style="background: var(--background); padding: 25px;">
                                             <form action="/shop/review" method="POST">
-                                                <input type="hidden" name="customer_id" value="<%= currentCustomer.id %>">
                                                 <input type="hidden" name="book_id" value="<%= book.id %>">
                                                 <div style="margin-bottom: 15px;">
                                                     <label style="font-weight: 600; display: block; margin-bottom: 5px;">Rating</label>

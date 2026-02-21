@@ -15,7 +15,7 @@
                 <div class="auth-grid">
                     <div class="auth-box">
                         <h3>Sign In</h3>
-                        <form action="/shop" method="GET">
+                        <form action="/login" method="POST">
                             <select name="customerId" onchange="this.form.submit()">
                                 <option value="">Select your account</option>
                                 <% customers.forEach(c => { %>
@@ -36,22 +36,21 @@
                 </div>
             </div>
         <% } else { %>
-            <div class="logged-in-bar">
+            <div class="logged-in-bar" style="display: flex; justify-content: space-between; align-items: center;">
                 <span>Active Session: <%= currentCustomer.first_name %> <%= currentCustomer.last_name %></span>
-                <a href="/shop" style="color: inherit; text-decoration: underline;">Switch Account</a>
+                <form action="/logout" method="POST" style="margin: 0;">
+                    <button type="submit" style="background: transparent; border: 1px solid #1d5a4d; color: #1d5a4d; padding: 5px 15px;">Logout</button>
+                </form>
             </div>
         <% } %>
 
         <!-- SEARCH SECTION -->
         <div style="margin-bottom: 30px;">
             <form action="/shop" method="GET" style="display: flex; gap: 10px;">
-                <% if (currentCustomer) { %>
-                    <input type="hidden" name="customerId" value="<%= currentCustomer.id %>">
-                <% } %>
                 <input type="text" name="search" placeholder="Search by title, author, or genre..." value="<%= search %>" style="flex: 1;">
                 <button type="submit">Search</button>
                 <% if (search) { %>
-                    <a href="/shop<%= currentCustomer ? '?customerId=' + currentCustomer.id : '' %>" style="line-height: 40px;">Clear</a>
+                    <a href="/shop" style="line-height: 40px;">Clear</a>
                 <% } %>
             </form>
         </div>

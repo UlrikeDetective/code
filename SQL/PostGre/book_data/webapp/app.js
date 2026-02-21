@@ -2,6 +2,7 @@ const express = require('express');
 const { Client } = require('pg');
 const bodyParser = require('body-parser');
 const path = require('path');
+const session = require('express-session');
 
 const app = express();
 const port = process.env.PORT || 3005;
@@ -22,7 +23,58 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// --- SESSION SETUP ---
+app.use(session({
+  secret: 'stockholm-bookshop-secret',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 24 * 60 * 60 * 1000 } // 24 hours
+}));
+
+// --- GLOBAL MIDDLEWARE ---
+// This makes currentCustomer available in all EJS templates and routes
+app.use(async (req, res, next) => {
+  res.locals.currentCustomer = null;
+  res.locals.purchasedBookIds = [];
+  
+  if (req.session.customerId) {
+    try {
+      const custRes = await db.query('SELECT * FROM customers WHERE id = $1', [req.session.customerId]);
+      if (custRes.rows.length > 0) {
+        res.locals.currentCustomer = custRes.rows[0];
+        
+        // Fetch IDs of books this customer has already bought
+        const purchasedRes = await db.query(`
+          SELECT DISTINCT book_id FROM order_items oi
+          JOIN orders o ON oi.order_id = o.id
+          WHERE o.customer_id = $1
+        `, [req.session.customerId]);
+        res.locals.purchasedBookIds = purchasedRes.rows.map(r => r.book_id);
+      }
+    } catch (err) {
+      console.error("Session Auth Error", err);
+    }
+  }
+  next();
+});
+
 // --- ROUTES ---
+
+// LOGIN: Handle persistent login via POST
+app.post('/login', (req, res) => {
+  const { customerId } = req.body;
+  if (customerId) {
+    req.session.customerId = customerId;
+  }
+  // Redirect back to wherever they were
+  res.redirect(req.get('referer') || '/shop');
+});
+
+// LOGOUT: Clear session
+app.post('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/shop');
+});
 
 // HOME - Entry Point
 app.get('/', (req, res) => {
@@ -31,7 +83,6 @@ app.get('/', (req, res) => {
 
 // BOOKSHOP - Books, Authors, Genres, Reviews
 app.get('/shop', async (req, res) => {
-  const customerId = req.query.customerId;
   const search = req.query.search || '';
   try {
     let queryText = `
@@ -63,28 +114,11 @@ app.get('/shop', async (req, res) => {
     
     const allCustomersRes = await db.query('SELECT * FROM customers ORDER BY first_name');
     
-    let currentCustomer = null;
-    let purchasedBookIds = [];
-    if (customerId) {
-      const custRes = await db.query('SELECT * FROM customers WHERE id = $1', [customerId]);
-      currentCustomer = custRes.rows[0];
-
-      // Fetch IDs of books this customer has already bought
-      const purchasedRes = await db.query(`
-        SELECT DISTINCT book_id FROM order_items oi
-        JOIN orders o ON oi.order_id = o.id
-        WHERE o.customer_id = $1
-      `, [customerId]);
-      purchasedBookIds = purchasedRes.rows.map(r => r.book_id);
-    }
-
     res.render('shop', { 
       books: booksRes.rows, 
       reviews: reviewsRes.rows, 
       customers: allCustomersRes.rows,
-      currentCustomer: currentCustomer,
-      search: search,
-      purchasedBookIds: purchasedBookIds
+      search: search
     });
   } catch (err) {
     console.error(err);
@@ -94,16 +128,11 @@ app.get('/shop', async (req, res) => {
 
 // CUSTOMER REVIEWS PAGE - See bought books and review them
 app.get('/reviews', async (req, res) => {
-  const customerId = req.query.customerId;
   try {
     const allCustomersRes = await db.query('SELECT * FROM customers ORDER BY first_name');
-    let currentCustomer = null;
     let boughtBooks = [];
 
-    if (customerId) {
-      const custRes = await db.query('SELECT * FROM customers WHERE id = $1', [customerId]);
-      currentCustomer = custRes.rows[0];
-
+    if (req.session.customerId) {
       // Fetch books this customer has actually bought AND their existing reviews
       const boughtRes = await db.query(`
         SELECT DISTINCT b.id, b.title, a.first_name, a.last_name,
@@ -114,13 +143,12 @@ app.get('/reviews', async (req, res) => {
         JOIN orders o ON oi.order_id = o.id
         LEFT JOIN reviews r ON b.id = r.book_id AND r.customer_id = o.customer_id
         WHERE o.customer_id = $1
-      `, [customerId]);
+      `, [req.session.customerId]);
       boughtBooks = boughtRes.rows;
     }
 
     res.render('reviews', {
       customers: allCustomersRes.rows,
-      currentCustomer: currentCustomer,
       boughtBooks: boughtBooks
     });
   } catch (err) {
@@ -137,7 +165,8 @@ app.post('/register', async (req, res) => {
       'INSERT INTO customers (first_name, last_name, email) VALUES ($1, $2, $3) RETURNING id',
       [first_name, last_name, email]
     );
-    res.redirect(`/shop?customerId=${result.rows[0].id}`);
+    req.session.customerId = result.rows[0].id;
+    res.redirect('/shop');
   } catch (err) {
     console.error(err);
     res.send("Registration Error (Email might already exist)");
@@ -146,7 +175,6 @@ app.post('/register', async (req, res) => {
 
 // EVENTS - Events and Registrations
 app.get('/events', async (req, res) => {
-  const customerId = req.query.customerId;
   try {
     // Fetch events with registration count, limited to top 100 upcoming
     const eventsRes = await db.query(`
@@ -169,17 +197,10 @@ app.get('/events', async (req, res) => {
 
     const allCustomersRes = await db.query('SELECT * FROM customers ORDER BY first_name');
     
-    let currentCustomer = null;
-    if (customerId) {
-      const custRes = await db.query('SELECT * FROM customers WHERE id = $1', [customerId]);
-      currentCustomer = custRes.rows[0];
-    }
-
     res.render('events', { 
       events: eventsRes.rows, 
       registrations: regRes.rows,
-      customers: allCustomersRes.rows,
-      currentCustomer: currentCustomer
+      customers: allCustomersRes.rows
     });
   } catch (err) {
     console.error(err);
@@ -365,7 +386,11 @@ app.post('/admin/add-event', async (req, res) => {
 
 // CUSTOMER: Buy Book
 app.post('/shop/buy', async (req, res) => {
-  const { book_id, customer_id, quantity } = req.body;
+  const { book_id, quantity } = req.body;
+  const customer_id = req.session.customerId;
+  
+  if (!customer_id) return res.send("Please sign in first");
+  
   try {
     // 1. Get book price
     const bookRes = await db.query('SELECT price FROM books WHERE id = $1', [book_id]);
@@ -397,7 +422,11 @@ app.post('/shop/buy', async (req, res) => {
 
 // CUSTOMER: Write Review
 app.post('/shop/review', async (req, res) => {
-  const { book_id, customer_id, rating, comment } = req.body;
+  const { book_id, rating, comment } = req.body;
+  const customer_id = req.session.customerId;
+
+  if (!customer_id) return res.send("Please sign in first");
+
   try {
     await db.query(
       'INSERT INTO reviews (book_id, customer_id, rating, comment) VALUES ($1, $2, $3, $4)',
@@ -412,7 +441,11 @@ app.post('/shop/review', async (req, res) => {
 
 // CUSTOMER: Register for Event
 app.post('/events/register', async (req, res) => {
-  const { event_id, customer_id } = req.body;
+  const { event_id } = req.body;
+  const customer_id = req.session.customerId;
+
+  if (!customer_id) return res.send("Please sign in first");
+
   try {
     await db.query(
       'INSERT INTO event_registrations (event_id, customer_id) VALUES ($1, $2)',
