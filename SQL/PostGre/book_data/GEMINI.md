@@ -7,9 +7,9 @@ This project is a comprehensive learning environment focused on mastering Postgr
 - **Purpose**: Educational project for database normalization, advanced SQL queries, and CRUD web development.
 - **Main Technologies**:
   - **Database**: PostgreSQL
-  - **Backend**: Node.js, Express, `pg` (node-postgres)
+  - **Backend**: Node.js, Express, `express-session`, `pg` (node-postgres)
   - **Frontend**: EJS (Embedded JavaScript), Vanilla CSS (Stockholm Minimalist design)
-- **Architecture**: A classic 3nd Normal Form (3NF) schema with a Node.js middleware layer handling business logic such as inventory management and transaction-verified reviews.
+- **Architecture**: A 3rd Normal Form (3NF) schema with a Node.js middleware layer handling business logic, session-based authentication, and business intelligence reporting.
 
 ## 🏗 Database Schema (books)
 
@@ -31,35 +31,36 @@ The database `books` consists of the following normalized tables:
 
 ### Web Application
 1.  **Navigate**: `cd webapp`
-2.  **Install**: `npm install`
+2.  **Install**: `npm install` (Requires `express-session`)
 3.  **Start**: `node app.js` (Defaults to port `3005`)
 4.  **Environment Variables**:
-    - `POSTGRES_HOST` (default: `localhost`)
-    - `POSTGRES_PORT` (default: `5432`)
-    - `POSTGRES_USER` (default: `postgres`)
-    - `POSTGRES_PASSWORD` (default: `123456`)
+    - `POSTGRES_HOST`, `POSTGRES_PORT`, `POSTGRES_USER`, `POSTGRES_PASSWORD`
 
 ## 📏 Development Conventions
 
-### SQL Standards
-- **Normalization**: Always aim for 3NF to avoid data redundancy.
-- **Search**: Use `ILIKE` for case-insensitive partial matching in the web search filter.
-- **Integrity**: Use `CHECK` constraints for prices and stock quantities (must be non-negative).
-- **Constraints**: Enforce business rules at the database level where possible (e.g., `UNIQUE(book_id, customer_id)` in reviews).
+### Authentication & Sessions
+- **Persistent State**: Uses `express-session` to keep customers logged in across pages.
+- **Middleware**: Global middleware in `app.js` fetches `currentCustomer` and `purchasedBookIds` for every request.
+- **Auth Flow**: Users sign in via POST to `/login` and sign out via `/logout`.
 
-### Web & API Logic
-- **Business Logic**: Inventory updates (stock decrements) and order creation are handled sequentially in the `/shop/buy` route.
-- **Verified Reviews**: Logic in `/reviews` ensures customers can only review books they have actually purchased.
-- **View Engine**: EJS templates are used for server-side rendering, located in `webapp/views/`.
+### SQL & Business Intelligence
+- **Normalization**: Always maintain 3NF integrity.
+- **BI Dashboard**: The Admin page uses complex aggregations to track:
+    - Out of stock items.
+    - Best-selling books and authors by volume.
+    - Non-performing inventory (zero sales).
+    - VIP customers (highest spenders).
+    - Inactive customers (churn risk).
+- **Integrity**: Enforce non-negative stock and unique reviews at the DB level.
 
-### Design System (Stockholm Minimalist)
-- **Primary Color**: `#4A90E2` (Sky Blue)
-- **Background**: `#F8F8F8`
-- **Typography**: Clean, monospace font for a "modern technical" aesthetic.
-- **Focus**: High whitespace and clear typography.
+### UI & UX Logic
+- **Feedback**: Books are marked as "OWNED" in the shop if purchased.
+- **Verification**: Reviews are verified; existing reviews are displayed instead of the "Write Review" button.
+- **Dashboards**: Real-time registration counts on the Events page.
+- **Streamlined Admin**: Focused on BI and recent transactions (limited to latest 5 entries).
 
 ## 📂 Key Files
 - `sql/book_tables_improved.sql`: The primary schema definition.
-- `sql/book_data_improved.sql`: Comprehensive seed data for testing.
-- `webapp/app.js`: Main Express application and database route handlers.
-- `PROJECT.md`: Detailed architectural decisions and learning milestones.
+- `sql/overview.sql`: Business report query collection.
+- `webapp/app.js`: Main logic, session management, and BI queries.
+- `PROJECT.md`: Architectural decisions and milestones.
