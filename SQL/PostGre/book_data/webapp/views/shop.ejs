@@ -74,7 +74,12 @@
                         <% books.forEach(book => { %>
                             <tr>
                                 <td>
-                                    <div style="font-weight: 600;"><%= book.title %></div>
+                                    <div style="font-weight: 600;">
+                                        <%= book.title %>
+                                        <% if (currentCustomer && purchasedBookIds.includes(book.id)) { %>
+                                            <span style="font-size: 0.6em; background: var(--secondary); color: #1d5a4d; padding: 2px 8px; border-radius: 12px; margin-left: 8px; vertical-align: middle;">OWNED</span>
+                                        <% } %>
+                                    </div>
                                     <div style="font-size: 0.75em; color: #888;"><%= book.genre %></div>
                                 </td>
                                 <td><%= book.first_name %> <%= book.last_name %></td>

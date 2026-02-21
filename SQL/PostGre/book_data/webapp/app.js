@@ -64,9 +64,18 @@ app.get('/shop', async (req, res) => {
     const allCustomersRes = await db.query('SELECT * FROM customers ORDER BY first_name');
     
     let currentCustomer = null;
+    let purchasedBookIds = [];
     if (customerId) {
       const custRes = await db.query('SELECT * FROM customers WHERE id = $1', [customerId]);
       currentCustomer = custRes.rows[0];
+
+      // Fetch IDs of books this customer has already bought
+      const purchasedRes = await db.query(`
+        SELECT DISTINCT book_id FROM order_items oi
+        JOIN orders o ON oi.order_id = o.id
+        WHERE o.customer_id = $1
+      `, [customerId]);
+      purchasedBookIds = purchasedRes.rows.map(r => r.book_id);
     }
 
     res.render('shop', { 
@@ -74,7 +83,8 @@ app.get('/shop', async (req, res) => {
       reviews: reviewsRes.rows, 
       customers: allCustomersRes.rows,
       currentCustomer: currentCustomer,
-      search: search
+      search: search,
+      purchasedBookIds: purchasedBookIds
     });
   } catch (err) {
     console.error(err);
@@ -94,13 +104,15 @@ app.get('/reviews', async (req, res) => {
       const custRes = await db.query('SELECT * FROM customers WHERE id = $1', [customerId]);
       currentCustomer = custRes.rows[0];
 
-      // Fetch books this customer has actually bought
+      // Fetch books this customer has actually bought AND their existing reviews
       const boughtRes = await db.query(`
-        SELECT DISTINCT b.id, b.title, a.first_name, a.last_name
+        SELECT DISTINCT b.id, b.title, a.first_name, a.last_name,
+               r.rating as existing_rating, r.comment as existing_comment
         FROM books b
         JOIN authors a ON b.author_id = a.id
         JOIN order_items oi ON b.id = oi.book_id
         JOIN orders o ON oi.order_id = o.id
+        LEFT JOIN reviews r ON b.id = r.book_id AND r.customer_id = o.customer_id
         WHERE o.customer_id = $1
       `, [customerId]);
       boughtBooks = boughtRes.rows;
@@ -136,8 +148,17 @@ app.post('/register', async (req, res) => {
 app.get('/events', async (req, res) => {
   const customerId = req.query.customerId;
   try {
-    // Only fetch events that haven't happened yet
-    const eventsRes = await db.query('SELECT * FROM events WHERE event_date >= NOW() ORDER BY event_date ASC');
+    // Fetch events with registration count, limited to top 100 upcoming
+    const eventsRes = await db.query(`
+      SELECT e.*, COUNT(er.customer_id) as reg_count
+      FROM events e
+      LEFT JOIN event_registrations er ON e.id = er.event_id
+      WHERE e.event_date >= NOW()
+      GROUP BY e.id
+      ORDER BY e.event_date ASC
+      LIMIT 100
+    `);
+    
     const regRes = await db.query(`
       SELECT e.name as event_name, c.first_name, c.last_name, er.registered_at
       FROM event_registrations er

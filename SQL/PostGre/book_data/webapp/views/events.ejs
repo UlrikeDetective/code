@@ -42,25 +42,37 @@
             </div>
         <% } %>
         
-        <h2>Store Events</h2>
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <h2>Store Events</h2>
+            <div style="font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 1px;">
+                * System dashboard: Live Attendance Tracks
+            </div>
+        </div>
+
         <table>
             <thead>
                 <tr>
                     <th>Event</th>
                     <th>Date</th>
                     <th>Location</th>
+                    <th style="text-align: center;">Registrations</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <% if (events.length === 0) { %>
-                    <tr><td colspan="4" style="text-align: center; color: #888; padding: 40px;">No upcoming events at this time.</td></tr>
+                    <tr><td colspan="5" style="text-align: center; color: #888; padding: 40px;">No upcoming events at this time.</td></tr>
                 <% } %>
                 <% events.forEach(e => { %>
                     <tr>
                         <td style="font-weight: 600;"><%= e.name %></td>
                         <td><%= e.event_date.toDateString() %></td>
                         <td><%= e.location %></td>
+                        <td style="text-align: center;">
+                            <span style="background: <%= e.reg_count > 10 ? 'var(--secondary)' : 'var(--background)' %>; padding: 2px 10px; border-radius: 12px; font-weight: 600;">
+                                <%= e.reg_count %>
+                            </span>
+                        </td>
                         <td style="text-align: right;">
                             <% if (currentCustomer) { %>
                                 <form action="/events/register" method="POST">

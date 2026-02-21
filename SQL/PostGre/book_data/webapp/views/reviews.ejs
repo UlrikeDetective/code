@@ -51,9 +51,20 @@
                                         <td style="font-weight: 600;"><%= book.title %></td>
                                         <td><%= book.first_name %> <%= book.last_name %></td>
                                         <td style="text-align: right;">
-                                            <button onclick="document.getElementById('review-form-<%= book.id %>').style.display='block'">Write Review</button>
+                                            <% if (book.existing_rating) { %>
+                                                <span style="color: var(--accent); font-weight: 600;"><%= book.existing_rating %>/5 Rated</span>
+                                            <% } else { %>
+                                                <button onclick="document.getElementById('review-form-<%= book.id %>').style.display='block'">Write Review</button>
+                                            <% } %>
                                         </td>
                                     </tr>
+                                    <% if (book.existing_rating) { %>
+                                        <tr>
+                                            <td colspan="3" style="font-size: 0.9em; padding-top: 0; color: #666; font-style: italic;">
+                                                "<%= book.existing_comment %>"
+                                            </td>
+                                        </tr>
+                                    <% } %>
                                     <tr id="review-form-<%= book.id %>" style="display: none;">
                                         <td colspan="3" style="background: var(--background); padding: 25px;">
                                             <form action="/shop/review" method="POST">
