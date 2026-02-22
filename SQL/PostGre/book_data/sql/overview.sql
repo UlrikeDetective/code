@@ -8,7 +8,8 @@
 -- These help verify data integrity at a glance
 SELECT * FROM authors LIMIT 5;
 SELECT * FROM books ORDER BY id DESC LIMIT 5;
-SELECT * FROM customers ORDER BY id DESC LIMIT 5;
+SELECT * FROM customers ORDER BY id DESC;
+SELECT * FROM customers ORDER BY first_name;
 SELECT * FROM orders ORDER BY id DESC LIMIT 5;
 
 
@@ -18,10 +19,19 @@ SELECT * FROM orders ORDER BY id DESC LIMIT 5;
 SELECT COUNT(*) AS total_customers 
 FROM customers;
 
--- New customers joined in the last month (since 2026-01-21)
+-- New customers joined in the last month
 SELECT COUNT(*) AS new_customers_last_month 
 FROM customers 
-WHERE joined_date >= '2026-02-21'::timestamp - INTERVAL '1 month';
+WHERE joined_date >= CURRENT_DATE - INTERVAL '1 month';
+
+-- New customers joined in the last ... for dashboard
+SELECT 
+    COUNT(*) FILTER (WHERE joined_date >= NOW() - INTERVAL '1 day') AS last_24h,
+    COUNT(*) FILTER (WHERE joined_date >= CURRENT_DATE - INTERVAL '7 days') AS last_week,
+    COUNT(*) FILTER (WHERE joined_date >= CURRENT_DATE - INTERVAL '1 month') AS last_month,
+    COUNT(*) FILTER (WHERE joined_date >= CURRENT_DATE - INTERVAL '3 months') AS last_quarter,
+    COUNT(*) FILTER (WHERE joined_date >= CURRENT_DATE - INTERVAL '1 year') AS last_year
+FROM customers;
 
 
 -- 3. SALES PERFORMANCE
@@ -97,6 +107,14 @@ ORDER BY e.event_date ASC;
 -- ==========================================================
 -- Total Revenue to date
 SELECT SUM(total_amount) AS total_lifetime_revenue 
+FROM orders;
+
+SELECT 
+    SUM(total_amount) FILTER (WHERE order_date >= NOW() - INTERVAL '1 day') AS rev_last_24h,
+    SUM(total_amount) FILTER (WHERE order_date >= CURRENT_DATE - INTERVAL '7 days') AS rev_last_week,
+    SUM(total_amount) FILTER (WHERE order_date >= CURRENT_DATE - INTERVAL '1 month') AS rev_last_month,
+    SUM(total_amount) FILTER (WHERE order_date >= CURRENT_DATE - INTERVAL '3 months') AS rev_last_quarter,
+    SUM(total_amount) FILTER (WHERE order_date >= CURRENT_DATE - INTERVAL '1 year') AS rev_last_year
 FROM orders;
 
 -- Top 5 spending customers (Customer Lifetime Value)
