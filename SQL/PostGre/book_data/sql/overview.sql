@@ -11,6 +11,7 @@ SELECT * FROM books ORDER BY id DESC LIMIT 5;
 SELECT * FROM customers ORDER BY id DESC;
 SELECT * FROM customers ORDER BY first_name;
 SELECT * FROM orders ORDER BY id DESC LIMIT 5;
+Select * from genres order by name;
 
 
 -- 2. CUSTOMER METRICS
