@@ -129,3 +129,22 @@ LIMIT 5;
 -- Average Order Value
 SELECT ROUND(AVG(total_amount), 2) AS average_order_value 
 FROM orders;
+
+
+ --  Customers who bought books by Philip Pullman:
+SELECT DISTINCT c.first_name, c.last_name, c.email
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN order_items oi ON o.id = oi.order_id
+JOIN books b ON oi.book_id = b.id
+JOIN authors a ON b.author_id = a.id
+WHERE a.first_name = 'Philip' AND a.last_name = 'Pullman';
+
+ -- Customers who bought 'Hula':
+
+SELECT DISTINCT c.first_name, c.last_name, c.email
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN order_items oi ON o.id = oi.order_id
+JOIN books b ON oi.book_id = b.id
+WHERE b.title = 'Hula';
