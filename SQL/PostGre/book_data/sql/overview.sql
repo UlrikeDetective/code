@@ -6,13 +6,16 @@
 -- 1. QUICK SYSTEM CHECKS (Basic Table Dumps)
 -- ==========================================================
 -- These help verify data integrity at a glance
-SELECT * FROM authors LIMIT 5;
-SELECT * FROM books ORDER BY id DESC LIMIT 5;
+SELECT * FROM authors order by id;
+SELECT * FROM books ORDER BY id DESC;
 SELECT * FROM customers ORDER BY id DESC;
 SELECT * FROM customers ORDER BY first_name;
-SELECT * FROM orders ORDER BY id DESC LIMIT 5;
+SELECT * FROM orders ORDER BY id DESC;
+Select * from order_items order by id desc;
 Select * from genres order by name;
-
+select * from events order by event_date;
+select * from event_registrations order by registered_at desc;
+select * from reviews order by id desc;
 
 -- 2. CUSTOMER METRICS
 -- ==========================================================
