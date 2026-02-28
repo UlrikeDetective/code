@@ -9,3 +9,5 @@ Scenario: Side Job - giving almost daily morning yoga lessons on the beach (beac
 The price of yoga mats:
 
 Costs of Yoga lessons: single lesson: 15 Euros, 3 lessons: 40 Euros
+
+Please help me build a front end for booking yoga lessons and packages, a back end for my business and business plan
