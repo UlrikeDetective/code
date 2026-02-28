@@ -14,3 +14,5 @@ my costs: yoga mats, gas, car, advertising (blackboards, instagram, co), taxes
 income: paid yoga classes
 
 Please help me build a front end for booking yoga lessons and packages, a back end for my business and business plan
+
+use: postgres, .env, django?, conda
