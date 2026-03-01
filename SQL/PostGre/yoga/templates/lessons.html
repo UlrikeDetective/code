@@ -1,28 +1,105 @@
 {% extends 'base.html' %}
 
+{% block extra_css %}
+<style>
+    .calendar-container {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 2px;
+        background-color: var(--ancient-cobblestone);
+        border: 1px solid var(--ancient-cobblestone);
+    }
+    .calendar-header {
+        background-color: var(--deep-atlantic);
+        color: white;
+        padding: 0.5rem;
+        text-align: center;
+        font-weight: bold;
+    }
+    .calendar-day {
+        background-color: white;
+        min-height: 100px;
+        padding: 5px;
+        position: relative;
+    }
+    .calendar-day.empty {
+        background-color: var(--salt-spray);
+    }
+    .day-number {
+        font-weight: bold;
+        color: var(--ancient-cobblestone);
+    }
+    .lesson-item {
+        background-color: var(--lagoon);
+        font-size: 0.75rem;
+        padding: 3px;
+        margin-top: 3px;
+        border-radius: 3px;
+        cursor: pointer;
+        color: var(--strait-night);
+        border-left: 3px solid var(--med-teal);
+    }
+    .lesson-item.cancelled {
+        text-decoration: line-through;
+        background-color: var(--ancient-cobblestone);
+        border-left-color: var(--strait-night);
+    }
+    .calendar-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+    .today-marker {
+        border: 2px solid var(--golden-sun) !important;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="card">
-    <h2>Upcoming Lessons</h2>
-    <p>Morning sessions: Mon-Sat, 9:00 AM - 10:00 AM</p>
+<div class="calendar-nav">
+    <a href="?year={{ prev_year }}&month={{ prev_month }}" class="btn" style="background-color: var(--deep-atlantic);">&laquo; Previous Month</a>
+    <h2 style="margin: 0;">{{ month_name }} {{ year }}</h2>
+    <a href="?year={{ next_year }}&month={{ next_month }}" class="btn" style="background-color: var(--deep-atlantic);">Next Month &raquo;</a>
 </div>
 
-{% if lessons %}
-    {% for lesson in lessons %}
-    <div class="card" style="border-top-color: var(--med-teal);">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-                <h3>{{ lesson.date|date:"l, F j, Y" }}</h3>
-                <p>Time: {{ lesson.time }} | Status: {% if lesson.is_full %}<span style="color: var(--spanish-red);">FULL</span>{% else %}<span style="color: var(--med-teal);">Open ({{ lesson.attendee_count }}/{{ lesson.max_students }})</span>{% endif %}</p>
-            </div>
-            {% if not lesson.is_full %}
-                <a href="#" class="btn">Book Now</a>
+<div class="calendar-container">
+    <div class="calendar-header">Mon</div>
+    <div class="calendar-header">Tue</div>
+    <div class="calendar-header">Wed</div>
+    <div class="calendar-header">Thu</div>
+    <div class="calendar-header">Fri</div>
+    <div class="calendar-header">Sat</div>
+    <div class="calendar-header">Sun</div>
+
+    {% for week in month_days %}
+        {% for day, weekday in week %}
+            {% if day == 0 %}
+                <div class="calendar-day empty"></div>
+            {% else %}
+                <div class="calendar-day {% if day == today.day and month == today.month and year == today.year %}today-marker{% endif %}">
+                    <span class="day-number">{{ day }}</span>
+                    {% with day_key=day|stringformat:"d" %}
+                        {% for lesson in lessons_by_day.items %}
+                            {% if lesson.0 == day %}
+                                {% for l in lesson.1 %}
+                                    <div class="lesson-item {% if l.is_cancelled %}cancelled{% endif %}">
+                                        {{ l.time|time:"H:i" }} {% if l.is_full %}(Full){% endif %}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                </div>
             {% endif %}
-        </div>
-    </div>
+        {% endfor %}
     {% endfor %}
-{% else %}
-    <div class="card">
-        <p>No lessons currently scheduled. Check back soon for the next morning tide!</p>
-    </div>
-{% endif %}
+</div>
+
+<div class="card" style="margin-top: 2rem;">
+    <h3>Legend</h3>
+    <p><span style="color: var(--med-teal); font-weight: bold;">■</span> Morning Session (9:00 AM)</p>
+    <p><span style="color: var(--strait-night); font-weight: bold;">■</span> Cancelled Lesson</p>
+    <p><span style="color: var(--golden-sun); font-weight: bold;">■</span> Today's Date</p>
+</div>
 {% endblock %}
