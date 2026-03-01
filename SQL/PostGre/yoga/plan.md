@@ -34,9 +34,9 @@ Based on the project requirements, the system must hardcode or allow configurati
 ## 4. Proposed Strategic Approach
 
 ### Phase 1: Environment & Project Setup
-1.  **Conda Setup:** Create a dedicated environment (`conda create -n yoga python=3.12`).
-2.  **Django Init:** Install `django`, `psycopg2-binary`, `python-dotenv`.
-3.  **Database Configuration:** Set up PostgreSQL and link via `.env` to keep credentials secure.
+1.  **Conda Setup:** use conda activate django.
+2.  **Django Init:** Install `django`, `psycopg2-binary`, `python-dotenv`. - already installed
+3.  **Database Configuration:** Set up PostgreSQL and link via `.env` to keep credentials secure. - already created database "yoga" and set-up .env.
 
 ### Phase 2: Data Modeling (The Backend Core)
 Define the following models in Django:
@@ -66,3 +66,37 @@ Define the following models in Django:
 *   **Mobile-First Design:** The owner will use this on a phone at the beach; UI must be simple and high-contrast.
 *   **Weather Dependency:** Lessons depend on good weather. The system needs a "Bulk Cancel & Notify" feature for windy or rainy days.
 *   **Data Persistence:** Ensure Postgres is configured for daily backups of financial records.
+
+## 7. color theme
+
+* Theme: Wind, Whitewash, and the Strait.
+* This palette captures the stark white walls of the old town, the golden shifting dunes of Valdevaqueros, and the deep, swirling blues where two seas collide.
+*  Pueblo Blanco #FFFFFF (Crisp Lime-Wash), #F2F2F2 (Salt Spray), #D1CCC0 (Ancient Cobblestone)
+*  The Two Seas #005F73 (Deep Atlantic), #0A9396 (Mediterranean Teal), #94D2BD 
+(Shallow Lagoon)
+* The Dunes #E9D8A6 (Windblown Sand), #EE9B00 (Golden Hour Sun), #CA6702 (Terra Cotta Roofs)
+* Levante Energy #AE2012 (Spanish Red), #3D5A80 (Kitesurf Blue), #001219 (The Strait at Night)
+
+## 8. Font style
+1. The "Nautical Log" (IBM Plex Mono)
+This is a high-precision, modern monospace font. It feels like a technical readout for wind speeds or a ship’s GPS. It balances the "high-tech" kiteboarding scene with the ruggedness of the Atlantic.
+Vibe: Professional, clean, and rhythmic.
+Best for: Clean website layouts or minimalist branding.
+
+2. The "Sun-Bleached Postcard" (Courier Prime)
+Unlike the standard Courier you find on old Windows PCs, Courier Prime was redesigned for screen legibility while keeping the authentic typewriter soul. It captures the "Pueblo Blanco" (White Village) aesthetic—simple, honest, and timeless.
+Vibe: Nostalgic, literary, and relaxed.
+Best for: Long-form body text or personal travel blogs.
+
+3. The "Salt-Sprayed Journal" (Special Elite)
+If you want something that looks like an old typewriter that’s been sitting in a seaside cafe for 30 years, this is it. It has a slightly "gritty" ink-bleed effect that mimics the weathered texture of the Castillo de Guzmán el Bueno.
+Vibe: Rugged, bohemian, and authentic.
+Best for: Headlines, quotes, or social media graphics.
+
+4. The "Surf Culture" (Space Mono)
+This font is eclectic and geometric. It has a "futuristic-retro" feel that matches the high-energy, colorful sails of the kitesurfers at Valdevaqueros. It’s quirky, just like Tarifa’s narrow, winding streets.
+Vibe: Eclectic, modern, and high-energy.
+Best for: Bold headers or call-to-action buttons.
+
+Pairing: Vintage/Boho Look Headline: Special Elite Sub-header: Courier Prime (Italic)Body Text: Courier Prime or
+Modern/Technical Look Headline: Space Mono (Bold) Sub-header: IBM Plex Mono Body Text: Roboto Mono

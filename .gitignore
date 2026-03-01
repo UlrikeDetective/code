@@ -5,6 +5,7 @@
 # Build output
 bin/
 obj/
+*.env
 
 # DACPAC files
 *.dacpac
