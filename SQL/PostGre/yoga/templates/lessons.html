@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Upcoming Lessons</h2>
+    <p>Morning sessions: Mon-Sat, 9:00 AM - 10:00 AM</p>
+</div>
+
+{% if lessons %}
+    {% for lesson in lessons %}
+    <div class="card" style="border-top-color: var(--med-teal);">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h3>{{ lesson.date|date:"l, F j, Y" }}</h3>
+                <p>Time: {{ lesson.time }} | Status: {% if lesson.is_full %}<span style="color: var(--spanish-red);">FULL</span>{% else %}<span style="color: var(--med-teal);">Open ({{ lesson.attendee_count }}/{{ lesson.max_students }})</span>{% endif %}</p>
+            </div>
+            {% if not lesson.is_full %}
+                <a href="#" class="btn">Book Now</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="card">
+        <p>No lessons currently scheduled. Check back soon for the next morning tide!</p>
+    </div>
+{% endif %}
+{% endblock %}

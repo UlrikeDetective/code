@@ -1,4 +1,9 @@
-# Strategic Plan: Yoga Studio Management System
+# Strategic Plan: Yoga Studio Management System (Tarifa Beach Yoga)
+
+## 0. Project Description
+**Tarifa Beach Yoga** is a full-stack management system designed for a boutique side-business offering morning yoga sessions on the sun-bleached shores of Tarifa. The application serves two primary purposes: providing a seamless, "Zen" booking experience for students (both local residents and seasonal visitors) and a robust "Beach Mode" dashboard for the owner to manage finances, inventory, and attendance under the bright Andalusian sun.
+
+The project is a learning-focused implementation using **Django** and **PostgreSQL**, prioritizing functional business logic and a high-contrast, mobile-first aesthetic inspired by the "Pueblo Blanco" and the swirling blues of the Strait.
 
 ## 1. Understanding the Goal
 The objective is to build a full-stack web application for a beach yoga business in Tarifa using **Django** and **PostgreSQL**. The system will manage student bookings (front end) and business operations/analytics (back end).
@@ -33,10 +38,12 @@ Based on the project requirements, the system must hardcode or allow configurati
 
 ## 4. Proposed Strategic Approach
 
-### Phase 1: Environment & Project Setup
-1.  **Conda Setup:** use conda activate django.
-2.  **Django Init:** Install `django`, `psycopg2-binary`, `python-dotenv`. - already installed
-3.  **Database Configuration:** Set up PostgreSQL and link via `.env` to keep credentials secure. - already created database "yoga" and set-up .env.
+### Phase 1: Environment & Project Setup (Completed Tasks Marked)
+1.  **Conda Setup:** [DONE] Created and activated `yoga` environment.
+2.  **Django Dependencies:** [DONE] Installed `django`, `psycopg2-binary`, `python-dotenv`.
+3.  **Database Configuration:** [DONE] Created `yoga` database and configured `.env`.
+4.  **Django Initialization:** Initialize project with `django-admin startproject yoga_project .`.
+5.  **App Creation:** Create the core logic app: `python manage.py startapp core`.
 
 ### Phase 2: Data Modeling (The Backend Core)
 Define the following models in Django:

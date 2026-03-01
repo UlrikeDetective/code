@@ -21,26 +21,18 @@ This project is a full-stack web application designed for a yoga business in Tar
 
 ## Building and Running
 
-### 1. Environment Setup
-Create and activate the Conda environment:
+### 1. Environment Setup (DONE)
+The Conda environment is already created and active:
 ```bash
-conda create -n yoga python=3.12
 conda activate yoga
 ```
 
-### 2. Dependency Installation
-```bash
-pip install django psycopg2-binary python-dotenv django-environ
-```
+### 2. Dependency Installation (DONE)
+Required packages are installed: `django`, `psycopg2-binary`, `python-dotenv`, `django-environ`.
 
 ### 3. Database & Initial Setup
-1.  Configure `.env` with `DATABASE_URL`, `SECRET_KEY`, and `DEBUG` mode.
-2.  Initialize the Django project:
-```bash
-django-admin startproject yoga_project .
-python manage.py startapp core
-```
-3.  Run migrations:
+1.  **Configure `.env` (DONE):** Database `yoga` is created; `.env` is set up with `DATABASE_URL`.
+2.  **Next Steps:** Initialize the Django project and run initial migrations:
 ```bash
 python manage.py migrate
 ```

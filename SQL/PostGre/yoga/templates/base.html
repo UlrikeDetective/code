@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Tarifa Beach Yoga{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Pueblo Blanco */
+            --pueblo-blanco: #FFFFFF;
+            --salt-spray: #F2F2F2;
+            --ancient-cobblestone: #D1CCC0;
+            
+            /* The Two Seas */
+            --deep-atlantic: #005F73;
+            --med-teal: #0A9396;
+            --lagoon: #94D2BD;
+            
+            /* The Dunes */
+            --dune-sand: #E9D8A6;
+            --golden-sun: #EE9B00;
+            --terra-cotta: #CA6702;
+            
+            /* Levante Energy */
+            --spanish-red: #AE2012;
+            --kitesurf-blue: #3D5A80;
+            --strait-night: #001219;
+        }
+
+        body {
+            font-family: 'IBM+Plex+Mono', monospace;
+            background-color: var(--salt-spray);
+            color: var(--strait-night);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--strait-night);
+            color: var(--pueblo-blanco);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1, h2, h3, .cta-button {
+            font-family: 'Space Mono', monospace;
+        }
+
+        nav a {
+            color: var(--lagoon);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--golden-sun);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: var(--pueblo-blanco);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-top: 5px solid var(--med-teal);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--med-teal);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--deep-atlantic);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--ancient-cobblestone);
+            font-size: 0.8rem;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Tarifa Beach Yoga</h1>
+        </div>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'lessons' %}">Lessons</a>
+            <a href="{% url 'packages' %}">Packages</a>
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Tarifa Beach Yoga - Wind, Whitewash, and the Strait.
+    </div>
+</body>
+</html>
