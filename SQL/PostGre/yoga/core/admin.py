@@ -3,9 +3,9 @@ from .models import Customer, Lesson, Package, Expense, Inventory
 
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'customer_type', 'created_at')
-    list_filter = ('customer_type',)
-    search_fields = ('name', 'email')
+    list_display = ('name', 'email', 'username', 'city', 'country', 'customer_type', 'created_at')
+    list_filter = ('customer_type', 'country', 'city')
+    search_fields = ('name', 'email', 'username')
 
 @admin.register(Lesson)
 class LessonAdmin(admin.ModelAdmin):

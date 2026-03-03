@@ -7,9 +7,12 @@ class Customer(models.Model):
         ('LOCAL', 'Local Resident'),
         ('VISITOR', 'Visitor'),
     ]
+    username = models.CharField(max_length=100, unique=True, blank=True, null=True)
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=20, blank=True)
+    city = models.CharField(max_length=100, blank=True)
+    country = models.CharField(max_length=100, blank=True)
     customer_type = models.CharField(max_length=10, choices=CUSTOMER_TYPES, default='VISITOR')
     created_at = models.DateTimeField(auto_now_add=True)
 

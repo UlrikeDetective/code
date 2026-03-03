@@ -83,9 +83,11 @@
                         {% for lesson in lessons_by_day.items %}
                             {% if lesson.0 == day %}
                                 {% for l in lesson.1 %}
-                                    <div class="lesson-item {% if l.is_cancelled %}cancelled{% endif %}">
-                                        {{ l.time|time:"H:i" }} {% if l.is_full %}(Full){% endif %}
-                                    </div>
+                                    <a href="{% url 'book_lesson' l.id %}" style="text-decoration: none;">
+                                        <div class="lesson-item {% if l.is_cancelled %}cancelled{% endif %}">
+                                            {{ l.time|time:"H:i" }} {% if l.is_full %}(Full){% endif %}
+                                        </div>
+                                    </a>
                                 {% endfor %}
                             {% endif %}
                         {% endfor %}

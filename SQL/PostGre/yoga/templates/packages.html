@@ -1,35 +1,63 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2 style="text-align: center; color: var(--deep-atlantic); margin-bottom: 2rem;">Yoga Packages & Lesson Packs</h2>
+<h2 style="text-align: center; color: var(--deep-atlantic); margin-bottom: 2rem; font-family: 'Space Mono', monospace;">Yoga Packages & Lesson Packs</h2>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+    <!-- Single Lesson -->
     <div class="card" style="border-top-color: var(--lagoon); text-align: center;">
         <h3>Single Lesson</h3>
         <p style="font-size: 2rem; font-weight: bold; color: var(--med-teal);">15€</p>
         <p>Drop-in session. Perfect for a one-time experience.</p>
-        <a href="#" class="btn" style="width: 80%;">Buy Now</a>
+        <form action="{% url 'buy_package' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="total_lessons" value="1">
+            <input type="email" name="email" required placeholder="Your Email" 
+                   style="width: 80%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+            <button type="submit" class="btn" style="width: 80%;">Buy Now</button>
+        </form>
     </div>
     
+    <!-- 3 Lessons -->
     <div class="card" style="border-top-color: var(--med-teal); text-align: center;">
         <h3>3 Lessons</h3>
         <p style="font-size: 2rem; font-weight: bold; color: var(--med-teal);">40€</p>
         <p>Short stay package. Experience the beach vibe.</p>
-        <a href="#" class="btn" style="width: 80%;">Buy Now</a>
+        <form action="{% url 'buy_package' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="total_lessons" value="3">
+            <input type="email" name="email" required placeholder="Your Email" 
+                   style="width: 80%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+            <button type="submit" class="btn" style="width: 80%;">Buy Now</button>
+        </form>
     </div>
 
+    <!-- 5 Lessons -->
     <div class="card" style="border-top-color: var(--deep-atlantic); text-align: center;">
         <h3>5 Lessons</h3>
         <p style="font-size: 2rem; font-weight: bold; color: var(--med-teal);">50€</p>
         <p>A week of yoga. Deepen your practice on the sand.</p>
-        <a href="#" class="btn" style="width: 80%;">Buy Now</a>
+        <form action="{% url 'buy_package' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="total_lessons" value="5">
+            <input type="email" name="email" required placeholder="Your Email" 
+                   style="width: 80%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+            <button type="submit" class="btn" style="width: 80%;">Buy Now</button>
+        </form>
     </div>
 
+    <!-- 10 Lessons -->
     <div class="card" style="border-top-color: var(--strait-night); text-align: center;">
         <h3>10 Lessons</h3>
         <p style="font-size: 2rem; font-weight: bold; color: var(--med-teal);">100€</p>
         <p>Best for locals & long stays. Join our community.</p>
-        <a href="#" class="btn" style="width: 80%;">Buy Now</a>
+        <form action="{% url 'buy_package' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="total_lessons" value="10">
+            <input type="email" name="email" required placeholder="Your Email" 
+                   style="width: 80%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+            <button type="submit" class="btn" style="width: 80%;">Buy Now</button>
+        </form>
     </div>
 </div>
 {% endblock %}
