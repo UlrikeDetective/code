@@ -3,11 +3,11 @@ id,username,email,full_name,city,country,resident
 1,PixelPenguin,penguin@example.com,Arctic Wanderer,Oulu,Finland,no
 14,BigBenBeliever,bigben@example.com,Benjamin Clock,London,UK,no
 64,LibertyBellFan,libertybell@example.com,Franklin Bell,New York City,USA,no
-65,MiamiSunshine,miamisunshine@example.com,Sophia Ocean,Miami,USA,no    
+65,MiamiSunshine,miamisunshine@example.com,Sophia Ocean,Miami,USA,no
 66,AlaskaExplorer,alaska@example.com,Hannah Glacier,Anchorage,USA,no
-2,SkyChaser,sky@example.com,Skyline Dreamer
-3,MountainGoat,goat@example.com,Rocky Trails
-4,RiverWanderer,river@example.com,Flowing Spirit
+2,SkyChaser,sky@example.com,Skyline Dreamer,Las Vegas,USA,no
+3,MountainGoat,goat@example.com,Rocky Trails,Corralejo,Spain,no
+4,RiverWanderer,river@example.com,Flowing Spirit,Tarifa,Spain,yes
 5,DesertFox,fox@example.com,Sahara Rover
 6,TechTrekker,techtrekker@example.com,Digital Nomad
 7,TeaLover,tea@example.com,Elizabeth Green
@@ -1469,7 +1469,7 @@ id,username,email,full_name,city,country,resident
 1468,SamSmith,sam@music.com,Sam Smith
 1469,FrankOcean,frank@music.com,Frank Ocean
 1470,TravisScott,travis@music.com,Travis Scott
-1471,TylerTheCreator,tylerthecreator@music.com,Tyler, The Creator
+1471,TylerTheCreator,tylerthecreator@music.com,Tyler,The Creator
 1472,MeganTheeStallion,megan@music.com,Megan Thee Stallion
 1473,Shakira,shakira@music.com,Shakira
 1474,LadyGaga,gaga@music.com,Lady Gaga
