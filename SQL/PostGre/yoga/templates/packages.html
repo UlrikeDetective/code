@@ -15,8 +15,16 @@
         <form action="{% url 'buy_package' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="total_lessons" value="1">
-            <input type="email" name="email" required placeholder="Your Email" 
-                   style="width: 80%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+            
+            {% if session_email %}
+                <p style="font-size: 0.8rem; margin-bottom: 1rem;">Zen: <strong>{{ session_email }}</strong></p>
+                <input type="hidden" name="email" value="{{ session_email }}">
+            {% else %}
+                <input type="text" name="name" placeholder="Your Name" style="width: 80%; padding: 0.5rem; margin-bottom: 0.5rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+                <input type="email" name="email" required placeholder="Your Email" 
+                       style="width: 80%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+            {% endif %}
+            
             <button type="submit" class="btn" style="width: 80%;">Buy Now</button>
         </form>
     </div>
@@ -29,8 +37,16 @@
         <form action="{% url 'buy_package' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="total_lessons" value="3">
-            <input type="email" name="email" required placeholder="Your Email" 
-                   style="width: 80%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+            
+            {% if session_email %}
+                <p style="font-size: 0.8rem; margin-bottom: 1rem;">Zen: <strong>{{ session_email }}</strong></p>
+                <input type="hidden" name="email" value="{{ session_email }}">
+            {% else %}
+                <input type="text" name="name" placeholder="Your Name" style="width: 80%; padding: 0.5rem; margin-bottom: 0.5rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+                <input type="email" name="email" required placeholder="Your Email" 
+                       style="width: 80%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+            {% endif %}
+            
             <button type="submit" class="btn" style="width: 80%;">Buy Now</button>
         </form>
     </div>
@@ -43,8 +59,16 @@
         <form action="{% url 'buy_package' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="total_lessons" value="5">
-            <input type="email" name="email" required placeholder="Your Email" 
-                   style="width: 80%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+            
+            {% if session_email %}
+                <p style="font-size: 0.8rem; margin-bottom: 1rem;">Zen: <strong>{{ session_email }}</strong></p>
+                <input type="hidden" name="email" value="{{ session_email }}">
+            {% else %}
+                <input type="text" name="name" placeholder="Your Name" style="width: 80%; padding: 0.5rem; margin-bottom: 0.5rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+                <input type="email" name="email" required placeholder="Your Email" 
+                       style="width: 80%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+            {% endif %}
+            
             <button type="submit" class="btn" style="width: 80%;">Buy Now</button>
         </form>
     </div>
@@ -57,8 +81,16 @@
         <form action="{% url 'buy_package' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="total_lessons" value="10">
-            <input type="email" name="email" required placeholder="Your Email" 
-                   style="width: 80%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+            
+            {% if session_email %}
+                <p style="font-size: 0.8rem; margin-bottom: 1rem;">Zen: <strong>{{ session_email }}</strong></p>
+                <input type="hidden" name="email" value="{{ session_email }}">
+            {% else %}
+                <input type="text" name="name" placeholder="Your Name" style="width: 80%; padding: 0.5rem; margin-bottom: 0.5rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+                <input type="email" name="email" required placeholder="Your Email" 
+                       style="width: 80%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px;">
+            {% endif %}
+            
             <button type="submit" class="btn" style="width: 80%;">Buy Now</button>
         </form>
     </div>

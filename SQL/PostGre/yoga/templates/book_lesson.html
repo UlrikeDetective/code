@@ -28,13 +28,21 @@
     <form method="post">
         {% csrf_token %}
         <div style="margin-bottom: 1.5rem;">
-            <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Your Email:</label>
-            <input type="email" id="email" name="email" required placeholder="e.g. penguin@example.com" 
-                   style="width: 100%; padding: 0.8rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px; font-family: inherit;">
-            <small style="color: var(--ancient-cobblestone);">Use the email associated with your account.</small>
+            {% if session_email %}
+                <p>Booking as: <strong>{{ session_email }}</strong></p>
+                <input type="hidden" name="email" value="{{ session_email }}">
+                <p style="font-size: 0.8rem;"><a href="{% url 'logout' %}" style="color: var(--spanish-red);">Not you? Logout</a></p>
+            {% else %}
+                <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Your Email:</label>
+                <input type="email" id="email" name="email" required placeholder="e.g. penguin@example.com" 
+                       style="width: 100%; padding: 0.8rem; border: 1px solid var(--ancient-cobblestone); border-radius: 4px; font-family: inherit;">
+                <small style="color: var(--ancient-cobblestone);">Use the email associated with your account.</small>
+            {% endif %}
         </div>
         
-        <button type="submit" class="btn" style="width: 100%;">Confirm Booking</button>
+        {% if not lesson.is_full and not lesson.is_cancelled %}
+            <button type="submit" class="btn" style="width: 100%;">Confirm Booking</button>
+        {% endif %}
     </form>
     
     <div style="margin-top: 1rem; text-align: center;">

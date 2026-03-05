@@ -41,7 +41,7 @@ WARNING: This is a development server. Do not use it in a production setting. Us
 For more information on production servers see: https://docs.djangoproject.com/en/6.0/howto/deployment/
 
 Build a Business Plan
-Add to the calendar behind the yoga session how many spots / places are booked
+Add to the calendar behind the yoga session how many spots / places are booked - checked
 When booking a yoga session / package - please keep the customer "logged in" until the customer logs out. Thats easier with booking classes.
 When logged in, please show the customer which classes they have already booked in the calendar.
 In the owners dashboard, please show the customers from Tarifa, which last booked classes is less than one week away.

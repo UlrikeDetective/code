@@ -62,6 +62,20 @@
             color: var(--golden-sun);
         }
 
+        nav a.logout-link {
+            color: var(--spanish-red);
+            font-size: 0.8rem;
+        }
+
+        .user-status {
+            font-size: 0.8rem;
+            color: var(--deep-atlantic);
+            margin-left: 20px;
+            font-style: italic;
+            border-left: 1px solid var(--ancient-cobblestone);
+            padding-left: 10px;
+        }
+
         .container {
             max-width: 1000px;
             margin: 2rem auto;
@@ -113,6 +127,13 @@
             <a href="{% url 'packages' %}">Packages</a>
             <a href="{% url 'check_balance' %}">Balance</a>
             <a href="{% url 'dashboard' %}">Dashboard</a>
+            
+            {% if request.session.customer_email %}
+                <span class="user-status">
+                    Zen: <strong>{{ request.session.customer_name }}</strong>
+                    <a href="{% url 'logout' %}" class="logout-link" style="margin-left: 10px;">(Logout)</a>
+                </span>
+            {% endif %}
         </nav>
     </header>
 

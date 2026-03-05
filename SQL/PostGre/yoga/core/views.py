@@ -54,10 +54,18 @@ def lessons(request):
 
 def book_lesson(request, lesson_id):
     lesson = get_object_or_404(Lesson, pk=lesson_id)
+    # Get email from session if logged in
+    session_email = request.session.get('customer_email')
+    
     if request.method == 'POST':
-        email = request.POST.get('email', '').strip().lower()
+        email = request.POST.get('email', session_email).strip().lower()
         try:
             customer = Customer.objects.get(email=email)
+            
+            # "Log in" the user by saving to session
+            request.session['customer_email'] = email
+            request.session['customer_name'] = customer.name
+            
             if lesson.is_full:
                 messages.error(request, "This lesson is already full.")
             elif lesson.is_cancelled:
@@ -79,14 +87,20 @@ def book_lesson(request, lesson_id):
         except Customer.DoesNotExist:
             messages.error(request, "Customer with this email not found. Please ask the admin to add you.")
     
-    return render(request, 'book_lesson.html', {'lesson': lesson})
+    return render(request, 'book_lesson.html', {'lesson': lesson, 'session_email': session_email})
 
 def packages(request):
-    return render(request, 'packages.html')
+    return render(request, 'packages.html', {'session_email': request.session.get('customer_email')})
 
 def buy_package(request):
     if request.method == 'POST':
-        email = request.POST.get('email', '').strip().lower()
+        # Use session email if available and not provided in form
+        email = request.POST.get('email') or request.session.get('customer_email')
+        if not email:
+            messages.error(request, "Email is required.")
+            return redirect('packages')
+            
+        email = email.strip().lower()
         name = request.POST.get('name', '').strip() or email.split('@')[0].capitalize()
         total_lessons = int(request.POST.get('total_lessons', 1))
         
@@ -99,6 +113,10 @@ def buy_package(request):
             email=email,
             defaults={'name': name, 'customer_type': 'VISITOR'}
         )
+        
+        # Update session info
+        request.session['customer_email'] = email
+        request.session['customer_name'] = customer.name
         
         Package.objects.create(
             customer=customer,
@@ -118,18 +136,36 @@ def buy_package(request):
 
 def check_balance(request):
     packages = []
-    email = ""
+    # Try to get email from session first
+    email = request.session.get('customer_email', "")
+    
     if request.method == 'POST':
         email = request.POST.get('email', '').strip().lower()
+        
+    if email:
         try:
             customer = Customer.objects.get(email=email)
+            # Update session if they manually searched and found themselves
+            request.session['customer_email'] = email
+            request.session['customer_name'] = customer.name
+            
             packages = Package.objects.filter(customer=customer).order_by('-purchase_date')
-            if not packages.exists():
+            if not packages.exists() and request.method == 'POST':
                 messages.info(request, "No packages found for this email.")
         except Customer.DoesNotExist:
-            messages.error(request, "Customer with this email not found.")
+            if request.method == 'POST':
+                messages.error(request, "Customer with this email not found.")
             
     return render(request, 'check_balance.html', {'packages': packages, 'email': email})
+
+def logout(request):
+    # Clear customer session data
+    if 'customer_email' in request.session:
+        del request.session['customer_email']
+    if 'customer_name' in request.session:
+        del request.session['customer_name']
+    messages.info(request, "You have been logged out.")
+    return redirect('home')
 
 def dashboard(request):
     # Summary data for the owner
