@@ -2,6 +2,7 @@ import calendar
 from datetime import date, datetime, timedelta
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.db.models import Max
 from .models import Lesson, Customer, Package, Expense
 
 def home(request):
@@ -198,6 +199,19 @@ def dashboard(request):
     # Get today's lessons
     today_lessons = Lesson.objects.filter(date=date.today()).order_by('time')
     
+    # Active Tarifa Locals: Customers from Tarifa with a lesson within +/- 7 days
+    today = date.today()
+    week_ago = today - timedelta(days=7)
+    week_ahead = today + timedelta(days=7)
+    
+    active_tarifa_locals = Customer.objects.filter(
+        city__iexact='Tarifa'
+    ).annotate(
+        last_lesson_date=Max('lessons_attended__date')
+    ).filter(
+        last_lesson_date__range=[week_ago, week_ahead]
+    ).order_by('last_lesson_date')
+    
     # Profit calculation
     total_expenses = sum(e.amount for e in Expense.objects.all())
     total_income = sum(p.price_paid for p in Package.objects.all())
@@ -206,6 +220,7 @@ def dashboard(request):
         'customers_count': customers_count,
         'lessons_count': lessons_count,
         'today_lessons': today_lessons,
+        'active_tarifa_locals': active_tarifa_locals,
         'total_expenses': total_expenses,
         'total_income': total_income,
     }
