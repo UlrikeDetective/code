@@ -22,10 +22,14 @@ As the admin of the Yoga Studio Management System, you can manage your daily les
 *   Add a reason in the **Notes** section (e.g., "Too windy - Levante").
 *   Click **Save**. The lesson will appear as "Struck-through" on the calendar for students to see.
 
-### Marking Attendance
-*   Open a lesson in the Admin interface.
-*   Use the **Attendees** multi-select box to add/remove customers who attended.
-*   *Note: In the future, this will be simplified with a dedicated "Beach Mode" button on the owner dashboard.*
+### Marking Attendance (Beach Mode)
+*   Instead of navigating through the admin menu, use the **Owner Dashboard**.
+*   All lessons scheduled for today will appear in the **"Today's Lessons"** section.
+*   Click the **"Mark Attendance"** button next to the lesson. This will take you directly to the attendee list for that specific session.
+*   Check or uncheck the customers who are on the beach with you and click **Save**.
+
+### Tracking Local Engagement
+*   The **"Active Tarifa Locals"** section automatically shows you students from Tarifa who have booked a lesson in the last 7 days or have one coming up this week. This helps you identify your most consistent local practitioners at a glance.
 
 ## 3. Managing Packages & Expenses
 *   **Packages:** When a customer buys a 10-pack, add it under **Core > Packages**. The system will track the remaining lessons.

@@ -45,18 +45,17 @@ Based on the project requirements, the system must hardcode or allow configurati
 2.  **Migrations:** [DONE] Database schema applied to PostgreSQL.
 3.  **Admin Registration:** [DONE] All models registered for easy management.
 
-### Phase 3: Business Logic & Dashboards [IN PROGRESS]
-1.  **Booking Logic:** Automate credit deduction. Block bookings once 20 spots are filled.
-2.  **Financial Reporting:** Create an owner-only view calculating:
-    *   **Gross Income** (Package sales).
-    *   **Net Profit** (Income minus Expenses).
-3.  **Seed Data:** [DONE] 313 lessons created for 2026 (Mon-Sat 9am).
+### Phase 3: Business Logic & Dashboards [COMPLETED]
+1.  **Booking Logic:** [DONE] Credit deduction, session-based login, and capacity blocking.
+2.  **Financial Reporting:** [DONE] Owner view with gross income, expenses, and profit.
+3.  **Advanced Tracking:** [DONE] "Active Tarifa Locals" monitoring for local engagement.
+4.  **Seed Data:** [DONE] 2026 schedule created.
 
-### Phase 4: Frontend Development [IN PROGRESS]
-1.  **Design Theme:** [DONE] "Wind, Whitewash, and the Strait" theme implemented with custom CSS variables.
-2.  **Monthly Calendar:** [DONE] Dynamic monthly view with navigation and 2026 schedule integration.
-3.  **Owner Dashboard:** [INITIAL VERSION DONE] Basic overview of counts and profit/loss.
-4.  **Public Booking:** [TODO] Finalize student-facing booking flow.
+### Phase 4: Frontend Development [COMPLETED]
+1.  **Design Theme:** [DONE] "Wind, Whitewash, and the Strait" with 🪷 Lotus iconography.
+2.  **Monthly Calendar:** [DONE] Navigation, booked highlights, and real-time spot counts.
+3.  **Owner Dashboard:** [DONE] Three-column grid with attendance and local tracking.
+4.  **Public Booking:** [DONE] Smooth flow with session persistence and "Balance Check" feature.
 
 ## 7. Color Theme (Implemented)
 * **Theme:** Wind, Whitewash, and the Strait.

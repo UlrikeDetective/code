@@ -4,13 +4,16 @@
 This project is a full-stack web application designed for a yoga business in Tarifa. It handles student bookings for beach yoga lessons and provides the business owner with financial tracking and management tools.
 
 ### Key Features
-*   **Student Interface:** Booking for solo yoga lessons or multi-class packages.
+*   **Student Interface:** 
+    *   **Zen Session Login:** Remembers students after their first booking/purchase for a seamless experience.
+    *   **Lotus Flower Theme:** High-contrast, Zen-inspired aesthetic with 🪷 icons for booked sessions.
+    *   **Live Calendar:** Real-time spot tracking (e.g., 5/20) and availability color codes.
+    *   **Balance Check:** Students can check their remaining pack credits anytime.
 *   **Monthly Calendar:** Dynamic view of all scheduled lessons for 2026.
 *   **Business Management (Owner Dashboard):**
-    *   **Attendance Tracking:** Manage a database of residents/locals and visitors.
-    *   **Package Management:** Track class credit balances for purchased packages.
-    *   **Financial Tracking:** Monitor income from classes and expenses (gas, car, advertising, taxes).
-    *   **Inventory Management:** Track yoga mat purchases and lifespans.
+    *   **Beach Mode Attendance:** Mark attendance directly from the dashboard for today's sessions.
+    *   **Active Tarifa Locals:** Automatic tracking of local residents with recent or upcoming bookings.
+    *   **Financial Tracking:** Monitor income from packages and total expenses.
 
 ### Tech Stack
 *   **Framework:** Django (Python)
