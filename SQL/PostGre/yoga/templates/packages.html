@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2 style="text-align: center; color: var(--deep-atlantic); margin-bottom: 2rem; font-family: 'Space Mono', monospace;">Yoga Packages & Lesson Packs</h2>
+<h2 style="text-align: center; color: var(--deep-atlantic); margin-bottom: 0.5rem; font-family: 'Space Mono', monospace;">Yoga Packages & Lesson Packs</h2>
+<p style="text-align: center; margin-bottom: 2rem;">
+    Already have a pack? <a href="{% url 'check_balance' %}" style="color: var(--med-teal); font-weight: bold;">Check your remaining lessons</a>
+</p>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
     <!-- Single Lesson -->

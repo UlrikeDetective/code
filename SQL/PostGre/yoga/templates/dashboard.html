@@ -24,9 +24,21 @@
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
     <div class="card">
-        <h3>Quick Attendance</h3>
-        <p>Mark students for today's morning flow.</p>
-        <a href="#" class="btn" style="width: 100%; text-align: center;">Open Attendance Log</a>
+        <h3>Today's Lessons</h3>
+        {% if today_lessons %}
+            {% for l in today_lessons %}
+                <div style="background: var(--lagoon); padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <strong>{{ l.time|time:"H:i" }}</strong>
+                        <div style="font-size: 0.8rem; color: var(--deep-atlantic);">{{ l.attendee_count }}/{{ l.max_students }} Students</div>
+                    </div>
+                    <a href="/admin/core/lesson/{{ l.id }}/change/" class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background-color: var(--deep-atlantic);">Mark Attendance</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p style="color: var(--ancient-cobblestone);">No lessons scheduled for today.</p>
+        {% endif %}
+        <a href="{% url 'lessons' %}" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;">View Full Calendar</a>
     </div>
     <div class="card">
         <h3>Log Expense</h3>

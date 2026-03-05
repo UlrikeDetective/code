@@ -87,31 +87,58 @@ def packages(request):
 def buy_package(request):
     if request.method == 'POST':
         email = request.POST.get('email', '').strip().lower()
+        name = request.POST.get('name', '').strip() or email.split('@')[0].capitalize()
         total_lessons = int(request.POST.get('total_lessons', 1))
         
         # Mapping prices
         prices = {1: 15, 3: 40, 5: 50, 10: 100}
         price_paid = prices.get(total_lessons, 15)
 
-        try:
-            customer = Customer.objects.get(email=email)
-            Package.objects.create(
-                customer=customer,
-                total_lessons=total_lessons,
-                remaining_lessons=total_lessons,
-                price_paid=price_paid
-            )
+        # Get or create customer
+        customer, created = Customer.objects.get_or_create(
+            email=email,
+            defaults={'name': name, 'customer_type': 'VISITOR'}
+        )
+        
+        Package.objects.create(
+            customer=customer,
+            total_lessons=total_lessons,
+            remaining_lessons=total_lessons,
+            price_paid=price_paid
+        )
+        
+        if created:
+            messages.success(request, f"Welcome {name}! Successfully purchased {total_lessons} lesson(s) for {price_paid}€.")
+        else:
             messages.success(request, f"Successfully purchased {total_lessons} lesson(s) for {price_paid}€.")
-            return redirect('lessons')
-        except Customer.DoesNotExist:
-            messages.error(request, "Customer with this email not found. Please ask the admin to add you.")
+            
+        return redirect('lessons')
             
     return redirect('packages')
+
+def check_balance(request):
+    packages = []
+    email = ""
+    if request.method == 'POST':
+        email = request.POST.get('email', '').strip().lower()
+        try:
+            customer = Customer.objects.get(email=email)
+            packages = Package.objects.filter(customer=customer).order_by('-purchase_date')
+            if not packages.exists():
+                messages.info(request, "No packages found for this email.")
+        except Customer.DoesNotExist:
+            messages.error(request, "Customer with this email not found.")
+            
+    return render(request, 'check_balance.html', {'packages': packages, 'email': email})
 
 def dashboard(request):
     # Summary data for the owner
     customers_count = Customer.objects.count()
     lessons_count = Lesson.objects.count()
+    
+    # Get today's lessons
+    today_lessons = Lesson.objects.filter(date=date.today()).order_by('time')
+    
     # Profit calculation
     total_expenses = sum(e.amount for e in Expense.objects.all())
     total_income = sum(p.price_paid for p in Package.objects.all())
@@ -119,6 +146,7 @@ def dashboard(request):
     context = {
         'customers_count': customers_count,
         'lessons_count': lessons_count,
+        'today_lessons': today_lessons,
         'total_expenses': total_expenses,
         'total_income': total_income,
     }

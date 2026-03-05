@@ -5,7 +5,23 @@
     <h2 style="color: var(--deep-atlantic); font-family: 'Space Mono', monospace;">Book Lesson</h2>
     <p><strong>Date:</strong> {{ lesson.date }}</p>
     <p><strong>Time:</strong> {{ lesson.time }}</p>
-    <p><strong>Available Spots:</strong> {{ lesson.max_students|add:"-0" }} ({{ lesson.attendee_count }} already booked)</p>
+    
+    <div style="margin: 1.5rem 0; padding: 1rem; border-radius: 4px; background-color: var(--salt-spray); text-align: center;">
+        <span style="font-size: 1.5rem; font-weight: bold; color: var(--deep-atlantic);">{{ lesson.attendee_count }} / {{ lesson.max_students }}</span>
+        <div style="font-size: 0.8rem; color: var(--ancient-cobblestone);">Spots Booked</div>
+    </div>
+
+    {% if lesson.is_almost_full %}
+        <div style="background-color: #fff3cd; color: #856404; padding: 0.8rem; border-radius: 4px; margin-bottom: 1rem; border: 1px solid #ffeeba; text-align: center; font-weight: bold;">
+            ⚠️ Only {{ lesson.spots_left }} spots left!
+        </div>
+    {% endif %}
+
+    {% if lesson.is_full %}
+        <div style="background-color: var(--spanish-red); color: white; padding: 0.8rem; border-radius: 4px; margin-bottom: 1rem; text-align: center; font-weight: bold;">
+            🚫 This session is fully booked.
+        </div>
+    {% endif %}
 
     <hr style="border: 0; border-top: 1px solid var(--ancient-cobblestone); margin: 1.5rem 0;">
 

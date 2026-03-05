@@ -57,8 +57,20 @@ class Lesson(models.Model):
         return self.attendees.count()
 
     @property
+    def spots_left(self):
+        return self.max_students - self.attendee_count
+
+    @property
     def is_full(self):
         return self.attendee_count >= self.max_students
+
+    @property
+    def is_almost_full(self):
+        # Either 3 or fewer spots left, or more than 85% full
+        spots_left = self.max_students - self.attendee_count
+        if self.is_full or self.is_cancelled:
+            return False
+        return spots_left <= 3 or (self.attendee_count / self.max_students) >= 0.85
 
 class Expense(models.Model):
     CATEGORIES = [

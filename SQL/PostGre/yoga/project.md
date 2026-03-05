@@ -18,3 +18,30 @@ Please help me build a front end for booking yoga lessons and packages, a back e
 use: postgres, .env, django?, conda
 
 conda run -n django python manage.py runserver
+
+
+
+python manage.py runserver
+python-dotenv could not parse statement starting at line 8
+python-dotenv could not parse statement starting at line 10
+python-dotenv could not parse statement starting at line 11
+python-dotenv could not parse statement starting at line 8
+python-dotenv could not parse statement starting at line 10
+python-dotenv could not parse statement starting at line 11
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 04, 2026 - 10:01:06
+Django version 6.0.2, using settings 'yoga_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/6.0/howto/deployment/
+
+Build a Business Plan
+Add to the calendar behind the yoga session how many spots / places are booked
+When booking a yoga session / package - please keep the customer "logged in" until the customer logs out. Thats easier with booking classes.
+When logged in, please show the customer which classes they have already booked in the calendar.
+In the owners dashboard, please show the customers from Tarifa, which last booked classes is less than one week away.

@@ -32,17 +32,36 @@
     .lesson-item {
         background-color: var(--lagoon);
         font-size: 0.75rem;
-        padding: 3px;
+        padding: 4px;
         margin-top: 3px;
         border-radius: 3px;
         cursor: pointer;
         color: var(--strait-night);
         border-left: 3px solid var(--med-teal);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     .lesson-item.cancelled {
         text-decoration: line-through;
         background-color: var(--ancient-cobblestone);
         border-left-color: var(--strait-night);
+    }
+    .lesson-item.almost-full {
+        border-left-color: var(--terra-cotta);
+        background-color: var(--dune-sand);
+    }
+    .lesson-item.full {
+        border-left-color: var(--spanish-red);
+        background-color: var(--ancient-cobblestone);
+    }
+    .spots-count {
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 1px 4px;
+        border-radius: 2px;
+        margin-left: 4px;
+        white-space: nowrap;
     }
     .calendar-nav {
         display: flex;
@@ -84,8 +103,9 @@
                             {% if lesson.0 == day %}
                                 {% for l in lesson.1 %}
                                     <a href="{% url 'book_lesson' l.id %}" style="text-decoration: none;">
-                                        <div class="lesson-item {% if l.is_cancelled %}cancelled{% endif %}">
-                                            {{ l.time|time:"H:i" }} {% if l.is_full %}(Full){% endif %}
+                                        <div class="lesson-item {% if l.is_cancelled %}cancelled{% elif l.is_full %}full{% elif l.is_almost_full %}almost-full{% endif %}">
+                                            <span>{{ l.time|time:"H:i" }}</span>
+                                            <span class="spots-count">{{ l.attendee_count }}/{{ l.max_students }}</span>
                                         </div>
                                     </a>
                                 {% endfor %}
@@ -100,8 +120,12 @@
 
 <div class="card" style="margin-top: 2rem;">
     <h3>Legend</h3>
-    <p><span style="color: var(--med-teal); font-weight: bold;">■</span> Morning Session (9:00 AM)</p>
-    <p><span style="color: var(--strait-night); font-weight: bold;">■</span> Cancelled Lesson</p>
-    <p><span style="color: var(--golden-sun); font-weight: bold;">■</span> Today's Date</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+        <p><span style="color: var(--med-teal); font-weight: bold;">■</span> Morning Session (Open)</p>
+        <p><span style="color: var(--terra-cotta); font-weight: bold;">■</span> Almost Full (3 or fewer spots)</p>
+        <p><span style="color: var(--spanish-red); font-weight: bold;">■</span> Full Session</p>
+        <p><span style="color: var(--strait-night); font-weight: bold;">■</span> Cancelled Lesson</p>
+        <p><span style="color: var(--golden-sun); font-weight: bold;">■</span> Today's Date</p>
+    </div>
 </div>
 {% endblock %}
