@@ -21,8 +21,18 @@ def lessons(request):
     month_lessons = Lesson.objects.filter(
         date__year=year, 
         date__month=month
-    ).order_by('date', 'time')
+    ).prefetch_related('attendees').order_by('date', 'time')
     
+    # Identify lessons booked by the logged-in customer
+    booked_lesson_ids = []
+    session_email = request.session.get('customer_email')
+    if session_email:
+        try:
+            customer = Customer.objects.get(email=session_email)
+            booked_lesson_ids = list(month_lessons.filter(attendees=customer).values_list('id', flat=True))
+        except Customer.DoesNotExist:
+            pass
+
     # Create a dictionary of lessons grouped by day for the template
     lessons_by_day = {}
     for lesson in month_lessons:
@@ -47,6 +57,7 @@ def lessons(request):
         'next_month': next_month_date.month,
         'month_days': month_days,
         'lessons_by_day': lessons_by_day,
+        'booked_lesson_ids': booked_lesson_ids,
         'today': date.today(),
     }
     
@@ -56,6 +67,14 @@ def book_lesson(request, lesson_id):
     lesson = get_object_or_404(Lesson, pk=lesson_id)
     # Get email from session if logged in
     session_email = request.session.get('customer_email')
+    is_booked = False
+    
+    if session_email:
+        try:
+            customer = Customer.objects.get(email=session_email)
+            is_booked = lesson.attendees.filter(id=customer.id).exists()
+        except Customer.DoesNotExist:
+            pass
     
     if request.method == 'POST':
         email = request.POST.get('email', session_email).strip().lower()
@@ -87,7 +106,11 @@ def book_lesson(request, lesson_id):
         except Customer.DoesNotExist:
             messages.error(request, "Customer with this email not found. Please ask the admin to add you.")
     
-    return render(request, 'book_lesson.html', {'lesson': lesson, 'session_email': session_email})
+    return render(request, 'book_lesson.html', {
+        'lesson': lesson, 
+        'session_email': session_email,
+        'is_booked': is_booked
+    })
 
 def packages(request):
     return render(request, 'packages.html', {'session_email': request.session.get('customer_email')})

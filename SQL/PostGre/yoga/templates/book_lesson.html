@@ -23,6 +23,12 @@
         </div>
     {% endif %}
 
+    {% if is_booked %}
+        <div style="background-color: var(--lagoon); color: var(--strait-night); padding: 0.8rem; border-radius: 4px; margin-bottom: 1rem; text-align: center; font-weight: bold; border: 1px solid var(--med-teal);">
+            ⭐ You are already booked for this session!
+        </div>
+    {% endif %}
+
     <hr style="border: 0; border-top: 1px solid var(--ancient-cobblestone); margin: 1.5rem 0;">
 
     <form method="post">
@@ -40,7 +46,7 @@
             {% endif %}
         </div>
         
-        {% if not lesson.is_full and not lesson.is_cancelled %}
+        {% if not lesson.is_full and not lesson.is_cancelled and not is_booked %}
             <button type="submit" class="btn" style="width: 100%;">Confirm Booking</button>
         {% endif %}
     </form>
