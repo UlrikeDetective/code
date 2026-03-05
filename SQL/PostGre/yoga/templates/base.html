@@ -130,7 +130,7 @@
             
             {% if request.session.customer_email %}
                 <span class="user-status">
-                    Zen: <strong>{{ request.session.customer_name }}</strong>
+                    🪷 <strong>{{ request.session.customer_name }}</strong>
                     <a href="{% url 'logout' %}" class="logout-link" style="margin-left: 10px;">(Logout)</a>
                 </span>
             {% endif %}

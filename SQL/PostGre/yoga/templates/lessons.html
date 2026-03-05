@@ -110,7 +110,7 @@
                                 {% for l in lesson.1 %}
                                     <a href="{% url 'book_lesson' l.id %}" style="text-decoration: none;">
                                         <div class="lesson-item {% if l.id in booked_lesson_ids %}booked{% elif l.is_cancelled %}cancelled{% elif l.is_full %}full{% elif l.is_almost_full %}almost-full{% endif %}">
-                                            <span>{% if l.id in booked_lesson_ids %}⭐ {% endif %}{{ l.time|time:"H:i" }}</span>
+                                            <span>{% if l.id in booked_lesson_ids %}🪷 {% endif %}{{ l.time|time:"H:i" }}</span>
                                             <span class="spots-count">{{ l.attendee_count }}/{{ l.max_students }}</span>
                                         </div>
                                     </a>
@@ -128,7 +128,7 @@
     <h3>Legend</h3>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
         <p><span style="color: var(--med-teal); font-weight: bold;">■</span> Morning Session (Open)</p>
-        <p>⭐ <strong>Booked Session</strong></p>
+        <p>🪷 <strong>Booked Session</strong></p>
         <p><span style="color: var(--terra-cotta); font-weight: bold;">■</span> Almost Full (3 or fewer spots)</p>
         <p><span style="color: var(--spanish-red); font-weight: bold;">■</span> Full Session</p>
         <p><span style="color: var(--strait-night); font-weight: bold;">■</span> Cancelled Lesson</p>
