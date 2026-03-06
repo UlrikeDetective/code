@@ -201,18 +201,14 @@ def dashboard(request):
     # Get today's lessons
     today_lessons = Lesson.objects.filter(date=date.today()).order_by('time')
     
-    # Active Tarifa Locals: Customers from Tarifa with a lesson within +/- 7 days
-    today = date.today()
-    week_ago = today - timedelta(days=7)
-    week_ahead = today + timedelta(days=7)
-    
-    active_tarifa_locals = Customer.objects.filter(
+    # Tarifa Locals: Customers from Tarifa and their furthest future booking
+    tarifa_locals = Customer.objects.filter(
         city__iexact='Tarifa'
     ).annotate(
-        last_lesson_date=Max('lessons_attended__date')
+        furthest_lesson_date=Max('lessons_attended__date')
     ).filter(
-        last_lesson_date__range=[week_ago, week_ahead]
-    ).order_by('last_lesson_date')
+        furthest_lesson_date__isnull=False
+    ).order_by('-furthest_lesson_date')
     
     # Profit calculation
     total_expenses = sum(e.amount for e in Expense.objects.all())
@@ -222,7 +218,7 @@ def dashboard(request):
         'customers_count': customers_count,
         'lessons_count': lessons_count,
         'today_lessons': today_lessons,
-        'active_tarifa_locals': active_tarifa_locals,
+        'active_tarifa_locals': tarifa_locals,  # Keep same context name for simplicity in template
         'total_expenses': total_expenses,
         'total_income': total_income,
     }

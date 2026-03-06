@@ -41,9 +41,9 @@
         <a href="{% url 'lessons' %}" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;">View Full Calendar</a>
     </div>
     <div class="card">
-        <h3>Active Tarifa Locals</h3>
+        <h3>Tarifa Locals: Last Booking</h3>
         <p style="font-size: 0.8rem; color: var(--ancient-cobblestone); margin-bottom: 1rem;">
-            Customers from Tarifa with lessons +/- 7 days from today.
+            Customers living in Tarifa and the date of their furthest booked lesson.
         </p>
         {% if active_tarifa_locals %}
             <div style="max-height: 250px; overflow-y: auto;">
@@ -55,14 +55,14 @@
                         </div>
                         <div style="text-align: right;">
                             <span style="font-size: 0.8rem; background: var(--dune-sand); padding: 2px 6px; border-radius: 4px;">
-                                {{ customer.last_lesson_date|date:"D d M" }}
+                                {{ customer.furthest_lesson_date|date:"D d M Y" }}
                             </span>
                         </div>
                     </div>
                 {% endfor %}
             </div>
         {% else %}
-            <p style="color: var(--ancient-cobblestone);">No active Tarifa locals found for this week.</p>
+            <p style="color: var(--ancient-cobblestone);">No Tarifa locals with bookings found.</p>
         {% endif %}
     </div>
     <div class="card">
