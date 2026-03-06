@@ -57,6 +57,17 @@ class Lesson(models.Model):
         return self.attendees.count()
 
     @property
+    def is_in_future(self):
+        from datetime import datetime
+        now = timezone.now()
+        # Combine date and time into a datetime object
+        lesson_datetime = datetime.combine(self.date, self.time)
+        # Make it timezone aware if settings.USE_TZ is True
+        if timezone.is_aware(now):
+            lesson_datetime = timezone.make_aware(lesson_datetime, timezone.get_current_timezone())
+        return lesson_datetime > now
+
+    @property
     def spots_left(self):
         return self.max_students - self.attendee_count
 

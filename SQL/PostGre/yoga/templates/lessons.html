@@ -55,6 +55,12 @@
         border-left-color: var(--spanish-red);
         background-color: var(--ancient-cobblestone);
     }
+    .lesson-item.past {
+        background-color: var(--salt-spray);
+        border-left-color: var(--ancient-cobblestone);
+        opacity: 0.6;
+        cursor: default;
+    }
     .lesson-item.booked {
         border-left-color: var(--golden-sun);
         background-color: var(--pueblo-blanco);
@@ -109,7 +115,7 @@
                             {% if lesson.0 == day %}
                                 {% for l in lesson.1 %}
                                     <a href="{% url 'book_lesson' l.id %}" style="text-decoration: none;">
-                                        <div class="lesson-item {% if l.id in booked_lesson_ids %}booked{% elif l.is_cancelled %}cancelled{% elif l.is_full %}full{% elif l.is_almost_full %}almost-full{% endif %}">
+                                        <div class="lesson-item {% if not l.is_in_future %}past{% elif l.id in booked_lesson_ids %}booked{% elif l.is_cancelled %}cancelled{% elif l.is_full %}full{% elif l.is_almost_full %}almost-full{% endif %}">
                                             <span>{% if l.id in booked_lesson_ids %}🪷 {% endif %}{{ l.time|time:"H:i" }}</span>
                                             <span class="spots-count">{{ l.attendee_count }}/{{ l.max_students }}</span>
                                         </div>
@@ -131,6 +137,7 @@
         <p>🪷 <strong>Booked Session</strong></p>
         <p><span style="color: var(--terra-cotta); font-weight: bold;">■</span> Almost Full (3 or fewer spots)</p>
         <p><span style="color: var(--spanish-red); font-weight: bold;">■</span> Full Session</p>
+        <p><span style="color: var(--ancient-cobblestone); font-weight: bold; opacity: 0.6;">■</span> Past Lesson (Closed)</p>
         <p><span style="color: var(--strait-night); font-weight: bold;">■</span> Cancelled Lesson</p>
         <p><span style="color: var(--golden-sun); font-weight: bold;">■</span> Today's Date</p>
     </div>

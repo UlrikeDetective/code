@@ -86,7 +86,9 @@ def book_lesson(request, lesson_id):
             request.session['customer_email'] = email
             request.session['customer_name'] = customer.name
             
-            if lesson.is_full:
+            if not lesson.is_in_future:
+                messages.error(request, "This lesson has already passed.")
+            elif lesson.is_full:
                 messages.error(request, "This lesson is already full.")
             elif lesson.is_cancelled:
                 messages.error(request, "This lesson is cancelled.")
