@@ -9,6 +9,16 @@
         <a href="/"><- Back to Home</a>
         <h1>Store Management</h1>
 
+        <!-- FINANCIAL SUMMARY BAR -->
+        <div style="background: #eef7f2; padding: 15px; border-radius: 8px; border: 1px solid #c3e6cb; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <strong style="color: #28a745;">Monthly Financial Snapshot:</strong>
+                <span style="margin-left: 20px;">Sales: <%= stats.currentMonthSales %> €</span>
+                <span style="margin-left: 20px;">Event Tickets: <%= stats.currentMonthTickets %></span>
+            </div>
+            <a href="/admin/financials" style="background: #28a745; color: white; padding: 8px 15px; border-radius: 4px; text-decoration: none; font-weight: bold;">View Full Financial Plan & Dashboard -></a>
+        </div>
+
         <!-- BUSINESS INTELLIGENCE DASHBOARD -->
         <h2 style="border-bottom: 2px solid var(--secondary); padding-bottom: 10px; margin-top: 40px;">Business Intelligence Dashboard</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 50px;">

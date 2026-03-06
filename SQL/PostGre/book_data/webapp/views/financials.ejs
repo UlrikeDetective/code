@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tarifa Bookshop // Financial Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <a href="/admin"><- Back to Management</a>
+            <h1 style="margin: 0;">Librería de Tarifa: Business Plan 2026</h1>
+        </div>
+
+        <% 
+            const totalFixed = plan.rent + plan.utilities + plan.helpers + plan.ss_helpers + plan.autonomo + plan.misc;
+            const bookProfit = actualSales * plan.book_margin_pct;
+            const ticketProfit = actualTickets * plan.event_margin;
+            const totalProfit = bookProfit + ticketProfit;
+            const netResult = totalProfit - totalFixed;
+            const breakEvenBooks = totalFixed / (15 * 0.35); // Approx 15 EUR book, 35% margin
+        %>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px;">
+            
+            <!-- FIXED COSTS PANEL -->
+            <div style="background: #f8f9fa; border: 1px solid #ddd; padding: 25px; border-radius: 12px;">
+                <h3 style="margin-top: 0; color: #cc0000; border-bottom: 2px solid #ffcccc; padding-bottom: 10px;">Monthly Fixed Costs (The "Burn")</h3>
+                <ul style="list-style: none; padding: 0; line-height: 2;">
+                    <li style="display: flex; justify-content: space-between;"><span>Shop Rent (Tarifa Center)</span> <strong><%= plan.rent.toFixed(2) %> €</strong></li>
+                    <li style="display: flex; justify-content: space-between;"><span>Utilities (Elec/Water/WiFi)</span> <strong><%= plan.utilities.toFixed(2) %> €</strong></li>
+                    <li style="display: flex; justify-content: space-between;"><span>Staff (2 Helpers @ 600€)</span> <strong><%= plan.helpers.toFixed(2) %> €</strong></li>
+                    <li style="display: flex; justify-content: space-between;"><span>Social Security (Helpers 32%)</span> <strong><%= plan.ss_helpers.toFixed(2) %> €</strong></li>
+                    <li style="display: flex; justify-content: space-between;"><span>Autónomo Fee (Owner)</span> <strong><%= plan.autonomo.toFixed(2) %> €</strong></li>
+                    <li style="display: flex; justify-content: space-between;"><span>Insurance & Misc</span> <strong><%= plan.misc.toFixed(2) %> €</strong></li>
+                    <li style="display: flex; justify-content: space-between; margin-top: 15px; border-top: 2px solid #ddd; padding-top: 10px; font-size: 1.2rem;">
+                        <strong>Total Monthly Burn</strong> 
+                        <strong style="color: #cc0000;"><%= totalFixed.toFixed(2) %> €</strong>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- PERFORMANCE DASHBOARD -->
+            <div style="background: #eef7f2; border: 1px solid #c3e6cb; padding: 25px; border-radius: 12px;">
+                <h3 style="margin-top: 0; color: #28a745; border-bottom: 2px solid #d4edda; padding-bottom: 10px;">Current Month Real-time Performance</h3>
+                
+                <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+                    <div style="flex: 1; background: #fff; padding: 15px; border-radius: 8px; text-align: center; border: 1px solid #ddd;">
+                        <div style="font-size: 0.8rem; color: #888; text-transform: uppercase;">Book Sales</div>
+                        <div style="font-size: 1.5rem; font-weight: bold;"><%= actualSales.toFixed(2) %> €</div>
+                        <div style="font-size: 0.8rem; color: #28a745;">~<%= (bookProfit).toFixed(2) %> € Profit</div>
+                    </div>
+                    <div style="flex: 1; background: #fff; padding: 15px; border-radius: 8px; text-align: center; border: 1px solid #ddd;">
+                        <div style="font-size: 0.8rem; color: #888; text-transform: uppercase;">Event Tickets</div>
+                        <div style="font-size: 1.5rem; font-weight: bold;"><%= actualTickets %></div>
+                        <div style="font-size: 0.8rem; color: #28a745;">~<%= (ticketProfit).toFixed(2) %> € Profit</div>
+                    </div>
+                </div>
+
+                <div style="background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #ddd;">
+                    <h4 style="margin: 0 0 10px 0;">Monthly Balance</h4>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 1.1rem;">Gross Profit:</span>
+                        <strong style="font-size: 1.2rem; color: #28a745;"><%= totalProfit.toFixed(2) %> €</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <span style="font-size: 1.1rem;">Net Result:</span>
+                        <strong style="font-size: 1.5rem; color: <%= netResult >= 0 ? '#28a745' : '#cc0000' %>;">
+                            <%= netResult.toFixed(2) %> €
+                        </strong>
+                    </div>
+                    
+                    <% if (netResult < 0) { %>
+                        <div style="margin-top: 20px; padding: 10px; background: #fff3cd; color: #856404; font-size: 0.85rem; border-radius: 4px;">
+                            <strong>Strategy:</strong> You need <%= Math.ceil(Math.abs(netResult) / (15 * 0.35)) %> more book sales or <%= Math.ceil(Math.abs(netResult) / plan.event_margin) %> more tickets to break even this month.
+                        </div>
+                    <% } else { %>
+                        <div style="margin-top: 20px; padding: 10px; background: #d4edda; color: #155724; font-size: 0.85rem; border-radius: 4px;">
+                            <strong>Success:</strong> You have reached your break-even point for the month!
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+        <!-- STRATEGIC ANALYSIS -->
+        <div style="background: #fff; border: 1px solid #ddd; padding: 30px; border-radius: 12px;">
+            <h2 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 15px;">Strategic Business Analysis: Tarifa Community Model</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div>
+                    <h4>1. Profit Structure</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        <strong>Books:</strong> Margin is typically 30-35%. At 15€, you gain ~5.05€. IVA is super-reduced at 4%.<br>
+                        <strong>Events:</strong> Tickets at 15€ yield high margins (~13.64€ after 10% cultural IVA). Events are critical for covering staff costs.
+                    </p>
+                </div>
+                <div>
+                    <h4>2. Break-Even Target</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        To cover <strong><%= totalFixed.toFixed(2) %> €</strong>, you must sell roughly <strong><%= Math.ceil(breakEvenBooks) %> books per month</strong> (approx. 14 per day). Increasing event frequency lowers this target significantly.
+                    </p>
+                </div>
+                <div>
+                    <h4>3. The "Hidden" Costs</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #cc0000;">
+                        We have included <strong>Social Security (32%)</strong> for your helpers and your own <strong>Autónomo fee</strong>. Many small businesses fail because they only count the net salary.
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h3>Sales History (Last 6 Months)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Total Sales</th>
+                            <th>Est. Gross Profit</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% history.forEach(h => { %>
+                            <tr>
+                                <td><%= h.month.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }) %></td>
+                                <td><%= h.total.toFixed(2) %> €</td>
+                                <td><%= (h.total * 0.35).toFixed(2) %> €</td>
+                                <td>
+                                    <span style="color: <%= (h.total * 0.35) > totalFixed ? '#28a745' : '#cc0000' %>;">
+                                        <%= (h.total * 0.35) > totalFixed ? '✓ Profit' : '✗ Below Break-even' %>
+                                    </span>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

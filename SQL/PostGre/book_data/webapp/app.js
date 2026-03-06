@@ -285,6 +285,16 @@ app.get('/admin', async (req, res) => {
       LIMIT 10
     `);
 
+    // 7. Real Sales Data for Financials (Current Month)
+    const currentMonthSalesRes = await db.query(`
+      SELECT SUM(total_amount) as total FROM orders 
+      WHERE order_date >= date_trunc('month', current_date)
+    `);
+    const currentMonthTicketsRes = await db.query(`
+      SELECT COUNT(*) as count FROM event_registrations 
+      WHERE registered_at >= date_trunc('month', current_date)
+    `);
+
     res.render('admin', { 
       customers: customersRes.rows, 
       orders: ordersRes.rows, 
@@ -298,7 +308,54 @@ app.get('/admin', async (req, res) => {
         topAuthors: topAuthorsRes.rows,
         zeroSales: zeroSalesRes.rows,
         topSpenders: topSpendersRes.rows,
-        inactiveCustomers: inactiveCustomersRes.rows
+        inactiveCustomers: inactiveCustomersRes.rows,
+        currentMonthSales: currentMonthSalesRes.rows[0].total || 0,
+        currentMonthTickets: currentMonthTicketsRes.rows[0].count || 0
+      }
+    });
+  } catch (err) {
+    console.error(err);
+    res.send("DB Error");
+  }
+});
+
+// FINANCIALS DASHBOARD - Business Plan & Real-time tracking
+app.get('/admin/financials', async (req, res) => {
+  try {
+    // Current Month Totals
+    const salesRes = await db.query(`
+      SELECT COALESCE(SUM(total_amount), 0) as total FROM orders 
+      WHERE order_date >= date_trunc('month', current_date)
+    `);
+    const ticketsRes = await db.query(`
+      SELECT COUNT(*) as count FROM event_registrations 
+      WHERE registered_at >= date_trunc('month', current_date)
+    `);
+
+    // Historical Performance (Last 6 Months)
+    const historyRes = await db.query(`
+      SELECT date_trunc('month', order_date) as month, SUM(total_amount) as total
+      FROM orders
+      WHERE order_date >= current_date - INTERVAL '6 months'
+      GROUP BY month
+      ORDER BY month DESC
+    `);
+
+    res.render('financials', {
+      actualSales: parseFloat(salesRes.rows[0].total),
+      actualTickets: parseInt(ticketsRes.rows[0].count),
+      history: historyRes.rows,
+      // Tarifa Plan Assumptions
+      plan: {
+        rent: 200,
+        utilities: 75,
+        helpers: 1200,
+        ss_helpers: 384, // 32% of 1200
+        autonomo: 310,
+        misc: 50,
+        book_margin_pct: 0.35,
+        event_price: 15,
+        event_margin: 13.64 // After 10% IVA
       }
     });
   } catch (err) {
