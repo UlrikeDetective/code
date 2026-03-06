@@ -51,6 +51,10 @@ The database `books` consists of the following normalized tables:
     - Non-performing inventory (zero sales).
     - VIP customers (highest spenders).
     - Inactive customers (churn risk).
+- **Financial Dashboard**: A dedicated view (`/admin/financials`) simulating a real-world business plan for "Librería de Tarifa". It tracks:
+    - Fixed costs (Rent, Utilities, Staff, Social Security, Autónomo).
+    - Real-time P&L (Profit & Loss) estimation based on current month's sales.
+    - Break-even analysis for books and event tickets.
 - **Integrity**: Enforce non-negative stock and unique reviews at the DB level.
 
 ### UI & UX Logic
@@ -63,4 +67,5 @@ The database `books` consists of the following normalized tables:
 - `sql/book_tables_improved.sql`: The primary schema definition.
 - `sql/overview.sql`: Business report query collection.
 - `webapp/app.js`: Main logic, session management, and BI queries.
+- `webapp/views/financials.ejs`: Financial dashboard view with cost structure analysis.
 - `PROJECT.md`: Architectural decisions and milestones.

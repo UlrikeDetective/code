@@ -49,6 +49,7 @@ Ensure you have **PostgreSQL** installed and running.
 ## 🛠 Features
 - **Persistent Sessions**: Sign in once and stay logged in across all store pages.
 - **BI Dashboard**: Real-time admin reporting on best sellers, out-of-stock items, and VIP customers.
+- **Financial Dashboard**: Real-time P&L tracking against a Tarifa-based business plan (Break-even analysis).
 - **Inventory Visuals**: Catalog markers for "OWNED" books and low-stock alerts.
 - **Verified Reviews**: Reading journal that tracks purchase history and prevents duplicate reviews.
 - **Event Tracking**: Real-time registration counters for community events.
