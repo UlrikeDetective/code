@@ -344,7 +344,7 @@ app.get('/admin/financials', async (req, res) => {
     res.render('financials', {
       actualSales: parseFloat(salesRes.rows[0].total),
       actualTickets: parseInt(ticketsRes.rows[0].count),
-      history: historyRes.rows,
+      history: historyRes.rows.map(h => ({ ...h, total: parseFloat(h.total) })),
       // Tarifa Plan Assumptions
       plan: {
         rent: 200,
