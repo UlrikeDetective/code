@@ -51,14 +51,12 @@
             {% if active_tarifa_locals %}
                 <div style="max-height: 250px; overflow-y: auto;">
                     {% for customer in active_tarifa_locals %}
-                        <div style="padding: 0.5rem; border-bottom: 1px solid var(--salt-spray); display: flex; justify-content: space-between; align-items: center;">
+                        <div style="padding: 0.8rem 0.5rem; border-bottom: 1px solid var(--salt-spray);">
+                            <div style="font-weight: bold; color: var(--strait-night);">{{ customer.name }}</div>
+                            <div style="font-size: 0.75rem; color: var(--ancient-cobblestone); margin-bottom: 0.4rem;">{{ customer.email }}</div>
                             <div>
-                                <strong>{{ customer.name }}</strong>
-                                <div style="font-size: 0.7rem; color: var(--ancient-cobblestone);">{{ customer.email }}</div>
-                            </div>
-                            <div style="text-align: right;">
-                                <span style="font-size: 0.8rem; background: var(--dune-sand); padding: 2px 6px; border-radius: 4px;">
-                                    {{ customer.furthest_lesson_date|date:"D d M Y" }}
+                                <span style="font-size: 0.75rem; background: var(--dune-sand); color: var(--strait-night); padding: 2px 8px; border-radius: 4px; display: inline-block; border: 1px solid var(--ancient-cobblestone);">
+                                    Last booking: {{ customer.furthest_lesson_date|date:"D d M Y" }}
                                 </span>
                             </div>
                         </div>
