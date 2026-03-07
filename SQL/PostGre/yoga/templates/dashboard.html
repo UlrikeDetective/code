@@ -23,52 +23,58 @@
 </div>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-    <div class="card">
+    <div class="card" style="display: flex; flex-direction: column;">
         <h3>Today's Lessons</h3>
-        {% if today_lessons %}
-            {% for l in today_lessons %}
-                <div style="background: var(--lagoon); padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <strong>{{ l.time|time:"H:i" }}</strong>
-                        <div style="font-size: 0.8rem; color: var(--deep-atlantic);">{{ l.attendee_count }}/{{ l.max_students }} Students</div>
+        <div style="flex-grow: 1;">
+            {% if today_lessons %}
+                {% for l in today_lessons %}
+                    <div style="background: var(--lagoon); padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong>{{ l.time|time:"H:i" }}</strong>
+                            <div style="font-size: 0.8rem; color: var(--deep-atlantic);">{{ l.attendee_count }}/{{ l.max_students }} Students</div>
+                        </div>
+                        <a href="{% url 'mark_attendance' l.id %}" class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background-color: var(--deep-atlantic);">Mark Attendance</a>
                     </div>
-                    <a href="{% url 'mark_attendance' l.id %}" class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background-color: var(--deep-atlantic);">Mark Attendance</a>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p style="color: var(--ancient-cobblestone);">No lessons scheduled for today.</p>
-        {% endif %}
-        <a href="{% url 'lessons' %}" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;">View Full Calendar</a>
+                {% endfor %}
+            {% else %}
+                <p style="color: var(--ancient-cobblestone);">No lessons scheduled for today.</p>
+            {% endif %}
+        </div>
+        <a href="{% url 'lessons' %}" class="btn" style="width: 100%; text-align: center; margin-top: 1.5rem;">View Full Calendar</a>
     </div>
-    <div class="card">
+    <div class="card" style="display: flex; flex-direction: column;">
         <h3>Tarifa Locals: Last Booking</h3>
         <p style="font-size: 0.8rem; color: var(--ancient-cobblestone); margin-bottom: 1rem;">
             Customers living in Tarifa and the date of their furthest booked lesson.
         </p>
-        {% if active_tarifa_locals %}
-            <div style="max-height: 250px; overflow-y: auto;">
-                {% for customer in active_tarifa_locals %}
-                    <div style="padding: 0.5rem; border-bottom: 1px solid var(--salt-spray); display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <strong>{{ customer.name }}</strong>
-                            <div style="font-size: 0.7rem; color: var(--ancient-cobblestone);">{{ customer.email }}</div>
+        <div style="flex-grow: 1;">
+            {% if active_tarifa_locals %}
+                <div style="max-height: 250px; overflow-y: auto;">
+                    {% for customer in active_tarifa_locals %}
+                        <div style="padding: 0.5rem; border-bottom: 1px solid var(--salt-spray); display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>{{ customer.name }}</strong>
+                                <div style="font-size: 0.7rem; color: var(--ancient-cobblestone);">{{ customer.email }}</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <span style="font-size: 0.8rem; background: var(--dune-sand); padding: 2px 6px; border-radius: 4px;">
+                                    {{ customer.furthest_lesson_date|date:"D d M Y" }}
+                                </span>
+                            </div>
                         </div>
-                        <div style="text-align: right;">
-                            <span style="font-size: 0.8rem; background: var(--dune-sand); padding: 2px 6px; border-radius: 4px;">
-                                {{ customer.furthest_lesson_date|date:"D d M Y" }}
-                            </span>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        {% else %}
-            <p style="color: var(--ancient-cobblestone);">No Tarifa locals with bookings found.</p>
-        {% endif %}
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p style="color: var(--ancient-cobblestone);">No Tarifa locals with bookings found.</p>
+            {% endif %}
+        </div>
     </div>
-    <div class="card">
+    <div class="card" style="display: flex; flex-direction: column;">
         <h3>Log Expense</h3>
-        <p>Gas, Car, Ads, or Mat purchase.</p>
-        <a href="#" class="btn" style="background-color: var(--terra-cotta); width: 100%; text-align: center;">Add Expense</a>
+        <div style="flex-grow: 1;">
+            <p>Gas, Car, Ads, or Mat purchase.</p>
+        </div>
+        <a href="/admin/core/expense/add/" class="btn" style="background-color: var(--terra-cotta); width: 100%; text-align: center; margin-top: 1.5rem;">Add Expense</a>
     </div>
 </div>
 
