@@ -47,15 +47,17 @@ Based on the project requirements, the system must hardcode or allow configurati
 
 ### Phase 3: Business Logic & Dashboards [COMPLETED]
 1.  **Booking Logic:** [DONE] Credit deduction, session-based login, and capacity blocking.
-2.  **Financial Reporting:** [DONE] Owner view with gross income, expenses, and profit.
-3.  **Advanced Tracking:** [DONE] "Active Tarifa Locals" monitoring for local engagement.
-4.  **Seed Data:** [DONE] 2026 schedule created.
+2.  **Cancellations:** [DONE] 24-hour rule and credit refund logic implemented.
+3.  **Financial Reporting:** [DONE] Owner view with gross income, expenses, and P&L.
+4.  **Tax Calculations:** [DONE] Monthly breakdown of **IVA (21%)**, **IRPF (20%)**, and **Social Security (RETA)**.
+5.  **Advanced Tracking:** [DONE] Furthest-booking tracking for local Tarifa engagement.
+6.  **Attendance Flow:** [DONE] Custom beach-mode attendance tracking.
 
 ### Phase 4: Frontend Development [COMPLETED]
 1.  **Design Theme:** [DONE] "Wind, Whitewash, and the Strait" with 🪷 Lotus iconography.
-2.  **Monthly Calendar:** [DONE] Navigation, booked highlights, and real-time spot counts.
-3.  **Owner Dashboard:** [DONE] Three-column grid with attendance and local tracking.
-4.  **Public Booking:** [DONE] Smooth flow with session persistence and "Balance Check" feature.
+2.  **Monthly Calendar:** [DONE] Past lesson fading and status highlighting.
+3.  **Owner Dashboard:** [DONE] Balanced three-column grid with financial overview table.
+4.  **Public Booking:** [DONE] Self-service cancellation and status messages.
 
 ## 7. Color Theme (Implemented)
 * **Theme:** Wind, Whitewash, and the Strait.

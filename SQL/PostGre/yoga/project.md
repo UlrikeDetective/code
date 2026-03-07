@@ -44,4 +44,8 @@ Build a Business Plan
 Add to the calendar behind the yoga session how many spots / places are booked - checked
 When booking a yoga session / package - please keep the customer "logged in" until the customer logs out. Thats easier with booking classes. - checked
 When logged in, please show the customer which classes they have already booked in the calendar. - checked
-In the owners dashboard, please show the customers from Tarifa, which last booked clase is less than one week away.
+In the owners dashboard, please show the customers from Tarifa, and their furthest booked class in 2026. - checked
+Add monthly financial overview with IVA, IRPF and Social Security calculations. - checked
+Allow customers to cancel bookings more than 24 hours in advance and refund the credit. - checked
+Add a dedicated beach-mode attendance marking page. - checked
+Improve dashboard grid and layout for better UX. - checked

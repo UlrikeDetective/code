@@ -9,11 +9,12 @@ This project is a full-stack web application designed for a yoga business in Tar
     *   **Lotus Flower Theme:** High-contrast, Zen-inspired aesthetic with 🪷 icons for booked sessions.
     *   **Live Calendar:** Real-time spot tracking (e.g., 5/20) and availability color codes.
     *   **Balance Check:** Students can check their remaining pack credits anytime.
+    *   **Self-Service Cancellation:** Students can cancel bookings up to 24 hours before the lesson for an automatic credit refund.
 *   **Monthly Calendar:** Dynamic view of all scheduled lessons for 2026.
 *   **Business Management (Owner Dashboard):**
-    *   **Beach Mode Attendance:** Mark attendance directly from the dashboard for today's sessions.
-    *   **Active Tarifa Locals:** Automatic tracking of local residents with recent or upcoming bookings.
-    *   **Financial Tracking:** Monitor income from packages and total expenses.
+    *   **Beach Mode Attendance:** Dedicated attendance view to mark students present directly from the beach.
+    *   **Tarifa Locals Tracking:** Monitor local residents and their furthest future bookings to gauge long-term engagement.
+    *   **Financial Tracking & Taxes:** Monthly overview including **IVA (21%)**, **IRPF (20%)**, and **Social Security (RETA)** calculations for a complete P&L view.
 
 ### Tech Stack
 *   **Framework:** Django (Python)

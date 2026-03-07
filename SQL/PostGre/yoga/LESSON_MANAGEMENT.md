@@ -25,12 +25,19 @@ As the admin of the Yoga Studio Management System, you can manage your daily les
 ### Marking Attendance (Beach Mode)
 *   Instead of navigating through the admin menu, use the **Owner Dashboard**.
 *   All lessons scheduled for today will appear in the **"Today's Lessons"** section.
-*   Click the **"Mark Attendance"** button next to the lesson. This will take you directly to the attendee list for that specific session.
-*   Check or uncheck the customers who are on the beach with you and click **Save**.
+*   Click the **"Mark Attendance"** button next to the lesson. This opens a dedicated attendance page with a list of all booked students.
+*   Once you've verified everyone is present, click **"Confirm All Present"**.
+
+### Managing Cancellations (24h Rule)
+*   The system allows students to cancel their own bookings directly from the lesson page.
+*   **The 24-hour rule:** Cancellations are only permitted more than 24 hours before the lesson starts. 
+*   If a student cancels in time, 1 lesson is automatically added back to their package balance.
+*   Within 24 hours of the lesson, the "Cancel" button is disabled, and the credit is not refunded.
 
 ### Tracking Local Engagement
-*   The **"Active Tarifa Locals"** section automatically shows you students from Tarifa who have booked a lesson in the last 7 days or have one coming up this week. This helps you identify your most consistent local practitioners at a glance.
+*   The **"Tarifa Locals: Last Booking"** section shows you all students from Tarifa and the date of their furthest booked lesson in 2026. This helps you see how far into the future your most loyal students have already planned their practice.
 
 ## 3. Managing Packages & Expenses
 *   **Packages:** When a customer buys a 10-pack, add it under **Core > Packages**. The system will track the remaining lessons.
-*   **Expenses:** Log your gas, car maintenance, or new yoga mat purchases under **Core > Expenses** to keep your financial dashboard accurate.
+*   **Expenses:** Log your gas, car maintenance, or new yoga mat purchases under **Core > Expenses**.
+*   **Tax Compliance:** Use the dashboard's **Monthly Financial Overview** to see your profit after **IVA (21%)**, **IRPF (20%)**, and **Social Security (RETA)**. Log your Social Security payments as expenses with the category **"Social Security"** to ensure they are deducted from your net profit.
