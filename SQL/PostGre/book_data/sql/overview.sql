@@ -150,4 +150,39 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'Hula';
+WHERE b.title = 'Palo Alto';
+
+SELECT * FROM books where title = 'Palo Alto';
+
+SELECT DISTINCT c.first_name, c.last_name, c.email
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN order_items oi ON o.id = oi.order_id
+JOIN books b ON oi.book_id = b.id
+JOIN authors a ON b.author_id = a.id
+WHERE b.title = 'Palo Alto';
+-- Amount Paid per Customer
+-- This query groups the results by customer and sums their total spend on 'Palo Alto', in case a customer bought it across multiple orders.
+SELECT
+c.first_name,
+c.last_name,
+c.email,
+SUM(oi.quantity * oi.unit_price) AS total_paid
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN order_items oi ON o.id = oi.order_id
+JOIN books b ON oi.book_id = b.id
+WHERE b.title = 'Palo Alto'
+GROUP BY c.id, c.first_name, c.last_name, c.email;
+
+-- Total Money Made from the Book
+-- This query calculates the total revenue generated specifically from 'Palo Alto' across the entire shop.
+
+SELECT
+b.title,
+SUM(oi.quantity * oi.unit_price) AS total_revenue,
+SUM(oi.quantity) AS total_units_sold
+FROM books b
+JOIN order_items oi ON b.id = oi.book_id
+WHERE b.title = 'Palo Alto'
+GROUP BY b.id, b.title;
