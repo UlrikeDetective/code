@@ -32,7 +32,7 @@
                         <strong>{{ l.time|time:"H:i" }}</strong>
                         <div style="font-size: 0.8rem; color: var(--deep-atlantic);">{{ l.attendee_count }}/{{ l.max_students }} Students</div>
                     </div>
-                    <a href="/admin/core/lesson/{{ l.id }}/change/" class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background-color: var(--deep-atlantic);">Mark Attendance</a>
+                    <a href="{% url 'mark_attendance' l.id %}" class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background-color: var(--deep-atlantic);">Mark Attendance</a>
                 </div>
             {% endfor %}
         {% else %}

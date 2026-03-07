@@ -10,4 +10,5 @@ urlpatterns = [
     path('packages/check-balance/', views.check_balance, name='check_balance'),
     path('logout/', views.logout, name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('dashboard/attendance/<int:lesson_id>/', views.mark_attendance, name='mark_attendance'),
 ]

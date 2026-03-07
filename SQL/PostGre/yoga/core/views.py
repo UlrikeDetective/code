@@ -290,3 +290,18 @@ def dashboard(request):
         'current_year': current_year,
     }
     return render(request, 'dashboard.html', context)
+
+def mark_attendance(request, lesson_id):
+    lesson = get_object_or_404(Lesson, pk=lesson_id)
+    attendees = lesson.attendees.all()
+    
+    if request.method == 'POST':
+        # Attendance logic can be expanded here if we wanted to track "show" vs "no-show"
+        # For now, it's a confirmation view of who booked.
+        messages.success(request, f"Attendance for {lesson} confirmed.")
+        return redirect('dashboard')
+        
+    return render(request, 'mark_attendance.html', {
+        'lesson': lesson,
+        'attendees': attendees
+    })
