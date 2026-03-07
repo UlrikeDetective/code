@@ -68,6 +68,16 @@ class Lesson(models.Model):
         return lesson_datetime > now
 
     @property
+    def is_cancellable(self):
+        from datetime import datetime, timedelta
+        now = timezone.now()
+        lesson_datetime = datetime.combine(self.date, self.time)
+        if timezone.is_aware(now):
+            lesson_datetime = timezone.make_aware(lesson_datetime, timezone.get_current_timezone())
+        # Cancellable if more than 24 hours away
+        return lesson_datetime > (now + timedelta(hours=24))
+
+    @property
     def spots_left(self):
         return self.max_students - self.attendee_count
 

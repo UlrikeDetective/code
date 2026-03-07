@@ -116,6 +116,45 @@ def book_lesson(request, lesson_id):
         'is_booked': is_booked
     })
 
+def cancel_booking(request, lesson_id):
+    lesson = get_object_or_404(Lesson, pk=lesson_id)
+    session_email = request.session.get('customer_email')
+    
+    if not session_email:
+        messages.error(request, "You must be logged in to cancel a booking.")
+        return redirect('lessons')
+        
+    try:
+        customer = Customer.objects.get(email=session_email)
+        
+        if not lesson.attendees.filter(id=customer.id).exists():
+            messages.error(request, "You don't have a booking for this lesson.")
+            return redirect('lessons')
+            
+        if not lesson.is_cancellable:
+            messages.error(request, "Lessons can only be cancelled more than 24 hours in advance.")
+            return redirect('book_lesson', lesson_id=lesson.id)
+            
+        # Refund the lesson: Add 1 to the most recent package
+        # Note: In a real app, we might want to track which package was used. 
+        # For simplicity, we add back to their last active package or create a placeholder if needed.
+        package = Package.objects.filter(customer=customer).order_by('-purchase_date').first()
+        if package:
+            package.remaining_lessons += 1
+            package.save()
+            lesson.attendees.remove(customer)
+            messages.success(request, f"Booking cancelled. 1 lesson has been added back to your balance ({package.remaining_lessons} left).")
+        else:
+            # This shouldn't happen if they booked, but as a fallback:
+            lesson.attendees.remove(customer)
+            messages.success(request, "Booking cancelled.")
+            
+        return redirect('lessons')
+        
+    except Customer.DoesNotExist:
+        messages.error(request, "Customer not found.")
+        return redirect('lessons')
+
 def packages(request):
     return render(request, 'packages.html', {'session_email': request.session.get('customer_email')})
 
