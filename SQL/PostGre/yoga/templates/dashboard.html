@@ -71,4 +71,46 @@
         <a href="#" class="btn" style="background-color: var(--terra-cotta); width: 100%; text-align: center;">Add Expense</a>
     </div>
 </div>
+
+<div class="card" style="margin-top: 2rem;">
+    <h3 style="margin-bottom: 1rem;">Monthly Financial Overview ({{ current_year }})</h3>
+    <p style="font-size: 0.8rem; color: var(--ancient-cobblestone); margin-bottom: 1rem;">
+        Estimates based on Freelancer (Autónomo) status in Spain. 
+        <br>IVA calculated as 21% of Gross. IRPF calculated as 20% of Operating Profit.
+    </p>
+    <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+            <thead>
+                <tr style="background-color: var(--deep-atlantic); color: white;">
+                    <th style="padding: 0.8rem; text-align: left;">Month</th>
+                    <th style="padding: 0.8rem; text-align: right;">Gross Inc.</th>
+                    <th style="padding: 0.8rem; text-align: right;">IVA (21%)</th>
+                    <th style="padding: 0.8rem; text-align: right;">Expenses</th>
+                    <th style="padding: 0.8rem; text-align: right;">Soc. Sec.</th>
+                    <th style="padding: 0.8rem; text-align: right;">IRPF (20%)</th>
+                    <th style="padding: 0.8rem; text-align: right;">Net Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for m in monthly_overview %}
+                <tr style="border-bottom: 1px solid var(--salt-spray);">
+                    <td style="padding: 0.8rem;"><strong>{{ m.month_name }}</strong></td>
+                    <td style="padding: 0.8rem; text-align: right; color: var(--med-teal);">{{ m.gross_income }}€</td>
+                    <td style="padding: 0.8rem; text-align: right; color: var(--ancient-cobblestone);">{{ m.iva }}€</td>
+                    <td style="padding: 0.8rem; text-align: right; color: var(--spanish-red);">{{ m.expenses }}€</td>
+                    <td style="padding: 0.8rem; text-align: right; color: var(--spanish-red);">{{ m.social_security }}€</td>
+                    <td style="padding: 0.8rem; text-align: right; color: var(--spanish-red);">{{ m.irpf }}€</td>
+                    <td style="padding: 0.8rem; text-align: right; font-weight: bold; color: {% if m.final_profit > 0 %}var(--med-teal){% else %}var(--spanish-red){% endif %};">
+                        {{ m.final_profit }}€
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" style="padding: 1rem; text-align: center; color: var(--ancient-cobblestone);">No financial data available for this year yet.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}

@@ -88,7 +88,9 @@ class Expense(models.Model):
         ('GAS', 'Gas'),
         ('CAR', 'Car Maintenance'),
         ('ADS', 'Advertising'),
-        ('TAX', 'Taxes'),
+        ('TAX', 'Taxes (IVA/IRPF)'),
+        ('SOCIAL', 'Social Security'),
+        ('INSURANCE', 'Insurance'),
         ('MAT', 'Yoga Mats'),
         ('OTHER', 'Other'),
     ]

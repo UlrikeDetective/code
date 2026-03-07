@@ -1,4 +1,5 @@
 import calendar
+from decimal import Decimal
 from datetime import date, datetime, timedelta
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
@@ -210,16 +211,82 @@ def dashboard(request):
         furthest_lesson_date__isnull=False
     ).order_by('-furthest_lesson_date')
     
-    # Profit calculation
+    # Profit calculation (Total all time)
     total_expenses = sum(e.amount for e in Expense.objects.all())
     total_income = sum(p.price_paid for p in Package.objects.all())
+    
+    # --- Monthly Financial Overview (Current Year) ---
+    current_year = date.today().year
+    financial_data = {} 
+    
+    # Initialize months 1-12
+    for m in range(1, 13):
+        financial_data[m] = {
+            'month_name': calendar.month_name[m],
+            'gross_income': Decimal('0.00'),
+            'expenses': Decimal('0.00'),
+            'social_security': Decimal('0.00'),
+        }
+    
+    # Aggregate Income (Packages)
+    packages = Package.objects.filter(purchase_date__year=current_year)
+    for p in packages:
+        financial_data[p.purchase_date.month]['gross_income'] += p.price_paid
+        
+    # Aggregate Expenses
+    expenses = Expense.objects.filter(date__year=current_year)
+    for e in expenses:
+        if e.category == 'SOCIAL':
+             financial_data[e.date.month]['social_security'] += e.amount
+        elif e.category == 'TAX':
+             # Skip tax payments in P&L calculation as they are payments of liability
+             pass 
+        else:
+             financial_data[e.date.month]['expenses'] += e.amount
+
+    # Calculate Taxes & Net Profit per month
+    monthly_overview = []
+    
+    for m in range(1, 13):
+        data = financial_data[m]
+        
+        gross = data['gross_income']
+        # IVA Rate: 21% (included in gross price) -> Base = Price / 1.21
+        net_revenue = gross / Decimal('1.21')
+        iva = gross - net_revenue
+        
+        # Deductible Expenses (Net expenses + Social Security)
+        # Assuming expenses entered are net deductible amounts
+        total_deductible = data['expenses'] + data['social_security']
+        
+        # Operating Profit (Before IRPF)
+        operating_profit = net_revenue - total_deductible
+        
+        # IRPF (20% on positive profit)
+        irpf = operating_profit * Decimal('0.20') if operating_profit > 0 else Decimal('0.00')
+        
+        # Final Net Profit
+        final_profit = operating_profit - irpf
+        
+        # Round for display
+        data['net_revenue'] = round(net_revenue, 2)
+        data['iva'] = round(iva, 2)
+        data['operating_profit'] = round(operating_profit, 2)
+        data['irpf'] = round(irpf, 2)
+        data['final_profit'] = round(final_profit, 2)
+        
+        # Only add to list if there's activity or up to current month
+        if m <= date.today().month or gross > 0 or data['expenses'] > 0:
+            monthly_overview.append(data)
     
     context = {
         'customers_count': customers_count,
         'lessons_count': lessons_count,
         'today_lessons': today_lessons,
-        'active_tarifa_locals': tarifa_locals,  # Keep same context name for simplicity in template
+        'active_tarifa_locals': tarifa_locals,
         'total_expenses': total_expenses,
         'total_income': total_income,
+        'monthly_overview': monthly_overview,
+        'current_year': current_year,
     }
     return render(request, 'dashboard.html', context)
