@@ -22,7 +22,20 @@
     </div>
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+<style>
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 1fr;
+        gap: 1.5rem;
+    }
+    @media (max-width: 900px) {
+        .dashboard-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<div class="dashboard-grid">
     <div class="card" style="display: flex; flex-direction: column;">
         <h3>Today's Lessons</h3>
         <div style="flex-grow: 1;">
