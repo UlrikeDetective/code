@@ -10,6 +10,8 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+select * from users;
+
 -- Create posts table
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,

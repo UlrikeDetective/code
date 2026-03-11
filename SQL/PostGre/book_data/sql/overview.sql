@@ -88,6 +88,7 @@ SELECT title, isbn, released_year
 FROM books
 WHERE stock_quantity = 0;
 
+SELECT * FROM books ORDER BY price;
 
 -- 5. SOCIAL & EVENT ENGAGEMENT
 -- ==========================================================
@@ -150,9 +151,9 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'Palo Alto';
+WHERE b.title = 'Paradise Crime Thrillers - Vol 01 - Wired in';
 
-SELECT * FROM books where title = 'Palo Alto';
+SELECT * FROM books where title = 'Barbarian - Days A Surfing Life';
 
 SELECT DISTINCT c.first_name, c.last_name, c.email
 FROM customers c
