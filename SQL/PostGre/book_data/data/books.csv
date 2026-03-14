@@ -1,8 +1,49 @@
 "id","title","isbn","author_id","genre_id","released_year","price","stock_quantity","pages"
+350,"Aloha Kitchen: Recipes from Hawai'i ","0399581367",198,25,2019,13.99,10,240
+349,"Island Wisdom: Hawaiian Traditions and Practices for a Meaningful Life","1797216937",197,21,2022,12.99,10,144
+348,"Surf-side Eating: Relaxed recipes inspired by coastal living","B083F9N253",196,25,2020,10.99,10,290
+347,"The Code: The Power of ''I Will''","1459673271",195,10,2015,13.99,10,136
+346,"Surf Cafe Living: Cooking, Entertaining and Living by the Sea","0956789366",194,31,2014,8.99,10,192
+345,"Surf & Art: Contemporary Surf Artists Around the World ","9401485097",193,24,2024,22.99,10,256
+344,"The Beach","3967047636",192,24,2023,14.55,10,32
+343,"Kelly Slater: A Life of Waves","084783607X",191,29,2024,26.99,9,240
+342,"Carissa Moore: Hawaii Gold: A Celebration of Surfing ","084789990X",190,29,2024,21.99,9,272
+341,"Swimming to the Top of the Tide: Finding Life Where Land and Water Meet","1942658877",189,29,2021,8.99,10,224
+340,"Embracing the Water: Guide to enjoying nature and swimming in open waters","B0DNWRHF5M",188,29,2024,10.45,10,90
+339,"Mindfulness in Wild Swimming: Meditations on Nature & Flow","0711288194",187,29,2023,12.99,10,144
+338,"The World's Best Swimming Pools","9401498954",186,31,2024,22.99,10,448
+337,"Pool: A Dip into Outdoor Swimming Pools: The History, Design and People Behind Them","184994623X",185,31,2020,23.10,10,208
+336,"Surf Like a Girl","379138595X",184,29,2019,43.05,10,256
+335,"Women Making Waves: Trailblazing Surfers In and Out of the Water ","198485979X",183,29,2022,17.99,10,272
+334,"Surf Life: Women Who Live to Surf and Create","1760763233",182,29,2023,30.00,10,204
+333,"Surf Shacks Volume 2: The New Wave of Coastal Living","389955857X",181,31,2020,35.99,10,288
+332,"Sea: Coastal Decorative Book | Modern Beach House Accent for Coffee Tables and Shelves","B0FXDJMQH9",172,31,2025,25.99,10,300
+331,"Tide: Coastal Decorative Book | Modern Beach House Accent for Coffee Tables and Shelves","B0FXR3XQTC",172,31,2025,25.99,10,300
+330,"Ocean: Coastal Decorative Book | Modern Beach House Accent for Coffee Tables and Shelves ","B0FWR9GR3W",172,31,2025,25.99,10,300
+329,"Breeze: Coastal Decorative Book | Modern Beach House Accent for Coffee Tables and Shelves","B0FY52GVHG",172,31,2025,25.99,10,300
+328,"Horizon: Coastal Decorative Book | Modern Beach House Accent for Coffee Tables and Shelves","B0FWR932XH",172,31,2025,25.99,10,300
+327,"Sand: Coastal Decorative Book | Beach-Inspired Accent for Coffee Tables and Shelves ","B0FXGHLPJZ",172,31,2025,25.99,10,300
+326,"Surf: Coastal Decorative Book | Beach-Inspired Accent for Coffee Tables and Shelves","B0FXGJLNXG",172,31,2025,25.99,10,300
+325,"Sun: Coastal Decorative Book | Modern Beach House Accent for Coffee Tables and Shelves ","B0FXDP5PL1",172,31,2025,25.99,10,300
+324,"Salt: Coastal Decorative Book | Modern Beach House Accent for Coffee Tables and Shelves","B0FXDLKYRQ",172,31,2025,25.99,10,300
+323,"Beach Life: Home, Heart & the Sea","1419771868",180,31,2024,19.99,10,288
+322,"Clark Little: The Art of Waves","1984859781",179,29,2022,20.99,10,240
+321,"Surf Shack: Laid-Back Living by the Water ","0451496051",178,31,2017,19.99,10,272
+320,"Lonely Planet Epic Hikes of Europe","1838694285",173,6,2021,21.99,10,320
+319,"Lonely Planet Epic Hikes of the World","1787014177",173,6,2018,16.99,10,328
+318,"Splash!: 10,000 Years of Swimming","0306845660",177,29,2020,11.99,10,336
+317,"Just a Girl Who Loves Swimming Log Book: Competitive Swimmer's Journal for Tracking Goals, Best Times, Achievements, and Daily Sessions ","B0DH2PH1ZQ",176,29,2024,11.99,10,122
+316,"The BEST Swim Book: Competitive Swimming Guide and Journal For Beginners","9798396743",176,29,2023,13.93,100,10
+315,"Outside the Lanes: A Pro Swimmer's Story of Resilience, Reinvention, and Redefining Success","1963183118",175,5,2025,12.99,10,256
+314,"Why We Swim","1643751379",174,29,2021,10.90,10,288
+313,"Lonely Planet The Joy of Quiet Places","1837582661",173,6,2024,18.87,272,10
+312,"Lonely Planet The Joy of Wild Swimming","183758060X",173,6,2023,16.98,10,272
+311,"The Nature of Swimming: Unique Bathing Locations and Swimming Experiences","3967041026",172,6,2024,31.55,10,256
+310,"Where the Crawdads Sing","0735219109",171,9,2021,8.20,10,400
 309,"Rich People Problems","9781473576919",36,26,2019,12.49,18,384
 308,"Sex and Vanity","9781473576889",36,26,2020,13.49,10,368
-307,"Lies and Weddings","9781804941003",36,26,2024,11.79,20,448
-306,"China Rich Girlfriend","9781925575460",36,9,2017,9.99,17,400
+307,"Lies and Weddings","9781804941003",36,26,2024,11.79,19,448
+306,"China Rich Girlfriend","9781925575460",36,9,2017,9.99,16,400
 305,"Happiness Falls","9780571371501",170,9,2023,15.99,10,352
 304,"Memoirs of a Teenage Amnesiac","9781429956291",31,9,2009,11.49,10,288
 303,"Young Jane Young","9781616207724",31,9,2017,11.49,10,272
@@ -21,7 +62,7 @@
 290,"The Shaking Woman or A History of My Nerves","9781848945111",23,9,2010,13.99,10,300
 289,"Mothers, Fathers, and Others","9781529376661",23,30,2021,14.49,10,304
 288,"The Blazing World","9781476747255",23,9,2014,13.84,9,368
-287,"A Woman Looking at Men Looking at Women","9781473638921",23,30,2016,13.49,10,576
+287,"A Woman Looking at Men Looking at Women","9781473638921",23,30,2016,13.49,9,576
 286,"Memories of the Future","9781473694439",23,9,2019,11.99,9,352
 285,"The Blindfold","9780340581230",23,9,2010,13.99,8,221
 284,"Surfing the Asian Wave","9789814868846",169,18,2019,14.49,10,190
@@ -33,7 +74,7 @@
 278,"Beautiful World, Where Are You","9780571365456",22,26,2021,11.99,6,288
 277,"Conversations with Friends","9780571333141",22,26,2017,11.99,16,272
 276,"Turtles All the Way Down","9780241335444",164,26,2017,7.99,9,320
-275,"In Conclusion, Don't Worry About It","9780349011530",35,10,2018,5.99,9,64
+275,"In Conclusion, Don't Worry About It","9780349011530",35,10,2018,5.99,8,64
 274,"Someday, Someday, Maybe","9780345532756",35,9,2013,7.49,8,352
 273,"Have I Told You This Already?","9780349017624",35,5,2022,5.99,9,208
 272,"The Good Sister","9781473697058",163,26,2021,4.49,10,400
@@ -45,11 +86,11 @@
 266,"Normal People","9780571334667",22,26,2018,11.99,18,304
 265,"The Midnight Taxi","9798217187546",158,22,2026,14.49,21,336
 264,"Faces in the Crowd","9781847085580",157,9,2012,11.99,10,160
-263,"Sidewalks","9781847087249",157,19,2013,11.99,10,120
+263,"Sidewalks","9781847087249",157,19,2013,11.99,9,120
 262,"Story of My Teeth","9781783780839",157,9,2015,9.49,10,208
 261,"Tell Me How it Ends","9780008271930",157,2,2017,6.99,20,128
 260,"Lost Children Archive","9780008290030",157,9,2019,7.24,20,400
-259,"Super Pumped - The Battle for Uber","9780393358612",156,15,2020,16.99,18,416
+259,"Super Pumped - The Battle for Uber","9780393358612",156,15,2020,16.99,17,416
 258,"The Founders - The Story of Paypal and the Entrepreneurs Who Shaped Silicon Valley","9781501197253",155,15,2022,16.80,18,496
 257,"The Hating Game","9780062439604",154,26,2016,9.99,13,350
 256,"Light on Life - The Yoga Journey to Wholeness, Inner Peace and Ultimate Freedom","9781529321265",153,21,2019,5.49,10,304
@@ -57,21 +98,21 @@
 254,"Born A Crime","9781473635319",151,5,2016,9.49,46,304
 253,"The Promise","9781473584464",150,9,2021,8.99,20,304
 252,"Steve Jobs","9780748131327",149,5,2011,12.99,19,448
-251,"Maybe You Should Talk to Someone - a therapist, her thearapist, and our lives revealed","9781913348922",148,10,2022,11.49,18,415
+251,"Maybe You Should Talk to Someone - a therapist, her thearapist, and our lives revealed","9781913348922",148,10,2022,11.49,17,415
 250,"How the internet happened, From Netscape to the Iphone","9786030502394",147,15,2024,7.99,16,410
 249,"Chip War","9781398504110",146,15,2022,9.02,16,464
 248,"The Joy Luck Club","9781407072852",145,9,2008,8.99,99,384
 247,"Broad Band - The Untold Story of the Women Who Made the Internet","9780735211766",144,15,2018,8.99,17,288
 246,"Catching Fire (Hunger Games, Book Two)","9780545586177",143,3,2013,15.99,46,400
-245,"The Hunger Games (Hunger Games, Book One)","9780439023528",143,3,2010,15.99,41,384
+245,"The Hunger Games (Hunger Games, Book One)","9780439023528",143,3,2010,15.99,40,384
 244,"Mockingjay (Hunger Games, Book Three)","9780439023511",143,3,2010,10.39,18,400
 243,"Prep","9781407094328",142,9,2012,8.99,10,480
 242,"Eligible","9780007486304",142,26,2016,7.59,20,544
 241,"Romantic Comedy","9781473587076",142,26,2023,7.99,24,400
 240,"Rodham - What if Hillary hadn't married Bill?","9781448170579",142,9,2020,8.99,20,432
 239,"Remarkably Bright Creatures","9780063204171",141,9,2022,6.93,19,352
-238,"Waterman - The Life and Times of Duke Kahanamoku","9780803285125",140,5,2015,24.49,16,336
-237,"Come As You Are","9781982165321",139,10,2021,16.80,14,400
+238,"Waterman - The Life and Times of Duke Kahanamoku","9780803285125",140,5,2015,24.49,14,336
+237,"Come As You Are","9781982165321",139,10,2021,16.80,13,400
 236,"Come Together","9781529928464",139,10,2024,10.99,17,368
 235,"Console Wars","9780062276711",138,15,2014,8.50,4,452
 234,"The Life Impossible","9781838855611",137,6,2025,11.89,9,331
@@ -79,7 +120,7 @@
 232,"Hula","9780063276970",136,9,2023,9.99,14,300
 231,"First Lie Wins","9781472295354",135,22,2024,9.99,15,352
 230,"Anatomy of an Alibi","9780593834466",135,22,2026,16.49,19,352
-229,"The Four - The Hidden DNA of Amazon, Apple, Facebook and Google","9781473542105",134,15,2017,9.49,7,336
+229,"The Four - The Hidden DNA of Amazon, Apple, Facebook and Google","9781473542105",134,15,2017,9.49,6,336
 228,"How Google Works","9781444792485",133,15,2014,13.99,7,352
 227,"In the Plex - How Google Thinks, Works, and Shapes Our Lives","9781416596714",132,15,2011,15.81,7,432
 226,"Facebook","9780241297971",132,15,2020,14.99,8,592
@@ -94,7 +135,7 @@
 217,"The Way of the Fearless Writer","9780349433042",128,21,2022,5.99,10,272
 216,"We Are In This Together","9780349427690",128,21,2020,5.99,10,112
 215,"Wabi Sabi","9780349420998",128,21,2018,8.49,19,256
-214,"Kokoro","9780349425573",128,21,2024,9.99,19,272
+214,"Kokoro","9780349425573",128,21,2024,9.99,18,272
 213,"Palo Alto","9781529430899",127,15,2023,13.99,17,832
 212,"Lost Japan","9780141979755",122,6,2015,9.49,7,256
 211,"Motions and Moments - Tokyo Moments Series","9781942410096",126,6,2015,7.49,9,264
@@ -112,13 +153,13 @@
 199,"African Diary","9781409095576",121,6,2010,14.99,10,64
 198,"The Road to Little Dribbling - More Notes from a Small Island","9781473508071",121,6,2015,9.99,9,480
 197,"A Walk In The Woods","9781409095514",121,6,2010,8.49,6,336
-196,"The Beach","9780141941448",120,28,2007,8.99,21,448
+196,"The Beach","9780141941448",120,28,2007,8.99,18,448
 195,"Fleabag: The Scriptures","9781529394818",119,27,2019,5.99,19,407
 194,"Songbook","9781101218549",19,24,2003,7.49,8,240
 193,"Stuff I've Been Reading","9780241967966",19,24,2013,9.49,9,272
 192,"Speaking with the Angel","9780241959466",19,19,2011,8.99,19,240
 191,"An Education","9780141939018",19,27,2009,8.99,8,224
-190,"31 Songs","9780141935225",19,24,2007,6.99,17,256
+190,"31 Songs","9780141935225",19,24,2007,6.99,16,256
 189,"Slam","9780141902708",19,9,2008,8.99,9,304
 188,"Fever Pitch","9780141926544",19,9,2005,9.99,7,256
 187,"A Long Way Down","9780141905778",19,9,2005,8.99,22,272
@@ -127,11 +168,11 @@
 184,"State of the Union - A Marriage in Ten Parts","9780241987803",19,9,2019,8.99,19,144
 183,"Funny Girl","9780241965214",19,9,2014,8.99,18,352
 182,"About a Boy","9780141924359",19,9,2005,8.99,23,288
-181,"High Fidelity","9780141925073",19,9,2005,8.99,19,256
+181,"High Fidelity","9780141925073",19,9,2005,8.99,18,256
 180,"Books, Movies, Rhythm, Blues: Twenty Years of Writing about Film, Music and Books","9780241338605",19,26,2020,8.99,18,320
 179,"The Millennium Trilogy V03 - The Girl Who Kicked the Hornets' Nest","9781906694418",118,22,2010,11.99,47,752
 178,"The Millennium Trilogy V02 - The Girl Who Played With Fire","9781847248978",118,22,2010,12.99,44,576
-177,"The Millennium Trilogy V01 - The Girl with the Dragon Tattoo","9781849163279",118,22,2010,11.49,33,560
+177,"The Millennium Trilogy V01 - The Girl with the Dragon Tattoo","9781849163279",118,22,2010,11.49,32,560
 176,"Real Mexican Food","9781849753982",117,25,2014,13.19,11,144
 175,"The Woman in Me","9781398522534",116,5,2023,7.73,14,320
 174,"Madly, Deeply - The Alan Rickman Diaries","9781838854805",115,5,2023,13.39,14,449
@@ -168,15 +209,15 @@
 143,"Bad Dreams and Other Stories","9781473545618",98,9,2017,7.99,10,224
 142,"Paris Trance","9781466869875",97,9,2025,19.49,14,287
 141,"On the Road","9780141912561",96,9,2011,8.99,14,288
-140,"Best Japanese Short Stories","9781462923977",95,19,2023,14.49,8,224
+140,"Best Japanese Short Stories","9781462923977",95,19,2023,14.49,7,224
 139,"Tokyo Vice","9781849016223",94,12,2020,5.99,9,400
 138,"I Am a Cat","9781529935462",70,12,2025,10.99,6,208
 137,"Nice Girls Don't Get the Corner Office","9781538776407",93,18,2026,11.99,0,356
 136,"The Anthropologists","9781398529915",92,9,2024,11.60,10,320
 135,"The Pillow Book","9788583865148",91,10,2025,3.90,9,170
 134,"Empire of AI","9781802064667",90,15,2025,14.99,9,496
-133,"The Web Beneath the Waves - The Fragile Cables that Connect our World","9798987053799",89,15,2025,14.49,6,128
-132,"You with the Sad Eyes","9781035440320",88,5,2026,13.99,0,304
+133,"The Web Beneath the Waves - The Fragile Cables that Connect our World","9798987053799",89,15,2025,14.49,5,128
+132,"You with the Sad Eyes","9781035440320",88,5,2026,13.99,20,304
 131,"Earthlings","9781783785681",24,12,2020,10.99,8,240
 130,"There Is No Place for Us","9780593237151",87,2,2025,15.49,9,448
 129,"The Loneliness of Sonia and Sunny","9781405980128",86,9,2025,16.99,20,688
@@ -202,7 +243,7 @@
 109,"Paradise Crime Thrillers - Vol 05 - Wired dawn",NULL,12,7,2018,9.99,7,299
 108,"Paradise Crime Thrillers - Vol 04 - Wired dark",NULL,12,7,2017,9.99,7,279
 107,"Paradise Crime Thrillers - Vol 03 - Wired hard",NULL,12,7,2017,9.99,4,281
-106,"Paradise Crime Thrillers - Vol 02 - Wired rogue",NULL,12,7,2016,9.99,0,297
+106,"Paradise Crime Thrillers - Vol 02 - Wired rogue",NULL,12,7,2016,9.99,10,297
 105,"Marigold Mind Laundry","9781529925661",82,9,2024,8.99,10,256
 104,"The Restaurant of Lost Recipes","9781035009657",81,12,2024,11.99,13,224
 103,"The Kamogawa Food Detectives","9781035009602",81,12,2023,11.99,11,224
@@ -223,7 +264,7 @@
 88,"The Housekeeper and the Professor ","9781409076667",69,9,2009,8.99,10,192
 87,"I Deliver Parcels in Beijing","9781802068252",68,2,2025,14.99,19,336
 86,"Strange Weather in Tokyo","9781846275098",67,12,2013,10.99,15,192
-85,"The Lantern of Lost Memories","9781538757451",66,12,2024,10.99,10,224
+85,"The Lantern of Lost Memories","9781538757451",66,12,2024,10.99,9,224
 84,"Diary of a Void","9781473593367",65,12,2022,8.99,9,224
 83,"The Rest of Our Lives","9780571388561",64,1,2025,15.99,10,224
 82,"More Days at the Morisaki Bookshop","9780063278721",63,12,2024,4.54,8,160
@@ -257,11 +298,11 @@
 54,"Eat, Pray, Love","9781408808665",41,5,2007,10.49,42,349
 53,"All the Way to the River","9781526654601",41,9,2025,18.49,27,400
 52,"A Different Kind of Power","9780593728703",40,5,2025,13.39,24,352
-51," The Ninja Daughter",NULL,39,9,2025,9.00,11,336
+51," The Ninja Daughter",NULL,39,9,2025,9.00,10,336
 50,"Lincoln In The Bardo",NULL,38,1,2017,24.99,999,367
 49,"Younger",NULL,37,1,2001,12.99,14,357
-48,"Crazy rich asians",NULL,36,1,2011,16.99,9,316
-47,"Talking as Fast As I can",NULL,35,5,2018,15.50,0,193
+48,"Crazy rich asians",NULL,36,1,2011,16.99,8,316
+47,"Talking as Fast As I can",NULL,35,5,2018,15.50,10,193
 46,"Beach read",NULL,34,8,2014,14.00,29,361
 45,"fake_book",NULL,33,1,2001,5.00,286,428
 44,"10% Happier",NULL,32,2,2014,12.00,28,256
@@ -275,24 +316,24 @@
 36,"Drinking Coffee elsewhere",NULL,26,4,2013,14.00,3,302
 35,"The way of zen",NULL,25,2,2008,18.00,2,254
 34,"Convenience Store Woman",NULL,24,1,2022,12.00,4,210
-33,"The summer without men",NULL,23,1,2008,15.00,0,451
+33,"The summer without men",NULL,23,1,2008,15.00,10,451
 32,"What I loved",NULL,23,1,2005,14.50,15,428
 31,"Mr Salary",NULL,22,1,2021,8.00,0,173
 30,"Intermezzo",NULL,22,1,2025,28.00,6,391
 29,"The Bookshop Woman",NULL,21,12,2021,13.50,6,274
 28,"The secret life of bees",NULL,20,1,2022,14.00,5,429
-27,"Just like you",NULL,19,1,2019,15.00,0,277
+27,"Just like you",NULL,19,1,2019,15.00,20,277
 26,"The Queens Gambit",NULL,18,1,1984,12.99,3,439
 25,"The Vagabonds Way",NULL,17,6,2023,18.00,18,390
 24,"Love Marriage",NULL,16,1,2023,22.00,38,428
 23,"Maid",NULL,15,5,2018,16.00,11,437
 22,"Osamu Dazai Best Short Stories",NULL,14,4,2011,11.50,9,167
 21,"Doppelganger",NULL,13,2,2025,26.00,39,427
-20,"Paradise Crime Thrillers - Vol 01 - Wired in",NULL,12,7,2016,9.99,12,282
+20,"Paradise Crime Thrillers - Vol 01 - Wired in",NULL,12,7,2016,9.99,9,282
 19,"Be more Japan",NULL,11,6,2021,25.00,12,340
 18,"Before your memory fades",NULL,10,1,2020,14.00,11,223
 17,"Tales from the cafe",NULL,10,12,2017,13.50,25,221
-16,"Before the coffee gets cold",NULL,10,12,2015,12.99,16,201
+16,"Before the coffee gets cold",NULL,10,12,2015,12.99,15,201
 15,"Oblivion: Stories",NULL,9,4,2004,16.50,171,329
 14,"Cannery Row",NULL,8,1,1945,10.99,92,181
 13,"White Noise",NULL,7,1,1985,14.00,47,320
