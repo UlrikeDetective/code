@@ -1,9 +1,9 @@
-"id","title","isbn","author_id","genre_id","released_year","price","stock_quantity","pages"
-350,"Aloha Kitchen: Recipes from Hawai'i ","0399581367",198,25,2019,13.99,10,240
-349,"Island Wisdom: Hawaiian Traditions and Practices for a Meaningful Life","1797216937",197,21,2022,12.99,10,144
-348,"Surf-side Eating: Relaxed recipes inspired by coastal living","B083F9N253",196,25,2020,10.99,10,290
-347,"The Code: The Power of ''I Will''","1459673271",195,10,2015,13.99,10,136
-346,"Surf Cafe Living: Cooking, Entertaining and Living by the Sea","0956789366",194,31,2014,8.99,10,192
+"id","title","isbn","author_id","genre_id","released_year","price","stock_quantity","pages","hashtags"
+350,"Aloha Kitchen: Recipes from Hawai'i ","0399581367",198,25,2019,13.99,10,240,"#cooking #hawaii #recipes"
+349,"Island Wisdom: Hawaiian Traditions and Practices for a Meaningful Life","1797216937",197,21,2022,12.99,10,144,"#wisdom #tradition #hawaii"
+348,"Surf-side Eating: Relaxed recipes inspired by coastal living","B083F9N253",196,25,2020,10.99,10,290,"#surfing #waves #coast"
+347,"The Code: The Power of ''I Will''","1459673271",195,10,2015,13.99,10,136,"#power #motivation #surfing"
+346,"Surf Cafe Living: Cooking, Entertaining and Living by the Sea","0956789366",194,31,2014,8.99,10,192,"#surfing #waves #japan"
 345,"Surf & Art: Contemporary Surf Artists Around the World ","9401485097",193,24,2024,22.99,10,256
 344,"The Beach","3967047636",192,24,2023,14.55,10,32
 343,"Kelly Slater: A Life of Waves","084783607X",191,29,2024,26.99,9,240

@@ -25,6 +25,7 @@ CREATE TABLE books (
     price DECIMAL(10,2) NOT NULL DEFAULT 0.00,
     stock_quantity INT DEFAULT 0,
     pages INT,
+    hashtags TEXT,
     CHECK (price >= 0),
     CHECK (stock_quantity >= 0)
 );
@@ -96,10 +97,10 @@ INSERT INTO genres (name) VALUES
 ('Fantasy'), 
 ('Non-Fiction');
 
-INSERT INTO books (title, author_id, genre_id, released_year, price, stock_quantity, pages) VALUES 
-('The Namesake', 1, 1, 2003, 19.99, 32, 291),
-('American Gods', 2, 2, 2001, 24.50, 12, 465),
-('Intermezzo', 3, 1, 2025, 28.00, 12, 391);
+INSERT INTO books (title, author_id, genre_id, released_year, price, stock_quantity, pages, hashtags) VALUES 
+('The Namesake', 1, 1, 2003, 19.99, 32, 291, '#fiction #classic #identity'),
+('American Gods', 2, 2, 2001, 24.50, 12, 465, '#fantasy #mythology #adventure'),
+('Intermezzo', 3, 1, 2025, 28.00, 12, 391, '#fiction #modern #rooney');
 
 INSERT INTO customers (first_name, last_name, email) VALUES 
 ('Boy', 'George', 'george@gmail.com'),

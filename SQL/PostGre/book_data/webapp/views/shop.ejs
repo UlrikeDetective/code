@@ -79,7 +79,12 @@
                                             <span style="font-size: 0.6em; background: var(--secondary); color: #1d5a4d; padding: 2px 8px; border-radius: 12px; margin-left: 8px; vertical-align: middle;">OWNED</span>
                                         <% } %>
                                     </div>
-                                    <div style="font-size: 0.75em; color: #888;"><%= book.genre %></div>
+                                    <div style="font-size: 0.75em; color: #888;">
+                                        <%= book.genre %>
+                                        <% if (book.hashtags) { %>
+                                            <span style="color: var(--primary); margin-left: 10px;"><%= book.hashtags %></span>
+                                        <% } %>
+                                    </div>
                                 </td>
                                 <td><%= book.first_name %> <%= book.last_name %></td>
                                 <td style="color: var(--primary); font-weight: 600;">$<%= book.price %></td>

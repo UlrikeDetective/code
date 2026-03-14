@@ -86,7 +86,7 @@ app.get('/shop', async (req, res) => {
   const search = req.query.search || '';
   try {
     let queryText = `
-      SELECT b.id, b.title, a.first_name, a.last_name, g.name as genre, b.price, b.stock_quantity 
+      SELECT b.id, b.title, a.first_name, a.last_name, g.name as genre, b.price, b.stock_quantity, b.hashtags
       FROM books b 
       JOIN authors a ON b.author_id = a.id 
       LEFT JOIN genres g ON b.genre_id = g.id
@@ -99,6 +99,7 @@ app.get('/shop', async (req, res) => {
         OR a.first_name ILIKE $1 
         OR a.last_name ILIKE $1 
         OR g.name ILIKE $1
+        OR b.hashtags ILIKE $1
       `;
       queryParams.push(`%${search}%`);
     }
@@ -383,7 +384,7 @@ app.post('/admin/restock', async (req, res) => {
 
 // ADMIN: Add Book
 app.post('/admin/add-book', async (req, res) => {
-  const { title, author_first_name, author_last_name, genre_name, isbn, price, stock, pages, year } = req.body;
+  const { title, author_first_name, author_last_name, genre_name, isbn, price, stock, pages, year, hashtags } = req.body;
   try {
     // 1. Get or Create Author
     let authorRes = await db.query(
@@ -416,8 +417,8 @@ app.post('/admin/add-book', async (req, res) => {
 
     // 3. Insert Book
     await db.query(
-      'INSERT INTO books (title, isbn, author_id, genre_id, price, stock_quantity, pages, released_year) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
-      [title, isbn, authorId, genreId, price, stock, pages, year]
+      'INSERT INTO books (title, isbn, author_id, genre_id, price, stock_quantity, pages, released_year, hashtags) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)',
+      [title, isbn, authorId, genreId, price, stock, pages, year, hashtags]
     );
     res.redirect('/admin');
   } catch (err) {
