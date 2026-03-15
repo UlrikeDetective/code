@@ -153,6 +153,15 @@ JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
 WHERE b.title = 'Paradise Crime Thrillers - Vol 01 - Wired in';
 
+ -- Customers who bought books with hashtag 'tech':
+
+SELECT DISTINCT c.first_name, c.last_name, c.email, b.title
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN order_items oi ON o.id = oi.order_id
+JOIN books b ON oi.book_id = b.id
+WHERE b.hashtags LIKE '%#tech%';
+
 SELECT * FROM books where title = 'Barbarian - Days A Surfing Life';
 
 SELECT DISTINCT c.first_name, c.last_name, c.email
@@ -162,6 +171,7 @@ JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
 JOIN authors a ON b.author_id = a.id
 WHERE b.title = 'Palo Alto';
+
 -- Amount Paid per Customer
 -- This query groups the results by customer and sums their total spend on 'Palo Alto', in case a customer bought it across multiple orders.
 SELECT
