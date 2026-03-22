@@ -7,9 +7,8 @@
 -- ==========================================================
 -- These help verify data integrity at a glance
 SELECT * FROM authors order by id;
-SELECT * FROM books ORDER BY id DESC;
+SELECT * FROM books ORDER BY title;
 SELECT * FROM customers ORDER BY id DESC;
-SELECT * FROM customers ORDER BY first_name;
 SELECT * FROM orders ORDER BY id DESC;
 Select * from order_items order by id desc;
 Select * from genres order by name;
@@ -151,7 +150,7 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'Paradise Crime Thrillers - Vol 01 - Wired in';
+WHERE b.title = 'First Lie Wins';
 
  -- Customers who bought books with hashtag 'tech':
 
