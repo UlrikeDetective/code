@@ -23,26 +23,38 @@ select * from core_customer order by id desc;
 
 INSERT INTO core_customer (name, email, phone, city, country, customer_type, created_at)
 VALUES 
-('Claudia Romero Diez', 'claudia.romero.d@icloud.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 20:11:14.345535'),
-('Sebastián Vega Beltrán', 'sebv.escritor@gmail.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 20:10:08.686101'),
-('Daniela Aguilar Crespo', 'daniela.aguilar@telefonica.net', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 20:08:48.052296'),
-('Ricardo Ramos Suero', 'r.ramos.tarifa@proton.me', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 20:07:14.25059'),
-('Valeria Ferrer Domínguez', 'v.ferrer.lectura@gmail.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 20:03:32.745996'),
-('Marcos Serrano Peña', 'marcos_serrano_85@correo.es', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 20:02:42.448751'),
-('Isabel Ibáñez Torres', 'isa.ibanez@yahoo.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 20:01:16.262143'),
-('Adrián Lozano Gil', 'adri.lozano.books@outlook.es', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 19:59:50.395408'),
-('Alba Guerrero Pascual', 'alba.guerrero.p@me.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 19:59:08.842034'),
-('Pablo Cano Medina', 'pablo.cano.levante@gmail.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 19:58:35.111634'),
-('Sofía Lara Blanco', 'sofia.larab@gestion.es', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 07:51:06.251457'),
-('Diego Morales Ortega', 'diego.morales.surf@gmail.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 07:50:30.218817'),
-('Elena Vidal Garrido', 'elenavidal_92@hotmail.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 07:49:54.98446'),
-('Javier Méndez Rubio', 'javi.mendez.tarifa@protonmail.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 07:49:11.368181'),
-('Martina Navarro Soler', 'martina.nav@icloud.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 07:48:39.218027'),
-('Hugo Jiménez Castro', 'hugo_j_castro@yahoo.es', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 07:43:56.298688'),
-('Carmen Ortiz Núñez', 'carmen.ortiz@telefonica.net', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 07:43:20.809546'),
-('Mateo Ruiz Delgado', 'm.ruiz.vientos@outlook.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 07:42:31.097654'),
-('Lucía Fernández Santos', 'lucia.tarifabooks@gmail.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 07:42:01.591589'),
-('Alejandro García Marín', 'al.garcia88@correo.es', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-11 07:40:24.760978'),
-('Lani Nalu', 'welcometoparadisedream@example.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-09 11:28:05.192474');
+('Leyla Weiss','leyla.weiss@tarifa.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-23 20:16:26.37359'),
+('Aileen Jenkins','aileen.jenkins@tarifa.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-23 20:14:48.877888'),
+('Jayda Osborn','jayda.osborn@tarifa.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-23 20:13:32.95091'),
+('Fletcher Blevins','fletcher.blevins@tarifa.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-23 20:12:27.435111'),
+('Anya Burch','anya.burch@tarifa.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-23 20:10:52.927778'),
+('Lilly Murillo','lilly.murillo@tarifa.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-23 20:09:45.107127'),
+('Emilee Haas','emilee.haas@tarifa.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-23 20:07:51.966602'),
+('Matteo Chambers','matteo.chambers@tarifa.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-23 20:06:45.247365'),
+('Jayda Joseph','jayda.joseph@tarifa.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-23 20:05:37.083207'),
+('Sarai Moon','sarai.moon@tarifa.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-23 20:04:34.751374');
+
+INSERT INTO core_customer (name, email, phone, city, country, customer_type, created_at)
+VALUES 
+('Søren Bakke', 'soren.kitesurf@nordicnet.no', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-12 09:15:22.451233'),
+('Emma Whitlock', 'emma.wh.nomad@gmail.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-12 10:22:11.102344'),
+('Lukas Müller', 'l.mueller.design@web.de', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-12 11:05:44.882190'),
+('Chloé Lefebvre', 'chloe.tarifa@orange.fr', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-12 12:45:30.551002'),
+('Jasper van der Meer', 'jasper.vdmeer@ziggo.nl', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-12 14:10:05.112233'),
+('Aria Rossi', 'rossi.aria@libero.it', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-12 15:33:18.992831'),
+('Oliver Smith', 'olliver.smith.uk@outlook.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-12 16:55:40.441552'),
+('Freja Jensen', 'freja.j@danishmail.dk', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-13 08:20:12.662110'),
+('Liam O’Connor', 'liam.kite.tarifa@gmail.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-13 09:12:33.771223'),
+('Anika Sharma', 'anika.sharma.coder@gmail.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-13 10:45:01.332445'),
+('Sebastian Meyer', 's.meyer.yoga@gmx.de', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-13 11:20:55.112998'),
+('Zoë Williams', 'zoe.waves@icloud.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-13 13:05:44.221004'),
+('Matteo Bianchi', 'm.bianchi@proton.me', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-13 14:50:18.552113'),
+('Sofia Lindberg', 'sofia.swede@yahoo.se', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-13 16:22:30.991882'),
+('Julian Bennett', 'jules.bennett@me.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-14 07:15:10.442331'),
+('Noa Cohen', 'noa.cohen.tarifa@gmail.com', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-14 08:40:22.112665'),
+('Klara Nowak', 'klara.n.art@wp.pl', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-14 09:12:55.772331'),
+('Finn Gallagher', 'finn.g@irishabroad.ie', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-14 10:05:33.881220'),
+('Yuki Tanaka', 'yuki.tanaka@tokyomail.jp', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-14 11:22:44.552119'),
+('Isabella Costa', 'bella.costa@uol.com.br', '', 'Tarifa', 'Spain', 'LOCAL', '2026-03-14 12:45:11.992884');
 
 select * from core_customer where city = 'Tarifa';
