@@ -92,10 +92,14 @@
                         </td>
                         <td style="text-align: right;">
                             <% if (currentCustomer) { %>
-                                <form action="/events/register" method="POST">
-                                    <input type="hidden" name="event_id" value="<%= e.id %>">
-                                    <button type="submit">Reserve Spot</button>
-                                </form>
+                                <% if (bookedEventIds.includes(e.id)) { %>
+                                    <span style="background: var(--secondary); color: #1d5a4d; padding: 5px 15px; border-radius: 4px; font-weight: bold;">BOOKED</span>
+                                <% } else { %>
+                                    <form action="/events/register" method="POST">
+                                        <input type="hidden" name="event_id" value="<%= e.id %>">
+                                        <button type="submit">Reserve Spot</button>
+                                    </form>
+                                <% } %>
                             <% } %>
                         </td>
                     </tr>

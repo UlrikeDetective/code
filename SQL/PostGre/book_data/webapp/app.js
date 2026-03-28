@@ -36,6 +36,7 @@ app.use(session({
 app.use(async (req, res, next) => {
   res.locals.currentCustomer = null;
   res.locals.purchasedBookIds = [];
+  res.locals.bookedEventIds = [];
   
   if (req.session.customerId) {
     try {
@@ -50,6 +51,13 @@ app.use(async (req, res, next) => {
           WHERE o.customer_id = $1
         `, [req.session.customerId]);
         res.locals.purchasedBookIds = purchasedRes.rows.map(r => r.book_id);
+
+        // Fetch IDs of events this customer has registered for
+        const bookedRes = await db.query(
+          'SELECT event_id FROM event_registrations WHERE customer_id = $1',
+          [req.session.customerId]
+        );
+        res.locals.bookedEventIds = bookedRes.rows.map(r => r.event_id);
       }
     } catch (err) {
       console.error("Session Auth Error", err);
