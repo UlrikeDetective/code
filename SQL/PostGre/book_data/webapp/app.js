@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // --- SESSION SETUP ---
 app.use(session({
-  secret: 'stockholm-bookshop-secret',
+  secret: 'high-tide-books-secret',
   resave: false,
   saveUninitialized: true,
   cookie: { maxAge: 24 * 60 * 60 * 1000 } // 24 hours
@@ -346,7 +346,7 @@ app.get('/admin/financials', async (req, res) => {
       actualSales: parseFloat(salesRes.rows[0].total),
       actualTickets: parseInt(ticketsRes.rows[0].count),
       history: historyRes.rows.map(h => ({ ...h, total: parseFloat(h.total) })),
-      // Tarifa Plan Assumptions
+      // High Tide Plan Assumptions
       plan: {
         rent: 200,
         utilities: 75,

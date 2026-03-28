@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SYS_BOOKSHOP // SHOP</title>
+    <title>HIGH TIDE BOOKS // SHOP</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <div class="container">
         <a href="/"><- Back to Home</a>
-        <h1>Book Collection</h1>
+        <h1>High Tide Collection</h1>
 
         <% if (!currentCustomer) { %>
             <div class="auth-section">
@@ -85,7 +85,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% books.forEach(book => { %>
+                        <% books.filter(book => book.stock_quantity > 0).forEach(book => { %>
                             <tr>
                                 <td>
                                     <div style="font-weight: 600;">

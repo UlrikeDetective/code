@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SYS_BOOKSHOP // EVENTS</title>
+    <title>HIGH TIDE BOOKS // EVENTS</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <div class="container">
         <a href="/"><- Back to Home</a>
-        <h1>Upcoming Events</h1>
+        <h1>High Tide Events</h1>
 
         <% if (!currentCustomer) { %>
             <div class="auth-section">
@@ -121,22 +121,6 @@
                     </tr>
                 <% }) %>
             </tbody>
-        </table>
-    </div>
-</body>
-        <table>
-            <tr>
-                <th>EVENT</th>
-                <th>CUSTOMER</th>
-                <th>REG_DATE</th>
-            </tr>
-            <% registrations.forEach(reg => { %>
-                <tr>
-                    <td><%= reg.event_name %></td>
-                    <td><%= reg.first_name %> <%= reg.last_name %></td>
-                    <td><%= reg.registered_at.toLocaleDateString() %></td>
-                </tr>
-            <% }) %>
         </table>
     </div>
 </body>
