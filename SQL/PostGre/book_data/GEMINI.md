@@ -1,10 +1,10 @@
-# Stockholm Bookshop - SQL & Web Project Context
+# High Tide Books - SQL & Web Project Context
 
-This project is a comprehensive learning environment focused on mastering PostgreSQL, relational database design (3NF), and web integration using Node.js and Express. It simulates a fictional bookshop in Stockholm, evolving from flat data structures to a fully normalized relational schema.
+This project is a comprehensive learning environment focused on mastering PostgreSQL, relational database design (3NF), and web integration using Node.js and Express. It simulates a modern, high-volume bookshop, evolving from flat data structures to a fully normalized relational schema.
 
 ## 🚀 Project Overview
 
-- **Purpose**: Educational project for database normalization, advanced SQL queries, and CRUD web development.
+- **Purpose**: Educational project for database normalization, advanced SQL queries, recommendation engines, and CRUD web development.
 - **Main Technologies**:
   - **Database**: PostgreSQL
   - **Backend**: Node.js, Express, `express-session`, `pg` (node-postgres)
@@ -16,7 +16,7 @@ This project is a comprehensive learning environment focused on mastering Postgr
 The database `books` consists of the following normalized tables:
 - `authors`: Writer biographies and names.
 - `genres`: Book categories.
-- `books`: Central hub linking authors and genres, including stock and pricing.
+- `books`: Central hub linking authors and genres, including stock, pricing, and hashtags.
 - `customers`: User identity management.
 - `orders` & `order_items`: Transactional history.
 - `reviews`: Customer feedback (unique per book/customer).
@@ -40,32 +40,24 @@ The database `books` consists of the following normalized tables:
 
 ### Authentication & Sessions
 - **Persistent State**: Uses `express-session` to keep customers logged in across pages.
-- **Middleware**: Global middleware in `app.js` fetches `currentCustomer` and `purchasedBookIds` for every request.
-- **Auth Flow**: Users sign in via POST to `/login` and sign out via `/logout`.
+- **Middleware**: Global middleware in `app.js` fetches `currentCustomer`, `purchasedBookIds`, and `bookedEventIds` for every request.
+- **Auth Flow**: Users sign in via POST to `/login` (using a searchable autocomplete field) and sign out via `/logout`.
 
 ### SQL & Business Intelligence
 - **Normalization**: Always maintain 3NF integrity.
-- **BI Dashboard**: The Admin page uses complex aggregations to track:
-    - Out of stock items.
-    - Best-selling books and authors by volume.
-    - Non-performing inventory (zero sales).
-    - VIP customers (highest spenders).
-    - Inactive customers (churn risk).
-- **Financial Dashboard**: A dedicated view (`/admin/financials`) simulating a real-world business plan for "Librería de Tarifa". It tracks:
-    - Fixed costs (Rent, Utilities, Staff, Social Security, Autónomo).
-    - Real-time P&L (Profit & Loss) estimation based on current month's sales.
-    - Break-even analysis for books and event tickets.
-- **Integrity**: Enforce non-negative stock and unique reviews at the DB level.
+- **BI Dashboard**: The Admin page tracks out-of-stock items, best-sellers, VIP customers, and churn risk.
+- **Financial Dashboard**: Tracks real-time P&L against a fixed cost structure (Rent, Staff, Social Security, etc.) and break-even analysis.
+- **Recommendations**: Implements hashtag-based similarity and collaborative filtering ("Others also liked") to suggest new books to customers.
 
 ### UI & UX Logic
-- **Feedback**: Books are marked as "OWNED" in the shop if purchased.
-- **Verification**: Reviews are verified; existing reviews are displayed instead of the "Write Review" button.
-- **Dashboards**: Real-time registration counts on the Events page.
-- **Streamlined Admin**: Focused on BI and recent transactions (limited to latest 5 entries).
+- **Searchable Selection**: Uses `<datalist>` for fast customer and book selection in forms.
+- **Inventory Filtering**: The public shop view automatically hides out-of-stock items.
+- **Event Status**: Real-time feedback showing "BOOKED" status for events already reserved by the customer.
+- **Feedback**: Books are marked as "OWNED" in the shop if purchased; reviews are verified to prevent duplicates.
 
 ## 📂 Key Files
 - `sql/book_tables_improved.sql`: The primary schema definition.
 - `sql/overview.sql`: Business report query collection.
-- `webapp/app.js`: Main logic, session management, and BI queries.
+- `webapp/app.js`: Main logic, session management, recommendation engine, and BI queries.
 - `webapp/views/financials.ejs`: Financial dashboard view with cost structure analysis.
 - `PROJECT.md`: Architectural decisions and milestones.

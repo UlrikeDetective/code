@@ -123,11 +123,78 @@ app.get('/shop', async (req, res) => {
     
     const allCustomersRes = await db.query('SELECT * FROM customers ORDER BY first_name');
     
+    // --- RECOMMENDATIONS LOGIC ---
+    let recommendations = [];
+    if (req.session.customerId) {
+      try {
+        // 1. Hashtag Similarity: Find books with overlapping hashtags
+        // We look for books that have at least one hashtag from the customer's bought books
+        const hashtagRecs = await db.query(`
+          WITH user_hashtags AS (
+            SELECT DISTINCT unnest(string_to_array(replace(hashtags, '#', ''), ' ')) as tag
+            FROM books b
+            JOIN order_items oi ON b.id = oi.book_id
+            JOIN orders o ON oi.order_id = o.id
+            WHERE o.customer_id = $1 AND hashtags IS NOT NULL AND hashtags != ''
+          )
+          SELECT b.id, b.title, a.first_name, a.last_name, b.price, b.hashtags, 'Based on your interests' as reason
+          FROM books b
+          JOIN authors a ON b.author_id = a.id
+          WHERE b.id NOT IN (
+            SELECT book_id FROM order_items oi JOIN orders o ON oi.order_id = o.id WHERE o.customer_id = $1
+          )
+          AND b.stock_quantity > 0
+          AND EXISTS (
+            SELECT 1 FROM user_hashtags uh 
+            WHERE b.hashtags ILIKE '%' || uh.tag || '%'
+          )
+          LIMIT 3
+        `, [req.session.customerId]);
+
+        // 2. Collaborative Filtering: "Customers who bought this also bought..."
+        const collaborativeRecs = await db.query(`
+          WITH similar_customers AS (
+            SELECT DISTINCT o2.customer_id
+            FROM orders o1
+            JOIN order_items oi1 ON o1.id = oi1.order_id
+            JOIN order_items oi2 ON oi1.book_id = oi2.book_id
+            JOIN orders o2 ON oi2.order_id = o2.id
+            WHERE o1.customer_id = $1 AND o2.customer_id != $1
+          )
+          SELECT b.id, b.title, a.first_name, a.last_name, b.price, b.hashtags, 'Others also liked' as reason
+          FROM books b
+          JOIN authors a ON b.author_id = a.id
+          JOIN order_items oi ON b.id = oi.book_id
+          JOIN orders o ON oi.order_id = o.id
+          WHERE o.customer_id IN (SELECT customer_id FROM similar_customers)
+          AND b.id NOT IN (
+            SELECT book_id FROM order_items oi JOIN orders o ON oi.order_id = o.id WHERE o.customer_id = $1
+          )
+          AND b.stock_quantity > 0
+          GROUP BY b.id, a.id
+          ORDER BY COUNT(o.id) DESC
+          LIMIT 3
+        `, [req.session.customerId]);
+
+        // Combine and de-duplicate recommendations
+        const combined = [...hashtagRecs.rows, ...collaborativeRecs.rows];
+        const seen = new Set();
+        recommendations = combined.filter(b => {
+          if (seen.has(b.id)) return false;
+          seen.add(b.id);
+          return true;
+        });
+      } catch (err) {
+        console.error("Recommendation Error", err);
+      }
+    }
+
     res.render('shop', { 
       books: booksRes.rows, 
       reviews: reviewsRes.rows, 
       customers: allCustomersRes.rows,
-      search: search
+      search: search,
+      recommendations: recommendations
     });
   } catch (err) {
     console.error(err);

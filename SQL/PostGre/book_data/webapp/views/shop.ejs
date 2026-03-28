@@ -73,7 +73,34 @@
         <div class="shop-layout" style="display: flex; gap: 40px; margin-top: 30px;">
             <!-- Main Catalog -->
             <div class="column-left" style="flex: 2.5;">
-                <h2>Current Inventory</h2>
+
+                <% if (currentCustomer && recommendations && recommendations.length > 0) { %>
+                    <div class="recommendations-section" style="background: #f0f7ff; border: 1px solid #d0e7ff; padding: 25px; border-radius: 8px; margin-bottom: 40px;">
+                        <h2 style="margin-top: 0; font-size: 1.4rem; color: #0056b3;">Personalized for <%= currentCustomer.first_name %></h2>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                            <% recommendations.forEach(rec => { %>
+                                <div class="rec-card" style="background: #fff; padding: 15px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div>
+                                        <div style="font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;"><%= rec.reason %></div>
+                                        <div style="font-weight: 600; font-size: 0.95rem; margin-bottom: 3px;"><%= rec.title %></div>
+                                        <div style="font-size: 0.8rem; color: #555;"><%= rec.first_name %> <%= rec.last_name %></div>
+                                        <div style="font-size: 0.7rem; color: var(--primary); margin-top: 5px;"><%= rec.hashtags %></div>
+                                    </div>
+                                    <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
+                                        <span style="font-weight: bold; color: var(--primary);">$<%= rec.price %></span>
+                                        <form action="/shop/buy" method="POST">
+                                            <input type="hidden" name="book_id" value="<%= rec.id %>">
+                                            <input type="hidden" name="quantity" value="1">
+                                            <button type="submit" style="padding: 4px 10px; font-size: 0.8rem;">Add</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                <% } %>
+
+                <h2>High Tide Collection</h2>
                 <table>
                     <thead>
                         <tr>

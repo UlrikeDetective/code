@@ -1,12 +1,12 @@
-# Stockholm Bookshop - SQL Learning Project
+# High Tide Books - SQL Learning Project
 
-A comprehensive practice environment for mastering PostgreSQL, relational database design, and web integration. This project simulates a modern bookshop in Stockholm, featuring session-based authentication and a Business Intelligence dashboard.
+A comprehensive practice environment for mastering PostgreSQL, relational database design, and web integration. This project simulates a modern, high-volume bookshop, featuring session-based authentication, a Business Intelligence dashboard, and a recommendation engine.
 
 ## 📚 Project Overview
 
 This project is divided into two main parts:
 1.  **SQL Core**: Normalized schema design, data seeding, and business reporting scripts.
-2.  **Web Application**: A Node.js/Express interface featuring persistent login sessions and real-time management dashboards.
+2.  **Web Application**: A Node.js/Express interface featuring persistent login sessions, real-time management dashboards, and predictive recommendations.
 
 ## 🚀 Getting Started
 
@@ -18,7 +18,7 @@ Ensure you have **PostgreSQL** installed and running.
     CREATE DATABASE books;
     ```
 2.  Initialize the schema:
-    - Advanced version: `psql -d books -f sql/book_tables_improved.sql`
+    - `psql -d books -f sql/book_tables_improved.sql`
 3.  Seed the data:
     - `psql -d books -f sql/book_data_improved.sql`
 
@@ -48,9 +48,11 @@ Ensure you have **PostgreSQL** installed and running.
 
 ## 🛠 Features
 - **Persistent Sessions**: Sign in once and stay logged in across all store pages.
+- **Searchable Autocomplete**: Fast customer and book selection in forms using searchable `<datalist>` inputs.
+- **Recommendation Engine**: Personalized book suggestions based on hashtag similarity and collaborative filtering.
 - **BI Dashboard**: Real-time admin reporting on best sellers, out-of-stock items, and VIP customers.
-- **Financial Dashboard**: Real-time P&L tracking against a Tarifa-based business plan (Break-even analysis).
-- **Inventory Visuals**: Catalog markers for "OWNED" books and low-stock alerts.
+- **Financial Dashboard**: Real-time P&L tracking and break-even analysis against a fixed cost structure.
+- **Inventory Visuals**: Public shop filters out zero-stock items; "OWNED" markers for purchased books.
 - **Verified Reviews**: Reading journal that tracks purchase history and prevents duplicate reviews.
-- **Event Tracking**: Real-time registration counters for community events.
-- **Search System**: Case-insensitive partial matching for books, authors, and genres.
+- **Event Tracking**: Real-time booking status identifying if a customer has already reserved a spot.
+- **Search System**: Case-insensitive partial matching for books, authors, genres, and hashtags.
