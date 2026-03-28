@@ -130,15 +130,29 @@
                 <div>
                     <h3>Restock Inventory</h3>
                     <form action="/admin/restock" method="POST">
-                        <select name="book_id" required>
-                            <option value="">Select book</option>
+                        <input list="book-list" id="bookSearch" placeholder="Search book to restock..." autocomplete="off" required>
+                        <datalist id="book-list">
                             <% books.forEach(b => { %>
-                                <option value="<%= b.id %>"><%= b.title %> (<%= b.stock_quantity %> in stock)</option>
+                                <option value="<%= b.title %>" data-id="<%= b.id %>"></option>
                             <% }) %>
-                        </select>
+                        </datalist>
+                        <input type="hidden" name="book_id" id="bookId">
                         <input type="number" name="additional_stock" placeholder="Quantity to add" required>
                         <button type="submit" style="width: 100%; background-color: var(--secondary); color: #1d5a4d;">Update Stock</button>
                     </form>
+                    <script>
+                        document.getElementById('bookSearch').addEventListener('input', function(e) {
+                            const val = e.target.value;
+                            const list = document.getElementById('book-list');
+                            const opts = list.options;
+                            for (let i = 0; i < opts.length; i++) {
+                                if (opts[i].value === val) {
+                                    document.getElementById('bookId').value = opts[i].getAttribute('data-id');
+                                    break;
+                                }
+                            }
+                        });
+                    </script>
                 </div>
             </div>
         </div>

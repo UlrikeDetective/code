@@ -15,14 +15,29 @@
                 <div class="auth-grid">
                     <div class="auth-box">
                         <h3>Sign In</h3>
-                        <form action="/login" method="POST">
-                            <select name="customerId" onchange="this.form.submit()">
-                                <option value="">Select your account</option>
+                        <form action="/login" method="POST" id="loginForm">
+                            <input list="customer-list" name="customerSearch" id="customerSearch" placeholder="Type your name to sign in..." autocomplete="off">
+                            <datalist id="customer-list">
                                 <% customers.forEach(c => { %>
-                                    <option value="<%= c.id %>"><%= c.first_name %> <%= c.last_name %></option>
+                                    <option value="<%= c.first_name %> <%= c.last_name %>" data-id="<%= c.id %>"></option>
                                 <% }) %>
-                            </select>
+                            </datalist>
+                            <input type="hidden" name="customerId" id="customerId">
                         </form>
+                        <script>
+                            document.getElementById('customerSearch').addEventListener('input', function(e) {
+                                const val = e.target.value;
+                                const list = document.getElementById('customer-list');
+                                const opts = list.options;
+                                for (let i = 0; i < opts.length; i++) {
+                                    if (opts[i].value === val) {
+                                        document.getElementById('customerId').value = opts[i].getAttribute('data-id');
+                                        document.getElementById('loginForm').submit();
+                                        break;
+                                    }
+                                }
+                            });
+                        </script>
                     </div>
                     <div class="auth-box">
                         <h3>New Member</h3>
