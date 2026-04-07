@@ -11,7 +11,7 @@ SELECT * FROM books ORDER BY title;
 SELECT * FROM customers ORDER BY id DESC;
 SELECT * FROM orders ORDER BY id DESC;
 Select * from order_items order by id desc;
-Select * from genres order by name;
+Select * from genres order by id;
 select * from events order by event_date;
 select * from event_registrations order by registered_at desc;
 select * from reviews order by id desc;
@@ -150,7 +150,7 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'First Lie Wins';
+WHERE b.title = 'Paradise Crime Thrillers - Vol 02 - Wired rogue';
 
  -- Customers who bought books with hashtag 'tech':
 
@@ -169,7 +169,10 @@ JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
 JOIN authors a ON b.author_id = a.id
-WHERE b.title = 'Palo Alto';
+-- WHERE b.title = ''Aloha Kitchen: Recipes from Hawai'i'';
+Where b.author_id = 198;
+
+SELECT * FROM authors where last_name = 'Kysar';
 
 -- Amount Paid per Customer
 -- This query groups the results by customer and sums their total spend on 'Palo Alto', in case a customer bought it across multiple orders.
