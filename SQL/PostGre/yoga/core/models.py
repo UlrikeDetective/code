@@ -16,6 +16,11 @@ class Customer(models.Model):
     customer_type = models.CharField(max_length=10, choices=CUSTOMER_TYPES, default='VISITOR')
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def save(self, *args, **kwargs):
+        if self.email:
+            self.email = self.email.strip().lower()
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.name
 

@@ -30,7 +30,7 @@ def lessons(request):
     session_email = request.session.get('customer_email')
     if session_email:
         try:
-            customer = Customer.objects.get(email=session_email)
+            customer = Customer.objects.get(email__iexact=session_email)
             booked_lesson_ids = list(month_lessons.filter(attendees=customer).values_list('id', flat=True))
         except Customer.DoesNotExist:
             pass
@@ -73,7 +73,7 @@ def book_lesson(request, lesson_id):
     
     if session_email:
         try:
-            customer = Customer.objects.get(email=session_email)
+            customer = Customer.objects.get(email__iexact=session_email)
             is_booked = lesson.attendees.filter(id=customer.id).exists()
         except Customer.DoesNotExist:
             pass
@@ -81,7 +81,7 @@ def book_lesson(request, lesson_id):
     if request.method == 'POST':
         email = request.POST.get('email', session_email).strip().lower()
         try:
-            customer = Customer.objects.get(email=email)
+            customer = Customer.objects.get(email__iexact=email)
             
             # "Log in" the user by saving to session
             request.session['customer_email'] = email
@@ -125,7 +125,7 @@ def cancel_booking(request, lesson_id):
         return redirect('lessons')
         
     try:
-        customer = Customer.objects.get(email=session_email)
+        customer = Customer.objects.get(email__iexact=session_email)
         
         if not lesson.attendees.filter(id=customer.id).exists():
             messages.error(request, "You don't have a booking for this lesson.")
@@ -176,8 +176,8 @@ def buy_package(request):
 
         # Get or create customer
         customer, created = Customer.objects.get_or_create(
-            email=email,
-            defaults={'name': name, 'customer_type': 'VISITOR'}
+            email__iexact=email,
+            defaults={'email': email, 'name': name, 'customer_type': 'VISITOR'}
         )
         
         # Update session info
@@ -210,7 +210,7 @@ def check_balance(request):
         
     if email:
         try:
-            customer = Customer.objects.get(email=email)
+            customer = Customer.objects.get(email__iexact=email)
             # Update session if they manually searched and found themselves
             request.session['customer_email'] = email
             request.session['customer_name'] = customer.name
