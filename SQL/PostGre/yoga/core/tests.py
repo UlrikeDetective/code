@@ -28,7 +28,7 @@ class BookingViewTest(TestCase):
             customer=self.customer,
             total_lessons=5,
             remaining_lessons=5,
-            price_paid=50.00
+            price_paid=55.00
         )
 
     def test_book_past_lesson_fails(self):

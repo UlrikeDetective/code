@@ -62,7 +62,7 @@ class Migration(migrations.Migration):
             name='Package',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('total_lessons', models.IntegerField(choices=[(1, 'Single Lesson - 15€'), (3, '3 Lessons - 40€'), (5, '5 Lessons - 50€'), (10, '10 Lessons - 100€')])),
+                ('total_lessons', models.IntegerField(choices=[(1, 'Single Lesson - 15€'), (3, '3 Lessons - 40€'), (5, '5 Lessons - 55€'), (10, '10 Lessons - 100€')])),
                 ('remaining_lessons', models.IntegerField()),
                 ('purchase_date', models.DateField(default=django.utils.timezone.now)),
                 ('price_paid', models.DecimalField(decimal_places=2, max_digits=6)),

@@ -171,7 +171,7 @@ def buy_package(request):
         total_lessons = int(request.POST.get('total_lessons', 1))
         
         # Mapping prices
-        prices = {1: 15, 3: 40, 5: 50, 10: 100}
+        prices = {1: 15, 3: 40, 5: 55, 10: 100, 11: 5, 12: 20}
         price_paid = prices.get(total_lessons, 15)
 
         # Get or create customer

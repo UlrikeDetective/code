@@ -28,8 +28,10 @@ class Package(models.Model):
     PACKAGE_TYPES = [
         (1, 'Single Lesson - 15€'),
         (3, '3 Lessons - 40€'),
-        (5, '5 Lessons - 50€'),
+        (5, '5 Lessons - 55€'),
         (10, '10 Lessons - 100€'),
+        (11, '1 Meditation Session - 5€'),
+        (12, '5 Meditation Session - 20€'),
     ]
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='packages')
     total_lessons = models.IntegerField(choices=PACKAGE_TYPES)
