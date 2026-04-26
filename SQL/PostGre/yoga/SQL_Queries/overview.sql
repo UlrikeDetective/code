@@ -7,14 +7,15 @@ select * from auth_user_user_permissions;
 select * from core_customer order by id desc;
 select * from core_expense;
 select * from core_inventory;
-select * from core_lesson;
+select * from core_lesson order by date;
 select * from core_lesson_attendees;
-select * from core_package;
+select * from core_package order by purchase_date desc;
 select * from django_admin_log;
 select * from django_content_type;
 select * from django_migrations;
 select * from django_session;
 
+\copy core_lesson_attendees (lesson_id, customer_id) FROM '/path/to/your/data/lessens_attendence_2026_04_10.csv' DELIMITER ',' CSV HEADER;
 
 select * from core_customer where name = 'Ava Dubois';
 select * from core_customer where country = 'Spain';

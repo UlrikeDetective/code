@@ -1,6 +1,4 @@
 "id","total_lessons","remaining_lessons","purchase_date","price_paid","customer_id","package_type"
-180,3,2,"2026-04-26",40.00,4802,"YOGA"
-179,1,0,"2026-04-26",5.00,4802,"MEDITATION"
 177,3,0,"2026-04-25",40.00,3111,"YOGA"
 178,3,0,"2026-04-25",40.00,3118,"YOGA"
 174,1,0,"2026-04-24",15.00,3078,"YOGA"
