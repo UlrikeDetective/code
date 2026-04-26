@@ -96,15 +96,22 @@ def book_lesson(request, lesson_id):
             elif lesson.attendees.filter(id=customer.id).exists():
                 messages.warning(request, "You are already booked for this lesson.")
             else:
-                # Check for packages
-                package = Package.objects.filter(customer=customer, remaining_lessons__gt=0).order_by('purchase_date').first()
+                # Check for packages of the correct type
+                package = Package.objects.filter(
+                    customer=customer, 
+                    package_type=lesson.lesson_type,
+                    remaining_lessons__gt=0
+                ).order_by('purchase_date').first()
+                
                 if package:
                     package.remaining_lessons -= 1
                     package.save()
                     lesson.attendees.add(customer)
-                    messages.success(request, f"Successfully booked! You have {package.remaining_lessons} lessons left in your pack.")
+                    type_display = "yoga" if lesson.lesson_type == "YOGA" else "meditation"
+                    messages.success(request, f"Successfully booked! You have {package.remaining_lessons} {type_display} sessions left in your pack.")
                 else:
-                    messages.error(request, "No active package found. Please buy a package first.")
+                    type_display = "Yoga" if lesson.lesson_type == "YOGA" else "Meditation"
+                    messages.error(request, f"No active {type_display} package found. Please buy a package first.")
                     return redirect('packages')
             return redirect('lessons')
         except Customer.DoesNotExist:
@@ -135,15 +142,18 @@ def cancel_booking(request, lesson_id):
             messages.error(request, "Lessons can only be cancelled more than 24 hours in advance.")
             return redirect('book_lesson', lesson_id=lesson.id)
             
-        # Refund the lesson: Add 1 to the most recent package
-        # Note: In a real app, we might want to track which package was used. 
-        # For simplicity, we add back to their last active package or create a placeholder if needed.
-        package = Package.objects.filter(customer=customer).order_by('-purchase_date').first()
+        # Refund the lesson: Add 1 to the most recent package of the correct type
+        package = Package.objects.filter(
+            customer=customer,
+            package_type=lesson.lesson_type
+        ).order_by('-purchase_date').first()
+        
         if package:
             package.remaining_lessons += 1
             package.save()
             lesson.attendees.remove(customer)
-            messages.success(request, f"Booking cancelled. 1 lesson has been added back to your balance ({package.remaining_lessons} left).")
+            type_display = "yoga" if lesson.lesson_type == "YOGA" else "meditation"
+            messages.success(request, f"Booking cancelled. 1 {type_display} session has been added back to your balance ({package.remaining_lessons} left).")
         else:
             # This shouldn't happen if they booked, but as a fallback:
             lesson.attendees.remove(customer)
@@ -169,9 +179,14 @@ def buy_package(request):
         email = email.strip().lower()
         name = request.POST.get('name', '').strip() or email.split('@')[0].capitalize()
         total_lessons = int(request.POST.get('total_lessons', 1))
+        package_type = request.POST.get('package_type', 'YOGA')
         
         # Mapping prices
-        prices = {1: 15, 3: 40, 5: 55, 10: 100, 11: 5, 12: 20}
+        if package_type == 'MEDITATION':
+            prices = {1: 5, 5: 20}
+        else:
+            prices = {1: 15, 3: 40, 5: 55, 10: 100}
+            
         price_paid = prices.get(total_lessons, 15)
 
         # Get or create customer
@@ -186,15 +201,17 @@ def buy_package(request):
         
         Package.objects.create(
             customer=customer,
+            package_type=package_type,
             total_lessons=total_lessons,
             remaining_lessons=total_lessons,
             price_paid=price_paid
         )
         
+        type_display = "Yoga" if package_type == "YOGA" else "Meditation"
         if created:
-            messages.success(request, f"Welcome {name}! Successfully purchased {total_lessons} lesson(s) for {price_paid}€.")
+            messages.success(request, f"Welcome {name}! Successfully purchased {total_lessons} {type_display} session(s) for {price_paid}€.")
         else:
-            messages.success(request, f"Successfully purchased {total_lessons} lesson(s) for {price_paid}€.")
+            messages.success(request, f"Successfully purchased {total_lessons} {type_display} session(s) for {price_paid}€.")
             
         return redirect('lessons')
             

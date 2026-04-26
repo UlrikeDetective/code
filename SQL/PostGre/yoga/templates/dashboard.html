@@ -41,10 +41,10 @@
         <div style="flex-grow: 1;">
             {% if today_lessons %}
                 {% for l in today_lessons %}
-                    <div style="background: var(--lagoon); padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="background: {% if l.lesson_type == 'MEDITATION' %}var(--kitesurf-blue){% else %}var(--lagoon){% endif %}; color: {% if l.lesson_type == 'MEDITATION' %}white{% else %}inherit{% endif %}; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
                         <div>
-                            <strong>{{ l.time|time:"H:i" }}</strong>
-                            <div style="font-size: 0.8rem; color: var(--deep-atlantic);">{{ l.attendee_count }}/{{ l.max_students }} Students</div>
+                            <strong>{{ l.get_lesson_type_display }}: {{ l.time|time:"H:i" }}</strong>
+                            <div style="font-size: 0.8rem; color: {% if l.lesson_type == 'MEDITATION' %}var(--salt-spray){% else %}var(--deep-atlantic){% endif %};">{{ l.attendee_count }}/{{ l.max_students }} Students</div>
                         </div>
                         <a href="{% url 'mark_attendance' l.id %}" class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background-color: var(--deep-atlantic);">Mark Attendance</a>
                     </div>

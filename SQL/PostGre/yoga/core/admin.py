@@ -9,14 +9,14 @@ class CustomerAdmin(admin.ModelAdmin):
 
 @admin.register(Lesson)
 class LessonAdmin(admin.ModelAdmin):
-    list_display = ('date', 'time', 'attendee_count', 'is_full', 'is_cancelled')
-    list_filter = ('date', 'is_cancelled')
+    list_display = ('date', 'time', 'lesson_type', 'attendee_count', 'is_full', 'is_cancelled')
+    list_filter = ('date', 'lesson_type', 'is_cancelled')
     filter_horizontal = ('attendees',)
 
 @admin.register(Package)
 class PackageAdmin(admin.ModelAdmin):
-    list_display = ('customer', 'total_lessons', 'remaining_lessons', 'purchase_date')
-    list_filter = ('purchase_date', 'total_lessons')
+    list_display = ('customer', 'package_type', 'total_lessons', 'remaining_lessons', 'purchase_date')
+    list_filter = ('purchase_date', 'package_type', 'total_lessons')
 
 @admin.register(Expense)
 class ExpenseAdmin(admin.ModelAdmin):

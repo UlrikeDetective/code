@@ -25,16 +25,13 @@ class Customer(models.Model):
         return self.name
 
 class Package(models.Model):
-    PACKAGE_TYPES = [
-        (1, 'Single Lesson - 15€'),
-        (3, '3 Lessons - 40€'),
-        (5, '5 Lessons - 55€'),
-        (10, '10 Lessons - 100€'),
-        (11, '1 Meditation Session - 5€'),
-        (12, '5 Meditation Session - 20€'),
+    LESSON_TYPES = [
+        ('YOGA', 'Yoga'),
+        ('MEDITATION', 'Meditation'),
     ]
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='packages')
-    total_lessons = models.IntegerField(choices=PACKAGE_TYPES)
+    package_type = models.CharField(max_length=20, choices=LESSON_TYPES, default='YOGA')
+    total_lessons = models.IntegerField()
     remaining_lessons = models.IntegerField()
     purchase_date = models.DateField(default=timezone.now)
     price_paid = models.DecimalField(max_digits=6, decimal_places=2)
@@ -45,9 +42,14 @@ class Package(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.customer.name} - {self.total_lessons} pack ({self.remaining_lessons} left)"
+        return f"{self.customer.name} - {self.total_lessons} {self.get_package_type_display()} pack ({self.remaining_lessons} left)"
 
 class Lesson(models.Model):
+    LESSON_TYPES = [
+        ('YOGA', 'Yoga'),
+        ('MEDITATION', 'Meditation'),
+    ]
+    lesson_type = models.CharField(max_length=20, choices=LESSON_TYPES, default='YOGA')
     date = models.DateField()
     time = models.TimeField(default='09:00')
     max_students = models.IntegerField(default=20)
@@ -57,7 +59,7 @@ class Lesson(models.Model):
     notes = models.TextField(blank=True)
 
     def __str__(self):
-        return f"Lesson on {self.date} at {self.time}"
+        return f"{self.get_lesson_type_display()} on {self.date} at {self.time}"
 
     @property
     def attendee_count(self):

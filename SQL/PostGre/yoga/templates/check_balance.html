@@ -19,7 +19,7 @@
         {% for package in packages %}
             <div style="background-color: var(--salt-spray); padding: 1rem; border-radius: 4px; margin-bottom: 1rem; border-left: 4px solid {% if package.remaining_lessons > 0 %}var(--med-teal){% else %}var(--ancient-cobblestone){% endif %};">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <strong>{{ package.get_total_lessons_display }}</strong>
+                    <strong>{{ package.total_lessons }} {{ package.get_package_type_display }} Session(s)</strong>
                     <span style="font-size: 1.2rem; font-weight: bold; color: var(--deep-atlantic);">{{ package.remaining_lessons }} left</span>
                 </div>
                 <div style="font-size: 0.8rem; color: var(--ancient-cobblestone); margin-top: 0.5rem;">

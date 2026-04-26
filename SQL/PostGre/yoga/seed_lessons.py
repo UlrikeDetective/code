@@ -14,22 +14,40 @@ def seed_2026_lessons():
     
     current_date = start_date
     lessons_created = 0
+    meditation_created = 0
     
     while current_date <= end_date:
+        # Yoga Lessons: Mon-Sat at 09:00
         # 0=Monday, 1=Tuesday, ..., 5=Saturday, 6=Sunday
         if current_date.weekday() < 6:
             Lesson.objects.get_or_create(
                 date=current_date,
                 time='09:00',
+                lesson_type='YOGA',
                 defaults={
                     'max_students': 20,
                     'min_students': 3,
                 }
             )
             lessons_created += 1
+            
+        # Meditation Sessions: Monday and Wednesday at 19:00 (7 PM)
+        if current_date.weekday() in [0, 2]: # 0=Monday, 2=Wednesday
+            Lesson.objects.get_or_create(
+                date=current_date,
+                time='19:00',
+                lesson_type='MEDITATION',
+                defaults={
+                    'max_students': 20,
+                    'min_students': 3,
+                }
+            )
+            meditation_created += 1
+            
         current_date += timedelta(days=1)
     
-    print(f"Successfully created {lessons_created} lessons for 2026 (Mon-Sat).")
+    print(f"Successfully created {lessons_created} Yoga lessons for 2026.")
+    print(f"Successfully created {meditation_created} Meditation sessions for 2026.")
 
 if __name__ == "__main__":
     seed_2026_lessons()

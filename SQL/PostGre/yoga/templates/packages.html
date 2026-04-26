@@ -15,6 +15,7 @@
         <form action="{% url 'buy_package' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="total_lessons" value="1">
+            <input type="hidden" name="package_type" value="YOGA">
             
             {% if session_email %}
                 <p style="font-size: 0.8rem; margin-bottom: 1rem;">Zen: <strong>{{ session_email }}</strong></p>
@@ -37,6 +38,7 @@
         <form action="{% url 'buy_package' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="total_lessons" value="3">
+            <input type="hidden" name="package_type" value="YOGA">
             
             {% if session_email %}
                 <p style="font-size: 0.8rem; margin-bottom: 1rem;">Zen: <strong>{{ session_email }}</strong></p>
@@ -59,6 +61,7 @@
         <form action="{% url 'buy_package' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="total_lessons" value="5">
+            <input type="hidden" name="package_type" value="YOGA">
             
             {% if session_email %}
                 <p style="font-size: 0.8rem; margin-bottom: 1rem;">Zen: <strong>{{ session_email }}</strong></p>
@@ -81,6 +84,7 @@
         <form action="{% url 'buy_package' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="total_lessons" value="10">
+            <input type="hidden" name="package_type" value="YOGA">
             
             {% if session_email %}
                 <p style="font-size: 0.8rem; margin-bottom: 1rem;">Zen: <strong>{{ session_email }}</strong></p>
@@ -103,6 +107,7 @@
         <form action="{% url 'buy_package' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="total_lessons" value="1">
+            <input type="hidden" name="package_type" value="MEDITATION">
             
             {% if session_email %}
                 <p style="font-size: 0.8rem; margin-bottom: 1rem;">Zen: <strong>{{ session_email }}</strong></p>
@@ -125,6 +130,7 @@
         <form action="{% url 'buy_package' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="total_lessons" value="5">
+            <input type="hidden" name="package_type" value="MEDITATION">
             
             {% if session_email %}
                 <p style="font-size: 0.8rem; margin-bottom: 1rem;">Zen: <strong>{{ session_email }}</strong></p>

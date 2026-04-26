@@ -67,6 +67,10 @@
         font-weight: bold;
         box-shadow: 0 0 5px rgba(238, 155, 0, 0.3);
     }
+    .lesson-item.meditation {
+        border-left-color: var(--kitesurf-blue);
+        background-color: var(--salt-spray);
+    }
     .spots-count {
         font-weight: bold;
         background-color: rgba(255, 255, 255, 0.3);
@@ -115,8 +119,8 @@
                             {% if lesson.0 == day %}
                                 {% for l in lesson.1 %}
                                     <a href="{% url 'book_lesson' l.id %}" style="text-decoration: none;">
-                                        <div class="lesson-item {% if not l.is_in_future %}past{% elif l.id in booked_lesson_ids %}booked{% elif l.is_cancelled %}cancelled{% elif l.is_full %}full{% elif l.is_almost_full %}almost-full{% endif %}">
-                                            <span>{% if l.id in booked_lesson_ids %}🪷 {% endif %}{{ l.time|time:"H:i" }}</span>
+                                        <div class="lesson-item {% if l.lesson_type == 'MEDITATION' %}meditation{% endif %} {% if not l.is_in_future %}past{% elif l.id in booked_lesson_ids %}booked{% elif l.is_cancelled %}cancelled{% elif l.is_full %}full{% elif l.is_almost_full %}almost-full{% endif %}">
+                                            <span>{% if l.id in booked_lesson_ids %}🪷 {% endif %}{% if l.lesson_type == 'MEDITATION' %}🧘 {% endif %}{{ l.time|time:"H:i" }}</span>
                                             <span class="spots-count">{{ l.attendee_count }}/{{ l.max_students }}</span>
                                         </div>
                                     </a>
@@ -133,7 +137,8 @@
 <div class="card" style="margin-top: 2rem;">
     <h3>Legend</h3>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-        <p><span style="color: var(--med-teal); font-weight: bold;">■</span> Morning Session (Open)</p>
+        <p><span style="color: var(--med-teal); font-weight: bold;">■</span> Morning Yoga (Open)</p>
+        <p><span style="color: var(--kitesurf-blue); font-weight: bold;">■</span> 🧘 Meditation (Open)</p>
         <p>🪷 <strong>Booked Session</strong></p>
         <p><span style="color: var(--terra-cotta); font-weight: bold;">■</span> Almost Full (3 or fewer spots)</p>
         <p><span style="color: var(--spanish-red); font-weight: bold;">■</span> Full Session</p>
