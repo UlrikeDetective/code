@@ -8,14 +8,18 @@ select * from core_customer order by id desc;
 select * from core_expense;
 select * from core_inventory;
 select * from core_lesson order by date;
-select * from core_lesson_attendees;
+select * from core_lesson_attendees order by id desc;
 select * from core_package order by purchase_date desc;
 select * from django_admin_log;
 select * from django_content_type;
 select * from django_migrations;
 select * from django_session;
 
-\copy core_lesson_attendees (lesson_id, customer_id) FROM '/path/to/your/data/lessens_attendence_2026_04_10.csv' DELIMITER ',' CSV HEADER;
+copy core_lesson_attendees (id, lesson_id, customer_id) FROM '/Users/ulrike_imac_air/projects/SQL_code/SQL/PostGre/yoga/data/lessens_attendence_2026_04_10.csv' DELIMITER ',' CSV HEADER;
+select * from core_lesson where lesson_type = 'YOGA' and time = '18:00:00' order by date;
+select * from core_lesson where lesson_type = 'MEDITATION' order by date;
+select * from core_lesson_attendees where customer_id = 169;
+select * from core_package where customer_id = 169;
 
 select * from core_customer where name = 'Ava Dubois';
 select * from core_customer where country = 'Spain';
@@ -44,6 +48,28 @@ SELECT
     COUNT(*) FILTER (WHERE created_at >= CURRENT_DATE - INTERVAL '3 months') AS last_quarter,
     COUNT(*) FILTER (WHERE created_at >= CURRENT_DATE - INTERVAL '1 year') AS last_year
 FROM core_customer;
+
+INSERT INTO core_lesson (date, time, max_students, min_students, is_cancelled, notes, lesson_type)
+VALUES
+('2026-03-06', '18:00:00', 20, 3, false, '', 'YOGA'),
+('2026-03-12', '18:00:00', 20, 3, false, '', 'YOGA'),
+('2026-03-21', '18:00:00', 20, 3, false, '', 'YOGA'),
+('2026-04-11', '18:00:00', 20, 3, false, '', 'YOGA'),
+('2026-04-25', '18:00:00', 20, 3, false, '', 'YOGA');
+
+Insert into core_lesson_attendees (lesson_id, customer_id)
+Values
+(91, 1611),
+(97, 1611),
+(113, 1611),
+(318, 1611),
+(119, 1611),
+(125, 1611),
+(131, 1611),
+(137, 1611),
+(143, 1611),
+(149, 1611);
+
 
 Select * from core_customer where created_at >= NOW();
 
