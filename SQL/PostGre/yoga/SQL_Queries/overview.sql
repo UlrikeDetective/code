@@ -22,8 +22,10 @@ select * from core_lesson_attendees where customer_id = 169;
 select * from core_package where customer_id = 169;
 
 select * from core_customer where name = 'Ava Dubois';
+select * from core_customer where id = 3078;
 select * from core_customer where country = 'Spain';
 select * from core_customer where city = 'Tarifa';
+select * from core_package order by remaining_lessons desc;
 
 UPDATE core_customer
 SET country = 'United Kingdom'
