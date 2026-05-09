@@ -24,7 +24,7 @@
 51,"Fever Pitch","2026-05-07 20:00:00","the bookshop",NULL
 56,"Surfing days - May","2026-05-08 20:00:00","the bookshop",NULL
 9,"Hawaiian crime party - Paradise Crime Thrillers - Vol 03 - Wired hard","2026-05-11 20:00:00","the bookshop veranda","Paradise crime books"
-16,"Barbara, Cher and Patti","2026-05-13 20:00:00","the bookshop veranda","Three divas one night"
+16,"Barbara Streisand","2026-05-13 20:00:00","the bookshop veranda","memoire"
 7,"How to be good","2026-05-14 20:00:00","the bookshop","British readings - Nick Hornby"
 20,"Japan book club - May","2026-05-15 20:00:00","the bookshop","Introducing your favourite book from Japan!"
 32,"Reeses Book Club Tarifa Edition - Daisy Jones and the Six","2026-05-19 20:00:00","the bookshop","Reese Book Club"
@@ -40,6 +40,8 @@
 13,"All about romance","2026-06-11 20:00:00","the bookshop veranda","Name your romance book to discuss"
 57,"Surfing days - June","2026-06-12 20:00:00","the bookshop veranda",NULL
 52,"High Fidelity - TV Watching Part 01","2026-06-15 20:00:00","the bookshop",NULL
+61,"Reeses Book Club Tarifa Edition - Lucky","2026-06-16 20:00:00","the bookshop veranda",NULL
+59,"Patti Smith","2026-06-17 20:00:00","the bookshop veranda",NULL
 8,"Notes from a small island","2026-06-20 20:00:00","the bookshop","Notes from Great Britain"
 53,"High Fidelity - TV Watching Part 02","2026-06-22 20:00:00","the bookshop",NULL
 15,"Come As You Are","2026-06-25 20:00:00","the bookshop","Let's talk about sex"
@@ -51,6 +53,7 @@
 35,"Hawaiian crime party - Paradise Crime Thrillers - Vol 05 - Wired dawn","2026-07-13 20:00:00","the bookshop",NULL
 42,"His Dark Materials - Subtle Knife","2026-07-31 20:00:00","the bookshop",NULL
 36,"Hawaiian crime party - Paradise Crime Thrillers - Vol 06 - Wired justice","2026-08-10 20:00:00","the bookshop",NULL
+60,"Cher","2026-08-19 20:00:00","the bookshop veranda",NULL
 37,"Hawaiian crime party - Paradise Crime Thrillers - Vol 07 - Wired secret","2026-09-07 20:00:00","the bookshop",NULL
 5,"His Dark Materials - Amber Spyglass","2026-09-29 20:00:00","the bookshop","Book three of Dark Materials"
 38,"Hawaiian crime party - Paradise Crime Thrillers - Vol 08 - Wired fear","2026-10-12 20:00:00","the bookshop",NULL
