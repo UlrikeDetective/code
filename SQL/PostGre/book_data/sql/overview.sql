@@ -16,6 +16,9 @@ select * from events order by event_date;
 select * from event_registrations order by registered_at desc;
 select * from reviews order by id desc;
 
+select * from books where title = 'Days at the Morisaki Bookshop';
+select * from books order by price;
+
 -- 2. CUSTOMER METRICS
 -- ==========================================================
 -- Total number of customers
@@ -141,7 +144,7 @@ JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
 JOIN authors a ON b.author_id = a.id
-WHERE a.first_name = 'Sally' AND a.last_name = 'Rooney';
+WHERE a.first_name = 'Satoshi' AND a.last_name = 'Yagisawa';
 
  -- Customers who bought 'Hula':
 
@@ -150,7 +153,7 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'Conversations with Friends';
+WHERE b.title = 'Foster';
 
  -- Customers who bought books with hashtag 'tech':
 
@@ -159,7 +162,7 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.hashtags LIKE '%#tech%';
+WHERE b.hashtags LIKE '%#surfing%';
 
 SELECT * FROM books where title = 'Barbarian - Days A Surfing Life';
 
