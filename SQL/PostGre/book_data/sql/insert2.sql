@@ -24,3 +24,33 @@ VALUES
 ('Isabella', 'Costa', 'bella.costa@uol.com.br', '2026-03-14 12:45:11.992884');
 
 select * from customers;
+
+-- General Events June 2026 (Updated dates to avoid May and Sundays)
+INSERT INTO events (name, event_date, location, description) VALUES 
+('Martial Arts & Mindfulness with Jet Li', '2026-06-02 19:00:00', 'Main Gallery', 'A deep dive into the philosophy of martial arts and true freedom, inspired by Jet Li''s memoir "Beyond Life and Death".'),
+('Singapore Noir: Crime Fiction Spotlight', '2026-06-03 20:00:00', 'The Reading Nook', 'Exploring the dark alleys of Singapore through modern crime fiction, featuring "Names Have Been Changed" by Yu-Mei Balasingamchow.'),
+('The Nvidia Way: AI and Tech Evolution', '2026-06-04 18:30:00', 'The Tech Hub', 'A discussion on the rise of Nvidia and the future of artificial intelligence, based on the new release by Tae Kim.'),
+('Vegan Chinese Kitchen Workshop', '2026-06-06 12:00:00', 'The Bookstore Kitchen', 'Learn to cook delicious plant-based Chinese dishes inspired by Yang Liu''s "Vegan Chinese Food".'),
+('The NeXT Chapter: Steve Jobs in Exile', '2026-06-10 17:00:00', 'The Biography Corner', 'An exploration of the crucial years between Apple and NeXT that shaped a visionary leader, based on the new biography by Walter Isaacson.'),
+('Traveler''s Meetup: Epic Bike Rides', '2026-06-13 11:00:00', 'The Travel Lounge', 'Join fellow cycling enthusiasts for stories of the most scenic bike routes across Europe, featuring Lonely Planet''s latest guide.'),
+('Japanese Tea Ceremony Workshop', '2026-06-18 18:00:00', 'The Tea Room', 'An authentic introduction to selecting and brewing the perfect cup of Sencha and Matcha, inspired by Per Oscar Brekell''s guide.'),
+('Inside the Box: Management Masterclass', '2026-06-19 19:30:00', 'The Business Center', 'Discover how constraints can drive creativity and improve organizational management, featuring the work of David Epstein.'),
+('Otters and Why They Matter', '2026-06-23 15:00:00', 'Nature Study Hall', 'A fun and educational talk on the natural history of otters and their importance to our environment, based on Heide Island''s new book.'),
+('The Infinity Machine: DeepMind & AI', '2026-06-24 19:00:00', 'The Tech Hub', 'Exploring the quest for superintelligence with Demis Hassabis and DeepMind, based on the book by Sebastian Mallaby.');
+
+-- Reeses Book Club Tarifa Edition (Monthly Series)
+INSERT INTO events (name, event_date, location, description) VALUES 
+('Reeses Book Club Tarifa Edition - True Biz', '2026-07-21 20:00:00', 'the bookshop veranda', 'July selection: A story about the deaf community, family, and rebellion.'),
+('Reeses Book Club Tarifa Edition - The Unwedding', '2026-08-18 20:00:00', 'the bookshop veranda', 'August selection: A gripping thriller set at a luxury resort.'),
+('Reeses Book Club Tarifa Edition - The Island of Missing Trees', '2026-09-15 20:00:00', 'the bookshop veranda', 'September selection: A moving story of love, division, and memory in Cyprus.'),
+('Reeses Book Club Tarifa Edition - Sankofa', '2026-10-20 20:00:00', 'the bookshop veranda', 'October selection: A woman''s journey to find her father and her own identity.'),
+('Reeses Book Club Tarifa Edition - L.A. Weather', '2026-11-17 20:00:00', 'the bookshop veranda', 'November selection: A family drama set against the backdrop of California weather.'),
+('Reeses Book Club Tarifa Edition - Such a Fun Age', '2026-12-15 20:00:00', 'the bookshop veranda', 'December selection: A striking story about race, privilege, and complicated relationships.');
+
+-- Additional Seasonal Events 2026
+INSERT INTO events (name, event_date, location, description) VALUES 
+('Surf-side Eating: Summer Social', '2026-07-07 19:00:00', 'the bookshop garden', 'Relaxed recipes and coastal living discussion.'),
+('Hula & Hawaiian Traditions', '2026-07-16 18:30:00', 'the bookshop veranda', 'Cultural evening inspired by the book "Hula" by Jasmin Iolani Hakes.'),
+('Silicon Valley History: Brotopia', '2026-08-04 19:00:00', 'The Tech Hub', 'Discussing the history and culture of tech, based on "Brotopia" by Emily Chang.'),
+('Japanese Magic Realism Coffee Night', '2026-09-08 19:00:00', 'Zen Garden Café', 'A deep dive into Japanese contemporary fiction.'),
+('The Code: Silicon Valley Revolution', '2026-10-06 18:30:00', 'The Tech Hub', 'Exploring the digital revolution that reshaped the world.');
