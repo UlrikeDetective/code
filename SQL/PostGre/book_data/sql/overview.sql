@@ -16,8 +16,7 @@ select * from events order by event_date;
 select * from event_registrations order by registered_at desc;
 select * from reviews order by id desc;
 
-select * from books where title = 'Days at the Morisaki Bookshop';
-select * from books order by price;
+select * from books where title =
 
 -- 2. CUSTOMER METRICS
 -- ==========================================================
@@ -107,7 +106,8 @@ SELECT e.name AS event_name, e.event_date, COUNT(er.customer_id) AS total_regist
 FROM events e
 LEFT JOIN event_registrations er ON e.id = er.event_id
 GROUP BY e.id, e.name, e.event_date
-ORDER BY e.event_date ASC;
+-- ORDER BY e.event_date ASC;
+Order by total_registrations desc;
 
 
 -- 6. FINANCIAL OVERVIEW
@@ -144,7 +144,7 @@ JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
 JOIN authors a ON b.author_id = a.id
-WHERE a.first_name = 'Satoshi' AND a.last_name = 'Yagisawa';
+WHERE a.first_name = 'Toby' AND a.last_name = 'Neal';
 
  -- Customers who bought 'Hula':
 
@@ -153,7 +153,7 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'Foster';
+WHERE b.title = 'Paradise Crime Thrillers - Vol 03 - Wired hard';
 
  -- Customers who bought books with hashtag 'tech':
 
