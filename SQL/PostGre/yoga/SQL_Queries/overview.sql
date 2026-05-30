@@ -75,6 +75,10 @@ JOIN genres g ON b.genre_id = g.id
 GROUP BY g.id, g.name
 ORDER BY total_revenue DESC;
 
+-- Change prices on books
+SELECT * FROM authors where last_name = 'Pullman';
+SELECT * FROM books where author_id = 105;
+
 
 -- 4. INVENTORY & STOCK MANAGEMENT
 -- ==========================================================
@@ -219,3 +223,17 @@ WHERE b.title = 'Normal People'
   );
 
   select * from events order by event_date;
+
+  SELECT DISTINCT c.first_name, c.last_name, c.email
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN order_items oi ON o.id = oi.order_id
+JOIN books b ON oi.book_id = b.id
+WHERE b.title = 'The Millennium Trilogy V02 - The Girl Who Played With Fire'
+  -- Filter out customers who ARE registered for event 12
+  AND NOT EXISTS (
+      SELECT 1 
+      FROM event_registrations er 
+      WHERE er.customer_id = c.id 
+        AND er.event_id = 28
+  );
