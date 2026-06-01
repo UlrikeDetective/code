@@ -43,7 +43,7 @@ Automatically identifies purchased items in the catalog to provide "OWNED" statu
 
 ### 4. Financial P&L Modeling
 A dedicated dashboard (`/admin/financials`) that tracks real-time sales against fixed costs.
-- **Cost Structure**: Monthly burn (Rent, Staff, Social Security, Autónomo).
+- **Cost Structure**: Monthly burn (Rent, 3 Part-time Staff @ 600€, Social Security 32%, Autónomo).
 - **Revenue Streams**: Real-time aggregation of book sales (margin ~35%) and event tickets.
 - **Break-Even Analysis**: Dynamic calculation of required sales volume to cover monthly expenses.
 

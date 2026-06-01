@@ -16,7 +16,8 @@ select * from events order by event_date;
 select * from event_registrations order by registered_at desc;
 select * from reviews order by id desc;
 
-select * from books where title =
+select * from authors where last_name = 'Kerouac';
+select * from books where author_id = 96;
 
 -- 2. CUSTOMER METRICS
 -- ==========================================================
@@ -229,11 +230,11 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'The Millennium Trilogy V02 - The Girl Who Played With Fire'
+WHERE b.title = 'Normal People'
   -- Filter out customers who ARE registered for event 12
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 28
+        AND er.event_id = 49
   );

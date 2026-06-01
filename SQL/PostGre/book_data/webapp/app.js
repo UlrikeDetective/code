@@ -425,8 +425,8 @@ app.get('/admin/financials', async (req, res) => {
       plan: {
         rent: 200,
         utilities: 75,
-        helpers: 1200,
-        ss_helpers: 384, // 32% of 1200
+        helpers: 1800,
+        ss_helpers: 576, // 32% of 1800
         autonomo: 310,
         misc: 50,
         book_margin_pct: 0.35,
