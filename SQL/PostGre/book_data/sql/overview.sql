@@ -16,7 +16,10 @@ select * from events order by event_date;
 select * from event_registrations order by registered_at desc;
 select * from reviews order by id desc;
 
-select * from books where title =
+select * from authors where last_name = 'Kerouac';
+select * from books where author_id = 96;
+SELECT * FROM customers where last_name = 'Müller';
+select * from events where event_date >= current_date order by event_date;
 
 -- 2. CUSTOMER METRICS
 -- ==========================================================
@@ -75,6 +78,10 @@ JOIN genres g ON b.genre_id = g.id
 GROUP BY g.id, g.name
 ORDER BY total_revenue DESC;
 
+-- Change prices on books
+SELECT * FROM authors where last_name = 'Pullman';
+SELECT * FROM books where author_id = 105;
+
 
 -- 4. INVENTORY & STOCK MANAGEMENT
 -- ==========================================================
@@ -107,7 +114,7 @@ FROM events e
 LEFT JOIN event_registrations er ON e.id = er.event_id
 GROUP BY e.id, e.name, e.event_date
 -- ORDER BY e.event_date ASC;
-Order by total_registrations desc;
+Order by t
 
 
 -- 6. FINANCIAL OVERVIEW
@@ -153,7 +160,7 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'Paradise Crime Thrillers - Vol 03 - Wired hard';
+WHERE b.title = 'Normal People';
 
  -- Customers who bought books with hashtag 'tech':
 
@@ -162,7 +169,7 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.hashtags LIKE '%#surfing%';
+WHERE b.hashtags LIKE '%#singapore%';
 
 SELECT * FROM books where title = 'Barbarian - Days A Surfing Life';
 
@@ -202,3 +209,34 @@ FROM books b
 JOIN order_items oi ON b.id = oi.book_id
 WHERE b.title = 'Palo Alto'
 GROUP BY b.id, b.title;
+
+-- which persons bought a book but haven't registered to the book event.
+SELECT DISTINCT c.first_name, c.last_name, c.email
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN order_items oi ON o.id = oi.order_id
+JOIN books b ON oi.book_id = b.id
+WHERE b.title = 'Normal People'
+  -- Filter out customers who ARE registered for event 12
+  AND NOT EXISTS (
+      SELECT 1 
+      FROM event_registrations er 
+      WHERE er.customer_id = c.id 
+        AND er.event_id = 12
+  );
+
+  select * from events order by event_date;
+
+  SELECT DISTINCT c.first_name, c.last_name, c.email
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN order_items oi ON o.id = oi.order_id
+JOIN books b ON oi.book_id = b.id
+WHERE b.title = 'An Education'
+  -- Filter out customers who ARE registered for event 12
+  AND NOT EXISTS (
+      SELECT 1 
+      FROM event_registrations er 
+      WHERE er.customer_id = c.id 
+        AND er.event_id = 50
+  );
