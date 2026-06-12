@@ -59,7 +59,7 @@ LEFT JOIN order_items oi ON b.id = oi.book_id
 GROUP BY b.id, b.title
 HAVING COALESCE(SUM(oi.quantity), 0) = 0
 ORDER BY b.title ASC
-LIMIT 15;
+LIMIT 250;
 
 -- Best-selling Authors by quantity sold
 SELECT a.first_name, a.last_name, SUM(oi.quantity) AS units_sold
@@ -68,7 +68,7 @@ JOIN books b ON oi.book_id = b.id
 JOIN authors a ON b.author_id = a.id
 GROUP BY a.id, a.first_name, a.last_name
 ORDER BY units_sold DESC
-LIMIT 10;
+LIMIT 25;
 
 -- Revenue by Genre
 SELECT g.name AS genre, SUM(oi.quantity * oi.unit_price) AS total_revenue
@@ -232,11 +232,24 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'An Education'
+WHERE b.title = 'Steve Jobs in Exile: The Untold Story of NeXT and the Remaking of an American Visionary'
   -- Filter out customers who ARE registered for event 12
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 50
+        AND er.event_id = 76
+  );
+
+    SELECT DISTINCT c.first_name, c.last_name, c.email
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN order_items oi ON o.id = oi.order_id
+JOIN books b ON oi.book_id = b.id
+WHERE b.hashtags LIKE '%#romance%'
+  AND NOT EXISTS (
+      SELECT 1 
+      FROM event_registrations er 
+      WHERE er.customer_id = c.id 
+        AND er.event_id = 13
   );
