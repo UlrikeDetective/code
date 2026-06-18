@@ -6,6 +6,7 @@
 </head>
 <body>
     <div class="container">
+        <div class="palm-tree"></div>
         <a href="/"><- Back to Home</a>
         <h1>High Tide Events</h1>
 
@@ -107,25 +108,6 @@
             </tbody>
         </table>
 
-        <h2>Attendance History</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Event</th>
-                    <th>Member</th>
-                    <th>Registered On</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% registrations.forEach(reg => { %>
-                    <tr>
-                        <td><%= reg.event_name %></td>
-                        <td><%= reg.first_name %> <%= reg.last_name %></td>
-                        <td style="font-size: 0.8em; color: #888;"><%= reg.registered_at.toLocaleDateString() %></td>
-                    </tr>
-                <% }) %>
-            </tbody>
-        </table>
     </div>
 </body>
 </html>

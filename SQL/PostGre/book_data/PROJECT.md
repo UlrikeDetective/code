@@ -42,15 +42,16 @@ Automatically identifies purchased items in the catalog to provide "OWNED" statu
 - **Event Booking Status**: Session-aware UI identifies already-booked events to prevent double-registration.
 
 ### 4. Financial P&L Modeling
-A dedicated dashboard (`/admin/financials`) that tracks real-time sales against fixed costs.
-- **Cost Structure**: Monthly burn (Rent, 3 Part-time Staff @ 600€, Social Security 32%, Autónomo).
+A dedicated dashboard (`/admin/financials`) that tracks real-time sales against fixed costs stored in the `business_costs` table.
+- **Cost Structure**: Monthly burn (Rent, Staff increasing to 3 Helpers @ 600€ as of June 2026, Social Security 32%, Autónomo).
 - **Revenue Streams**: Real-time aggregation of book sales (margin ~35%) and event tickets.
 - **Break-Even Analysis**: Dynamic calculation of required sales volume to cover monthly expenses.
 
 ## 🎨 Visual Identity
-The project follows the "Stockholm Minimalist" design system:
-- **Primary**: #4A90E2 (Sky Blue)
-- **Secondary**: #50E3C2 (Teal)
-- **Accent**: #F5A623 (Amber)
-- **Background**: #F8F8F8
-- **UI Logic**: Searchable autocomplete fields, dynamic dashboards, and clean monospace typography.
+The project follows a "Surfer Wellness" design system, moving away from minimalist whites to organic, earthy tones:
+- **Background**: #BED0D0 (Sage)
+- **Primary**: #01393D (Deep Teal)
+- **Secondary**: #56989F (Seafoam)
+- **Accent**: #B77651 (Warm Ochre)
+- **Text**: #6F452D (Rust)
+- **UI Logic**: CSS-only graphics (surfboards, cacti, palms), searchable autocomplete, and a persistent Shopping Bag system.

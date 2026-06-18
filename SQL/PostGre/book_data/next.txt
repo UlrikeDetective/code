@@ -13,3 +13,4 @@
 
 5. Update the @README.md and @PROJECT.md file
 
+PGDATABASE=books

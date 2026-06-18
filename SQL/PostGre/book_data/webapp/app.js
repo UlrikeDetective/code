@@ -38,6 +38,12 @@ app.use(async (req, res, next) => {
   res.locals.purchasedBookIds = [];
   res.locals.bookedEventIds = [];
   
+  // Initialize cart if it doesn't exist
+  if (!req.session.cart) {
+    req.session.cart = [];
+  }
+  res.locals.cart = req.session.cart;
+  
   if (req.session.customerId) {
     try {
       const custRes = await db.query('SELECT * FROM customers WHERE id = $1', [req.session.customerId]);
@@ -417,18 +423,22 @@ app.get('/admin/financials', async (req, res) => {
       ORDER BY month DESC
     `);
 
+    // Fetch the latest business costs from DB
+    const costsRes = await db.query('SELECT * FROM business_costs ORDER BY month_year DESC LIMIT 1');
+    const costs = costsRes.rows[0] || { rent: 200, utilities: 75, helpers: 1200, ss_helpers: 384, autonomo: 310, misc: 50 };
+
     res.render('financials', {
       actualSales: parseFloat(salesRes.rows[0].total),
       actualTickets: parseInt(ticketsRes.rows[0].count),
       history: historyRes.rows.map(h => ({ ...h, total: parseFloat(h.total) })),
       // High Tide Plan Assumptions
       plan: {
-        rent: 200,
-        utilities: 75,
-        helpers: 1800,
-        ss_helpers: 576, // 32% of 1800
-        autonomo: 310,
-        misc: 50,
+        rent: parseFloat(costs.rent),
+        utilities: parseFloat(costs.utilities),
+        helpers: parseFloat(costs.helpers),
+        ss_helpers: parseFloat(costs.ss_helpers),
+        autonomo: parseFloat(costs.autonomo),
+        misc: parseFloat(costs.misc),
         book_margin_pct: 0.35,
         event_price: 15,
         event_margin: 13.64 // After 10% IVA
@@ -517,7 +527,7 @@ app.post('/admin/add-event', async (req, res) => {
   }
 });
 
-// CUSTOMER: Buy Book
+// CUSTOMER: Buy Book (Add to Cart)
 app.post('/shop/buy', async (req, res) => {
   const { book_id, quantity } = req.body;
   const customer_id = req.session.customerId;
@@ -525,32 +535,70 @@ app.post('/shop/buy', async (req, res) => {
   if (!customer_id) return res.send("Please sign in first");
   
   try {
-    // 1. Get book price
-    const bookRes = await db.query('SELECT price FROM books WHERE id = $1', [book_id]);
-    const price = bookRes.rows[0].price;
-    const total = price * quantity;
+    const bookRes = await db.query('SELECT id, title, price FROM books WHERE id = $1', [book_id]);
+    const book = bookRes.rows[0];
+    
+    // Check if book already in cart
+    const existingIndex = req.session.cart.findIndex(item => item.book_id === book_id);
+    if (existingIndex > -1) {
+      req.session.cart[existingIndex].quantity += parseInt(quantity);
+    } else {
+      req.session.cart.push({
+        book_id: book.id,
+        title: book.title,
+        price: parseFloat(book.price),
+        quantity: parseInt(quantity)
+      });
+    }
 
-    // 2. Create Order
+    res.redirect('/shop');
+  } catch (err) {
+    console.error(err);
+    res.send("Error adding to cart");
+  }
+});
+
+// CUSTOMER: Checkout
+app.post('/shop/checkout', async (req, res) => {
+  const customer_id = req.session.customerId;
+  if (!customer_id || !req.session.cart || req.session.cart.length === 0) return res.redirect('/shop');
+
+  try {
+    let total = 0;
+    req.session.cart.forEach(item => {
+      total += item.price * item.quantity;
+    });
+
+    // 1. Create Order
     const orderRes = await db.query(
       'INSERT INTO orders (customer_id, total_amount) VALUES ($1, $2) RETURNING id',
       [customer_id, total]
     );
     const orderId = orderRes.rows[0].id;
 
-    // 3. Create Order Item
-    await db.query(
-      'INSERT INTO order_items (order_id, book_id, quantity, unit_price) VALUES ($1, $2, $3, $4)',
-      [orderId, book_id, quantity, price]
-    );
+    // 2. Create Order Items & Update Stock
+    for (const item of req.session.cart) {
+      await db.query(
+        'INSERT INTO order_items (order_id, book_id, quantity, unit_price) VALUES ($1, $2, $3, $4)',
+        [orderId, item.book_id, item.quantity, item.price]
+      );
+      await db.query('UPDATE books SET stock_quantity = stock_quantity - $1 WHERE id = $2', [item.quantity, item.book_id]);
+    }
 
-    // 4. Update Stock
-    await db.query('UPDATE books SET stock_quantity = stock_quantity - $1 WHERE id = $2', [quantity, book_id]);
-
+    // 3. Clear Cart
+    req.session.cart = [];
     res.redirect('/shop');
   } catch (err) {
     console.error(err);
-    res.send("Error processing purchase");
+    res.send("Error during checkout");
   }
+});
+
+// CUSTOMER: Remove from Cart
+app.post('/shop/cart/remove', (req, res) => {
+  const { book_id } = req.body;
+  req.session.cart = req.session.cart.filter(item => item.book_id !== book_id);
+  res.redirect('/shop');
 });
 
 // CUSTOMER: Write Review
@@ -565,7 +613,7 @@ app.post('/shop/review', async (req, res) => {
       'INSERT INTO reviews (book_id, customer_id, rating, comment) VALUES ($1, $2, $3, $4)',
       [book_id, customer_id, rating, comment]
     );
-    res.redirect('/shop');
+    res.redirect('/reviews');
   } catch (err) {
     console.error(err);
     res.send("Error adding review (Maybe you already reviewed this book?)");
