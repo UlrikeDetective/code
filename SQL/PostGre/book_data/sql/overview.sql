@@ -89,7 +89,7 @@ SELECT * FROM books where author_id = 105;
 SELECT title, stock_quantity, price
 FROM books
 ORDER BY stock_quantity ASC
-LIMIT 20;
+LIMIT 50;
 
 -- Current Out of Stock List
 SELECT title, isbn, released_year
@@ -114,7 +114,8 @@ FROM events e
 LEFT JOIN event_registrations er ON e.id = er.event_id
 GROUP BY e.id, e.name, e.event_date
 -- ORDER BY e.event_date ASC;
-Order by t
+Order by total_registrations desc;
+
 
 
 -- 6. FINANCIAL OVERVIEW
@@ -232,13 +233,13 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'Steve Jobs in Exile: The Untold Story of NeXT and the Remaking of an American Visionary'
+WHERE b.title = 'Notes From A Small Island'
   -- Filter out customers who ARE registered for event 12
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 76
+        AND er.event_id = 8
   );
 
     SELECT DISTINCT c.first_name, c.last_name, c.email
@@ -246,10 +247,23 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.hashtags LIKE '%#romance%'
+WHERE b.hashtags LIKE '%tea%'
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 13
+        AND er.event_id = 68
+  );
+
+     SELECT DISTINCT c.first_name, c.last_name, c.email
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN order_items oi ON o.id = oi.order_id
+JOIN books b ON oi.book_id = b.id
+WHERE b.title LIKE '%Epic%'
+  AND NOT EXISTS (
+      SELECT 1 
+      FROM event_registrations er 
+      WHERE er.customer_id = c.id 
+        AND er.event_id = 67
   );
