@@ -1,12 +1,15 @@
-improve webapp so that I can add books, events as bookshop and so that I can buy books,
- write reviews and book tickets to events as a customer.
+1. Is it possible to switch the project to Django?
+2. On the business costs (fixed costs) - Staff was increased in June 2026 from two helpers to 3 helpers which increased the monthly costs from 1200 Euros to 1800 Euros. With that the amout for Social Security for the helpers also increased. Please reflect this in the recorded data (new postgres table)
+3. Change the following functionallies on the following sites:
+3.1. Events:
+    - Please cut the Attendance History from showing
+    - the costumer can make several purchases of events in one session.
+3.2. Reviews:
+    - the costumer can make several reviews in one session without going after every review to the shop page.
+3.3. Shop:
+    - the costumer can make several purchases of books in one session. The costumers 'pays' for all books at the end in one payment. Please create a button for that.
 
- - bought books
- - queries
- - improve webapp - dashboard, see what books customers has already reviewed
+4. Please apply the instructions form the @DESIGN.md file. Make the webpages more appliening for a modern, hip surfer wellness bookshop. Add on one page a css surfboard, on another page a palm tree, on another page a cactus and on another webpage a simple circle (sun).
 
- On event page - Dashboard - how many registration per event - max 100
- On bookshop page after picking customer - showing which books the customer has already bought
- On review page after log-in - showing which books have already a review
+5. Update the @README.md and @PROJECT.md file
 
- Business - profit from selling books, profit from events - 15 Dollars per Event
