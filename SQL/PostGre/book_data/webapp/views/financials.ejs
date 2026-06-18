@@ -124,14 +124,16 @@
                     <tbody>
                         <% history.forEach(h => { %>
                             <% 
-                                const monthlyProfit = h.total * 0.35;
-                                const isProfitable = monthlyProfit > h.fixed;
+                                const totalSales = parseFloat(h.total) || 0;
+                                const monthlyBurn = parseFloat(h.fixed) || 0;
+                                const monthlyProfit = totalSales * 0.35;
+                                const isProfitable = monthlyProfit > monthlyBurn;
                             %>
                             <tr>
                                 <td><%= (h.month || new Date()).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }) %></td>
-                                <td><%= (h.total || 0).toFixed(2) %> €</td>
-                                <td><%= (monthlyProfit || 0).toFixed(2) %> €</td>
-                                <td style="color: #888;"><%= (h.fixed || 0).toFixed(2) %> €</td>
+                                <td><%= totalSales.toFixed(2) %> €</td>
+                                <td><%= monthlyProfit.toFixed(2) %> €</td>
+                                <td style="color: #888;"><%= monthlyBurn.toFixed(2) %> €</td>
                                 <td>
                                     <span style="font-weight: bold; color: <%= isProfitable ? 'var(--secondary)' : 'var(--accent)' %>;">
                                         <%= isProfitable ? '✓ Profit' : '✗ Below Break-even' %>

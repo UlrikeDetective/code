@@ -380,18 +380,20 @@ app.get('/admin', async (req, res) => {
     // 8. Current Month Costs
     const currentMonthCostsRes = await db.query(`
       SELECT * FROM business_costs 
-      WHERE month_year = date_trunc('month', current_date)
+      WHERE month_year = date_trunc('month', current_date)::date
     `);
     const cc = currentMonthCostsRes.rows[0] || {};
     const totalCurrentSales = parseFloat(currentMonthSalesRes.rows[0].total) || 0;
     const totalCurrentTickets = parseInt(currentMonthTicketsRes.rows[0].count) || 0;
     
-    const totalFixed = (parseFloat(cc.rent) || 200) + 
-                       (parseFloat(cc.utilities) || 75) + 
-                       (parseFloat(cc.helpers) || 1800) + 
-                       (parseFloat(cc.ss_helpers) || 576) + 
-                       (parseFloat(cc.autonomo) || 310) + 
-                       (parseFloat(cc.misc) || 50);
+    const rent = parseFloat(cc.rent) || 200;
+    const utilities = parseFloat(cc.utilities) || 75;
+    const helpers = parseFloat(cc.helpers) || 1800;
+    const ss_helpers = parseFloat(cc.ss_helpers) || 576;
+    const autonomo = parseFloat(cc.autonomo) || 310;
+    const misc = parseFloat(cc.misc) || 50;
+
+    const totalFixed = rent + utilities + helpers + ss_helpers + autonomo + misc;
 
     const netResult = (totalCurrentSales * 0.35) + (totalCurrentTickets * 13.64) - totalFixed;
 
@@ -436,7 +438,7 @@ app.get('/admin/financials', async (req, res) => {
     // Historical Performance (Last 6 Months) with dynamic costs
     const historyRes = await db.query(`
       WITH monthly_sales AS (
-        SELECT date_trunc('month', order_date) as month, SUM(total_amount) as total
+        SELECT date_trunc('month', order_date)::date as month, SUM(total_amount) as total
         FROM orders
         WHERE order_date >= current_date - INTERVAL '6 months'
         GROUP BY month
@@ -456,6 +458,7 @@ app.get('/admin/financials', async (req, res) => {
       actualSales: parseFloat(salesRes.rows[0].total),
       actualTickets: parseInt(ticketsRes.rows[0].count),
       history: historyRes.rows.map(h => {
+        const total = parseFloat(h.total) || 0;
         const rent = parseFloat(h.rent) || 200;
         const utilities = parseFloat(h.utilities) || 75;
         const helpers = parseFloat(h.helpers) || 1200;
@@ -464,7 +467,7 @@ app.get('/admin/financials', async (req, res) => {
         const misc = parseFloat(h.misc) || 50;
         return {
           month: h.month || new Date(),
-          total: parseFloat(h.total) || 0,
+          total: total,
           fixed: rent + utilities + helpers + ss_helpers + autonomo + misc
         };
       }),
