@@ -15,6 +15,7 @@ Select * from genres order by id;
 select * from events order by event_date;
 select * from event_registrations order by registered_at desc;
 select * from reviews order by id desc;
+select * from business_costs;
 
 select * from authors where last_name = 'Kerouac';
 select * from books where author_id = 96;
@@ -41,6 +42,10 @@ SELECT
     COUNT(*) FILTER (WHERE joined_date >= CURRENT_DATE - INTERVAL '1 year') AS last_year
 FROM customers;
 
+INSERT INTO business_costs (month_year, helpers, ss_helpers) VALUES 
+  ('2026-03-01', 1200.00, 384.00),
+  ('2026-04-01', 1200.00, 384.00),
+  ('2026-05-01', 1200.00, 384.00);
 
 -- 3. SALES PERFORMANCE
 -- ==========================================================
