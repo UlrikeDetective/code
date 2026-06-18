@@ -10,13 +10,25 @@
         <h1>Store Management</h1>
 
         <!-- FINANCIAL SUMMARY BAR -->
-        <div style="background: #eef7f2; padding: 15px; border-radius: 8px; border: 1px solid #c3e6cb; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-                <strong style="color: #28a745;">Monthly Financial Snapshot:</strong>
-                <span style="margin-left: 20px;">Sales: <%= stats.currentMonthSales %> €</span>
-                <span style="margin-left: 20px;">Event Tickets: <%= stats.currentMonthTickets %></span>
+        <div style="background: #eff6f6; padding: 20px; border-radius: 12px; border: 1px solid var(--secondary); margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; gap: 30px; align-items: center;">
+                <strong style="color: var(--primary); font-size: 1.1rem;">Monthly Snapshot:</strong>
+                <div>
+                    <div style="font-size: 0.7rem; color: #888; text-transform: uppercase;">Sales</div>
+                    <div style="font-weight: bold;"><%= stats.currentMonthSales %> €</div>
+                </div>
+                <div>
+                    <div style="font-size: 0.7rem; color: #888; text-transform: uppercase;">Tickets</div>
+                    <div style="font-weight: bold;"><%= stats.currentMonthTickets %></div>
+                </div>
+                <div>
+                    <div style="font-size: 0.7rem; color: #888; text-transform: uppercase;">Net Profit</div>
+                    <div style="font-weight: bold; color: <%= stats.currentMonthNet >= 0 ? 'var(--secondary)' : 'var(--accent)' %>;">
+                        <%= stats.currentMonthNet.toFixed(2) %> €
+                    </div>
+                </div>
             </div>
-            <a href="/admin/financials" style="background: #28a745; color: white; padding: 8px 15px; border-radius: 4px; text-decoration: none; font-weight: bold;">View Full Financial Plan & Dashboard -></a>
+            <a href="/admin/financials" style="background: var(--primary); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Full Financials -></a>
         </div>
 
         <!-- BUSINESS INTELLIGENCE DASHBOARD -->

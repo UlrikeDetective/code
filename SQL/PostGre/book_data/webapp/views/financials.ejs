@@ -110,24 +110,31 @@
 
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
                 <h3>Sales History (Last 6 Months)</h3>
+                <p style="font-size: 0.8rem; color: #888; margin-bottom: 20px;">* Status compares gross profit (35%) against that month's specific fixed costs.</p>
                 <table>
                     <thead>
                         <tr>
                             <th>Month</th>
                             <th>Total Sales</th>
                             <th>Est. Gross Profit</th>
+                            <th>Monthly Burn</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% history.forEach(h => { %>
+                            <% 
+                                const monthlyProfit = h.total * 0.35;
+                                const isProfitable = monthlyProfit > h.fixed;
+                            %>
                             <tr>
-                                <td><%= h.month.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }) %></td>
-                                <td><%= h.total.toFixed(2) %> €</td>
-                                <td><%= (h.total * 0.35).toFixed(2) %> €</td>
+                                <td><%= (h.month || new Date()).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }) %></td>
+                                <td><%= (h.total || 0).toFixed(2) %> €</td>
+                                <td><%= (monthlyProfit || 0).toFixed(2) %> €</td>
+                                <td style="color: #888;"><%= (h.fixed || 0).toFixed(2) %> €</td>
                                 <td>
-                                    <span style="color: <%= (h.total * 0.35) > totalFixed ? '#28a745' : '#cc0000' %>;">
-                                        <%= (h.total * 0.35) > totalFixed ? '✓ Profit' : '✗ Below Break-even' %>
+                                    <span style="font-weight: bold; color: <%= isProfitable ? 'var(--secondary)' : 'var(--accent)' %>;">
+                                        <%= isProfitable ? '✓ Profit' : '✗ Below Break-even' %>
                                     </span>
                                 </td>
                             </tr>

@@ -377,6 +377,24 @@ app.get('/admin', async (req, res) => {
       WHERE registered_at >= date_trunc('month', current_date)
     `);
 
+    // 8. Current Month Costs
+    const currentMonthCostsRes = await db.query(`
+      SELECT * FROM business_costs 
+      WHERE month_year = date_trunc('month', current_date)
+    `);
+    const cc = currentMonthCostsRes.rows[0] || {};
+    const totalCurrentSales = parseFloat(currentMonthSalesRes.rows[0].total) || 0;
+    const totalCurrentTickets = parseInt(currentMonthTicketsRes.rows[0].count) || 0;
+    
+    const totalFixed = (parseFloat(cc.rent) || 200) + 
+                       (parseFloat(cc.utilities) || 75) + 
+                       (parseFloat(cc.helpers) || 1800) + 
+                       (parseFloat(cc.ss_helpers) || 576) + 
+                       (parseFloat(cc.autonomo) || 310) + 
+                       (parseFloat(cc.misc) || 50);
+
+    const netResult = (totalCurrentSales * 0.35) + (totalCurrentTickets * 13.64) - totalFixed;
+
     res.render('admin', { 
       customers: customersRes.rows, 
       orders: ordersRes.rows, 
@@ -391,8 +409,9 @@ app.get('/admin', async (req, res) => {
         zeroSales: zeroSalesRes.rows,
         topSpenders: topSpendersRes.rows,
         inactiveCustomers: inactiveCustomersRes.rows,
-        currentMonthSales: currentMonthSalesRes.rows[0].total || 0,
-        currentMonthTickets: currentMonthTicketsRes.rows[0].count || 0
+        currentMonthSales: totalCurrentSales,
+        currentMonthTickets: totalCurrentTickets,
+        currentMonthNet: netResult
       }
     });
   } catch (err) {
@@ -414,13 +433,19 @@ app.get('/admin/financials', async (req, res) => {
       WHERE registered_at >= date_trunc('month', current_date)
     `);
 
-    // Historical Performance (Last 6 Months)
+    // Historical Performance (Last 6 Months) with dynamic costs
     const historyRes = await db.query(`
-      SELECT date_trunc('month', order_date) as month, SUM(total_amount) as total
-      FROM orders
-      WHERE order_date >= current_date - INTERVAL '6 months'
-      GROUP BY month
-      ORDER BY month DESC
+      WITH monthly_sales AS (
+        SELECT date_trunc('month', order_date) as month, SUM(total_amount) as total
+        FROM orders
+        WHERE order_date >= current_date - INTERVAL '6 months'
+        GROUP BY month
+      )
+      SELECT ms.month, ms.total, 
+             bc.rent, bc.utilities, bc.helpers, bc.ss_helpers, bc.autonomo, bc.misc
+      FROM monthly_sales ms
+      LEFT JOIN business_costs bc ON ms.month = bc.month_year
+      ORDER BY ms.month DESC
     `);
 
     // Fetch the latest business costs from DB
@@ -430,7 +455,19 @@ app.get('/admin/financials', async (req, res) => {
     res.render('financials', {
       actualSales: parseFloat(salesRes.rows[0].total),
       actualTickets: parseInt(ticketsRes.rows[0].count),
-      history: historyRes.rows.map(h => ({ ...h, total: parseFloat(h.total) })),
+      history: historyRes.rows.map(h => {
+        const rent = parseFloat(h.rent) || 200;
+        const utilities = parseFloat(h.utilities) || 75;
+        const helpers = parseFloat(h.helpers) || 1200;
+        const ss_helpers = parseFloat(h.ss_helpers) || 384;
+        const autonomo = parseFloat(h.autonomo) || 310;
+        const misc = parseFloat(h.misc) || 50;
+        return {
+          month: h.month || new Date(),
+          total: parseFloat(h.total) || 0,
+          fixed: rent + utilities + helpers + ss_helpers + autonomo + misc
+        };
+      }),
       // High Tide Plan Assumptions
       plan: {
         rent: parseFloat(costs.rent),

@@ -47,6 +47,9 @@ INSERT INTO business_costs (month_year, helpers, ss_helpers) VALUES
   ('2026-04-01', 1200.00, 384.00),
   ('2026-05-01', 1200.00, 384.00);
 
+INSERT INTO business_costs (month_year, rent, utilities, helpers, ss_helpers, autonomo, misc) VALUES 
+('2026-02-01', 200.00, 75.00, 1200.00, 384.00, 310.00, 50.00);
+
 -- 3. SALES PERFORMANCE
 -- ==========================================================
 -- Top 15 Best Selling Books (by Volume)
