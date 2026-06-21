@@ -1,10 +1,15 @@
 /* High Tide Books - Surfer Wellness Aesthetic */
 :root {
-    --primary: #01393D;    /* Deep Teal / Forest */
-    --secondary: #56989F;  /* Soft Teal / Seafoam */
-    --accent: #B77651;     /* Warm Ochre / Sand */
-    --background: #BED0D0; /* Sage Background */
-    --text: #6F452D;       /* Rust / Terracotta */
+    --primary: #01393D;
+    /* Deep Teal / Forest */
+    --secondary: #56989F;
+    /* Soft Teal / Seafoam */
+    --accent: #B77651;
+    /* Warm Ochre / Sand */
+    --background: #BED0D0;
+    /* Sage Background */
+    --text: #6F452D;
+    /* Rust / Terracotta */
     --white: #ffffff;
     --border: #56989F;
 }
@@ -21,14 +26,16 @@ body {
 .container {
     max-width: 1100px;
     margin: 40px auto;
-    background: #fdfdfd; 
+    background: #fdfdfd;
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(1, 57, 61, 0.1);
     position: relative;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'Comba', 'Cooper Black', 'Impact', sans-serif;
     color: var(--primary);
     text-transform: uppercase;
@@ -47,16 +54,17 @@ h1 {
 
 .surfboard {
     position: absolute;
-    top: 40px;
+    top: 20px;
     right: 40px;
-    width: 45px;
-    height: 130px;
+    width: 60px;
+    height: 180px;
     background: var(--accent);
     border-radius: 50% 50% 45% 45%;
     transform: rotate(15deg);
     opacity: 0.8;
     z-index: 1;
 }
+
 .surfboard::after {
     content: '';
     position: absolute;
@@ -64,7 +72,7 @@ h1 {
     top: 10px;
     width: 4px;
     height: 110px;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 2px;
 }
 
@@ -72,13 +80,15 @@ h1 {
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 12px;
-    height: 70px;
+    width: 24px;
+    height: 140px;
     background: #6F452D;
     border-radius: 3px;
     z-index: 1;
 }
-.palm-tree::before, .palm-tree::after {
+
+.palm-tree::before,
+.palm-tree::after {
     content: '';
     position: absolute;
     top: -10px;
@@ -87,36 +97,56 @@ h1 {
     background: #01393D;
     border-radius: 50%;
 }
-.palm-tree::before { left: -25px; transform: rotate(-30deg); }
-.palm-tree::after { right: -25px; transform: rotate(30deg); }
+
+.palm-tree::before {
+    left: -25px;
+    transform: rotate(-30deg);
+}
+
+.palm-tree::after {
+    right: -25px;
+    transform: rotate(30deg);
+}
 
 .cactus {
     position: absolute;
     top: 40px;
     right: 30px;
-    width: 18px;
-    height: 45px;
+    width: 40px;
+    height: 90px;
     background: #01393D;
     border-radius: 10px 10px 0 0;
     z-index: 1;
 }
-.cactus::before, .cactus::after {
+
+.cactus::before,
+.cactus::after {
     content: '';
     position: absolute;
     background: #01393D;
-    width: 12px;
-    height: 25px;
+    width: 24px;
+    height: 50px;
     border-radius: 10px;
 }
-.cactus::before { top: 12px; left: -10px; border-radius: 10px 0 0 10px; }
-.cactus::after { top: 6px; right: -10px; border-radius: 0 10px 10px 0; }
+
+.cactus::before {
+    top: 12px;
+    left: -10px;
+    border-radius: 10px 0 0 10px;
+}
+
+.cactus::after {
+    top: 6px;
+    right: -10px;
+    border-radius: 0 10px 10px 0;
+}
 
 .sun {
     position: absolute;
     top: 40px;
     right: 40px;
-    width: 70px;
-    height: 70px;
+    width: 270px;
+    height: 270px;
     background: #B77651;
     border-radius: 50%;
     opacity: 0.4;
@@ -125,14 +155,20 @@ h1 {
 
 /* --- UI ELEMENTS --- */
 
-a, button {
+a,
+button {
     transition: all 0.3s ease;
     text-decoration: none;
     font-weight: 600;
 }
 
-a { color: var(--secondary); }
-a:hover { color: var(--accent); }
+a {
+    color: var(--secondary);
+}
+
+a:hover {
+    color: var(--accent);
+}
 
 button {
     background-color: var(--primary);
@@ -177,7 +213,9 @@ td {
     font-size: 0.95rem;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     width: 100%;
     padding: 15px;
     margin: 10px 0;
