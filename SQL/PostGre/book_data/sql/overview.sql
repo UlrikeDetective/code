@@ -17,8 +17,8 @@ select * from event_registrations order by registered_at desc;
 select * from reviews order by id desc;
 select * from business_costs;
 
-select * from authors where last_name = 'Kerouac';
-select * from books where author_id = 96;
+select * from authors where last_name = 'Kawaguchi';
+select * from books where author_id = 10;
 SELECT * FROM customers where last_name = 'Müller';
 select * from events where event_date >= current_date order by event_date;
 
@@ -47,7 +47,7 @@ INSERT INTO business_costs (month_year, helpers, ss_helpers) VALUES
   ('2026-04-01', 1200.00, 384.00),
   ('2026-05-01', 1200.00, 384.00);
 
-INSERT INTO business_costs (month_year, rent, utilities, helpers, ss_helpers, autonomo, misc) VALUES 
+INSERT INTO business_costs (month_year, rent, utilities, helpers, ss_helpers, autonomo, mic) VALUES 
 ('2026-02-01', 200.00, 75.00, 1200.00, 384.00, 310.00, 50.00);
 
 -- 3. SALES PERFORMANCE
@@ -100,7 +100,7 @@ ORDER BY stock_quantity ASC
 LIMIT 50;
 
 -- Current Out of Stock List
-SELECT title, isbn, released_year
+SELECT *
 FROM books
 WHERE stock_quantity = 0;
 

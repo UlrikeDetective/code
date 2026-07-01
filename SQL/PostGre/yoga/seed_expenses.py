@@ -12,10 +12,10 @@ from core.models import Expense
 def seed_march_expenses():
     # Adding June2026 Social Security & other expenses
     march_expenses = [
-        {'date': date(2026, 6, 5), 'category': 'SOCIAL', 'amount': Decimal('230.00'), 'description': 'RETA Social Security June'},
-        {'date': date(2026, 6, 10), 'category': 'ADS', 'amount': Decimal('75.00'), 'description': 'Instagram Ads - April Promo'},
-        {'date': date(2026, 6, 15), 'category': 'GAS', 'amount': Decimal('60.00'), 'description': 'Gas to Tarifa Beach'},
-        {'date': date(2026, 6, 20), 'category': 'INSURANCE', 'amount': Decimal('30.00'), 'description': 'Professional Liability Insurance (Monthly)'},
+        {'date': date(2026, 7, 5), 'category': 'SOCIAL', 'amount': Decimal('230.00'), 'description': 'RETA Social Security June'},
+        {'date': date(2026, 7, 10), 'category': 'ADS', 'amount': Decimal('75.00'), 'description': 'Instagram Ads - April Promo'},
+        {'date': date(2026, 7, 15), 'category': 'GAS', 'amount': Decimal('60.00'), 'description': 'Gas to Tarifa Beach'},
+        {'date': date(2026, 7, 20), 'category': 'INSURANCE', 'amount': Decimal('30.00'), 'description': 'Professional Liability Insurance (Monthly)'},
     ]
     
     for ex in march_expenses:
@@ -26,7 +26,7 @@ def seed_march_expenses():
             description=ex['description']
         )
     
-    print(f"Successfully seeded {len(march_expenses)} expenses for May 2026.")
+    print(f"Successfully seeded {len(march_expenses)} expenses for August 2026.")
 
 if __name__ == "__main__":
     seed_march_expenses()
