@@ -47,8 +47,8 @@ INSERT INTO business_costs (month_year, helpers, ss_helpers) VALUES
   ('2026-04-01', 1200.00, 384.00),
   ('2026-05-01', 1200.00, 384.00);
 
-INSERT INTO business_costs (month_year, rent, utilities, helpers, ss_helpers, autonomo, mic) VALUES 
-('2026-02-01', 200.00, 75.00, 1200.00, 384.00, 310.00, 50.00);
+INSERT INTO business_costs (month_year, rent, utilities, helpers, ss_helpers, autonomo, misc) VALUES 
+('2026-07-01', 200.00, 75.00, 1800.00, 576.00, 310.00, 50.00);
 
 -- 3. SALES PERFORMANCE
 -- ==========================================================
@@ -178,7 +178,7 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.hashtags LIKE '%#singapore%';
+WHERE b.title LIKE '%Matcha%';
 
 SELECT * FROM books where title = 'Barbarian - Days A Surfing Life';
 
@@ -188,8 +188,8 @@ JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
 JOIN authors a ON b.author_id = a.id
--- WHERE b.title = ''Aloha Kitchen: Recipes from Hawai'i'';
-Where b.author_id = 198;
+WHERE b.title = '';
+-- Where b.author_id = 198;
 
 SELECT * FROM authors where last_name = 'Kysar';
 
@@ -241,13 +241,13 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'Notes From A Small Island'
+WHERE b.title = 'The beach'
   -- Filter out customers who ARE registered for event 12
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 8
+        AND er.event_id = 117
   );
 
     SELECT DISTINCT c.first_name, c.last_name, c.email
@@ -255,23 +255,23 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.hashtags LIKE '%tea%'
+WHERE b.hashtags LIKE '%japan%'
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 68
+        AND er.event_id = 98
   );
 
-     SELECT DISTINCT c.first_name, c.last_name, c.email
+SELECT DISTINCT c.first_name, c.last_name, c.email
 FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title LIKE '%Epic%'
+WHERE b.title LIKE '%Kyoto%'
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 67
+        AND er.event_id = 98
   );
