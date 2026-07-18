@@ -225,13 +225,13 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'Normal People'
+WHERE b.title = 'There There'
   -- Filter out customers who ARE registered for event 12
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 12
+        AND er.event_id = 123
   );
 
   select * from events order by event_date;
@@ -241,13 +241,13 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'The beach'
+WHERE b.title = 'True Biz'
   -- Filter out customers who ARE registered for event 12
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 117
+        AND er.event_id = 82
   );
 
     SELECT DISTINCT c.first_name, c.last_name, c.email
@@ -255,12 +255,12 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.hashtags LIKE '%japan%'
+WHERE b.hashtags LIKE '%nature%'
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 98
+        AND er.event_id = 101
   );
 
 SELECT DISTINCT c.first_name, c.last_name, c.email
@@ -268,10 +268,23 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title LIKE '%Kyoto%'
+WHERE b.title LIKE '%knife%'
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 98
+        AND er.event_id = 42
+  );
+
+  SELECT DISTINCT c.first_name, c.last_name, c.email
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN order_items oi ON o.id = oi.order_id
+JOIN books b ON oi.book_id = b.id
+WHERE b.title LIKE '%Materials'
+  AND NOT EXISTS (
+      SELECT 1 
+      FROM event_registrations er 
+      WHERE er.customer_id = c.id 
+        AND er.event_id = 42
   );
