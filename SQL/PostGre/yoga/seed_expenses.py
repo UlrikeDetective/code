@@ -12,10 +12,10 @@ from core.models import Expense
 def seed_march_expenses():
     # Adding June2026 Social Security & other expenses
     march_expenses = [
-        {'date': date(2026, 7, 5), 'category': 'SOCIAL', 'amount': Decimal('230.00'), 'description': 'RETA Social Security June'},
-        {'date': date(2026, 7, 10), 'category': 'ADS', 'amount': Decimal('75.00'), 'description': 'Instagram Ads - April Promo'},
-        {'date': date(2026, 7, 15), 'category': 'GAS', 'amount': Decimal('60.00'), 'description': 'Gas to Tarifa Beach'},
-        {'date': date(2026, 7, 20), 'category': 'INSURANCE', 'amount': Decimal('30.00'), 'description': 'Professional Liability Insurance (Monthly)'},
+        {'date': date(2026, 8, 5), 'category': 'SOCIAL', 'amount': Decimal('230.00'), 'description': 'RETA Social Security June'},
+        {'date': date(2026, 8, 10), 'category': 'ADS', 'amount': Decimal('75.00'), 'description': 'Instagram Ads - April Promo'},
+        {'date': date(2026, 8, 15), 'category': 'GAS', 'amount': Decimal('60.00'), 'description': 'Gas to Tarifa Beach'},
+        {'date': date(2026, 8, 20), 'category': 'INSURANCE', 'amount': Decimal('30.00'), 'description': 'Professional Liability Insurance (Monthly)'},
     ]
     
     for ex in march_expenses:
