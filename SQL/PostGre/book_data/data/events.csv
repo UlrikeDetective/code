@@ -95,19 +95,19 @@
 131,"Curious Cosmos: Marine Biology 101","2026-08-13 20:00:00","the bookshop veranda","Understanding the ecosystem beneath the waves."
 132,"Wanderlust Wayfarers: Hawaiian Traditions","2026-08-14 20:00:00","the bookshop veranda","Learning about Aloha spirit and island wisdom."
 133,"Movie night: The devil wears Prada","2026-08-15 20:00:00","the bookshop veranda","for fashion lovers and Merly Streep fans"
-134,"Book Circle: On Beauty","2026-08-17 20:00:00","the bookshop","Zadie Smith novel"
+134,"Book Circle: On Beauty","2026-08-17 20:00:00","the bookshop","Zadie Smith"
 83,"Reeses Book Club Tarifa Edition - The Unwedding","2026-08-18 20:00:00","the bookshop veranda","August selection: A gripping thriller set at a luxury resort."
-60,"Lives in Print: Cher","2026-08-19 20:00:00","the bookshop veranda",NULL
+60,"Lives in Print: Cher","2026-08-19 20:00:00","the bookshop veranda","memoirs"
 137,"Colourful Kitchen: Healthy Surfer Snacks","2026-08-20 20:00:00","the bookshop kitchen","Fueling for the next session."
-138,"Book Circle: Summer without men","2026-08-21 20:00:00","the bookshop veranda","A classic by Siri Hustvedt"
+138,"Book Circle: Summer without men","2026-08-21 20:00:00","the bookshop veranda","Siri Hustvedt"
 139,"Silicon Shores: Coding for all","2026-08-22 20:00:00","the bookshop","An intro workshop for the next generation of hackers."
 140,"Curious Cosmos: The Wave","2026-08-24 20:00:00","the bookshop","The science and stories of rogue waves."
 141,"The Lineup: Women in Surfing","2026-08-25 20:00:00","the bookshop veranda","Trailblazers who changed the sport."
 142,"Colourful Kitchen: Seafood Pasta Night","2026-08-26 20:00:00","the bookshop kitchen","Fresh catch meets Italian tradition."
-143,"Book Circle: Women of Good Fortune","2026-08-27 20:00:00","the bookshop veranda","Sophie Wan novel"
+143,"Book Circle: Women of Good Fortune","2026-08-27 20:00:00","the bookshop veranda","Sophie Wan"
 144,"Silicon Shores: The Innovators","2026-08-28 20:00:00","the bookshop","Networking night for the local tech community."
 145,"Inner Compass: Let My People Go Surfing","2026-08-29 20:00:00","the bookshop kitchen","Business ethics and the Patagonia story."
-146,"The Lineup: Summer Finale Party","2026-08-31 20:00:00","the bookshop veranda","Celebrating a summer of surf, tech, and community."
+146,"Social Network: Summer Finale Party","2026-08-31 20:00:00","the bookshop veranda","Celebrating a summer of surf, tech, and community. social"
 136,"Book Circle: Driver's Education","2026-09-02 20:00:00","the bookshop veranda","Grant Ginder novel"
 97,"Inner Compass: Discussing Ikigai","2026-09-03 20:00:00","the bookshop","Morning coffee and deep dive into the Japanese secret to a long life."
 94,"The Lineup: Sunset Surf History","2026-09-04 20:00:00","the bookshop veranda","A journey through the roots of surfing culture."
@@ -133,23 +133,42 @@
 120,"Wanderlust Wayfarers: Tokyo Photo Walk","2026-10-21 20:00:00","the bookshop veranda","Capturing the neon and the zen of Tokyo."
 152,"Movie night: Hunger Games 03 - Mockingjay","2026-10-24 20:00:00","the bookshop veranda",NULL
 107,"Colourful Kitchen: Japanese Street Food","2026-10-29 20:00:00","the bookshop kitchen","Takoyaki, Okonomiyaki, and more!"
-43,"Book of Dust - La belle Sauvage","2026-11-05 20:00:00","the bookshop",NULL
+170,"Book Circle: What I loved","2026-10-30 20:00:00","the bookshop","Siri Hustvedt"
+169,"Social Network: Spooky Books","2026-10-31 21:00:00","the bookshop","social"
+43,"Book of Dust - La belle Sauvage","2026-11-05 20:00:00","the bookshop","Philip Pullman"
 96,"Silicon Shores: AI in the Creative Arts","2026-11-06 20:00:00","the bookshop","How artificial intelligence is reshaping art and literature."
-150,"Colourful Kitchen: The Perfect Bento Box","2026-11-09 20:00:00","the bookshop - kitchen",NULL
+150,"Colourful Kitchen: The Perfect Bento Box","2026-11-09 20:00:00","the bookshop - kitchen","Cooking"
 155,"The Hitchhiker's Guide to the Galaxy - V03","2026-11-16 20:00:00","the bookshop",NULL
 86,"Reeses Book Club Tarifa Edition - L.A. Weather","2026-11-17 20:00:00","the bookshop","November selection: A family drama set against the backdrop of California weather."
 147,"Colourful Kitchen: Poké Bowl Perfection","2026-11-18 20:00:00","The kitchen","favourite tropical bowl"
 149,"Japanese Magic Realism Coffee Night","2026-11-19 20:00:00","the bookshop","A deep dive into Japanese contemporary fiction."
+165,"Book Circle: Swing Time","2026-11-23 20:00:00","the bookshop","Zadie Smith"
 159,"Before the coffee gets cold - Vol.04","2026-12-02 20:00:00","the bookshop",NULL
 148,"Colourful Kitchen: Tropical Fruit Deserts","2026-12-03 20:00:00","the bookshop - kitchen","Sweet treats inspired by the islands."
 105,"Silicon Shores: Blockchain Beyond Crypto","2026-12-14 20:00:00","the bookshop","Exploring the structural impact of ledger technology."
 87,"Reeses Book Club Tarifa Edition - Such a Fun Age","2026-12-15 20:00:00","the bookshop","December selection: A striking story about race, privilege, and complicated relationships."
 162,"How to Solve Your Own Murder - Part 01","2026-12-16 20:00:00","the bookshop",NULL
-44,"Book of Dust - The secret commonwealth","2026-12-17 20:00:00","the bookshop",NULL
+44,"Book of Dust - The secret commonwealth","2026-12-17 20:00:00","the bookshop","Philip Pullman"
+171,"Book Circle: The Blazing World","2026-12-18 20:00:00","the bookshop","Siri Hustvedt"
 156,"The Hitchhiker's Guide to the Galaxy - V04","2026-12-21 20:00:00","the bookshop",NULL
+172,"Social Network: Festive Festive","2026-12-24 14:00:00","the bookshop","social"
+166,"Book Circle: White Teeth","2027-01-04 20:00:00","the bookshop","Zadie Smith"
 157,"The Hitchhiker's Guide to the Galaxy - V05","2027-01-18 20:00:00","the bookshop",NULL
 160,"Before the coffee gets cold - Vol.05","2027-02-03 20:00:00","the bookshop",NULL
-45,"Book of Dust - The rose field","2027-02-04 20:00:00","the bookshop",NULL
+45,"Book of Dust - The rose field","2027-02-04 20:00:00","the bookshop","Philip Pullman"
+173,"Book Circle: Memories of the Future","2027-02-12 20:00:00","the bookshop","Siri Hustvedt"
 163,"How to Seal Your Own Fate - Part 02","2027-02-17 20:00:00","the bookshop",NULL
+167,"Book Circle: Grand Union","2027-04-05 20:00:00","the bookshop","Zadie Smith"
 161,"Before the coffee gets cold - Vol.06","2027-04-07 20:00:00","the bookshop",NULL
 164,"How to Cheat Your Own Death - Part 03","2027-04-14 20:00:00","the bookshop",NULL
+174,"Book Circle: A Woman Looking at Men Looking at Women","2027-04-16 20:00:00","the bookshop","Siri Hustvedt"
+175,"Book Circle: The Blindfold","2027-06-18 20:00:00","the bookshop veranda","Siri Hustvedt"
+168,"Book Circle: Dead and Alive","2027-07-05 20:00:00","the bookshop veranda","Zadie Smith"
+176,"Book Circle: The Shaking Woman or A History of My Nerves","2027-08-20 20:00:00","the bookshop","Siri Hustvedt"
+177,"Book Circle: Mothers, Fathers, and Others","2027-10-22 20:00:00","the bookshop","Siri Hustvedt"
+178,"Book Circle: The Sorrows of an American","2027-12-17 20:00:00","the bookshop","Siri Hustvedt"
+179,"Book Circle: Living, Thinking, Looking","2028-02-25 20:00:00","the bookshop","Siri Hustvedt"
+180,"Book Circle: Yonder","2028-04-08 20:00:00","the bookshop veranda","Siri Hustvedt"
+181,"Book Circle: The Delusions of Certainty","2028-06-08 20:00:00","the bookshop veranda","Siri Hustvedt"
+182,"Book Circle: A Plea for Eros","2028-08-25 20:00:00","the bookshop veranda","Siri Hustvedt"
+183,"Book Circle: The Enchantment of Lily Dahl","2028-10-20 20:00:00","the bookshop","Siri Hustvedt"
