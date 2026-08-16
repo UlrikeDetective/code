@@ -90,16 +90,16 @@ DEFAULT_WEB_URL = (
 )
 
 # Default event parameters for "Colourful Kitchen"
-DEFAULT_EVENT_NAME = "Colourful Kitchen"
-DEFAULT_LOCATION = "the bookshop kitchen"
+DEFAULT_EVENT_NAME = "Wanderlust Wayfarers"
+DEFAULT_LOCATION = "the bookshop"
 DEFAULT_DESCRIPTION = (
-    "Bi-weekly community cooking workshop exploring vibrant seasonal recipes."
+    "Bi-weekly event of all things travelling and exploring."
 )
-DEFAULT_WEEKDAY = 2  # Wednesday (0 = Monday, 1 = Tuesday, 2 = Wednesday...)
+DEFAULT_WEEKDAY = 0  # Monday (0 = Monday, 1 = Tuesday, 2 = Wednesday...)
 DEFAULT_TIME = time(20, 0)  # 8:00 PM / 20:00
 
 # Start date for the first event of this series (YYYY-MM-DD format)
-DEFAULT_START_DATE = "2026-09-02"
+DEFAULT_START_DATE = "2026-10-05"
 
 
 def get_next_weekday(start_date: datetime, target_weekday: int) -> datetime:
@@ -121,7 +121,7 @@ def get_next_weekday(start_date: datetime, target_weekday: int) -> datetime:
 
 def generate_recurring_dates(
     first_event_datetime: datetime,
-    occurrences: int = 6,
+    occurrences: int = 20,
     interval_weeks: int = 2
 ) -> List[datetime]:
     """Generate a series of recurring event timestamps starting from first_event_datetime.
@@ -328,7 +328,7 @@ def main() -> None:
     parser.add_argument(
         "--occurrences",
         type=int,
-        default=6,
+        default=20,
         help="Total number of recurring instances (default: 6)"
     )
     parser.add_argument(
@@ -346,7 +346,7 @@ def main() -> None:
     parser.add_argument(
         "--sql-output",
         type=str,
-        default="sql/insert_colourful_kitchen.sql",
+        default="sql/insert_Wanderlust_Wayfarers.sql",
         help="Path for generated SQL script when --mode=sql"
     )
     parser.add_argument(
