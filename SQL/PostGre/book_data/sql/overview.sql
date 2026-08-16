@@ -17,10 +17,12 @@ select * from event_registrations order by registered_at desc;
 select * from reviews order by id desc;
 select * from business_costs;
 
-select * from authors where last_name = 'Kawaguchi';
-select * from books where author_id = 10;
+select * from authors where last_name = 'Milano';
+SELECT * FROM books where title LIKE '%Love%';
+select * from books where author_id = 209;
 SELECT * FROM customers where last_name = 'Müller';
 select * from events where event_date >= current_date order by event_date;
+Select * from events WHERE name LIKE '%Before%' order by event_date;
 
 -- 2. CUSTOMER METRICS
 -- ==========================================================
@@ -48,7 +50,7 @@ INSERT INTO business_costs (month_year, helpers, ss_helpers) VALUES
   ('2026-05-01', 1200.00, 384.00);
 
 INSERT INTO business_costs (month_year, rent, utilities, helpers, ss_helpers, autonomo, misc) VALUES 
-('2026-07-01', 200.00, 75.00, 1800.00, 576.00, 310.00, 50.00);
+('2026-08-01', 200.00, 75.00, 1800.00, 576.00, 310.00, 100.00);
 
 -- 3. SALES PERFORMANCE
 -- ==========================================================
@@ -219,21 +221,6 @@ JOIN order_items oi ON b.id = oi.book_id
 WHERE b.title = 'Palo Alto'
 GROUP BY b.id, b.title;
 
--- which persons bought a book but haven't registered to the book event.
-SELECT DISTINCT c.first_name, c.last_name, c.email
-FROM customers c
-JOIN orders o ON c.id = o.customer_id
-JOIN order_items oi ON o.id = oi.order_id
-JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'There There'
-  -- Filter out customers who ARE registered for event 12
-  AND NOT EXISTS (
-      SELECT 1 
-      FROM event_registrations er 
-      WHERE er.customer_id = c.id 
-        AND er.event_id = 123
-  );
-
   select * from events order by event_date;
 
   SELECT DISTINCT c.first_name, c.last_name, c.email
@@ -241,13 +228,13 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title = 'True Biz'
+WHERE b.title = 'The summer without men'
   -- Filter out customers who ARE registered for event 12
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 82
+        AND er.event_id = 138
   );
 
     SELECT DISTINCT c.first_name, c.last_name, c.email
@@ -255,12 +242,12 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.hashtags LIKE '%nature%'
+WHERE b.hashtags LIKE '%hawaii%'
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 101
+        AND er.event_id = 132
   );
 
 SELECT DISTINCT c.first_name, c.last_name, c.email
@@ -268,23 +255,10 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title LIKE '%knife%'
+WHERE b.title LIKE '%Unwedding%'
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 42
-  );
-
-  SELECT DISTINCT c.first_name, c.last_name, c.email
-FROM customers c
-JOIN orders o ON c.id = o.customer_id
-JOIN order_items oi ON o.id = oi.order_id
-JOIN books b ON oi.book_id = b.id
-WHERE b.title LIKE '%Materials'
-  AND NOT EXISTS (
-      SELECT 1 
-      FROM event_registrations er 
-      WHERE er.customer_id = c.id 
-        AND er.event_id = 42
+        AND er.event_id = 83
   );

@@ -48,17 +48,20 @@ DEFAULT_DESCRIPTION = (
 DEFAULT_WEEKDAY = 2  # Wednesday (0 = Monday, 1 = Tuesday, 2 = Wednesday...)
 DEFAULT_TIME = time(20, 0)  # 8:00 PM / 20:00
 
+# Start date for the first event of this series (YYYY-MM-DD format)
+DEFAULT_START_DATE = "2026-09-02"
+
 
 def get_next_weekday(start_date: datetime, target_weekday: int) -> datetime:
-    """Calculate the next date matching a specific weekday.
+    """Calculate the next date matching a specific weekday on or after start_date.
 
     Args:
-        start_date: The reference starting date.
+        start_date: The starting reference date for the event series.
         target_weekday: Weekday index (0 = Monday, 1 = Tuesday, 2 = Wednesday).
 
     Returns:
-        The next datetime matching target_weekday. If start_date is already
-        on target_weekday, start_date is returned.
+        The next datetime matching target_weekday on or after start_date.
+        If start_date is already on target_weekday, start_date is returned.
     """
     days_ahead = target_weekday - start_date.weekday()
     if days_ahead < 0:
@@ -71,11 +74,11 @@ def generate_recurring_dates(
     occurrences: int = 6,
     interval_weeks: int = 2
 ) -> List[datetime]:
-    """Generate a series of recurring event timestamps.
+    """Generate a series of recurring event timestamps starting from first_event_datetime.
 
     Args:
-        first_event_datetime: Datetime of the first occurrence.
-        occurrences: Number of recurring event instances to generate.
+        first_event_datetime: Datetime of the first event in the series.
+        occurrences: Total number of recurring event instances to generate.
         interval_weeks: Number of weeks between occurrences (2 = bi-weekly).
 
     Returns:
@@ -86,7 +89,7 @@ def generate_recurring_dates(
 
     for _ in range(occurrences):
         event_dates.append(current_dt)
-        # Advance by specified number of weeks
+        # Advance by specified number of weeks for the next event in series
         current_dt += timedelta(weeks=interval_weeks)
 
     return event_dates
@@ -225,9 +228,9 @@ def insert_events_to_db(events_list: List[Dict[str, Any]]) -> bool:
 
 
 def main() -> None:
-    """Parse CLI arguments and schedule recurring events."""
+    """Parse CLI arguments and schedule recurring events starting from start date."""
     parser = argparse.ArgumentParser(
-        description="Add recurring events (e.g. Colourful Kitchen) to High Tide Books app."
+        description="Add recurring events (e.g. Colourful Kitchen) starting from a specific date."
     )
 
     parser.add_argument(
@@ -235,6 +238,12 @@ def main() -> None:
         type=str,
         default=DEFAULT_EVENT_NAME,
         help="Name of the event (default: Colourful Kitchen)"
+    )
+    parser.add_argument(
+        "--start-date",
+        type=str,
+        default=DEFAULT_START_DATE,
+        help="Start date for the first event of the series in YYYY-MM-DD format (default: 2026-09-02)"
     )
     parser.add_argument(
         "--location",
@@ -279,12 +288,6 @@ def main() -> None:
         help="Interval between events in weeks (default: 2 for fortnightly)"
     )
     parser.add_argument(
-        "--start-date",
-        type=str,
-        default=None,
-        help="Starting date in YYYY-MM-DD format (defaults to next target weekday)"
-    )
-    parser.add_argument(
         "--mode",
         choices=["http", "sql", "db"],
         default="http",
@@ -305,27 +308,27 @@ def main() -> None:
 
     args = parser.parse_args()
 
-    # Determine initial starting date
+    # Parse starting date for the first event of the series
     if args.start_date:
         base_date = datetime.strptime(args.start_date, "%Y-%m-%d")
     else:
         base_date = datetime.now()
 
-    # Align base_date with the requested weekday (e.g. Wednesday)
+    # Calculate first event date on or after base_date matching target weekday
     first_date = get_next_weekday(base_date, args.weekday)
 
-    # Set specific time (e.g. 20:00)
+    # Combine first date with target time (e.g. 20:00)
     event_time = time(args.hour, args.minute)
     first_datetime = datetime.combine(first_date.date(), event_time)
 
-    # Generate dates list
+    # Generate complete list of recurring datetimes for the series
     scheduled_datetimes = generate_recurring_dates(
         first_event_datetime=first_datetime,
         occurrences=args.occurrences,
         interval_weeks=args.interval_weeks
     )
 
-    # Build event dictionaries
+    # Build event payload dictionary list
     events_data = [
         {
             "name": args.name,
@@ -337,10 +340,11 @@ def main() -> None:
     ]
 
     print("=" * 60)
-    print(f" Scheduling Event: '{args.name}'")
+    print(f" Scheduling Series: '{args.name}'")
+    print(f" First Event Start Date: {first_datetime.strftime('%Y-%m-%d %H:%M')}")
     print(f" Frequency: Every {args.interval_weeks} weeks on weekday {args.weekday} at {args.hour:02d}:{args.minute:02d}")
-    print(f" Occurrences: {args.occurrences}")
-    print(f" Mode: {args.mode.upper()}")
+    print(f" Total Occurrences: {args.occurrences}")
+    print(f" Execution Mode: {args.mode.upper()}")
     print("=" * 60)
 
     # Execute selected mode
@@ -355,7 +359,7 @@ def main() -> None:
                 web_url=args.url
             ):
                 success_count += 1
-        print(f"\n[SUMMARY] Successfully posted {success_count}/{len(events_data)} events to web app.")
+        print(f"\n[SUMMARY] Posted {success_count}/{len(events_data)} events starting from {first_datetime.strftime('%Y-%m-%d')}.")
 
     elif args.mode == "sql":
         generate_sql_file(events_data, args.sql_output)
