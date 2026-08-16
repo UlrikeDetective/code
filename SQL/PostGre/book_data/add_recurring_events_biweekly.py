@@ -90,16 +90,16 @@ DEFAULT_WEB_URL = (
 )
 
 # Default event parameters for "Colourful Kitchen"
-DEFAULT_EVENT_NAME = "Wanderlust Wayfarers"
+DEFAULT_EVENT_NAME = "Movie night"
 DEFAULT_LOCATION = "the bookshop"
 DEFAULT_DESCRIPTION = (
-    "Bi-weekly event of all things travelling and exploring."
+    "Bi-weekly Movie night."
 )
-DEFAULT_WEEKDAY = 0  # Monday (0 = Monday, 1 = Tuesday, 2 = Wednesday...)
+DEFAULT_WEEKDAY = 6  # Monday (0 = Monday, 1 = Tuesday, 2 = Wednesday...)
 DEFAULT_TIME = time(20, 0)  # 8:00 PM / 20:00
 
 # Start date for the first event of this series (YYYY-MM-DD format)
-DEFAULT_START_DATE = "2026-10-05"
+DEFAULT_START_DATE = "2026-09-19"
 
 
 def get_next_weekday(start_date: datetime, target_weekday: int) -> datetime:
@@ -346,7 +346,7 @@ def main() -> None:
     parser.add_argument(
         "--sql-output",
         type=str,
-        default="sql/insert_Wanderlust_Wayfarers.sql",
+        default="sql/insert_movie.sql",
         help="Path for generated SQL script when --mode=sql"
     )
     parser.add_argument(
