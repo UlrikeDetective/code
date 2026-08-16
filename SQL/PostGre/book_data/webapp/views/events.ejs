@@ -83,8 +83,16 @@
                 <% } %>
                 <% events.forEach(e => { %>
                     <tr>
-                        <td style="font-weight: 600;"><%= e.name %></td>
-                        <td><%= e.event_date.toDateString() %></td>
+                        <td>
+                            <div style="font-weight: 600;"><%= e.name %></div>
+                            <% if (e.description) { %>
+                                <div style="font-size: 0.85rem; color: #666; font-weight: normal; margin-top: 3px;"><%= e.description %></div>
+                            <% } %>
+                        </td>
+                        <td>
+                            <%= e.event_date.toDateString() %>
+                            <span style="font-size: 0.85rem; color: #666;">@ <%= e.event_date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) %></span>
+                        </td>
                         <td><%= e.location %></td>
                         <td style="text-align: center;">
                             <span style="background: <%= e.reg_count > 10 ? 'var(--secondary)' : 'var(--background)' %>; padding: 2px 10px; border-radius: 12px; font-weight: 600;">
