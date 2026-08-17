@@ -90,32 +90,32 @@ DEFAULT_WEB_URL = (
 )
 
 # Default event parameters for "Extra Work"
-DEFAULT_EVENT_NAME = "Extra Work"
+DEFAULT_EVENT_NAME = "Social Network"
 DEFAULT_LOCATION = "the bookshop"
-DEFAULT_DESCRIPTION = "Book events about work and career."
+DEFAULT_DESCRIPTION = "Social meetup - good talks and drinks."
 DEFAULT_WEEKDAY = 4  # Friday (0 = Monday, 1 = Tuesday, ..., 4 = Friday)
 DEFAULT_TIME = time(20, 00)  # 20:00
 DEFAULT_RECURRENCE = "monthly"
-DEFAULT_NTH = 2  # Second Friday of the month
+DEFAULT_NTH = 4  # Second Friday of the month
 
 # Start date for the first event of this series (YYYY-MM-DD format)
-DEFAULT_START_DATE = "2026-09-11"
+DEFAULT_START_DATE = "2026-09-25"
 
 
 # Predefined event series configurations
 EVENT_PRESETS: Dict[str, Dict[str, Any]] = {
-    "extra_work": {
-        "name": "Extra Work",
+    "social": {
+        "name": "Social Network",
         "location": "the bookshop",
-        "description": "Monthly book events focused on work, career development, and business literature.",
-        "start_date": "2026-09-11",
+        "description": "Social meetup - good talks and drinks.",
+        "start_date": "2026-09-25",
         "weekday": 4,  # Friday
         "hour": 20,
         "minute": 00,
         "recurrence": "monthly",
         "interval_weeks": 2,
-        "nth": 2,  # Second Friday of the month
-        "sql_output": "sql/insert_extra_work.sql"
+        "nth": 4,  # Second Friday of the month
+        "sql_output": "sql/insert_social.sql"
     }
 }
 
