@@ -1,6 +1,6 @@
 """Module for adding recurring events to High Tide Books database and web app.
 
-This script manages recurring events (such as the bi-weekly 'Colourful Kitchen'
+This script manages recurring events (such as the monthly 'extra work'
 cooking workshop) for the High Tide Books application.
 
 It supports three execution modes:
@@ -89,17 +89,36 @@ DEFAULT_WEB_URL = (
     os.getenv("WEB_URL") or "http://localhost:3005/admin/add-event"
 )
 
-# Default event parameters for "Colourful Kitchen"
-DEFAULT_EVENT_NAME = "Colourful Kitchen"
-DEFAULT_LOCATION = "the bookshop kitchen"
-DEFAULT_DESCRIPTION = (
-    "Bi-weekly community cooking workshop exploring vibrant seasonal recipes."
-)
-DEFAULT_WEEKDAY = 2  # Wednesday (0 = Monday, 1 = Tuesday, 2 = Wednesday...)
-DEFAULT_TIME = time(20, 0)  # 8:00 PM / 20:00
+# Default event parameters for "Extra Work"
+DEFAULT_EVENT_NAME = "Extra Work"
+DEFAULT_LOCATION = "the bookshop"
+DEFAULT_DESCRIPTION = "Book events about work and career."
+DEFAULT_WEEKDAY = 4  # Friday (0 = Monday, 1 = Tuesday, ..., 4 = Friday)
+DEFAULT_TIME = time(20, 00)  # 20:00
+DEFAULT_RECURRENCE = "monthly"
+DEFAULT_NTH = 2  # Second Friday of the month
 
 # Start date for the first event of this series (YYYY-MM-DD format)
-DEFAULT_START_DATE = "2026-09-02"
+DEFAULT_START_DATE = "2026-09-11"
+
+
+# Predefined event series configurations
+EVENT_PRESETS: Dict[str, Dict[str, Any]] = {
+    "extra_work": {
+        "name": "Extra Work",
+        "location": "the bookshop",
+        "description": "Monthly book events focused on work, career development, and business literature.",
+        "start_date": "2026-09-11",
+        "weekday": 4,  # Friday
+        "hour": 20,
+        "minute": 00,
+        "recurrence": "monthly",
+        "interval_weeks": 2,
+        "nth": 2,  # Second Friday of the month
+        "sql_output": "sql/insert_extra_work.sql"
+    }
+}
+
 
 
 def get_next_weekday(start_date: datetime, target_weekday: int) -> datetime:
@@ -143,6 +162,77 @@ def generate_recurring_dates(
         current_dt += timedelta(weeks=interval_weeks)
 
     return event_dates
+
+
+def get_nth_weekday_of_month(
+    year: int,
+    month: int,
+    weekday: int,
+    nth: int
+) -> datetime:
+    """Calculate the date for the N-th weekday of a specific month and year.
+
+    Args:
+        year: Target year (e.g. 2026).
+        month: Target month index (1 to 12).
+        weekday: Day of week index (0 = Monday, 1 = Tuesday, ..., 4 = Friday).
+        nth: N-th occurrence index in month (1 for 1st, 2 for 2nd, etc.).
+
+    Returns:
+        datetime object corresponding to the N-th weekday in that month.
+    """
+    first_of_month = datetime(year, month, 1)
+    days_ahead = (weekday - first_of_month.weekday()) % 7
+    first_matching_day = 1 + days_ahead
+    target_day = first_matching_day + (nth - 1) * 7
+    return datetime(year, month, target_day)
+
+
+def generate_monthly_recurring_dates(
+    first_event_datetime: datetime,
+    occurrences: int = 6,
+    nth: Optional[int] = None
+) -> List[datetime]:
+    """Generate recurring event timestamps occurring once per month on the N-th weekday.
+
+    Args:
+        first_event_datetime: Datetime of the first event in the series.
+        occurrences: Total number of recurring event instances to generate.
+        nth: N-th occurrence of weekday in month (1=1st, 2=2nd). If None,
+            calculated automatically from first_event_datetime's day.
+
+    Returns:
+        List of datetime objects representing each monthly scheduled occurrence.
+    """
+    event_dates: List[datetime] = []
+    target_weekday = first_event_datetime.weekday()
+    event_time = first_event_datetime.time()
+
+    # Determine N-th weekday occurrence (e.g., day 11 -> 2nd Friday)
+    if nth is None:
+        nth = (first_event_datetime.day - 1) // 7 + 1
+
+    current_year = first_event_datetime.year
+    current_month = first_event_datetime.month
+
+    for _ in range(occurrences):
+        nth_weekday_dt = get_nth_weekday_of_month(
+            year=current_year,
+            month=current_month,
+            weekday=target_weekday,
+            nth=nth
+        )
+        full_dt = datetime.combine(nth_weekday_dt.date(), event_time)
+        event_dates.append(full_dt)
+
+        # Advance to the next calendar month
+        current_month += 1
+        if current_month > 12:
+            current_month = 1
+            current_year += 1
+
+    return event_dates
+
 
 
 def send_event_via_http(
@@ -287,43 +377,43 @@ def main() -> None:
         "--name",
         type=str,
         default=DEFAULT_EVENT_NAME,
-        help="Name of the event (default: Colourful Kitchen)"
+        help="Name of the event (default: Extra Work)"
     )
     parser.add_argument(
         "--start-date",
         type=str,
         default=DEFAULT_START_DATE,
-        help="Start date for the first event of the series in YYYY-MM-DD format (default: 2026-09-02)"
+        help="Start date for the first event of the series in YYYY-MM-DD format (default: 2026-09-11)"
     )
     parser.add_argument(
         "--location",
         type=str,
         default=DEFAULT_LOCATION,
-        help="Location of the event (default: the bookshop kitchen)"
+        help="Location of the event (default: the bookshop reading room)"
     )
     parser.add_argument(
         "--description",
         type=str,
         default=DEFAULT_DESCRIPTION,
-        help="Event description"
+        help="Event description (default: Book events about work and career.)"
     )
     parser.add_argument(
         "--weekday",
         type=int,
         default=DEFAULT_WEEKDAY,
-        help="Day of week (0=Mon, 1=Tue, 2=Wed, 3=Thu, 4=Fri, 5=Sat, 6=Sun)"
+        help="Day of week (0=Mon, 1=Tue, 2=Wed, 3=Thu, 4=Fri, 5=Sat, 6=Sun) (default: 4 for Friday)"
     )
     parser.add_argument(
         "--hour",
         type=int,
-        default=20,
-        help="Hour of the day in 24-hour format (default: 20 for 8pm)"
+        default=DEFAULT_TIME.hour,
+        help="Hour of the day in 24-hour format (default: 18 for 6:30pm)"
     )
     parser.add_argument(
         "--minute",
         type=int,
-        default=0,
-        help="Minute of the hour (default: 0)"
+        default=DEFAULT_TIME.minute,
+        help="Minute of the hour (default: 30)"
     )
     parser.add_argument(
         "--occurrences",
@@ -335,7 +425,25 @@ def main() -> None:
         "--interval-weeks",
         type=int,
         default=2,
-        help="Interval between events in weeks (default: 2 for fortnightly)"
+        help="Interval between events in weeks for weekly recurrence (default: 2)"
+    )
+    parser.add_argument(
+        "--recurrence",
+        choices=["weekly", "monthly"],
+        default=DEFAULT_RECURRENCE,
+        help="Recurrence pattern: 'weekly' (every N weeks) or 'monthly' (same N-th weekday each month) (default: monthly)"
+    )
+    parser.add_argument(
+        "--nth",
+        type=int,
+        default=DEFAULT_NTH,
+        help="N-th occurrence of weekday in month for monthly recurrence (default: 2 for 2nd Friday)"
+    )
+    parser.add_argument(
+        "--preset",
+        choices=list(EVENT_PRESETS.keys()),
+        default=None,
+        help="Use predefined settings for a known event series (e.g. 'extra_work' or 'colourful_kitchen')"
     )
     parser.add_argument(
         "--mode",
@@ -346,7 +454,7 @@ def main() -> None:
     parser.add_argument(
         "--sql-output",
         type=str,
-        default="sql/insert_colourful_kitchen.sql",
+        default="sql/insert_extra_work.sql",
         help="Path for generated SQL script when --mode=sql"
     )
     parser.add_argument(
@@ -357,6 +465,31 @@ def main() -> None:
     )
 
     args = parser.parse_args()
+
+    # If preset is specified, apply preset defaults for unsupplied flags
+    if args.preset and args.preset in EVENT_PRESETS:
+        preset = EVENT_PRESETS[args.preset]
+        if not any(a.startswith("--name") for a in sys.argv):
+            args.name = preset["name"]
+        if not any(a.startswith("--location") for a in sys.argv):
+            args.location = preset["location"]
+        if not any(a.startswith("--description") for a in sys.argv):
+            args.description = preset["description"]
+        if not any(a.startswith("--start-date") for a in sys.argv):
+            args.start_date = preset["start_date"]
+        if not any(a.startswith("--weekday") for a in sys.argv):
+            args.weekday = preset["weekday"]
+        if not any(a.startswith("--hour") for a in sys.argv):
+            args.hour = preset["hour"]
+        if not any(a.startswith("--minute") for a in sys.argv):
+            args.minute = preset["minute"]
+        if not any(a.startswith("--recurrence") for a in sys.argv):
+            args.recurrence = preset["recurrence"]
+        if not any(a.startswith("--nth") for a in sys.argv):
+            args.nth = preset["nth"]
+        if not any(a.startswith("--sql-output") for a in sys.argv):
+            args.sql_output = preset["sql_output"]
+
 
     # Parse starting date for the first event of the series
     if args.start_date:
@@ -372,11 +505,18 @@ def main() -> None:
     first_datetime = datetime.combine(first_date.date(), event_time)
 
     # Generate complete list of recurring datetimes for the series
-    scheduled_datetimes = generate_recurring_dates(
-        first_event_datetime=first_datetime,
-        occurrences=args.occurrences,
-        interval_weeks=args.interval_weeks
-    )
+    if args.recurrence == "monthly":
+        scheduled_datetimes = generate_monthly_recurring_dates(
+            first_event_datetime=first_datetime,
+            occurrences=args.occurrences,
+            nth=args.nth
+        )
+    else:
+        scheduled_datetimes = generate_recurring_dates(
+            first_event_datetime=first_datetime,
+            occurrences=args.occurrences,
+            interval_weeks=args.interval_weeks
+        )
 
     # Build event payload dictionary list
     events_data = [
@@ -392,7 +532,12 @@ def main() -> None:
     print("=" * 60)
     print(f" Scheduling Series: '{args.name}'")
     print(f" First Event Start Date: {first_datetime.strftime('%Y-%m-%d %H:%M')}")
-    print(f" Frequency: Every {args.interval_weeks} weeks on weekday {args.weekday} at {args.hour:02d}:{args.minute:02d}")
+    if args.recurrence == "monthly":
+        nth_val = args.nth or ((first_datetime.day - 1) // 7 + 1)
+        weekday_name = first_datetime.strftime("%A")
+        print(f" Frequency: Monthly ({nth_val}th {weekday_name} of each month) at {args.hour:02d}:{args.minute:02d}")
+    else:
+        print(f" Frequency: Every {args.interval_weeks} weeks on weekday {args.weekday} at {args.hour:02d}:{args.minute:02d}")
     print(f" Total Occurrences: {args.occurrences}")
     print(f" Execution Mode: {args.mode.upper()}")
     print("=" * 60)
