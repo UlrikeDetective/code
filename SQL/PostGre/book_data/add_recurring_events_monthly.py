@@ -90,32 +90,32 @@ DEFAULT_WEB_URL = (
 )
 
 # Default event parameters for "Extra Work"
-DEFAULT_EVENT_NAME = "Poetry night"
+DEFAULT_EVENT_NAME = "Inner Compass"
 DEFAULT_LOCATION = "the bookshop"
-DEFAULT_DESCRIPTION = "About poetry, very short novels and sometimes a slam."
+DEFAULT_DESCRIPTION = "Philosophy, psychology, and democracy."
 DEFAULT_WEEKDAY = 5  # Friday (0 = Monday, 1 = Tuesday, ..., 4 = Friday)
 DEFAULT_TIME = time(20, 00)  # 20:00
 DEFAULT_RECURRENCE = "monthly"
-DEFAULT_NTH = 4  # Second Friday of the month
+DEFAULT_NTH = 2  # Second Friday of the month
 
 # Start date for the first event of this series (YYYY-MM-DD format)
-DEFAULT_START_DATE = "2026-09-26"
+DEFAULT_START_DATE = "2026-10-10"
 
 
 # Predefined event series configurations
 EVENT_PRESETS: Dict[str, Dict[str, Any]] = {
-    "poetry": {
-        "name": "Poetry night",
+    "inner": {
+        "name": "Inner Compass",
         "location": "the bookshop",
-        "description": "About poetry, very short novels and sometimes a slam.",
-        "start_date": "2026-09-26",
+        "description": "Philosophy, psychology, and democracy.",
+        "start_date": "2026-10-10",
         "weekday": 5,  # Friday
         "hour": 20,
         "minute": 00,
         "recurrence": "monthly",
         "interval_weeks": 2,
-        "nth": 4,  # Second Friday of the month
-        "sql_output": "sql/insert_poetry.sql"
+        "nth": 2,  # Second Friday of the month
+        "sql_output": "sql/insert_inner.sql"
     }
 }
 
