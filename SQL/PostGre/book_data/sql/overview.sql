@@ -50,7 +50,7 @@ INSERT INTO business_costs (month_year, helpers, ss_helpers) VALUES
   ('2026-05-01', 1200.00, 384.00);
 
 INSERT INTO business_costs (month_year, rent, utilities, helpers, ss_helpers, autonomo, misc) VALUES 
-('2026-08-01', 200.00, 75.00, 1800.00, 576.00, 310.00, 100.00);
+('2026-09-01', 200.00, 75.00, 1800.00, 576.00, 310.00, 100.00);
 
 -- 3. SALES PERFORMANCE
 -- ==========================================================
@@ -242,12 +242,12 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.hashtags LIKE '%hawaii%'
+WHERE b.hashtags LIKE '%surfing%'
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 132
+        AND er.event_id = 94
   );
 
 SELECT DISTINCT c.first_name, c.last_name, c.email
@@ -255,10 +255,10 @@ FROM customers c
 JOIN orders o ON c.id = o.customer_id
 JOIN order_items oi ON o.id = oi.order_id
 JOIN books b ON oi.book_id = b.id
-WHERE b.title LIKE '%Unwedding%'
+WHERE b.title LIKE '%Paradise Crime Thrillers%'
   AND NOT EXISTS (
       SELECT 1 
       FROM event_registrations er 
       WHERE er.customer_id = c.id 
-        AND er.event_id = 83
+        AND er.event_id = 37
   );
